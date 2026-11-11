@@ -1,0 +1,14 @@
+[
+  { "id": "fc-mengen", "name": "FC Mengen", "kurz": "Mengen", "ort": "Mengen", "liga": "bezirksliga-oberschwaben", "farbe": "#1f4fa3" },
+  { "id": "sgm-ummendorf-fischbach", "name": "SGM Ummendorf/Fischbach", "kurz": "Ummendorf", "ort": "Ummendorf", "liga": "bezirksliga-oberschwaben", "farbe": "#b3262e" },
+  { "id": "sv-sigmaringen", "name": "SV Sigmaringen", "kurz": "Sigmaringen", "ort": "Sigmaringen", "liga": "bezirksliga-oberschwaben", "farbe": "#2b7a3d" },
+  { "id": "fc-krauchenwies-hausen", "name": "FC Krauchenwies/Hausen", "kurz": "Krauchenwies", "ort": "Krauchenwies", "liga": "bezirksliga-oberschwaben", "farbe": "#c1272d" },
+  { "id": "sv-hohentengen", "name": "SV Hohentengen", "kurz": "Hohentengen", "ort": "Hohentengen", "liga": "bezirksliga-oberschwaben", "farbe": "#2a5caa" },
+  { "id": "fv-bad-saulgau", "name": "FV Bad Saulgau 04", "kurz": "Bad Saulgau", "ort": "Bad Saulgau", "liga": "bezirksliga-oberschwaben", "farbe": "#d4a017" },
+  { "id": "sv-uttenweiler", "name": "SV Uttenweiler", "kurz": "Uttenweiler", "ort": "Uttenweiler", "liga": "bezirksliga-oberschwaben", "farbe": "#5a2d82" },
+  { "id": "sv-ochsenhausen", "name": "SV Ochsenhausen", "kurz": "Ochsenhausen", "ort": "Ochsenhausen", "liga": "bezirksliga-oberschwaben", "farbe": "#1d1d1d" },
+  { "id": "fc-laiz", "name": "FC Laiz", "kurz": "Laiz", "ort": "Sigmaringen-Laiz", "liga": "kreisliga-a1-oberschwaben", "farbe": "#0e6b5c" },
+  { "id": "fc-inzigkofen", "name": "FC Inzigkofen/Vilsingen/Engelswies", "kurz": "Inzigkofen", "ort": "Inzigkofen", "liga": "kreisliga-a1-oberschwaben", "farbe": "#a8322d" },
+  { "id": "tsv-sigmaringendorf", "name": "TSV Sigmaringendorf", "kurz": "Sigmaringendorf", "ort": "Sigmaringendorf", "liga": "kreisliga-a1-oberschwaben", "farbe": "#2659a5" },
+  { "id": "sv-hundersingen", "name": "SV Hundersingen", "kurz": "Hundersingen", "ort": "Herbertingen-Hundersingen", "liga": "kreisliga-a1-oberschwaben", "farbe": "#3f7f2c" }
+]

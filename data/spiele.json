@@ -1,0 +1,135 @@
+[
+  {
+    "id": "bzl-12-mengen-sigmaringen",
+    "liga": "bezirksliga-oberschwaben", "spieltag": 12, "datum": "2026-11-01", "anstoss": "14:30",
+    "heim": "fc-mengen", "gast": "sv-sigmaringen", "toreHeim": 2, "toreGast": 1,
+    "tore": [
+      { "min": 23, "spieler": "lukas-berger", "verein": "fc-mengen" },
+      { "min": 51, "spieler": "marco-stehle", "verein": "sv-sigmaringen" },
+      { "min": 84, "spieler": "tim-hagel", "verein": "fc-mengen" }
+    ],
+    "bericht": "Mengen macht im Topspiel spät alles klar. Nach Bergers Führung glich Stehle kurz nach der Pause aus, ehe Hagel sechs Minuten vor Schluss aus 18 Metern traf.",
+    "galerie": "gal-mengen-sigmaringen"
+  },
+  {
+    "id": "bzl-12-ummendorf-krauchenwies",
+    "liga": "bezirksliga-oberschwaben", "spieltag": 12, "datum": "2026-11-01", "anstoss": "14:30",
+    "heim": "sgm-ummendorf-fischbach", "gast": "fc-krauchenwies-hausen", "toreHeim": 3, "toreGast": 0,
+    "tore": [
+      { "min": 12, "spieler": "jan-roth", "verein": "sgm-ummendorf-fischbach" },
+      { "min": 40, "spieler": "jan-roth", "verein": "sgm-ummendorf-fischbach" },
+      { "min": 77, "spieler": "jan-roth", "verein": "sgm-ummendorf-fischbach" }
+    ],
+    "bericht": "Jan Roth schnürt einen Dreierpack. Krauchenwies hielt eine halbe Stunde dagegen, nach dem 2:0 vor der Pause war das Spiel entschieden."
+  },
+  {
+    "id": "bzl-12-hohentengen-saulgau",
+    "liga": "bezirksliga-oberschwaben", "spieltag": 12, "datum": "2026-11-01", "anstoss": "14:30",
+    "heim": "sv-hohentengen", "gast": "fv-bad-saulgau", "toreHeim": 1, "toreGast": 1,
+    "tore": [
+      { "min": 34, "spieler": "simon-frick", "verein": "fv-bad-saulgau" },
+      { "min": 69, "spieler": "david-kessler", "verein": "sv-hohentengen" }
+    ],
+    "bericht": "Gerechtes Remis im Derby. Frick brachte die Gäste per Freistoß in Führung, Kessler köpfte nach einer Ecke zum Ausgleich ein."
+  },
+  {
+    "id": "bzl-12-uttenweiler-ochsenhausen",
+    "liga": "bezirksliga-oberschwaben", "spieltag": 12, "datum": "2026-11-01", "anstoss": "14:30",
+    "heim": "sv-uttenweiler", "gast": "sv-ochsenhausen", "toreHeim": 0, "toreGast": 2,
+    "tore": [
+      { "min": 55, "spieler": "jonas-heim", "verein": "sv-ochsenhausen" },
+      { "min": 90, "spieler": "jonas-heim", "verein": "sv-ochsenhausen" }
+    ],
+    "bericht": "Ochsenhausen gewinnt ein zähes Spiel durch zwei Tore von Jonas Heim. Uttenweiler blieb vorne zu harmlos."
+  },
+  {
+    "id": "bzl-13-sigmaringen-ummendorf",
+    "liga": "bezirksliga-oberschwaben", "spieltag": 13, "datum": "2026-11-08", "anstoss": "14:30",
+    "heim": "sv-sigmaringen", "gast": "sgm-ummendorf-fischbach", "toreHeim": 2, "toreGast": 2,
+    "tore": [
+      { "min": 8, "spieler": "jan-roth", "verein": "sgm-ummendorf-fischbach" },
+      { "min": 30, "spieler": "marco-stehle", "verein": "sv-sigmaringen" },
+      { "min": 62, "spieler": "jan-roth", "verein": "sgm-ummendorf-fischbach" },
+      { "min": 88, "spieler": "felix-wiest", "verein": "sv-sigmaringen" }
+    ],
+    "bericht": "Sigmaringen rettet spät einen Punkt. Innenverteidiger Wiest traf nach einer Ecke zum 2:2 und sorgte für Jubel auf der Gegengerade.",
+    "galerie": "gal-sigmaringen-ummendorf"
+  },
+  {
+    "id": "bzl-13-krauchenwies-mengen",
+    "liga": "bezirksliga-oberschwaben", "spieltag": 13, "datum": "2026-11-08", "anstoss": "14:30",
+    "heim": "fc-krauchenwies-hausen", "gast": "fc-mengen", "toreHeim": 1, "toreGast": 3,
+    "tore": [
+      { "min": 15, "spieler": "lukas-berger", "verein": "fc-mengen" },
+      { "min": 44, "spieler": "nico-baur", "verein": "fc-krauchenwies-hausen" },
+      { "min": 58, "spieler": "lukas-berger", "verein": "fc-mengen" },
+      { "min": 81, "spieler": "tim-hagel", "verein": "fc-mengen" }
+    ],
+    "bericht": "Der Spitzenreiter bleibt souverän. Berger traf doppelt, Krauchenwies kam nur kurz vor der Pause durch Baur zurück."
+  },
+  {
+    "id": "bzl-13-saulgau-uttenweiler",
+    "liga": "bezirksliga-oberschwaben", "spieltag": 13, "datum": "2026-11-08", "anstoss": "14:30",
+    "heim": "fv-bad-saulgau", "gast": "sv-uttenweiler", "toreHeim": 2, "toreGast": 0,
+    "tore": [
+      { "min": 27, "spieler": "simon-frick", "verein": "fv-bad-saulgau" },
+      { "min": 73, "spieler": "simon-frick", "verein": "fv-bad-saulgau" }
+    ],
+    "bericht": "Bad Saulgau gewinnt verdient. Kapitän Frick war an beiden Treffern direkt beteiligt und traf selbst doppelt."
+  },
+  {
+    "id": "bzl-13-ochsenhausen-hohentengen",
+    "liga": "bezirksliga-oberschwaben", "spieltag": 13, "datum": "2026-11-08", "anstoss": "14:30",
+    "heim": "sv-ochsenhausen", "gast": "sv-hohentengen", "toreHeim": 1, "toreGast": 2,
+    "tore": [
+      { "min": 20, "spieler": "david-kessler", "verein": "sv-hohentengen" },
+      { "min": 49, "spieler": "jonas-heim", "verein": "sv-ochsenhausen" },
+      { "min": 86, "spieler": "david-kessler", "verein": "sv-hohentengen" }
+    ],
+    "bericht": "Kessler entscheidet das Spiel in der Schlussphase. Hohentengen nimmt drei Punkte aus Ochsenhausen mit."
+  },
+  {
+    "id": "kla-12-laiz-inzigkofen",
+    "liga": "kreisliga-a1-oberschwaben", "spieltag": 12, "datum": "2026-11-08", "anstoss": "14:30",
+    "heim": "fc-laiz", "gast": "fc-inzigkofen", "toreHeim": 3, "toreGast": 1,
+    "tore": [
+      { "min": 11, "spieler": "kevin-lutz", "verein": "fc-laiz" },
+      { "min": 39, "spieler": "max-seeger", "verein": "fc-inzigkofen" },
+      { "min": 60, "spieler": "kevin-lutz", "verein": "fc-laiz" },
+      { "min": 75, "spieler": "kevin-lutz", "verein": "fc-laiz" }
+    ],
+    "bericht": "Derby der kurzen Wege an Laiz. Kevin Lutz trifft dreimal, Inzigkofen hielt nur bis zur Pause mit.",
+    "galerie": "gal-laiz-inzigkofen"
+  },
+  {
+    "id": "kla-12-sigmaringendorf-hundersingen",
+    "liga": "kreisliga-a1-oberschwaben", "spieltag": 12, "datum": "2026-11-08", "anstoss": "14:30",
+    "heim": "tsv-sigmaringendorf", "gast": "sv-hundersingen", "toreHeim": 1, "toreGast": 2,
+    "tore": [
+      { "min": 33, "spieler": "luca-wahl", "verein": "sv-hundersingen" },
+      { "min": 52, "spieler": "robin-gerster", "verein": "tsv-sigmaringendorf" },
+      { "min": 90, "spieler": "luca-wahl", "verein": "sv-hundersingen" }
+    ],
+    "bericht": "Hundersingen gewinnt mit dem letzten Angriff. Wahl traf in der Nachspielzeit zum 2:1."
+  },
+  {
+    "id": "bzl-14-mengen-ummendorf",
+    "liga": "bezirksliga-oberschwaben", "spieltag": 14, "datum": "2026-11-15", "anstoss": "14:30",
+    "heim": "fc-mengen", "gast": "sgm-ummendorf-fischbach", "topspiel": true
+  },
+  {
+    "id": "bzl-14-hohentengen-sigmaringen",
+    "liga": "bezirksliga-oberschwaben", "spieltag": 14, "datum": "2026-11-15", "anstoss": "14:30",
+    "heim": "sv-hohentengen", "gast": "sv-sigmaringen"
+  },
+  {
+    "id": "bzl-14-uttenweiler-krauchenwies",
+    "liga": "bezirksliga-oberschwaben", "spieltag": 14, "datum": "2026-11-15", "anstoss": "14:30",
+    "heim": "sv-uttenweiler", "gast": "fc-krauchenwies-hausen"
+  },
+  {
+    "id": "bzl-14-ochsenhausen-saulgau",
+    "liga": "bezirksliga-oberschwaben", "spieltag": 14, "datum": "2026-11-15", "anstoss": "14:30",
+    "heim": "sv-ochsenhausen", "gast": "fv-bad-saulgau"
+  }
+]

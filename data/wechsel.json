@@ -1,0 +1,5 @@
+[
+  { "datum": "2026-11-10", "typ": "Trainer", "name": "Neuer Cheftrainer", "von": "", "zu": "sv-uttenweiler", "text": "Uttenweiler stellt sich zur Rückrunde an der Seitenlinie neu auf." },
+  { "datum": "2026-11-07", "typ": "Spieler", "name": "Torhüter", "von": "fc-laiz", "zu": "sv-sigmaringen", "text": "Wechsel in der Winterpause, spielberechtigt ab der Rückrunde." },
+  { "datum": "2026-11-03", "typ": "Spieler", "name": "Stürmer", "von": "sv-hundersingen", "zu": "fv-bad-saulgau", "text": "Rückkehr zum Jugendverein." }
+]

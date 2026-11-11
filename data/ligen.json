@@ -1,0 +1,16 @@
+[
+  {
+    "id": "bezirksliga-oberschwaben",
+    "name": "Bezirksliga Oberschwaben",
+    "kurz": "Bezirksliga",
+    "sportart": "Fußball",
+    "saison": "2026/27"
+  },
+  {
+    "id": "kreisliga-a1-oberschwaben",
+    "name": "Kreisliga A Oberschwaben, Staffel 1",
+    "kurz": "Kreisliga A1",
+    "sportart": "Fußball",
+    "saison": "2026/27"
+  }
+]
