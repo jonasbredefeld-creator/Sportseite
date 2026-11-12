@@ -24,6 +24,7 @@ Jeder Push auf `main` geht danach automatisch live. Eine eigene Domain kann spä
 | `data/spiele.json` | Spiele. Ohne `toreHeim`/`toreGast` gilt ein Spiel als noch offen. `tore` = Torschützen mit Minute. |
 | `data/galerien.json` | Galerien pro Spiel. `src` = Bildadresse (später aus R2), `stichwoerter` mit Spieler-ID verknüpft Bilder mit dem Spielerprofil. |
 | `data/wechsel.json` | Wechselticker |
+| `data/berichte.json` | Berichte. `"haupt": true` macht einen Bericht zum Aufmacher auf der Startseite. |
 
 Tabellen und Torjäger werden automatisch aus den Spielen berechnet.
 
