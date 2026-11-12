@@ -648,3 +648,6 @@ td a:hover { color: var(--blau); }
   .kader-name { font-size: 14px; }
   .kader-gruppe h3 { margin: 14px 0 6px; }
 }
+.vereins-raster { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0 20px; padding: 10px 20px; }
+.vereins-raster a { padding: 10px 6px; border-bottom: 1px solid var(--linie); font-size: 16px; }
+.vereins-raster a:hover { color: var(--blau); }

@@ -48,7 +48,7 @@ async function laden() {
 const BEREICH = {
   start: "start", ligen: "ligen", liga: "ligen", berichte: "berichte", bericht: "berichte",
   galerien: "bilder", galerie: "bilder", wechsel: "wechsel", highlights: "highlights", video: "highlights",
-  vereine: "mehr", verein: "mehr", spieler: "mehr", spiel: "ligen", partner: "mehr", impressum: "mehr", datenschutz: "mehr"
+  vereine: "vereine", verein: "vereine", spieler: "vereine", spiel: "ligen"
 };
 
 function rahmen(d, seite) {
@@ -88,15 +88,11 @@ function rahmen(d, seite) {
       <div class="wrap">
         ${punkt("start", "index.html", "Home")}
         ${ausklapp("ligen", "Ligen", ligenLinks)}
+        ${punkt("vereine", "vereine.html", "Vereine")}
         ${punkt("berichte", "berichte.html", "News")}
         ${punkt("highlights", "highlights.html", "Highlights")}
         ${punkt("bilder", "galerien.html", "Bilder")}
         ${punkt("wechsel", "wechsel.html", "Wechsel")}
-        ${ausklapp("mehr", "Mehr", `
-          <a href="vereine.html">Vereine</a>
-          <a href="partner.html">Partner werden</a>
-          <a href="impressum.html">Impressum</a>
-          <a href="datenschutz.html">Datenschutz</a>`)}
         <form class="suche" action="suche.html" role="search" autocomplete="off">
           <label class="sr" for="suchfeld">Teams, Spieler und News suchen</label>
           <svg class="lupe" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M13 13l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -701,13 +697,13 @@ const seiten = {
 
   vereine(d) {
     return `
-      <div class="seitenkopf"><h1>Vereine</h1><p>Kader, Ergebnisse und Bilder jedes Vereins.</p></div>
+      <div class="seitenkopf"><h1>Vereine</h1><p>Kader, Spiele und Bilder jedes Vereins, sortiert nach Liga.</p></div>
       ${d.ligenSichtbar.map((l) => `
         <section class="abschnitt">
           <div class="abschnitt-kopf"><h2>${l.team ? esc(l.sportart) : esc(l.name)}</h2></div>
-          <div class="karte box"><ul class="liste">
-            ${d.vereine.filter((v) => (l.team ? v.id === l.team : v.liga === l.id)).map((v) => `<li>${v.farbe ? `<span class="vereinspunkt" style="display:inline-block;margin-right:8px;background:${esc(v.farbe)}"></span>` : ""}<a href="verein.html?id=${v.id}">${esc(v.name)}</a> <span class="leise">${esc(v.ort)}</span></li>`).join("")}
-          </ul></div>
+          <div class="karte vereins-raster">
+            ${d.vereine.filter((v) => (l.team ? v.id === l.team : v.liga === l.id)).sort((x, y) => x.name.localeCompare(y.name, "de")).map((v) => `<a href="verein.html?id=${v.id}">${v.farbe ? `<span class="vereinspunkt" style="display:inline-block;margin-right:8px;background:${esc(v.farbe)}"></span>` : ""}${esc(v.name)}</a>`).join("")}
+          </div>
         </section>`).join("")}`;
   },
 
