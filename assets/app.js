@@ -1,4 +1,4 @@
-// Sportseite – rendert alle Seiten aus den JSON-Dateien im Ordner /data.
+// Flutlicht – rendert alle Seiten aus den JSON-Dateien im Ordner /data.
 // Neue Ergebnisse, Berichte, Spieler oder Galerien = nur die JSON-Dateien ändern.
 
 const DATEN = ["site", "ligen", "vereine", "spieler", "spiele", "galerien", "wechsel", "berichte", "videos"];
@@ -78,7 +78,7 @@ function rahmen(d, seite) {
     <header class="kopf">
       <div class="wrap">
         <a class="marke" href="index.html">
-          <span class="marke-name">${esc(d.site.name)}</span>
+          <img class="marke-logo" src="assets/logo-weiss.png" alt="${esc(d.site.name)}" width="906" height="164">
           <span class="marke-claim">${esc(d.site.claim)}</span>
         </a>
         <button type="button" class="menue-knopf" aria-expanded="false" aria-controls="menue">Menü${PFEIL}</button>

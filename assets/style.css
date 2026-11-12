@@ -1,4 +1,4 @@
-/* Sportseite – Gestaltung
+/* Flutlicht – Gestaltung
    Blau als Hauptfarbe, Rot als sparsamer Akzent, Grau für Flächen und Linien. */
 
 @font-face { font-family: "Barlow"; font-weight: 400; font-display: swap; src: url("fonts/barlow-latin-400-normal.woff2") format("woff2"); }
@@ -60,7 +60,7 @@ p a:hover, .link:hover { color: var(--blau-tief); }
   color: #fff;
 }
 .kopf .wrap { display: flex; align-items: center; min-height: 104px; }
-.marke { display: inline-flex; flex-direction: column; gap: 6px; color: #fff; }
+.marke { display: inline-flex; flex-direction: column; gap: 10px; color: #fff; }
 .marke-name {
   font-weight: 600;
   font-size: 34px;
@@ -76,6 +76,7 @@ p a:hover, .link:hover { color: var(--blau-tief); }
   background: var(--rot);
   border-radius: 2px;
 }
+.marke-logo { height: 40px; width: auto; display: block; }
 .marke-claim { font-size: 14px; opacity: 0.8; }
 .menue-knopf { display: none; }
 
@@ -344,7 +345,7 @@ td a:hover { color: var(--blau); }
 @media (max-width: 820px) {
   .raster { grid-template-columns: 1fr 1fr; }
   .kopf .wrap { min-height: 76px; justify-content: space-between; }
-  .marke-name { font-size: 28px; }
+  .marke-logo { height: 28px; }
   .marke-claim { display: none; }
   .menue-knopf {
     display: flex;
