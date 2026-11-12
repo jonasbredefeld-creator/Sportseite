@@ -79,5 +79,39 @@
    "src": "",
    "titel": "Trainerwechsel"
   }
+ },
+ {
+  "id": "deers-drehen-schlussviertel",
+  "kategorie": "Oberliga",
+  "liga": "basketball-oberliga",
+  "spiel": "bb-deers-ehingen",
+  "datum": "2026-11-07",
+  "titel": "Starkes Schlussviertel: Deers schlagen Ehingen 78:71",
+  "teaser": "Nach drei engen Vierteln zogen die Sigmaringer am Ende davon. Kevin Hartmann war mit 24 Punkten bester Werfer.",
+  "text": [
+   "Lange stand es Spitz auf Knopf in der Halle. Ehingen führte nach dem dritten Viertel mit einem Punkt, dann trafen die Deers vier Würfe in Folge.",
+   "Am kommenden Samstag empfängt Sigmaringen den TV Ravensburg."
+  ],
+  "bild": {
+   "src": "",
+   "titel": "Hartmann zieht zum Korb"
+  }
+ },
+ {
+  "id": "hornets-saisonbilanz",
+  "kategorie": "Landesliga",
+  "liga": "football-landesliga",
+  "spiel": "af-hornets-biberach",
+  "datum": "2026-09-13",
+  "titel": "Hornets beenden die Saison mit einem Heimsieg",
+  "teaser": "28:21 gegen Biberach zum Abschluss. Running Back Samuel Keck trug den Ball dreimal in die Endzone.",
+  "text": [
+   "Vor gut gefüllten Rängen zeigten die Hornets ihr bestes Saisonspiel.",
+   "Im April geht es weiter."
+  ],
+  "bild": {
+   "src": "",
+   "titel": "Keck läuft zum Touchdown"
+  }
  }
 ]

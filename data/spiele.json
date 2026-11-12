@@ -2455,5 +2455,168 @@
   "anstoss": "14:30",
   "heim": "spfr-hundersingen-ii",
   "gast": "sgm-baltringen-aepfingen-ii"
+ },
+ {
+  "id": "bb-deers-ehingen",
+  "liga": "basketball-oberliga",
+  "datum": "2026-11-07",
+  "anstoss": "19:30",
+  "heim": "sigmaringen-deers",
+  "gast": "bb-tsv-ehingen",
+  "toreHeim": 78,
+  "toreGast": 71,
+  "abschnitte": [
+   [
+    18,
+    20
+   ],
+   [
+    22,
+    15
+   ],
+   [
+    16,
+    21
+   ],
+   [
+    22,
+    15
+   ]
+  ],
+  "scorer": [
+   {
+    "spieler": "kevin-hartmann",
+    "punkte": 24
+   },
+   {
+    "spieler": "luca-brenner",
+    "punkte": 17
+   },
+   {
+    "spieler": "marvin-seitz",
+    "punkte": 12
+   }
+  ],
+  "galerie": "gal-deers-ehingen",
+  "bericht": "Nach drei engen Vierteln zogen die Deers im Schlussabschnitt davon. Kevin Hartmann traf viermal von der Dreierlinie."
+ },
+ {
+  "id": "bb-tuttlingen-deers",
+  "liga": "basketball-oberliga",
+  "datum": "2026-10-31",
+  "anstoss": "20:00",
+  "heim": "bb-bg-tuttlingen",
+  "gast": "sigmaringen-deers",
+  "toreHeim": 84,
+  "toreGast": 76,
+  "abschnitte": [
+   [
+    21,
+    19
+   ],
+   [
+    20,
+    18
+   ],
+   [
+    24,
+    17
+   ],
+   [
+    19,
+    22
+   ]
+  ],
+  "scorer": [
+   {
+    "spieler": "luca-brenner",
+    "punkte": 21
+   },
+   {
+    "spieler": "kevin-hartmann",
+    "punkte": 15
+   }
+  ]
+ },
+ {
+  "id": "bb-deers-ravensburg",
+  "liga": "basketball-oberliga",
+  "datum": "2026-11-14",
+  "anstoss": "19:30",
+  "heim": "sigmaringen-deers",
+  "gast": "bb-tv-ravensburg"
+ },
+ {
+  "id": "af-hornets-biberach",
+  "liga": "football-landesliga",
+  "datum": "2026-09-12",
+  "anstoss": "15:00",
+  "heim": "sigmaringen-hornets",
+  "gast": "af-biberach-bulls",
+  "toreHeim": 28,
+  "toreGast": 21,
+  "abschnitte": [
+   [
+    7,
+    7
+   ],
+   [
+    14,
+    0
+   ],
+   [
+    0,
+    7
+   ],
+   [
+    7,
+    7
+   ]
+  ],
+  "scorer": [
+   {
+    "spieler": "samuel-keck",
+    "punkte": 18
+   },
+   {
+    "spieler": "niklas-fritz",
+    "punkte": 6
+   }
+  ],
+  "galerie": "gal-hornets-biberach"
+ },
+ {
+  "id": "af-albstadt-hornets",
+  "liga": "football-landesliga",
+  "datum": "2026-08-29",
+  "anstoss": "15:00",
+  "heim": "af-albstadt-titans",
+  "gast": "sigmaringen-hornets",
+  "toreHeim": 14,
+  "toreGast": 20,
+  "abschnitte": [
+   [
+    0,
+    6
+   ],
+   [
+    7,
+    7
+   ],
+   [
+    7,
+    0
+   ],
+   [
+    0,
+    7
+   ]
+  ],
+  "scorer": [
+   {
+    "spieler": "samuel-keck",
+    "punkte": 12
+   }
+  ]
  }
 ]

@@ -125,5 +125,66 @@
     ]
    }
   ]
+ },
+ {
+  "id": "gal-deers-ehingen",
+  "titel": "Sigmaringen Deers gegen TSV Ehingen",
+  "spiel": "bb-deers-ehingen",
+  "datum": "2026-11-07",
+  "fotograf": "Sportseite",
+  "bilder": [
+   {
+    "src": "",
+    "titel": "Hartmann zieht zum Korb",
+    "stichwoerter": [
+     "kevin-hartmann"
+    ]
+   },
+   {
+    "src": "",
+    "titel": "Seitz im Rebound",
+    "stichwoerter": [
+     "marvin-seitz"
+    ]
+   },
+   {
+    "src": "",
+    "titel": "Auszeit im letzten Viertel",
+    "stichwoerter": []
+   },
+   {
+    "src": "",
+    "titel": "Ehingens Aufbauspieler unter Druck",
+    "stichwoerter": []
+   }
+  ]
+ },
+ {
+  "id": "gal-hornets-biberach",
+  "titel": "Sigmaringen Hornets gegen Biberach Bulls",
+  "spiel": "af-hornets-biberach",
+  "datum": "2026-09-12",
+  "fotograf": "Sportseite",
+  "bilder": [
+   {
+    "src": "",
+    "titel": "Keck läuft zum Touchdown",
+    "stichwoerter": [
+     "samuel-keck"
+    ]
+   },
+   {
+    "src": "",
+    "titel": "Fritz im Pocket",
+    "stichwoerter": [
+     "niklas-fritz"
+    ]
+   },
+   {
+    "src": "",
+    "titel": "Saisonabschluss mit Fans",
+    "stichwoerter": []
+   }
+  ]
  }
 ]

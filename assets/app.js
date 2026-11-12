@@ -31,6 +31,12 @@ async function laden() {
   d.gespielt = d.spiele.filter((s) => Number.isInteger(s.toreHeim));
   d.videosSortiert = [...d.videos].sort((a, b) => b.datum.localeCompare(a.datum));
   d.berichteSortiert = [...d.berichte].sort((a, b) => b.datum.localeCompare(a.datum));
+  // Sportart: steht an der Liga. News, Videos und Galerien erben sie über ihr Spiel oder ihre Liga.
+  d.sportVon = (x) => x?.sport || d.liga(x?.liga)?.sportart || (x?.spiel && d.liga(d.spiel(x.spiel)?.liga)?.sportart) || "Fußball";
+  [...d.berichte, ...d.videos, ...d.galerien, ...d.spiele].forEach((x) => { x._sport = d.sportVon(x); });
+  // Ligen, in denen wir nur ein Team begleiten (z. B. Basketball, Football)
+  d.teamLiga = (id) => !!d.liga(id)?.team;
+  d.sportarten = [...new Set(d.ligen.map((l) => l.sportart))];
   return d;
 }
 
@@ -43,7 +49,8 @@ const BEREICH = {
 };
 
 function rahmen(d, seite) {
-  const aktiv = BEREICH[seite];
+  // Team-Seiten anderer Sportarten gehören unter „Ligen“
+  const aktiv = seite === "verein" && d.teamLiga(d.verein(param("id"))?.liga) ? "ligen" : BEREICH[seite];
   const cur = (k) => (k === aktiv ? ' aria-current="page"' : "");
 
   const ausklapp = (key, titel, eintraege) => `
@@ -53,7 +60,14 @@ function rahmen(d, seite) {
     </div>`;
   const punkt = (key, href, titel) => `<div class="menue-punkt"><a href="${href}"${cur(key)}>${titel}</a></div>`;
 
-  const ligenLinks = d.ligen.map((l) => `<a href="liga.html?id=${l.id}">${esc(l.name)}<span class="klein">Tabelle, Ergebnisse und Spielplan</span></a>`).join("");
+  // Dropdown nach Sportarten gegliedert. Fußball zuerst, bei Team-Ligen führt der Link direkt zum Team.
+  const ligenLinks = d.sportarten.map((sport) => {
+    const ls = d.ligen.filter((l) => l.sportart === sport);
+    const links = ls.map((l) => l.team
+      ? `<a href="verein.html?id=${l.team}">${esc(d.verein(l.team)?.name)}<span class="klein">${esc(l.name)}</span></a>`
+      : `<a href="liga.html?id=${l.id}">${esc(l.name)}<span class="klein">Tabelle, Ergebnisse und Spielplan</span></a>`).join("");
+    return d.sportarten.length > 1 ? `<div class="gruppe">${esc(sport)}</div>${links}` : links;
+  }).join("");
 
   const kopf = document.createElement("div");
   kopf.innerHTML = `
@@ -157,9 +171,14 @@ function vereinLink(d, id, kurz = false) {
   return `<a class="link" href="verein.html?id=${v.id}">${esc(kurz ? v.kurz : v.name)}</a>`;
 }
 
+// Kleines Sport-Etikett, nur für Sportarten neben Fußball
+const sportMarke = (x) => (x?._sport && x._sport !== "Fußball" ? x._sport : "");
+const kategorieText = (x, kat) => [sportMarke(x), kat].filter(Boolean).join(", ");
+
 function spielKarte(d, s) {
   const h = d.verein(s.heim), g = d.verein(s.gast);
   const gespielt = Number.isInteger(s.toreHeim);
+  const sm = sportMarke(s);
   const zeile = (v, tore, gegner) => {
     const klasse = !gespielt ? "" : tore > gegner ? " sieger" : tore < gegner ? " verlierer" : "";
     return `
@@ -171,7 +190,7 @@ function spielKarte(d, s) {
   return `
     <a class="karte spiel-karte" href="spiel.html?id=${s.id}">
       <div class="spiel-meta">
-        <span>${datumKurz(s.datum)}${gespielt ? "" : `, <span class="anstoss">${esc(s.anstoss)} Uhr</span>`}</span>
+        <span>${sm ? `<span class="sport-marke">${sm}</span> ` : ""}${datumKurz(s.datum)}${gespielt ? "" : `, <span class="anstoss">${esc(s.anstoss)} Uhr</span>`}</span>
         ${s.galerie ? `<span class="fotos">Fotos</span>` : s.topspiel ? `<span class="fotos">Topspiel</span>` : ""}
       </div>
       ${zeile(h, s.toreHeim, s.toreGast)}
@@ -224,13 +243,71 @@ function teamZahlen(d, ligaId, vid) {
   return { platz, zeile, letzte, form, tj };
 }
 
+/* ---------- Team-Ligen (Basketball, Football …) ---------- */
+
+// Ergebnis pro Viertel bzw. Halbzeit als kleine Tabelle
+function abschnittTabelle(d, s) {
+  const a = s.abschnitte || [];
+  if (!a.length) return "";
+  const kopf = a.map((_, i) => `<th>${i < 4 ? `${i + 1}.` : "VL"}</th>`).join("");
+  const reihe = (v, i) => `<tr><th class="name">${esc(v?.name)}</th>${a.map((x) => `<td>${x[i]}</td>`).join("")}<td class="gesamt">${i ? s.toreGast : s.toreHeim}</td></tr>`;
+  return `
+    <table class="abschnitte">
+      <thead><tr><th class="name">${a.length === 2 ? "Halbzeit" : "Viertel"}</th>${kopf}<th>Gesamt</th></tr></thead>
+      <tbody>${reihe(d.verein(s.heim), 0)}${reihe(d.verein(s.gast), 1)}</tbody>
+    </table>`;
+}
+
+function scorerListe(d, s) {
+  const l = s.scorer || [];
+  if (!l.length) return "";
+  return `
+    <div class="karte box">
+      <h2>${s._sport === "Basketball" ? "Beste Werfer" : "Punkte"}</h2>
+      <ol class="liste">${l.map((x) => { const sp = d.spielerById(x.spieler); return `<li><a href="spieler.html?id=${x.spieler}">${esc(sp?.name)}</a> <span class="leise">${esc(d.verein(sp?.verein)?.kurz)}, ${x.punkte} Punkte</span></li>`; }).join("")}</ol>
+    </div>`;
+}
+
+// Bilanz des begleiteten Teams aus den eingetragenen Spielen
+function bilanz(d, ligaId) {
+  const vid = d.liga(ligaId).team;
+  const spiele = d.gespielt.filter((s) => s.liga === ligaId && (s.heim === vid || s.gast === vid)).sort((a, b) => b.datum.localeCompare(a.datum));
+  const r = { s: 0, n: 0, u: 0, fuer: 0, gegen: 0, form: [], spiele };
+  spiele.forEach((s) => {
+    const eig = s.heim === vid ? s.toreHeim : s.toreGast, geg = s.heim === vid ? s.toreGast : s.toreHeim;
+    r.fuer += eig; r.gegen += geg;
+    const e = eig > geg ? "S" : eig < geg ? "N" : "U";
+    r[e.toLowerCase()]++;
+    if (r.form.length < 5) r.form.push(e);
+  });
+  return r;
+}
+
+const formPunkte = (f) => f.length ? `<span class="form">${f.map((x) => `<span class="f-${x}" title="${x === "S" ? "Sieg" : x === "N" ? "Niederlage" : "Unentschieden"}">${x}</span>`).join("")}</span>` : "–";
+
+function bilanzKarte(d, ligaId) {
+  const l = d.liga(ligaId), b = bilanz(d, ligaId), t = d.verein(l.team);
+  return `
+    <div class="karte box bilanz">
+      <h2>Bilanz ${esc(t?.kurz)}</h2>
+      <div class="werte">
+        <div><strong>${b.s}</strong>Siege</div>
+        <div><strong>${b.n}</strong>Niederlagen</div>
+        ${b.u ? `<div><strong>${b.u}</strong>Unentsch.</div>` : ""}
+      </div>
+      <p class="leise" style="margin:0 0 8px">Punkte ${b.fuer}:${b.gegen}, Form ${formPunkte(b.form)}</p>
+      ${l.hinweis ? `<p style="margin:12px 0 0">${esc(l.hinweis)}</p>` : ""}
+      ${l.tabelleLink ? `<p style="margin:12px 0 0"><a class="link" href="${esc(l.tabelleLink)}" target="_blank" rel="noopener">Tabelle beim Verband</a></p>` : ""}
+    </div>`;
+}
+
 function berichtKarte(b) {
   const rot = b.kategorie === "Vorschau" ? " rot" : "";
   return `
-    <a class="karte bericht-karte" href="bericht.html?id=${b.id}">
+    <a class="karte bericht-karte" href="bericht.html?id=${b.id}" data-sport="${esc(b._sport)}">
       ${foto(b.bild)}
       <div class="inhalt">
-        <span class="kategorie${rot}">${esc(b.kategorie)}</span>
+        <span class="kategorie${rot}">${esc(kategorieText(b, b.kategorie))}</span>
         <h3>${esc(b.titel)}</h3>
         <div class="datum">${datumMittel(b.datum)}</div>
       </div>
@@ -241,14 +318,14 @@ const PLAY = `<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24
 
 function videoKarte(v) {
   return `
-    <a class="karte video-karte" href="video.html?id=${v.id}">
+    <a class="karte video-karte" href="video.html?id=${v.id}" data-sport="${esc(v._sport)}">
       <div class="video-bild">
         ${v.poster ? `<img src="${esc(v.poster)}" alt="" loading="lazy">` : ""}
         <span class="play">${PLAY}</span>
         <span class="dauer">${esc(v.dauer)}</span>
       </div>
       <div class="inhalt">
-        <span class="kategorie rot">${esc(v.typ)}</span>
+        <span class="kategorie rot">${esc(kategorieText(v, v.typ))}</span>
         <h3>${esc(v.titel)}</h3>
         <div class="datum">${datumMittel(v.datum)}</div>
       </div>
@@ -276,9 +353,10 @@ function wechselEintrag(d, w) {
 
 function galerieKarte(g) {
   return `
-    <a class="karte galerie-karte" href="galerie.html?id=${g.id}">
+    <a class="karte galerie-karte" href="galerie.html?id=${g.id}" data-sport="${esc(g._sport)}">
       <div style="position:relative">${foto(g.bilder[0])}<span class="anzahl">${g.bilder.length} Bilder</span></div>
       <div class="inhalt">
+        ${sportMarke(g) ? `<span class="kategorie">${esc(sportMarke(g))}</span>` : ""}
         <h3>${esc(g.titel)}</h3>
         <div class="datum">${datumMittel(g.datum)}</div>
       </div>
@@ -359,6 +437,31 @@ function torjaegerListe(d, eintraege) {
   }).join("") || "<li>Noch keine Tore eingetragen.</li>"}</ol>`;
 }
 
+/* ---------- Sport-Filter (erscheint erst ab zwei Sportarten) ---------- */
+
+function sportFilter(items) {
+  const arten = [...new Set(items.map((x) => x._sport))].sort((a, b) => (a === "Fußball" ? -1 : b === "Fußball" ? 1 : a.localeCompare(b)));
+  if (arten.length < 2) return "";
+  return `<div class="liga-reiter sport-filter" role="group" aria-label="Sportart wählen">
+    <button type="button" data-filter="" aria-pressed="true">Alle</button>
+    ${arten.map((a) => `<button type="button" data-filter="${esc(a)}" aria-pressed="false">${esc(a)}</button>`).join("")}
+  </div>`;
+}
+
+function sportFilterAktivieren() {
+  const knoepfe = $$(".sport-filter button");
+  knoepfe.forEach((b) => b.addEventListener("click", () => {
+    knoepfe.forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    const f = b.dataset.filter;
+    $$("#inhalt [data-sport]").forEach((el) => { el.hidden = !!f && el.dataset.sport !== f; });
+    // Abschnitte ohne sichtbare Karten ausblenden
+    $$("#inhalt section.abschnitt").forEach((sec) => {
+      const karten = $$("[data-sport]", sec);
+      if (karten.length) sec.hidden = karten.every((k) => k.hidden);
+    });
+  }));
+}
+
 /* ---------- Suche ---------- */
 
 const norm = (s) => String(s ?? "").toLowerCase()
@@ -369,7 +472,7 @@ function suchIndex(d) {
   const e = [];
   d.vereine.forEach((v) => e.push({ typ: "Verein", titel: v.name, unter: [v.ort, d.liga(v.liga)?.name].filter(Boolean).join(", "), href: `verein.html?id=${v.id}`, text: [v.name, v.kurz, v.ort], rang: 3 }));
   d.spieler.forEach((sp) => e.push({ typ: "Spieler", titel: sp.name, unter: `${d.verein(sp.verein)?.name}, ${sp.position}`, href: `spieler.html?id=${sp.id}`, bild: sp.bild || "", text: [sp.name, d.verein(sp.verein)?.kurz], rang: 3, id: sp.id }));
-  d.ligen.forEach((l) => e.push({ typ: "Liga", titel: l.name, unter: `${l.sportart}, Saison ${l.saison}`, href: `liga.html?id=${l.id}`, text: [l.name, l.kurz], rang: 2 }));
+  d.ligen.forEach((l) => e.push({ typ: "Liga", titel: l.name, unter: `${l.sportart}, Saison ${l.saison}`, href: l.team ? `verein.html?id=${l.team}` : `liga.html?id=${l.id}`, text: [l.name, l.kurz, l.sportart], rang: 2 }));
   d.berichte.forEach((b) => { const s = b.spiel && d.spiel(b.spiel); e.push({ typ: "News", titel: b.titel, unter: datumMittel(b.datum), href: `bericht.html?id=${b.id}`, text: [b.titel, b.teaser, s && d.verein(s.heim)?.name, s && d.verein(s.gast)?.name], rang: 1 }); });
   d.videos.forEach((v) => { const s = v.spiel && d.spiel(v.spiel); e.push({ typ: "Video", titel: v.titel, unter: `${v.typ}, ${v.dauer}`, href: `video.html?id=${v.id}`, text: [v.titel, s && d.verein(s.heim)?.name, s && d.verein(s.gast)?.name], rang: 1, video: v }); });
   d.galerien.forEach((g) => e.push({ typ: "Bilder", titel: g.titel, unter: `${g.bilder.length} Bilder, ${datumMittel(g.datum)}`, href: `galerie.html?id=${g.id}`, text: [g.titel], rang: 1, galerie: g }));
@@ -398,7 +501,17 @@ const seiten = {
     const hauptSpiel = haupt?.spiel && d.spiel(haupt.spiel);
     const hauptGal = hauptSpiel?.galerie;
 
-    const ligenMitSpielen = d.ligen.filter((l) => letzterSpieltag(d, l.id));
+    // Ergebnis-Reiter: je Fußball-Liga der letzte Spieltag, andere Sportarten nur, wenn sie an diesem Wochenende gespielt haben
+    const juengst = d.gespielt.filter((s) => !d.teamLiga(s.liga)).map((s) => s.datum).sort().pop();
+    const grenze = juengst ? new Date(juengst + "T12:00:00") - 7 * 864e5 : 0;
+    const ergFelder = d.ligen.map((l) => {
+      if (l.team) {
+        const sp = d.gespielt.filter((s) => s.liga === l.id && new Date(s.datum + "T12:00:00") >= grenze).sort((a, b) => b.datum.localeCompare(a.datum));
+        return sp.length ? { l, label: l.sportart, href: `verein.html?id=${l.team}`, spiele: sp } : null;
+      }
+      const t = letzterSpieltag(d, l.id);
+      return t ? { l, label: `${l.kurz}, ${t}. Spieltag`, href: `liga.html?id=${l.id}`, spiele: d.gespielt.filter((s) => s.liga === l.id && s.spieltag === t) } : null;
+    }).filter(Boolean);
     const naechste = d.spiele.filter((s) => !Number.isInteger(s.toreHeim)).sort((a, b) => a.datum.localeCompare(b.datum));
     const gals = [...d.galerien].sort((a, b) => b.datum.localeCompare(a.datum)).slice(0, 4);
 
@@ -420,15 +533,15 @@ const seiten = {
 
       ${unter.length ? `<div class="raster raster-unter">${unter.map(berichtKarte).join("")}</div>` : ""}
 
-      ${ligenMitSpielen.length ? `
+      ${ergFelder.length ? `
         <section class="abschnitt" aria-labelledby="erg-titel">
-          <div class="abschnitt-kopf"><h2 id="erg-titel">Ergebnisse</h2><a href="liga.html?id=${ligenMitSpielen[0].id}" id="erg-link">Tabelle und alle Spiele</a></div>
+          <div class="abschnitt-kopf"><h2 id="erg-titel">Ergebnisse</h2><a href="${ergFelder[0].href}" id="erg-link">Tabelle und alle Spiele</a></div>
           <div class="liga-reiter" role="group" aria-label="Liga wählen">
-            ${ligenMitSpielen.map((l, i) => `<button type="button" data-liga="${l.id}" aria-pressed="${i === 0}">${esc(l.kurz)}, ${letzterSpieltag(d, l.id)}. Spieltag</button>`).join("")}
+            ${ergFelder.map((f, i) => `<button type="button" data-liga="${f.l.id}" data-href="${f.href}" data-linktext="${f.l.team ? "Alle Spiele des Teams" : "Tabelle und alle Spiele"}"${f.l.team ? ' class="andere-sportart"' : ""} aria-pressed="${i === 0}">${esc(f.label)}</button>`).join("")}
           </div>
-          ${ligenMitSpielen.map((l, i) => `
-            <div class="ergebnis-streifen" data-liga-feld="${l.id}"${i === 0 ? "" : " hidden"}>
-              ${d.gespielt.filter((s) => s.liga === l.id && s.spieltag === letzterSpieltag(d, l.id)).map((s) => spielKarte(d, s)).join("")}
+          ${ergFelder.map((f, i) => `
+            <div class="ergebnis-streifen" data-liga-feld="${f.l.id}"${i === 0 ? "" : " hidden"}>
+              ${f.spiele.map((s) => spielKarte(d, s)).join("")}
             </div>`).join("")}
         </section>` : ""}
 
@@ -458,7 +571,7 @@ const seiten = {
       reiter.forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
       $$("[data-liga-feld]").forEach((f) => { f.hidden = f.dataset.ligaFeld !== b.dataset.liga; });
       const link = $("#erg-link");
-      if (link) link.href = `liga.html?id=${b.dataset.liga}`;
+      if (link) { link.href = b.dataset.href; link.textContent = b.dataset.linktext; }
     }));
   },
 
@@ -467,10 +580,10 @@ const seiten = {
       <div class="seitenkopf"><h1>Ligen</h1><p>Ergebnisse, Tabellen und Torjäger aller abgedeckten Ligen.</p></div>
       <div class="raster">
         ${d.ligen.map((l) => `
-          <a class="karte box bericht-karte" href="liga.html?id=${l.id}">
+          <a class="karte box bericht-karte" href="${l.team ? `verein.html?id=${l.team}` : `liga.html?id=${l.id}`}">
             <span class="kategorie">${esc(l.sportart)}</span>
-            <h3>${esc(l.name)}</h3>
-            <div class="datum">Saison ${esc(l.saison)}, ${d.vereine.filter((v) => v.liga === l.id).length} Vereine</div>
+            <h3>${esc(l.team ? d.verein(l.team)?.name : l.name)}</h3>
+            <div class="datum">${l.team ? `${esc(l.name)}, wir begleiten das Team` : `Saison ${esc(l.saison)}, ${d.vereine.filter((v) => v.liga === l.id).length} Vereine`}</div>
           </a>`).join("")}
       </div>`;
   },
@@ -478,6 +591,7 @@ const seiten = {
   liga(d) {
     const l = d.liga(param("id"));
     if (!l) return nichtGefunden("Liga");
+    if (l.team) { location.replace(`verein.html?id=${l.team}`); return ""; }
     document.title = `${l.name} | ${d.site.name}`;
     const tage = [...new Set(d.spiele.filter((s) => s.liga === l.id).map((s) => s.spieltag))].sort((a, b) => a - b);
     const start = aktuellerSpieltag(d, l.id);
@@ -527,6 +641,7 @@ const seiten = {
   berichte(d) {
     return `
       <div class="seitenkopf"><h1>News</h1><p>Spielberichte, Vorschauen und Geschichten aus dem Amateursport der Region.</p></div>
+      ${sportFilter(d.berichte)}
       <div class="raster">${d.berichteSortiert.map(berichtKarte).join("")}</div>`;
   },
 
@@ -560,9 +675,9 @@ const seiten = {
       <div class="seitenkopf"><h1>Vereine</h1><p>Kader, Ergebnisse und Bilder jedes Vereins.</p></div>
       ${d.ligen.map((l) => `
         <section class="abschnitt">
-          <div class="abschnitt-kopf"><h2>${esc(l.name)}</h2></div>
+          <div class="abschnitt-kopf"><h2>${l.team ? esc(l.sportart) : esc(l.name)}</h2></div>
           <div class="karte box"><ul class="liste">
-            ${d.vereine.filter((v) => v.liga === l.id).map((v) => `<li>${v.farbe ? `<span class="vereinspunkt" style="display:inline-block;margin-right:8px;background:${esc(v.farbe)}"></span>` : ""}<a href="verein.html?id=${v.id}">${esc(v.name)}</a> <span class="leise">${esc(v.ort)}</span></li>`).join("")}
+            ${d.vereine.filter((v) => (l.team ? v.id === l.team : v.liga === l.id)).map((v) => `<li>${v.farbe ? `<span class="vereinspunkt" style="display:inline-block;margin-right:8px;background:${esc(v.farbe)}"></span>` : ""}<a href="verein.html?id=${v.id}">${esc(v.name)}</a> <span class="leise">${esc(v.ort)}</span></li>`).join("")}
           </ul></div>
         </section>`).join("")}`;
   },
@@ -574,10 +689,12 @@ const seiten = {
     const spiele = d.spiele.filter((s) => s.heim === v.id || s.gast === v.id).sort((a, b) => b.datum.localeCompare(a.datum));
     const kader = d.spieler.filter((s) => s.verein === v.id).sort((a, b) => a.nummer - b.nummer);
     const gals = d.galerien.filter((g) => { const s = d.spiel(g.spiel); return s && (s.heim === v.id || s.gast === v.id); });
-    const platz = tabelle(d, v.liga).findIndex((r) => r.id === v.id) + 1;
+    const l = d.liga(v.liga);
+    const teamModus = !!l?.team, unserTeam = l?.team === v.id;
+    const platz = teamModus ? 0 : tabelle(d, v.liga).findIndex((r) => r.id === v.id) + 1;
     return `
       <div class="seitenkopf">
-        <span class="kategorie">${esc(d.liga(v.liga)?.name)}${platz ? `, Platz ${platz}` : ""}</span>
+        <span class="kategorie">${teamModus ? `${esc(l.sportart)}, ` : ""}${esc(l?.name)}${platz ? `, Platz ${platz}` : ""}</span>
         <h1>${esc(v.name)}</h1>
         ${v.ort ? `<p>${esc(v.ort)}</p>` : ""}
       </div>
@@ -586,15 +703,19 @@ const seiten = {
           <div class="abschnitt-kopf"><h2>Spiele</h2></div>
           <div class="ergebnis-streifen">${spiele.map((s) => spielKarte(d, s)).join("")}</div>
           ${gals.length ? `<div class="abschnitt"><div class="abschnitt-kopf"><h2>Galerien</h2></div><div class="raster">${gals.map(galerieKarte).join("")}</div></div>` : ""}
+          ${(() => { const ns = d.berichteSortiert.filter((b) => { const s = b.spiel && d.spiel(b.spiel); return s && (s.heim === v.id || s.gast === v.id); }); return ns.length ? `<div class="abschnitt"><div class="abschnitt-kopf"><h2>News</h2></div><div class="raster">${ns.map(berichtKarte).join("")}</div></div>` : ""; })()}
         </div>
         <aside>
+          ${teamModus && !unserTeam ? `
+            <div class="karte box"><p style="margin:0">In der ${esc(l.name)} begleiten wir die ${vereinLink(d, l.team)}. Hier stehen die Spiele gegen sie.</p></div>` : `
+          ${unserTeam ? `<div style="margin-bottom:24px">${bilanzKarte(d, l.id)}</div>` : ""}
           <div class="karte">${foto({ titel: "Mannschaftsfoto" })}</div>
           <div class="karte box" style="margin-top:24px">
             <h2>Kader</h2>
             <ul class="liste">
               ${kader.map((s) => `<li class="kader-zeile">${portraet(s, "mini")}<span class="rang">${s.nummer}</span><a href="spieler.html?id=${s.id}">${esc(s.name)}</a> <span class="leise">${esc(s.position)}</span></li>`).join("") || "<li>Kader noch nicht eingetragen.</li>"}
             </ul>
-          </div>
+          </div>`}
         </aside>
       </div>`;
   },
@@ -606,6 +727,10 @@ const seiten = {
     const eigeneTore = [];
     d.gespielt.forEach((s) => (s.tore || []).forEach((t) => { if (t.spieler === sp.id) eigeneTore.push({ s, t }); }));
     const einsaetze = d.gespielt.filter((s) => s.heim === sp.verein || s.gast === sp.verein).length;
+    const punkteSpiele = [];
+    d.gespielt.forEach((s) => (s.scorer || []).forEach((x) => { if (x.spieler === sp.id) punkteSpiele.push({ s, x }); }));
+    const mitPunkten = d.teamLiga(d.verein(sp.verein)?.liga);
+    const summe = punkteSpiele.reduce((a, { x }) => a + x.punkte, 0);
     const bilder = [];
     d.galerien.forEach((g) => g.bilder.forEach((b) => { if ((b.stichwoerter || []).includes(sp.id)) bilder.push({ g, b }); }));
     return `
@@ -616,11 +741,15 @@ const seiten = {
           <div class="rueckennummer">${sp.nummer}</div>
           <p class="leise">${esc(sp.position)}, ${vereinLink(d, sp.verein)}</p>
           <div class="werte">
-            <div><strong>${eigeneTore.length}</strong>Tore</div>
+            ${mitPunkten
+              ? `<div><strong>${summe}</strong>Punkte</div><div><strong>${punkteSpiele.length ? (summe / punkteSpiele.length).toFixed(1).replace(".", ",") : "0"}</strong>pro Spiel</div>`
+              : `<div><strong>${eigeneTore.length}</strong>Tore</div>`}
             <div><strong>${einsaetze}</strong>Spiele des Vereins</div>
           </div>
           <ul class="torliste">
-            ${eigeneTore.map(({ s, t }) => `<li><span class="min">${t.min}'</span><a class="link" href="spiel.html?id=${s.id}">${esc(d.verein(s.heim)?.kurz)} gegen ${esc(d.verein(s.gast)?.kurz)}</a> <span class="leise">${datumMittel(s.datum)}</span></li>`).join("") || "<li>Noch keine Tore.</li>"}
+            ${mitPunkten
+              ? punkteSpiele.map(({ s, x }) => `<li><span class="min">${x.punkte}</span><a class="link" href="spiel.html?id=${s.id}">${esc(d.verein(s.heim)?.kurz)} gegen ${esc(d.verein(s.gast)?.kurz)}</a> <span class="leise">${datumMittel(s.datum)}</span></li>`).join("") || "<li>Noch keine Punkte eingetragen.</li>"
+              : eigeneTore.map(({ s, t }) => `<li><span class="min">${t.min}'</span><a class="link" href="spiel.html?id=${s.id}">${esc(d.verein(s.heim)?.kurz)} gegen ${esc(d.verein(s.gast)?.kurz)}</a> <span class="leise">${datumMittel(s.datum)}</span></li>`).join("") || "<li>Noch keine Tore.</li>"}
           </ul>
         </div>
       </div>
@@ -640,9 +769,10 @@ const seiten = {
     const gal = s.galerie && d.galerie(s.galerie);
     const bericht = d.berichte.find((b) => b.spiel === s.id);
     const videos = d.videos.filter((v) => v.spiel === s.id);
+    const l = d.liga(s.liga), teamModus = !!l?.team;
+    if (teamModus) return spielTeamModus(d, s, { h, g, gespielt, gal, bericht, videos, l });
     const zh = teamZahlen(d, s.liga, s.heim), zg = teamZahlen(d, s.liga, s.gast);
 
-    const formPunkte = (f) => f.length ? `<span class="form">${f.map((x) => `<span class="f-${x}" title="${x === "S" ? "Sieg" : x === "N" ? "Niederlage" : "Unentschieden"}">${x}</span>`).join("")}</span>` : "–";
     const vergleich = `
       <div class="karte vergleich">
         <div class="v-kopf"><span>${esc(h?.kurz)}</span><h2>Vergleich</h2><span>${esc(g?.kurz)}</span></div>
@@ -706,6 +836,7 @@ const seiten = {
     const gals = [...d.galerien].sort((a, b) => b.datum.localeCompare(a.datum));
     return `
       <div class="seitenkopf"><h1>Bilder</h1><p>Galerien von jedem Spiel, bei dem wir vor Ort waren. Vereine dürfen die Bilder auf ihren offiziellen Kanälen nutzen, wenn sie uns markieren.</p></div>
+      ${sportFilter(gals)}
       <div class="raster vier">${gals.map(galerieKarte).join("")}</div>`;
   },
 
@@ -754,6 +885,7 @@ const seiten = {
     const typen = [...new Set(d.videos.map((v) => v.typ))];
     return `
       <div class="seitenkopf"><h1>Highlights</h1><p>Tore, Szenen und Spieltage im Video.</p></div>
+      ${sportFilter(d.videos)}
       ${typen.map((t) => `
         <section class="abschnitt">
           <div class="abschnitt-kopf"><h2>${t === "Tor" ? "Einzelne Tore" : t === "Spieltag" ? "Spieltag in 30 Sekunden" : "Spiel-Highlights"}</h2></div>
@@ -817,6 +949,50 @@ const seiten = {
   statisch() { return null; }
 };
 
+// Spielseite für Sportarten, bei denen wir nur ein Team begleiten
+function spielTeamModus(d, s, { h, g, gespielt, gal, bericht, videos, l }) {
+  const team = d.verein(l.team);
+  const b = bilanz(d, l.id);
+  return `
+    <div class="seitenkopf"><span class="kategorie">${esc(l.sportart)}, ${esc(l.name)}</span><p>${datumLang(s.datum)}, ${esc(s.anstoss)} Uhr</p></div>
+    <div class="spielkopf">
+      <div class="team"><a href="verein.html?id=${h?.id}">${esc(h?.name)}</a></div>
+      <span class="stand${gespielt ? "" : " offen"}">${gespielt ? `${s.toreHeim}:${s.toreGast}` : esc(s.anstoss)}</span>
+      <div class="team"><a href="verein.html?id=${g?.id}">${esc(g?.name)}</a></div>
+    </div>
+    ${gespielt && s.abschnitte?.length ? `<div class="karte verlauf-karte tabelle-wrap">${abschnittTabelle(d, s)}</div>` : ""}
+    <div class="zwei abschnitt">
+      <div>
+        ${gespielt ? `
+          ${s.bericht ? `<div class="abschnitt-kopf"><h2>Kurzbericht</h2></div><p style="font-size:19px;margin:0 0 12px">${esc(s.bericht)}</p>` : ""}
+          ${bericht ? `<p><a class="link" href="bericht.html?id=${bericht.id}">Zum ausführlichen Bericht</a></p>` : ""}
+        ` : `
+          <div class="abschnitt-kopf"><h2>Vorschau</h2></div>
+          ${bericht ? `<a class="karte bericht-zeile" href="bericht.html?id=${bericht.id}"><span class="kategorie rot">${esc(bericht.kategorie)}</span><h3>${esc(bericht.titel)}</h3><p class="leise">${esc(bericht.teaser)}</p></a>` : ""}
+          <div class="karte">
+            <div class="spieltag-kopf"><h2 style="font-size:20px">Letzte Spiele ${esc(team?.kurz)}</h2></div>
+            <div class="spiel-liste">${b.spiele.slice(0, 5).map((x) => spielZeile(d, x)).join("") || `<p class="leise" style="padding:0 20px 16px">Noch keine Spiele.</p>`}</div>
+          </div>
+        `}
+        ${videos.length ? `
+          <div class="abschnitt">
+            <div class="abschnitt-kopf"><h2>Videos</h2></div>
+            <div class="raster zwei-spalten">${videos.map(videoKarte).join("")}</div>
+          </div>` : ""}
+        ${gal ? `
+          <div class="abschnitt">
+            <div class="abschnitt-kopf"><h2>Bilder</h2><a href="galerie.html?id=${gal.id}">Alle ${gal.bilder.length} Bilder</a></div>
+            <div class="bilderraster">${gal.bilder.slice(0, 3).map((x) => `<figure>${foto(x)}<figcaption>${esc(x.titel)}</figcaption></figure>`).join("")}</div>
+          </div>` : ""}
+      </div>
+      <aside>
+        ${gespielt ? scorerListe(d, s) : ""}
+        <div style="margin-top:24px">${bilanzKarte(d, l.id)}</div>
+        <p style="margin-top:16px"><a class="link" href="verein.html?id=${team?.id}">Alle Spiele der ${esc(team?.name)}</a></p>
+      </aside>
+    </div>`;
+}
+
 function nichtGefunden(was) {
   return `<div class="seitenkopf"><h1>${was} nicht gefunden</h1><p>Der Link ist veraltet oder falsch. <a class="link" href="index.html">Zur Startseite</a></p></div>`;
 }
@@ -833,6 +1009,7 @@ function nichtGefunden(was) {
     if (html !== null) ziel.innerHTML = html;
     if (seite === "start") seiten.nachStart();
     if (seite === "liga") seiten.nachLiga();
+    sportFilterAktivieren();
     if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();
   } catch (e) {
     ziel.innerHTML = `<p class="fehler">Die Daten konnten nicht geladen werden (${esc(e.message)}). Die Seite muss über einen Webserver laufen, nicht als Datei.</p>`;

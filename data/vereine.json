@@ -590,5 +590,61 @@
   "ort": "",
   "liga": "kreisliga-b2-oberschwaben",
   "farbe": ""
+ },
+ {
+  "id": "sigmaringen-deers",
+  "name": "Sigmaringen Deers",
+  "kurz": "Deers",
+  "ort": "",
+  "liga": "basketball-oberliga",
+  "farbe": ""
+ },
+ {
+  "id": "bb-tsv-ehingen",
+  "name": "TSV Ehingen",
+  "kurz": "Ehingen",
+  "ort": "",
+  "liga": "basketball-oberliga",
+  "farbe": ""
+ },
+ {
+  "id": "bb-tv-ravensburg",
+  "name": "TV Ravensburg",
+  "kurz": "Ravensburg",
+  "ort": "",
+  "liga": "basketball-oberliga",
+  "farbe": ""
+ },
+ {
+  "id": "bb-bg-tuttlingen",
+  "name": "BG Tuttlingen",
+  "kurz": "Tuttlingen",
+  "ort": "",
+  "liga": "basketball-oberliga",
+  "farbe": ""
+ },
+ {
+  "id": "sigmaringen-hornets",
+  "name": "Sigmaringen Hornets",
+  "kurz": "Hornets",
+  "ort": "",
+  "liga": "football-landesliga",
+  "farbe": ""
+ },
+ {
+  "id": "af-biberach-bulls",
+  "name": "Biberach Bulls",
+  "kurz": "Biberach",
+  "ort": "",
+  "liga": "football-landesliga",
+  "farbe": ""
+ },
+ {
+  "id": "af-albstadt-titans",
+  "name": "Albstadt Titans",
+  "kurz": "Albstadt",
+  "ort": "",
+  "liga": "football-landesliga",
+  "farbe": ""
  }
 ]

@@ -593,3 +593,29 @@ td a:hover { color: var(--blau); }
   .torverlauf .tor-text { font-size: 14px; gap: 5px; }
   .verlauf-karte { padding: 14px 10px; }
 }
+
+/* ---------- Weitere Sportarten ---------- */
+.ausklapp .gruppe {
+  padding: 12px 18px 4px; font-size: 13px; font-weight: 600; color: var(--leise);
+  border-top: 1px solid var(--linie); margin-top: 6px;
+}
+.ausklapp .gruppe:first-child { border-top: 0; margin-top: 0; padding-top: 6px; }
+.sport-marke { color: var(--blau); font-weight: 600; margin-right: 4px; }
+.sport-filter { margin: 4px 0 28px; }
+.abschnitte { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.abschnitte th, .abschnitte td { padding: 8px 10px; text-align: center; font-size: 15px; }
+.abschnitte thead th { font-size: 13px; font-weight: 500; color: var(--leise); border-bottom: 1px solid var(--linie); }
+.abschnitte .name { text-align: left; font-weight: 600; white-space: nowrap; }
+.abschnitte thead .name { font-weight: 500; }
+.abschnitte td { font-family: var(--zahl); font-size: 17px; }
+.abschnitte .gesamt { font-weight: 700; font-size: 20px; color: var(--blau-tief); }
+.abschnitte tbody tr + tr td, .abschnitte tbody tr + tr th { border-top: 1px solid var(--linie); }
+.bilanz .werte { margin: 10px 0 14px; }
+@media (max-width: 560px) {
+  .abschnitte th, .abschnitte td { padding: 6px 5px; font-size: 14px; }
+  .abschnitte td { font-size: 15px; }
+}
+.abschnitte th, .abschnitte td { background: none; }
+.abschnitte .name { width: 40%; }
+.abschnitte tbody .name { color: var(--tinte); font-size: 16px; }
+.abschnitte tbody tr:last-child > * { border-bottom: 0; }

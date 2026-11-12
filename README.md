@@ -49,3 +49,13 @@ Dann `http://localhost:8000` im Browser.
 - Impressum und Datenschutzerklärung ausfüllen
 - Bilder: verkleinerte JPGs in Cloudflare R2, Originale offline archivieren
 - Schriften (Barlow, SIL Open Font License) liegen lokal in `assets/fonts`, es werden keine Google-Server abgefragt
+
+## Weitere Sportarten (Team-Begleitung)
+
+Bei Sportarten neben Fußball begleiten wir meist nur ein Team, nicht die ganze Liga.
+
+- `ligen.json`: Liga mit `"sportart"` (z. B. "Basketball") und `"team"` (ID des begleiteten Teams) anlegen. Optional `"tabelleLink"` (Tabelle beim Verband) und `"hinweis"` (z. B. Saisonpause).
+- `vereine.json`: das Team und die Gegner mit dieser Liga eintragen. Gegner bekommen eine eigene Seite mit den Spielen gegen unser Team.
+- `spiele.json`: wie bei Fußball, `toreHeim`/`toreGast` ist der Endstand. Dazu optional `"abschnitte"` (Viertel oder Halbzeiten, z. B. `[[18,20],[22,15],[16,21],[22,15]]`) und `"scorer"` (`[{"spieler": "id", "punkte": 24}]`). Kein `spieltag` nötig.
+- News, Videos und Galerien erben die Sportart über ihr Spiel. Sie bekommen automatisch ein Etikett, und auf News, Highlights und Bilder erscheinen Filter, sobald es mehr als eine Sportart gibt.
+- Auf der Startseite erscheint die Sportart als eigener Ergebnis-Reiter nur, wenn das Team am selben Wochenende wie der Fußball gespielt hat.

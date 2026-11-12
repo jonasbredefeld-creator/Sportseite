@@ -142,5 +142,45 @@
   "position": "Sturm",
   "nummer": 9,
   "bild": ""
+ },
+ {
+  "id": "kevin-hartmann",
+  "name": "Kevin Hartmann",
+  "verein": "sigmaringen-deers",
+  "position": "Guard",
+  "nummer": 7,
+  "bild": ""
+ },
+ {
+  "id": "luca-brenner",
+  "name": "Luca Brenner",
+  "verein": "sigmaringen-deers",
+  "position": "Forward",
+  "nummer": 11,
+  "bild": ""
+ },
+ {
+  "id": "marvin-seitz",
+  "name": "Marvin Seitz",
+  "verein": "sigmaringen-deers",
+  "position": "Center",
+  "nummer": 15,
+  "bild": ""
+ },
+ {
+  "id": "niklas-fritz",
+  "name": "Niklas Fritz",
+  "verein": "sigmaringen-hornets",
+  "position": "Quarterback",
+  "nummer": 12,
+  "bild": ""
+ },
+ {
+  "id": "samuel-keck",
+  "name": "Samuel Keck",
+  "verein": "sigmaringen-hornets",
+  "position": "Running Back",
+  "nummer": 23,
+  "bild": ""
  }
 ]
