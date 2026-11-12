@@ -1,68 +1,83 @@
 [
-  {
-    "id": "wiest-rettet-sigmaringen",
-    "kategorie": "Bezirksliga",
-    "liga": "bezirksliga-oberschwaben",
-    "spiel": "bzl-13-sigmaringen-ummendorf",
-    "datum": "2026-11-08",
-    "haupt": true,
-    "titel": "Kopfball in der 88. Minute: Wiest rettet Sigmaringen einen Punkt",
-    "teaser": "Zweimal lag der SV hinten, zweimal kam er zurück. Am Ende feiert die Gegengerade einen Innenverteidiger.",
-    "text": [
-      "Jan Roth hatte die SGM Ummendorf/Fischbach früh in Führung gebracht und nach einer Stunde erneut getroffen. Sigmaringen hielt dagegen: Marco Stehle glich vor der Pause aus, und als viele Zuschauer schon auf dem Weg zum Parkplatz waren, stieg Felix Wiest nach einer Ecke am höchsten.",
-      "Mit dem 2:2 bleibt Sigmaringen in Schlagdistanz zur Spitze. Ummendorf verpasst es, näher an Tabellenführer Mengen heranzurücken."
-    ],
-    "bild": { "src": "", "titel": "Felix Wiest köpft zum 2:2" }
-  },
-  {
-    "id": "mengen-bleibt-oben",
-    "kategorie": "Bezirksliga",
-    "liga": "bezirksliga-oberschwaben",
-    "spiel": "bzl-13-krauchenwies-mengen",
-    "datum": "2026-11-08",
-    "titel": "Berger trifft doppelt, Mengen bleibt oben",
-    "teaser": "Der Spitzenreiter gewinnt in Krauchenwies mit 3:1 und baut seinen Vorsprung aus.",
-    "text": [
-      "Lukas Berger brachte den FC Mengen nach einer Viertelstunde in Führung. Nico Baur glich kurz vor der Pause aus, doch nach dem Wechsel war Mengen klar überlegen. Berger und Tim Hagel stellten den Sieg sicher."
-    ],
-    "bild": { "src": "", "titel": "Lukas Berger jubelt" }
-  },
-  {
-    "id": "lutz-dreierpack-laiz",
-    "kategorie": "Kreisliga A",
-    "liga": "kreisliga-a1-oberschwaben",
-    "spiel": "kla-12-laiz-inzigkofen",
-    "datum": "2026-11-08",
-    "titel": "Dreierpack im Derby: Lutz schießt Laiz zum Sieg",
-    "teaser": "Inzigkofen hält bis zur Pause mit, danach gehört das Derby der kurzen Wege dem FC Laiz.",
-    "text": [
-      "Kevin Lutz traf früh, Max Seeger glich aus. Nach der Pause machte Lutz mit zwei weiteren Treffern alles klar."
-    ],
-    "bild": { "src": "", "titel": "Kevin Lutz zum 3:1" }
-  },
-  {
-    "id": "topspiel-mengen-ummendorf",
-    "kategorie": "Vorschau",
-    "liga": "bezirksliga-oberschwaben",
-    "spiel": "bzl-14-mengen-ummendorf",
-    "datum": "2026-11-12",
-    "titel": "Erster gegen Verfolger: Mengen empfängt Ummendorf",
-    "teaser": "Am Sonntag steigt das Topspiel der Bezirksliga. Ummendorf kann mit einem Sieg ganz nah heranrücken.",
-    "text": [
-      "Der FC Mengen geht als Tabellenführer ins Spitzenspiel gegen die SGM Ummendorf/Fischbach. Torjäger Jan Roth trifft dabei auf die beste Abwehr der Liga. Anstoß ist am Sonntag um 14:30 Uhr."
-    ],
-    "bild": { "src": "", "titel": "Vorschau Topspiel" }
-  },
-  {
-    "id": "trainerwechsel-uttenweiler",
-    "kategorie": "Wechsel",
-    "liga": "bezirksliga-oberschwaben",
-    "datum": "2026-11-10",
-    "titel": "Uttenweiler stellt sich an der Seitenlinie neu auf",
-    "teaser": "Zur Rückrunde gibt es beim SV Uttenweiler einen neuen Cheftrainer.",
-    "text": [
-      "Nach einer schwierigen Hinrunde setzt der SV Uttenweiler auf einen Neuanfang. Der neue Trainer übernimmt mit Beginn der Wintervorbereitung."
-    ],
-    "bild": { "src": "", "titel": "Trainerwechsel" }
+ {
+  "id": "wiest-rettet-sigmaringen",
+  "kategorie": "Bezirksliga",
+  "liga": "bezirksliga-oberschwaben",
+  "spiel": "bzl-13-sigmaringen-ostrach",
+  "datum": "2026-11-08",
+  "haupt": true,
+  "titel": "Kopfball in der 88. Minute: Wiest rettet Sigmaringen einen Punkt",
+  "teaser": "Zweimal lag der SV hinten, zweimal kam er zurück. Am Ende feiert die Gegengerade einen Innenverteidiger.",
+  "text": [
+   "Nico Baur hatte den FC Ostrach früh in Führung gebracht, nach einer Stunde legten die Gäste erneut vor. Sigmaringen hielt dagegen: Marco Stehle glich vor der Pause aus, und als viele Zuschauer schon auf dem Weg zum Parkplatz waren, stieg Felix Wiest nach einer Ecke am höchsten.",
+   "Mit dem 2:2 bleibt Sigmaringen in Schlagdistanz zum oberen Tabellendrittel."
+  ],
+  "bild": {
+   "src": "",
+   "titel": "Felix Wiest köpft zum 2:2"
   }
+ },
+ {
+  "id": "mengen-bleibt-oben",
+  "kategorie": "Landesliga",
+  "liga": "landesliga-4",
+  "spiel": "ll-13-mengen-riedlingen",
+  "datum": "2026-11-08",
+  "titel": "Berger trifft doppelt, Mengen schlägt Riedlingen",
+  "teaser": "Der FC Mengen gewinnt das Oberschwaben-Duell in der Landesliga mit 3:1.",
+  "text": [
+   "Lukas Berger brachte den FC Mengen nach einer Viertelstunde in Führung. Luca Wahl glich kurz vor der Pause aus, doch nach dem Wechsel war Mengen klar überlegen. Berger und Tim Hagel stellten den Sieg sicher."
+  ],
+  "bild": {
+   "src": "",
+   "titel": "Lukas Berger jubelt"
+  }
+ },
+ {
+  "id": "lutz-dreierpack-laiz",
+  "kategorie": "Kreisliga A1",
+  "liga": "kreisliga-a1-oberschwaben",
+  "spiel": "kla-13-laiz-sigmaringendorf",
+  "datum": "2026-11-08",
+  "titel": "Dreierpack im Derby: Lutz schießt Laiz zum Sieg",
+  "teaser": "Sigmaringendorf hält bis zur Pause mit, danach gehört das Derby der kurzen Wege der SGM Laiz.",
+  "text": [
+   "Kevin Lutz traf früh, Max Seeger glich aus. Nach der Pause machte Lutz mit zwei weiteren Treffern alles klar."
+  ],
+  "bild": {
+   "src": "",
+   "titel": "Kevin Lutz zum 3:1"
+  }
+ },
+ {
+  "id": "topspiel-mengen-ummendorf",
+  "kategorie": "Vorschau",
+  "liga": "landesliga-4",
+  "spiel": "ll-14-mengen-ummendorf",
+  "datum": "2026-11-12",
+  "titel": "Oberschwaben-Duell: Mengen empfängt Ummendorf",
+  "teaser": "Am Sonntag steigt in der Landesliga das Spiel zweier Oberschwaben-Teams.",
+  "text": [
+   "Der FC Mengen trifft am Sonntag auf den TSV Ummendorf. Anstoß ist um 14:30 Uhr."
+  ],
+  "bild": {
+   "src": "",
+   "titel": "Vorschau"
+  }
+ },
+ {
+  "id": "trainerwechsel-hohentengen",
+  "kategorie": "Wechsel",
+  "liga": "bezirksliga-oberschwaben",
+  "datum": "2026-11-10",
+  "titel": "Neuer Trainer für die Rückrunde",
+  "teaser": "Beim SV Hohentengen übernimmt zur Wintervorbereitung ein neuer Cheftrainer.",
+  "text": [
+   "Der neue Trainer übernimmt mit Beginn der Wintervorbereitung."
+  ],
+  "bild": {
+   "src": "",
+   "titel": "Trainerwechsel"
+  }
+ }
 ]

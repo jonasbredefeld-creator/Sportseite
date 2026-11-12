@@ -1,135 +1,1420 @@
 [
-  {
-    "id": "bzl-12-mengen-sigmaringen",
-    "liga": "bezirksliga-oberschwaben", "spieltag": 12, "datum": "2026-11-01", "anstoss": "14:30",
-    "heim": "fc-mengen", "gast": "sv-sigmaringen", "toreHeim": 2, "toreGast": 1,
-    "tore": [
-      { "min": 23, "spieler": "lukas-berger", "verein": "fc-mengen" },
-      { "min": 51, "spieler": "marco-stehle", "verein": "sv-sigmaringen" },
-      { "min": 84, "spieler": "tim-hagel", "verein": "fc-mengen" }
-    ],
-    "bericht": "Mengen macht im Topspiel spät alles klar. Nach Bergers Führung glich Stehle kurz nach der Pause aus, ehe Hagel sechs Minuten vor Schluss aus 18 Metern traf.",
-    "galerie": "gal-mengen-sigmaringen"
-  },
-  {
-    "id": "bzl-12-ummendorf-krauchenwies",
-    "liga": "bezirksliga-oberschwaben", "spieltag": 12, "datum": "2026-11-01", "anstoss": "14:30",
-    "heim": "sgm-ummendorf-fischbach", "gast": "fc-krauchenwies-hausen", "toreHeim": 3, "toreGast": 0,
-    "tore": [
-      { "min": 12, "spieler": "jan-roth", "verein": "sgm-ummendorf-fischbach" },
-      { "min": 40, "spieler": "jan-roth", "verein": "sgm-ummendorf-fischbach" },
-      { "min": 77, "spieler": "jan-roth", "verein": "sgm-ummendorf-fischbach" }
-    ],
-    "bericht": "Jan Roth schnürt einen Dreierpack. Krauchenwies hielt eine halbe Stunde dagegen, nach dem 2:0 vor der Pause war das Spiel entschieden."
-  },
-  {
-    "id": "bzl-12-hohentengen-saulgau",
-    "liga": "bezirksliga-oberschwaben", "spieltag": 12, "datum": "2026-11-01", "anstoss": "14:30",
-    "heim": "sv-hohentengen", "gast": "fv-bad-saulgau", "toreHeim": 1, "toreGast": 1,
-    "tore": [
-      { "min": 34, "spieler": "simon-frick", "verein": "fv-bad-saulgau" },
-      { "min": 69, "spieler": "david-kessler", "verein": "sv-hohentengen" }
-    ],
-    "bericht": "Gerechtes Remis im Derby. Frick brachte die Gäste per Freistoß in Führung, Kessler köpfte nach einer Ecke zum Ausgleich ein."
-  },
-  {
-    "id": "bzl-12-uttenweiler-ochsenhausen",
-    "liga": "bezirksliga-oberschwaben", "spieltag": 12, "datum": "2026-11-01", "anstoss": "14:30",
-    "heim": "sv-uttenweiler", "gast": "sv-ochsenhausen", "toreHeim": 0, "toreGast": 2,
-    "tore": [
-      { "min": 55, "spieler": "jonas-heim", "verein": "sv-ochsenhausen" },
-      { "min": 90, "spieler": "jonas-heim", "verein": "sv-ochsenhausen" }
-    ],
-    "bericht": "Ochsenhausen gewinnt ein zähes Spiel durch zwei Tore von Jonas Heim. Uttenweiler blieb vorne zu harmlos."
-  },
-  {
-    "id": "bzl-13-sigmaringen-ummendorf",
-    "liga": "bezirksliga-oberschwaben", "spieltag": 13, "datum": "2026-11-08", "anstoss": "14:30",
-    "heim": "sv-sigmaringen", "gast": "sgm-ummendorf-fischbach", "toreHeim": 2, "toreGast": 2,
-    "tore": [
-      { "min": 8, "spieler": "jan-roth", "verein": "sgm-ummendorf-fischbach" },
-      { "min": 30, "spieler": "marco-stehle", "verein": "sv-sigmaringen" },
-      { "min": 62, "spieler": "jan-roth", "verein": "sgm-ummendorf-fischbach" },
-      { "min": 88, "spieler": "felix-wiest", "verein": "sv-sigmaringen" }
-    ],
-    "bericht": "Sigmaringen rettet spät einen Punkt. Innenverteidiger Wiest traf nach einer Ecke zum 2:2 und sorgte für Jubel auf der Gegengerade.",
-    "galerie": "gal-sigmaringen-ummendorf"
-  },
-  {
-    "id": "bzl-13-krauchenwies-mengen",
-    "liga": "bezirksliga-oberschwaben", "spieltag": 13, "datum": "2026-11-08", "anstoss": "14:30",
-    "heim": "fc-krauchenwies-hausen", "gast": "fc-mengen", "toreHeim": 1, "toreGast": 3,
-    "tore": [
-      { "min": 15, "spieler": "lukas-berger", "verein": "fc-mengen" },
-      { "min": 44, "spieler": "nico-baur", "verein": "fc-krauchenwies-hausen" },
-      { "min": 58, "spieler": "lukas-berger", "verein": "fc-mengen" },
-      { "min": 81, "spieler": "tim-hagel", "verein": "fc-mengen" }
-    ],
-    "bericht": "Der Spitzenreiter bleibt souverän. Berger traf doppelt, Krauchenwies kam nur kurz vor der Pause durch Baur zurück."
-  },
-  {
-    "id": "bzl-13-saulgau-uttenweiler",
-    "liga": "bezirksliga-oberschwaben", "spieltag": 13, "datum": "2026-11-08", "anstoss": "14:30",
-    "heim": "fv-bad-saulgau", "gast": "sv-uttenweiler", "toreHeim": 2, "toreGast": 0,
-    "tore": [
-      { "min": 27, "spieler": "simon-frick", "verein": "fv-bad-saulgau" },
-      { "min": 73, "spieler": "simon-frick", "verein": "fv-bad-saulgau" }
-    ],
-    "bericht": "Bad Saulgau gewinnt verdient. Kapitän Frick war an beiden Treffern direkt beteiligt und traf selbst doppelt."
-  },
-  {
-    "id": "bzl-13-ochsenhausen-hohentengen",
-    "liga": "bezirksliga-oberschwaben", "spieltag": 13, "datum": "2026-11-08", "anstoss": "14:30",
-    "heim": "sv-ochsenhausen", "gast": "sv-hohentengen", "toreHeim": 1, "toreGast": 2,
-    "tore": [
-      { "min": 20, "spieler": "david-kessler", "verein": "sv-hohentengen" },
-      { "min": 49, "spieler": "jonas-heim", "verein": "sv-ochsenhausen" },
-      { "min": 86, "spieler": "david-kessler", "verein": "sv-hohentengen" }
-    ],
-    "bericht": "Kessler entscheidet das Spiel in der Schlussphase. Hohentengen nimmt drei Punkte aus Ochsenhausen mit."
-  },
-  {
-    "id": "kla-12-laiz-inzigkofen",
-    "liga": "kreisliga-a1-oberschwaben", "spieltag": 12, "datum": "2026-11-08", "anstoss": "14:30",
-    "heim": "fc-laiz", "gast": "fc-inzigkofen", "toreHeim": 3, "toreGast": 1,
-    "tore": [
-      { "min": 11, "spieler": "kevin-lutz", "verein": "fc-laiz" },
-      { "min": 39, "spieler": "max-seeger", "verein": "fc-inzigkofen" },
-      { "min": 60, "spieler": "kevin-lutz", "verein": "fc-laiz" },
-      { "min": 75, "spieler": "kevin-lutz", "verein": "fc-laiz" }
-    ],
-    "bericht": "Derby der kurzen Wege an Laiz. Kevin Lutz trifft dreimal, Inzigkofen hielt nur bis zur Pause mit.",
-    "galerie": "gal-laiz-inzigkofen"
-  },
-  {
-    "id": "kla-12-sigmaringendorf-hundersingen",
-    "liga": "kreisliga-a1-oberschwaben", "spieltag": 12, "datum": "2026-11-08", "anstoss": "14:30",
-    "heim": "tsv-sigmaringendorf", "gast": "sv-hundersingen", "toreHeim": 1, "toreGast": 2,
-    "tore": [
-      { "min": 33, "spieler": "luca-wahl", "verein": "sv-hundersingen" },
-      { "min": 52, "spieler": "robin-gerster", "verein": "tsv-sigmaringendorf" },
-      { "min": 90, "spieler": "luca-wahl", "verein": "sv-hundersingen" }
-    ],
-    "bericht": "Hundersingen gewinnt mit dem letzten Angriff. Wahl traf in der Nachspielzeit zum 2:1."
-  },
-  {
-    "id": "bzl-14-mengen-ummendorf",
-    "liga": "bezirksliga-oberschwaben", "spieltag": 14, "datum": "2026-11-15", "anstoss": "14:30",
-    "heim": "fc-mengen", "gast": "sgm-ummendorf-fischbach", "topspiel": true
-  },
-  {
-    "id": "bzl-14-hohentengen-sigmaringen",
-    "liga": "bezirksliga-oberschwaben", "spieltag": 14, "datum": "2026-11-15", "anstoss": "14:30",
-    "heim": "sv-hohentengen", "gast": "sv-sigmaringen"
-  },
-  {
-    "id": "bzl-14-uttenweiler-krauchenwies",
-    "liga": "bezirksliga-oberschwaben", "spieltag": 14, "datum": "2026-11-15", "anstoss": "14:30",
-    "heim": "sv-uttenweiler", "gast": "fc-krauchenwies-hausen"
-  },
-  {
-    "id": "bzl-14-ochsenhausen-saulgau",
-    "liga": "bezirksliga-oberschwaben", "spieltag": 14, "datum": "2026-11-15", "anstoss": "14:30",
-    "heim": "sv-ochsenhausen", "gast": "fv-bad-saulgau"
-  }
+ {
+  "id": "ll-12-neu-ulm-reinstetten",
+  "liga": "landesliga-4",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "tsv-neu-ulm",
+  "gast": "sv-reinstetten",
+  "toreHeim": 1,
+  "toreGast": 0,
+  "tore": []
+ },
+ {
+  "id": "ll-12-ehingen-sued-olympia-laupheim",
+  "liga": "landesliga-4",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "ssv-ehingen-sued",
+  "gast": "fv-olympia-laupheim",
+  "toreHeim": 3,
+  "toreGast": 1,
+  "tore": []
+ },
+ {
+  "id": "ll-12-buch-tuerkguecue-ulm",
+  "liga": "landesliga-4",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "tsv-buch",
+  "gast": "sc-tuerkguecue-ulm",
+  "toreHeim": 3,
+  "toreGast": 2,
+  "tore": []
+ },
+ {
+  "id": "ll-12-blaubeuren-mietingen",
+  "liga": "landesliga-4",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "fc-blaubeuren",
+  "gast": "sv-mietingen",
+  "toreHeim": 1,
+  "toreGast": 1,
+  "tore": []
+ },
+ {
+  "id": "ll-12-mengen-wangen",
+  "liga": "landesliga-4",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "fc-mengen",
+  "gast": "fc-wangen",
+  "toreHeim": 1,
+  "toreGast": 2,
+  "tore": [
+   {
+    "min": 31,
+    "spieler": "daniel-moser",
+    "verein": "fc-mengen"
+   }
+  ]
+ },
+ {
+  "id": "ll-12-riedlingen-rot-weiss-weiler",
+  "liga": "landesliga-4",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "tsv-riedlingen",
+  "gast": "fv-rot-weiss-weiler",
+  "toreHeim": 2,
+  "toreGast": 1,
+  "tore": [
+   {
+    "min": 27,
+    "spieler": "luca-wahl",
+    "verein": "tsv-riedlingen"
+   },
+   {
+    "min": 69,
+    "spieler": "luca-wahl",
+    "verein": "tsv-riedlingen"
+   }
+  ]
+ },
+ {
+  "id": "ll-12-heimenkirch-ummendorf",
+  "liga": "landesliga-4",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "tsv-heimenkirch",
+  "gast": "tsv-ummendorf",
+  "toreHeim": 2,
+  "toreGast": 2,
+  "tore": [
+   {
+    "min": 17,
+    "spieler": "jan-roth",
+    "verein": "tsv-ummendorf"
+   },
+   {
+    "min": 90,
+    "spieler": "jan-roth",
+    "verein": "tsv-ummendorf"
+   }
+  ]
+ },
+ {
+  "id": "ll-12-eschach-ulm",
+  "liga": "landesliga-4",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "tsv-eschach",
+  "gast": "ssg-ulm",
+  "toreHeim": 1,
+  "toreGast": 1,
+  "tore": []
+ },
+ {
+  "id": "ll-13-mengen-riedlingen",
+  "liga": "landesliga-4",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "fc-mengen",
+  "gast": "tsv-riedlingen",
+  "toreHeim": 3,
+  "toreGast": 1,
+  "bericht": "Mengen bleibt oben. Berger trifft doppelt, Riedlingen kam nur kurz vor der Pause durch Wahl zurück.",
+  "tore": [
+   {
+    "min": 15,
+    "spieler": "lukas-berger",
+    "verein": "fc-mengen"
+   },
+   {
+    "min": 44,
+    "spieler": "luca-wahl",
+    "verein": "tsv-riedlingen"
+   },
+   {
+    "min": 58,
+    "spieler": "lukas-berger",
+    "verein": "fc-mengen"
+   },
+   {
+    "min": 81,
+    "spieler": "tim-hagel",
+    "verein": "fc-mengen"
+   }
+  ],
+  "galerie": "gal-mengen-riedlingen"
+ },
+ {
+  "id": "ll-13-wangen-mietingen",
+  "liga": "landesliga-4",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "fc-wangen",
+  "gast": "sv-mietingen",
+  "toreHeim": 3,
+  "toreGast": 1,
+  "tore": []
+ },
+ {
+  "id": "ll-13-tuerkguecue-ulm-buch",
+  "liga": "landesliga-4",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "sc-tuerkguecue-ulm",
+  "gast": "tsv-buch",
+  "toreHeim": 1,
+  "toreGast": 0,
+  "tore": []
+ },
+ {
+  "id": "ll-13-ehingen-sued-blaubeuren",
+  "liga": "landesliga-4",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "ssv-ehingen-sued",
+  "gast": "fc-blaubeuren",
+  "toreHeim": 1,
+  "toreGast": 2,
+  "tore": []
+ },
+ {
+  "id": "ll-13-olympia-laupheim-eschach",
+  "liga": "landesliga-4",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "fv-olympia-laupheim",
+  "gast": "tsv-eschach",
+  "toreHeim": 3,
+  "toreGast": 1,
+  "tore": []
+ },
+ {
+  "id": "ll-13-neu-ulm-ummendorf",
+  "liga": "landesliga-4",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "tsv-neu-ulm",
+  "gast": "tsv-ummendorf",
+  "toreHeim": 1,
+  "toreGast": 0,
+  "tore": []
+ },
+ {
+  "id": "ll-13-rot-weiss-weiler-reinstetten",
+  "liga": "landesliga-4",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "fv-rot-weiss-weiler",
+  "gast": "sv-reinstetten",
+  "toreHeim": 1,
+  "toreGast": 2,
+  "tore": []
+ },
+ {
+  "id": "ll-13-ulm-heimenkirch",
+  "liga": "landesliga-4",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "ssg-ulm",
+  "gast": "tsv-heimenkirch",
+  "toreHeim": 2,
+  "toreGast": 1,
+  "tore": []
+ },
+ {
+  "id": "ll-14-mengen-ummendorf",
+  "liga": "landesliga-4",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "fc-mengen",
+  "gast": "tsv-ummendorf",
+  "topspiel": true
+ },
+ {
+  "id": "ll-14-riedlingen-reinstetten",
+  "liga": "landesliga-4",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "tsv-riedlingen",
+  "gast": "sv-reinstetten"
+ },
+ {
+  "id": "ll-14-eschach-heimenkirch",
+  "liga": "landesliga-4",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "tsv-eschach",
+  "gast": "tsv-heimenkirch"
+ },
+ {
+  "id": "ll-14-blaubeuren-mietingen",
+  "liga": "landesliga-4",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "fc-blaubeuren",
+  "gast": "sv-mietingen"
+ },
+ {
+  "id": "ll-14-neu-ulm-tuerkguecue-ulm",
+  "liga": "landesliga-4",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "tsv-neu-ulm",
+  "gast": "sc-tuerkguecue-ulm"
+ },
+ {
+  "id": "ll-14-ehingen-sued-buch",
+  "liga": "landesliga-4",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "ssv-ehingen-sued",
+  "gast": "tsv-buch"
+ },
+ {
+  "id": "ll-14-rot-weiss-weiler-ulm",
+  "liga": "landesliga-4",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "fv-rot-weiss-weiler",
+  "gast": "ssg-ulm"
+ },
+ {
+  "id": "ll-14-olympia-laupheim-wangen",
+  "liga": "landesliga-4",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "fv-olympia-laupheim",
+  "gast": "fc-wangen"
+ },
+ {
+  "id": "bzl-12-krauchenwies-biberach",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "fc-1911-krauchenwies-hausen-a-a-goeggingen-i",
+  "gast": "fv-biberach",
+  "toreHeim": 0,
+  "toreGast": 2,
+  "tore": [
+   {
+    "min": 42,
+    "spieler": "paul-mayer",
+    "verein": "fv-biberach"
+   },
+   {
+    "min": 46,
+    "spieler": "paul-mayer",
+    "verein": "fv-biberach"
+   }
+  ]
+ },
+ {
+  "id": "bzl-12-bad-schussenried-hohentengen",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "fv-bad-schussenried",
+  "gast": "sv-hohentengen",
+  "toreHeim": 4,
+  "toreGast": 2,
+  "tore": [
+   {
+    "min": 15,
+    "spieler": "david-kessler",
+    "verein": "sv-hohentengen"
+   },
+   {
+    "min": 38,
+    "spieler": "david-kessler",
+    "verein": "sv-hohentengen"
+   }
+  ]
+ },
+ {
+  "id": "bzl-12-kirchberg-aepfingen",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "tsv-kirchberg-iller",
+  "gast": "sgm-aepfingen-baltringen",
+  "toreHeim": 2,
+  "toreGast": 2,
+  "tore": []
+ },
+ {
+  "id": "bzl-12-baustetten-ochsenhausen",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "sv-baustetten",
+  "gast": "sv-ochsenhausen",
+  "toreHeim": 3,
+  "toreGast": 1,
+  "tore": [
+   {
+    "min": 84,
+    "spieler": "jonas-heim",
+    "verein": "sv-ochsenhausen"
+   }
+  ]
+ },
+ {
+  "id": "bzl-12-burgrieden-ringschnait",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "sv-burgrieden",
+  "gast": "sgm-ringschnait-mittelbuch-i",
+  "toreHeim": 1,
+  "toreGast": 1,
+  "tore": []
+ },
+ {
+  "id": "bzl-12-ostrach-sigmaringen",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "fc-ostrach",
+  "gast": "sv-sigmaringen",
+  "toreHeim": 2,
+  "toreGast": 3,
+  "tore": [
+   {
+    "min": 14,
+    "spieler": "nico-baur",
+    "verein": "fc-ostrach"
+   },
+   {
+    "min": 28,
+    "spieler": "felix-wiest",
+    "verein": "sv-sigmaringen"
+   },
+   {
+    "min": 47,
+    "spieler": "nico-baur",
+    "verein": "fc-ostrach"
+   },
+   {
+    "min": 83,
+    "spieler": "felix-wiest",
+    "verein": "sv-sigmaringen"
+   },
+   {
+    "min": 89,
+    "spieler": "marco-stehle",
+    "verein": "sv-sigmaringen"
+   }
+  ]
+ },
+ {
+  "id": "bzl-12-muttensweiler-gutenzell",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "sgm-muttensweiler-hochdorf",
+  "gast": "sgm-gutenzell-schoenebuerg",
+  "toreHeim": 3,
+  "toreGast": 2,
+  "tore": []
+ },
+ {
+  "id": "bzl-12-sulmetingen-hundersingen",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "sv-sulmetingen",
+  "gast": "spfr-hundersingen",
+  "toreHeim": 0,
+  "toreGast": 0,
+  "tore": []
+ },
+ {
+  "id": "bzl-13-sigmaringen-ostrach",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "sv-sigmaringen",
+  "gast": "fc-ostrach",
+  "toreHeim": 2,
+  "toreGast": 2,
+  "bericht": "Sigmaringen rettet spät einen Punkt. Innenverteidiger Wiest traf nach einer Ecke zum 2:2 und sorgte für Jubel auf der Gegengerade.",
+  "tore": [
+   {
+    "min": 8,
+    "spieler": "nico-baur",
+    "verein": "fc-ostrach"
+   },
+   {
+    "min": 30,
+    "spieler": "marco-stehle",
+    "verein": "sv-sigmaringen"
+   },
+   {
+    "min": 88,
+    "spieler": "felix-wiest",
+    "verein": "sv-sigmaringen"
+   }
+  ],
+  "galerie": "gal-sigmaringen-ostrach"
+ },
+ {
+  "id": "bzl-13-hohentengen-ochsenhausen",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "sv-hohentengen",
+  "gast": "sv-ochsenhausen",
+  "toreHeim": 2,
+  "toreGast": 1,
+  "bericht": "Kessler entscheidet das Spiel in der Schlussphase.",
+  "tore": [
+   {
+    "min": 20,
+    "spieler": "david-kessler",
+    "verein": "sv-hohentengen"
+   },
+   {
+    "min": 49,
+    "spieler": "jonas-heim",
+    "verein": "sv-ochsenhausen"
+   },
+   {
+    "min": 86,
+    "spieler": "david-kessler",
+    "verein": "sv-hohentengen"
+   }
+  ]
+ },
+ {
+  "id": "bzl-13-ringschnait-sulmetingen",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "sgm-ringschnait-mittelbuch-i",
+  "gast": "sv-sulmetingen",
+  "toreHeim": 2,
+  "toreGast": 1,
+  "tore": []
+ },
+ {
+  "id": "bzl-13-baustetten-bad-schussenried",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "sv-baustetten",
+  "gast": "fv-bad-schussenried",
+  "toreHeim": 0,
+  "toreGast": 0,
+  "tore": []
+ },
+ {
+  "id": "bzl-13-muttensweiler-burgrieden",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "sgm-muttensweiler-hochdorf",
+  "gast": "sv-burgrieden",
+  "toreHeim": 2,
+  "toreGast": 0,
+  "tore": []
+ },
+ {
+  "id": "bzl-13-hundersingen-kirchberg",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "spfr-hundersingen",
+  "gast": "tsv-kirchberg-iller",
+  "toreHeim": 2,
+  "toreGast": 2,
+  "tore": []
+ },
+ {
+  "id": "bzl-13-aepfingen-krauchenwies",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "sgm-aepfingen-baltringen",
+  "gast": "fc-1911-krauchenwies-hausen-a-a-goeggingen-i",
+  "toreHeim": 1,
+  "toreGast": 2,
+  "tore": []
+ },
+ {
+  "id": "bzl-13-gutenzell-biberach",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "sgm-gutenzell-schoenebuerg",
+  "gast": "fv-biberach",
+  "toreHeim": 0,
+  "toreGast": 3,
+  "tore": [
+   {
+    "min": 49,
+    "spieler": "paul-mayer",
+    "verein": "fv-biberach"
+   },
+   {
+    "min": 74,
+    "spieler": "paul-mayer",
+    "verein": "fv-biberach"
+   },
+   {
+    "min": 90,
+    "spieler": "paul-mayer",
+    "verein": "fv-biberach"
+   }
+  ]
+ },
+ {
+  "id": "bzl-14-hundersingen-krauchenwies",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "spfr-hundersingen",
+  "gast": "fc-1911-krauchenwies-hausen-a-a-goeggingen-i"
+ },
+ {
+  "id": "bzl-14-aepfingen-hohentengen",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "sgm-aepfingen-baltringen",
+  "gast": "sv-hohentengen"
+ },
+ {
+  "id": "bzl-14-ostrach-sulmetingen",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "fc-ostrach",
+  "gast": "sv-sulmetingen"
+ },
+ {
+  "id": "bzl-14-baustetten-gutenzell",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "sv-baustetten",
+  "gast": "sgm-gutenzell-schoenebuerg"
+ },
+ {
+  "id": "bzl-14-ringschnait-bad-schussenried",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "sgm-ringschnait-mittelbuch-i",
+  "gast": "fv-bad-schussenried"
+ },
+ {
+  "id": "bzl-14-kirchberg-sigmaringen",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "tsv-kirchberg-iller",
+  "gast": "sv-sigmaringen"
+ },
+ {
+  "id": "bzl-14-muttensweiler-biberach",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "sgm-muttensweiler-hochdorf",
+  "gast": "fv-biberach"
+ },
+ {
+  "id": "bzl-14-burgrieden-ochsenhausen",
+  "liga": "bezirksliga-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "sv-burgrieden",
+  "gast": "sv-ochsenhausen"
+ },
+ {
+  "id": "kla-12-bad-saulgau-sigmaringendorf",
+  "liga": "kreisliga-a1-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "fv-bad-saulgau",
+  "gast": "tsv-sigmaringendorf",
+  "toreHeim": 1,
+  "toreGast": 2,
+  "tore": [
+   {
+    "min": 33,
+    "spieler": "simon-frick",
+    "verein": "fv-bad-saulgau"
+   },
+   {
+    "min": 46,
+    "spieler": "robin-gerster",
+    "verein": "tsv-sigmaringendorf"
+   },
+   {
+    "min": 86,
+    "spieler": "max-seeger",
+    "verein": "tsv-sigmaringendorf"
+   }
+  ]
+ },
+ {
+  "id": "kla-12-laiz-bronnen",
+  "liga": "kreisliga-a1-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "sgm-fc-99-fc-laiz",
+  "gast": "sgm-sv-bronnen-tsv-neufra",
+  "toreHeim": 3,
+  "toreGast": 1,
+  "tore": [
+   {
+    "min": 28,
+    "spieler": "kevin-lutz",
+    "verein": "sgm-fc-99-fc-laiz"
+   },
+   {
+    "min": 48,
+    "spieler": "kevin-lutz",
+    "verein": "sgm-fc-99-fc-laiz"
+   },
+   {
+    "min": 52,
+    "spieler": "kevin-lutz",
+    "verein": "sgm-fc-99-fc-laiz"
+   }
+  ]
+ },
+ {
+  "id": "kla-12-altheim-herbertingen",
+  "liga": "kreisliga-a1-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "fv-altheim",
+  "gast": "sv-herbertingen",
+  "toreHeim": 1,
+  "toreGast": 1,
+  "tore": [
+   {
+    "min": 76,
+    "spieler": "elias-brehm",
+    "verein": "sv-herbertingen"
+   }
+  ]
+ },
+ {
+  "id": "kla-12-maegerkingen-hettingen",
+  "liga": "kreisliga-a1-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "tsv-maegerkingen",
+  "gast": "sg-hettingen-inneringen",
+  "toreHeim": 3,
+  "toreGast": 1,
+  "tore": []
+ },
+ {
+  "id": "kla-12-bolstern-langenenslingen",
+  "liga": "kreisliga-a1-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "sgm-sv-bolstern-sv-hochberg-i",
+  "gast": "sv-langenenslingen",
+  "toreHeim": 2,
+  "toreGast": 3,
+  "tore": []
+ },
+ {
+  "id": "kla-12-mengen-ii-gammertingen",
+  "liga": "kreisliga-a1-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "fc-mengen-ii",
+  "gast": "sgm-tsv-gammertingen-sg-kfh-kettenacker",
+  "toreHeim": 2,
+  "toreGast": 3,
+  "tore": []
+ },
+ {
+  "id": "kla-12-altshausen-bloenried",
+  "liga": "kreisliga-a1-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "sgm-altshausen-ebenweiler-i",
+  "gast": "sgm-sc-bloenried-sv-ebersbach",
+  "toreHeim": 2,
+  "toreGast": 0,
+  "tore": []
+ },
+ {
+  "id": "kla-13-laiz-sigmaringendorf",
+  "liga": "kreisliga-a1-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "sgm-fc-99-fc-laiz",
+  "gast": "tsv-sigmaringendorf",
+  "toreHeim": 3,
+  "toreGast": 1,
+  "bericht": "Derby der kurzen Wege an Laiz. Kevin Lutz trifft dreimal, Sigmaringendorf hielt nur bis zur Pause mit.",
+  "tore": [
+   {
+    "min": 11,
+    "spieler": "kevin-lutz",
+    "verein": "sgm-fc-99-fc-laiz"
+   },
+   {
+    "min": 39,
+    "spieler": "max-seeger",
+    "verein": "tsv-sigmaringendorf"
+   },
+   {
+    "min": 60,
+    "spieler": "kevin-lutz",
+    "verein": "sgm-fc-99-fc-laiz"
+   },
+   {
+    "min": 75,
+    "spieler": "kevin-lutz",
+    "verein": "sgm-fc-99-fc-laiz"
+   }
+  ],
+  "galerie": "gal-laiz-sigmaringendorf"
+ },
+ {
+  "id": "kla-13-bad-saulgau-herbertingen",
+  "liga": "kreisliga-a1-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "fv-bad-saulgau",
+  "gast": "sv-herbertingen",
+  "toreHeim": 2,
+  "toreGast": 0,
+  "bericht": "Bad Saulgau gewinnt verdient, Frick und Ott treffen.",
+  "tore": [
+   {
+    "min": 27,
+    "spieler": "simon-frick",
+    "verein": "fv-bad-saulgau"
+   },
+   {
+    "min": 73,
+    "spieler": "florian-ott",
+    "verein": "fv-bad-saulgau"
+   }
+  ]
+ },
+ {
+  "id": "kla-13-mengen-ii-altshausen",
+  "liga": "kreisliga-a1-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "fc-mengen-ii",
+  "gast": "sgm-altshausen-ebenweiler-i",
+  "toreHeim": 1,
+  "toreGast": 1,
+  "tore": []
+ },
+ {
+  "id": "kla-13-bloenried-altheim",
+  "liga": "kreisliga-a1-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "sgm-sc-bloenried-sv-ebersbach",
+  "gast": "fv-altheim",
+  "toreHeim": 2,
+  "toreGast": 3,
+  "tore": []
+ },
+ {
+  "id": "kla-13-tuerkiyemspor-saulgau-gammertingen",
+  "liga": "kreisliga-a1-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "sc-tuerkiyemspor-saulgau",
+  "gast": "sgm-tsv-gammertingen-sg-kfh-kettenacker",
+  "toreHeim": 0,
+  "toreGast": 1,
+  "tore": []
+ },
+ {
+  "id": "kla-13-langenenslingen-hettingen",
+  "liga": "kreisliga-a1-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "sv-langenenslingen",
+  "gast": "sg-hettingen-inneringen",
+  "toreHeim": 3,
+  "toreGast": 2,
+  "tore": []
+ },
+ {
+  "id": "kla-13-bronnen-maegerkingen",
+  "liga": "kreisliga-a1-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "sgm-sv-bronnen-tsv-neufra",
+  "gast": "tsv-maegerkingen",
+  "toreHeim": 4,
+  "toreGast": 2,
+  "tore": []
+ },
+ {
+  "id": "kla-14-bad-saulgau-langenenslingen",
+  "liga": "kreisliga-a1-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "fv-bad-saulgau",
+  "gast": "sv-langenenslingen"
+ },
+ {
+  "id": "kla-14-hettingen-laiz",
+  "liga": "kreisliga-a1-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "sg-hettingen-inneringen",
+  "gast": "sgm-fc-99-fc-laiz"
+ },
+ {
+  "id": "kla-14-gammertingen-bolstern",
+  "liga": "kreisliga-a1-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "sgm-tsv-gammertingen-sg-kfh-kettenacker",
+  "gast": "sgm-sv-bolstern-sv-hochberg-i"
+ },
+ {
+  "id": "kla-14-altshausen-tuerkiyemspor-saulgau",
+  "liga": "kreisliga-a1-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "sgm-altshausen-ebenweiler-i",
+  "gast": "sc-tuerkiyemspor-saulgau"
+ },
+ {
+  "id": "kla-14-herbertingen-bronnen",
+  "liga": "kreisliga-a1-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "sv-herbertingen",
+  "gast": "sgm-sv-bronnen-tsv-neufra"
+ },
+ {
+  "id": "kla-14-altheim-sigmaringendorf",
+  "liga": "kreisliga-a1-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "fv-altheim",
+  "gast": "tsv-sigmaringendorf"
+ },
+ {
+  "id": "kla-14-mengen-ii-maegerkingen",
+  "liga": "kreisliga-a1-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "fc-mengen-ii",
+  "gast": "tsv-maegerkingen"
+ },
+ {
+  "id": "klb1-12-weithart-sigmaringendorf-ii",
+  "liga": "kreisliga-b1-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "sgm-fv-weithart-tsv-rulfingen",
+  "gast": "tsv-sigmaringendorf-ii",
+  "toreHeim": 3,
+  "toreGast": 3,
+  "tore": []
+ },
+ {
+  "id": "klb1-12-altshausen-ii-bingen",
+  "liga": "kreisliga-b1-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "sgm-altshausen-ebenweiler-ii",
+  "gast": "sv-bingen-hitzkofen",
+  "toreHeim": 1,
+  "toreGast": 2,
+  "tore": []
+ },
+ {
+  "id": "klb1-12-altheim-ii-herbertingen-ii",
+  "liga": "kreisliga-b1-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "sgm-fv-altheim-ii-sv-langenenslingen-ii",
+  "gast": "sv-herbertingen-ii",
+  "toreHeim": 4,
+  "toreGast": 1,
+  "tore": []
+ },
+ {
+  "id": "klb1-12-schmeien-ii-bronnen-ii",
+  "liga": "kreisliga-b1-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "sgm-sv-schmeien-i-sv-sigmaringen-ii",
+  "gast": "sgm-sv-bronnen-tsv-neufra-ii",
+  "toreHeim": 2,
+  "toreGast": 2,
+  "tore": []
+ },
+ {
+  "id": "klb1-12-laiz-ii-scheer",
+  "liga": "kreisliga-b1-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "sgm-fc-99-fc-laiz-ii",
+  "gast": "sgm-tsv-scheer-sv-ennetach",
+  "toreHeim": 0,
+  "toreGast": 1,
+  "tore": []
+ },
+ {
+  "id": "klb1-12-veringenstadt-ii-bloenried-ii",
+  "liga": "kreisliga-b1-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "sgm-fv-veringenstadt-i-sg-hettingen-inneringen-ii",
+  "gast": "sgm-sc-bloenried-ii-sv-ebersbach-ii",
+  "toreHeim": 1,
+  "toreGast": 2,
+  "tore": []
+ },
+ {
+  "id": "klb1-12-bolstern-ii-blochingen-iii",
+  "liga": "kreisliga-b1-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "sgm-sv-bolstern-sv-hochberg-ii-flex",
+  "gast": "sgm-fc-blochingen-i-fc-mengen-iii",
+  "toreHeim": 4,
+  "toreGast": 2,
+  "tore": []
+ },
+ {
+  "id": "klb1-13-altshausen-ii-bronnen-ii",
+  "liga": "kreisliga-b1-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "sgm-altshausen-ebenweiler-ii",
+  "gast": "sgm-sv-bronnen-tsv-neufra-ii",
+  "toreHeim": 1,
+  "toreGast": 2,
+  "tore": []
+ },
+ {
+  "id": "klb1-13-laiz-ii-scheer",
+  "liga": "kreisliga-b1-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "sgm-fc-99-fc-laiz-ii",
+  "gast": "sgm-tsv-scheer-sv-ennetach",
+  "toreHeim": 1,
+  "toreGast": 1,
+  "tore": []
+ },
+ {
+  "id": "klb1-13-sigmaringendorf-ii-altheim-ii",
+  "liga": "kreisliga-b1-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "tsv-sigmaringendorf-ii",
+  "gast": "sgm-fv-altheim-ii-sv-langenenslingen-ii",
+  "toreHeim": 2,
+  "toreGast": 1,
+  "tore": []
+ },
+ {
+  "id": "klb1-13-weithart-bolstern-ii",
+  "liga": "kreisliga-b1-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "sgm-fv-weithart-tsv-rulfingen",
+  "gast": "sgm-sv-bolstern-sv-hochberg-ii-flex",
+  "toreHeim": 3,
+  "toreGast": 2,
+  "tore": []
+ },
+ {
+  "id": "klb1-13-veringenstadt-ii-schmeien-ii",
+  "liga": "kreisliga-b1-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "sgm-fv-veringenstadt-i-sg-hettingen-inneringen-ii",
+  "gast": "sgm-sv-schmeien-i-sv-sigmaringen-ii",
+  "toreHeim": 4,
+  "toreGast": 2,
+  "tore": []
+ },
+ {
+  "id": "klb1-13-bingen-bloenried-ii",
+  "liga": "kreisliga-b1-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "sv-bingen-hitzkofen",
+  "gast": "sgm-sc-bloenried-ii-sv-ebersbach-ii",
+  "toreHeim": 1,
+  "toreGast": 1,
+  "tore": []
+ },
+ {
+  "id": "klb1-13-herbertingen-ii-blochingen-iii",
+  "liga": "kreisliga-b1-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "sv-herbertingen-ii",
+  "gast": "sgm-fc-blochingen-i-fc-mengen-iii",
+  "toreHeim": 3,
+  "toreGast": 2,
+  "tore": []
+ },
+ {
+  "id": "klb1-14-bronnen-ii-veringenstadt-ii",
+  "liga": "kreisliga-b1-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "sgm-sv-bronnen-tsv-neufra-ii",
+  "gast": "sgm-fv-veringenstadt-i-sg-hettingen-inneringen-ii"
+ },
+ {
+  "id": "klb1-14-blochingen-iii-bloenried-ii",
+  "liga": "kreisliga-b1-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "sgm-fc-blochingen-i-fc-mengen-iii",
+  "gast": "sgm-sc-bloenried-ii-sv-ebersbach-ii"
+ },
+ {
+  "id": "klb1-14-scheer-laiz-ii",
+  "liga": "kreisliga-b1-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "sgm-tsv-scheer-sv-ennetach",
+  "gast": "sgm-fc-99-fc-laiz-ii"
+ },
+ {
+  "id": "klb1-14-herbertingen-ii-weithart",
+  "liga": "kreisliga-b1-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "sv-herbertingen-ii",
+  "gast": "sgm-fv-weithart-tsv-rulfingen"
+ },
+ {
+  "id": "klb1-14-schmeien-ii-sigmaringendorf-ii",
+  "liga": "kreisliga-b1-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "sgm-sv-schmeien-i-sv-sigmaringen-ii",
+  "gast": "tsv-sigmaringendorf-ii"
+ },
+ {
+  "id": "klb1-14-altheim-ii-bingen",
+  "liga": "kreisliga-b1-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "sgm-fv-altheim-ii-sv-langenenslingen-ii",
+  "gast": "sv-bingen-hitzkofen"
+ },
+ {
+  "id": "klb1-14-altshausen-ii-bolstern-ii",
+  "liga": "kreisliga-b1-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "sgm-altshausen-ebenweiler-ii",
+  "gast": "sgm-sv-bolstern-sv-hochberg-ii-flex"
+ },
+ {
+  "id": "klb2-12-krauchenwies-ii-muttensweiler-ii",
+  "liga": "kreisliga-b2-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "fc-1911-krauchenwies-hausen-a-a-goeggingen-ii",
+  "gast": "sgm-muttensweiler-hochdorf-ii",
+  "toreHeim": 1,
+  "toreGast": 3,
+  "tore": []
+ },
+ {
+  "id": "klb2-12-kirchberg-ii-baltringen-ii",
+  "liga": "kreisliga-b2-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "tsv-kirchberg-iller-ii",
+  "gast": "sgm-baltringen-aepfingen-ii",
+  "toreHeim": 0,
+  "toreGast": 2,
+  "tore": []
+ },
+ {
+  "id": "klb2-12-burgrieden-ii-tuerkiyemspor-saulgau-ii",
+  "liga": "kreisliga-b2-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "sv-burgrieden-ii-flex",
+  "gast": "sc-tuerkiyemspor-saulgau-ii",
+  "toreHeim": 1,
+  "toreGast": 1,
+  "tore": []
+ },
+ {
+  "id": "klb2-12-mittelbuch-ii-gutenzell-ii",
+  "liga": "kreisliga-b2-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "sgm-mittelbuch-ii-ringschnait-ii",
+  "gast": "sgm-gutenzell-schoenebuerg-ii",
+  "toreHeim": 2,
+  "toreGast": 1,
+  "tore": []
+ },
+ {
+  "id": "klb2-12-ostrach-hundersingen-ii",
+  "liga": "kreisliga-b2-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "sgm-fc-ostrach-ii-sv-hosskirch-i",
+  "gast": "spfr-hundersingen-ii",
+  "toreHeim": 2,
+  "toreGast": 2,
+  "tore": []
+ },
+ {
+  "id": "klb2-12-hohentengen-ii-baustetten-ii",
+  "liga": "kreisliga-b2-oberschwaben",
+  "spieltag": 12,
+  "datum": "2026-11-01",
+  "anstoss": "14:30",
+  "heim": "sv-hohentengen-ii",
+  "gast": "sv-baustetten-ii-flex",
+  "toreHeim": 2,
+  "toreGast": 1,
+  "tore": []
+ },
+ {
+  "id": "klb2-13-baltringen-ii-fulgenstadt",
+  "liga": "kreisliga-b2-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "sgm-baltringen-aepfingen-ii",
+  "gast": "fv-fulgenstadt",
+  "toreHeim": 3,
+  "toreGast": 0,
+  "tore": []
+ },
+ {
+  "id": "klb2-13-krauchenwies-ii-muttensweiler-ii",
+  "liga": "kreisliga-b2-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "fc-1911-krauchenwies-hausen-a-a-goeggingen-ii",
+  "gast": "sgm-muttensweiler-hochdorf-ii",
+  "toreHeim": 0,
+  "toreGast": 3,
+  "tore": []
+ },
+ {
+  "id": "klb2-13-mittelbuch-ii-hohentengen-ii",
+  "liga": "kreisliga-b2-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "sgm-mittelbuch-ii-ringschnait-ii",
+  "gast": "sv-hohentengen-ii",
+  "toreHeim": 3,
+  "toreGast": 1,
+  "tore": []
+ },
+ {
+  "id": "klb2-13-baustetten-ii-kirchberg-ii",
+  "liga": "kreisliga-b2-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "sv-baustetten-ii-flex",
+  "gast": "tsv-kirchberg-iller-ii",
+  "toreHeim": 1,
+  "toreGast": 1,
+  "tore": []
+ },
+ {
+  "id": "klb2-13-tuerkiyemspor-saulgau-ii-burgrieden-ii",
+  "liga": "kreisliga-b2-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "sc-tuerkiyemspor-saulgau-ii",
+  "gast": "sv-burgrieden-ii-flex",
+  "toreHeim": 4,
+  "toreGast": 2,
+  "tore": []
+ },
+ {
+  "id": "klb2-13-hundersingen-ii-gutenzell-ii",
+  "liga": "kreisliga-b2-oberschwaben",
+  "spieltag": 13,
+  "datum": "2026-11-08",
+  "anstoss": "14:30",
+  "heim": "spfr-hundersingen-ii",
+  "gast": "sgm-gutenzell-schoenebuerg-ii",
+  "toreHeim": 1,
+  "toreGast": 0,
+  "tore": []
+ },
+ {
+  "id": "klb2-14-krauchenwies-ii-burgrieden-ii",
+  "liga": "kreisliga-b2-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "fc-1911-krauchenwies-hausen-a-a-goeggingen-ii",
+  "gast": "sv-burgrieden-ii-flex"
+ },
+ {
+  "id": "klb2-14-ostrach-mittelbuch-ii",
+  "liga": "kreisliga-b2-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "sgm-fc-ostrach-ii-sv-hosskirch-i",
+  "gast": "sgm-mittelbuch-ii-ringschnait-ii"
+ },
+ {
+  "id": "klb2-14-fulgenstadt-kirchberg-ii",
+  "liga": "kreisliga-b2-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "fv-fulgenstadt",
+  "gast": "tsv-kirchberg-iller-ii"
+ },
+ {
+  "id": "klb2-14-baustetten-ii-muttensweiler-ii",
+  "liga": "kreisliga-b2-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "sv-baustetten-ii-flex",
+  "gast": "sgm-muttensweiler-hochdorf-ii"
+ },
+ {
+  "id": "klb2-14-tuerkiyemspor-saulgau-ii-gutenzell-ii",
+  "liga": "kreisliga-b2-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "sc-tuerkiyemspor-saulgau-ii",
+  "gast": "sgm-gutenzell-schoenebuerg-ii"
+ },
+ {
+  "id": "klb2-14-hundersingen-ii-baltringen-ii",
+  "liga": "kreisliga-b2-oberschwaben",
+  "spieltag": 14,
+  "datum": "2026-11-15",
+  "anstoss": "14:30",
+  "heim": "spfr-hundersingen-ii",
+  "gast": "sgm-baltringen-aepfingen-ii"
+ }
 ]

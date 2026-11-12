@@ -1,16 +1,37 @@
 [
-  {
-    "id": "bezirksliga-oberschwaben",
-    "name": "Bezirksliga Oberschwaben",
-    "kurz": "Bezirksliga",
-    "sportart": "Fußball",
-    "saison": "2026/27"
-  },
-  {
-    "id": "kreisliga-a1-oberschwaben",
-    "name": "Kreisliga A Oberschwaben, Staffel 1",
-    "kurz": "Kreisliga A1",
-    "sportart": "Fußball",
-    "saison": "2026/27"
-  }
+ {
+  "id": "landesliga-4",
+  "name": "Landesliga Württemberg, Staffel 4",
+  "kurz": "Landesliga",
+  "sportart": "Fußball",
+  "saison": "2026/27"
+ },
+ {
+  "id": "bezirksliga-oberschwaben",
+  "name": "Bezirksliga Oberschwaben",
+  "kurz": "Bezirksliga",
+  "sportart": "Fußball",
+  "saison": "2026/27"
+ },
+ {
+  "id": "kreisliga-a1-oberschwaben",
+  "name": "Kreisliga A1 Oberschwaben",
+  "kurz": "Kreisliga A1",
+  "sportart": "Fußball",
+  "saison": "2026/27"
+ },
+ {
+  "id": "kreisliga-b1-oberschwaben",
+  "name": "Kreisliga B1 Oberschwaben",
+  "kurz": "Kreisliga B1",
+  "sportart": "Fußball",
+  "saison": "2026/27"
+ },
+ {
+  "id": "kreisliga-b2-oberschwaben",
+  "name": "Kreisliga B2 Oberschwaben",
+  "kurz": "Kreisliga B2",
+  "sportart": "Fußball",
+  "saison": "2026/27"
+ }
 ]

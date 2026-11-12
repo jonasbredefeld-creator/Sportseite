@@ -1,14 +1,594 @@
 [
-  { "id": "fc-mengen", "name": "FC Mengen", "kurz": "Mengen", "ort": "Mengen", "liga": "bezirksliga-oberschwaben", "farbe": "#1f4fa3" },
-  { "id": "sgm-ummendorf-fischbach", "name": "SGM Ummendorf/Fischbach", "kurz": "Ummendorf", "ort": "Ummendorf", "liga": "bezirksliga-oberschwaben", "farbe": "#b3262e" },
-  { "id": "sv-sigmaringen", "name": "SV Sigmaringen", "kurz": "Sigmaringen", "ort": "Sigmaringen", "liga": "bezirksliga-oberschwaben", "farbe": "#2b7a3d" },
-  { "id": "fc-krauchenwies-hausen", "name": "FC Krauchenwies/Hausen", "kurz": "Krauchenwies", "ort": "Krauchenwies", "liga": "bezirksliga-oberschwaben", "farbe": "#c1272d" },
-  { "id": "sv-hohentengen", "name": "SV Hohentengen", "kurz": "Hohentengen", "ort": "Hohentengen", "liga": "bezirksliga-oberschwaben", "farbe": "#2a5caa" },
-  { "id": "fv-bad-saulgau", "name": "FV Bad Saulgau 04", "kurz": "Bad Saulgau", "ort": "Bad Saulgau", "liga": "bezirksliga-oberschwaben", "farbe": "#d4a017" },
-  { "id": "sv-uttenweiler", "name": "SV Uttenweiler", "kurz": "Uttenweiler", "ort": "Uttenweiler", "liga": "bezirksliga-oberschwaben", "farbe": "#5a2d82" },
-  { "id": "sv-ochsenhausen", "name": "SV Ochsenhausen", "kurz": "Ochsenhausen", "ort": "Ochsenhausen", "liga": "bezirksliga-oberschwaben", "farbe": "#1d1d1d" },
-  { "id": "fc-laiz", "name": "FC Laiz", "kurz": "Laiz", "ort": "Sigmaringen-Laiz", "liga": "kreisliga-a1-oberschwaben", "farbe": "#0e6b5c" },
-  { "id": "fc-inzigkofen", "name": "FC Inzigkofen/Vilsingen/Engelswies", "kurz": "Inzigkofen", "ort": "Inzigkofen", "liga": "kreisliga-a1-oberschwaben", "farbe": "#a8322d" },
-  { "id": "tsv-sigmaringendorf", "name": "TSV Sigmaringendorf", "kurz": "Sigmaringendorf", "ort": "Sigmaringendorf", "liga": "kreisliga-a1-oberschwaben", "farbe": "#2659a5" },
-  { "id": "sv-hundersingen", "name": "SV Hundersingen", "kurz": "Hundersingen", "ort": "Herbertingen-Hundersingen", "liga": "kreisliga-a1-oberschwaben", "farbe": "#3f7f2c" }
+ {
+  "id": "ssv-ehingen-sued",
+  "name": "SSV Ehingen-Süd",
+  "kurz": "Ehingen-Süd",
+  "ort": "",
+  "liga": "landesliga-4",
+  "farbe": ""
+ },
+ {
+  "id": "fc-wangen",
+  "name": "FC Wangen",
+  "kurz": "Wangen",
+  "ort": "",
+  "liga": "landesliga-4",
+  "farbe": ""
+ },
+ {
+  "id": "fv-rot-weiss-weiler",
+  "name": "FV Rot-Weiß Weiler",
+  "kurz": "Rot-Weiß Weiler",
+  "ort": "",
+  "liga": "landesliga-4",
+  "farbe": ""
+ },
+ {
+  "id": "sv-mietingen",
+  "name": "SV Mietingen",
+  "kurz": "Mietingen",
+  "ort": "",
+  "liga": "landesliga-4",
+  "farbe": ""
+ },
+ {
+  "id": "tsv-neu-ulm",
+  "name": "TSV Neu-Ulm",
+  "kurz": "Neu-Ulm",
+  "ort": "",
+  "liga": "landesliga-4",
+  "farbe": ""
+ },
+ {
+  "id": "tsv-eschach",
+  "name": "TSV Eschach",
+  "kurz": "Eschach",
+  "ort": "",
+  "liga": "landesliga-4",
+  "farbe": ""
+ },
+ {
+  "id": "tsv-buch",
+  "name": "TSV Buch",
+  "kurz": "Buch",
+  "ort": "",
+  "liga": "landesliga-4",
+  "farbe": ""
+ },
+ {
+  "id": "fc-mengen",
+  "name": "FC Mengen",
+  "kurz": "Mengen",
+  "ort": "",
+  "liga": "landesliga-4",
+  "farbe": ""
+ },
+ {
+  "id": "fv-olympia-laupheim",
+  "name": "FV Olympia Laupheim",
+  "kurz": "Olympia Laupheim",
+  "ort": "",
+  "liga": "landesliga-4",
+  "farbe": ""
+ },
+ {
+  "id": "fc-blaubeuren",
+  "name": "FC Blaubeuren",
+  "kurz": "Blaubeuren",
+  "ort": "",
+  "liga": "landesliga-4",
+  "farbe": ""
+ },
+ {
+  "id": "tsv-heimenkirch",
+  "name": "TSV Heimenkirch",
+  "kurz": "Heimenkirch",
+  "ort": "",
+  "liga": "landesliga-4",
+  "farbe": ""
+ },
+ {
+  "id": "ssg-ulm",
+  "name": "SSG Ulm",
+  "kurz": "Ulm",
+  "ort": "",
+  "liga": "landesliga-4",
+  "farbe": ""
+ },
+ {
+  "id": "tsv-riedlingen",
+  "name": "TSV Riedlingen",
+  "kurz": "Riedlingen",
+  "ort": "",
+  "liga": "landesliga-4",
+  "farbe": ""
+ },
+ {
+  "id": "sv-reinstetten",
+  "name": "SV Reinstetten",
+  "kurz": "Reinstetten",
+  "ort": "",
+  "liga": "landesliga-4",
+  "farbe": ""
+ },
+ {
+  "id": "tsv-ummendorf",
+  "name": "TSV Ummendorf",
+  "kurz": "Ummendorf",
+  "ort": "",
+  "liga": "landesliga-4",
+  "farbe": ""
+ },
+ {
+  "id": "sc-tuerkguecue-ulm",
+  "name": "SC Türkgücü Ulm",
+  "kurz": "Türkgücü Ulm",
+  "ort": "",
+  "liga": "landesliga-4",
+  "farbe": ""
+ },
+ {
+  "id": "fv-bad-schussenried",
+  "name": "FV Bad Schussenried",
+  "kurz": "Bad Schussenried",
+  "ort": "",
+  "liga": "bezirksliga-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-ringschnait-mittelbuch-i",
+  "name": "SGM Ringschnait/Mittelbuch I",
+  "kurz": "Ringschnait",
+  "ort": "",
+  "liga": "bezirksliga-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sv-sigmaringen",
+  "name": "SV Sigmaringen",
+  "kurz": "Sigmaringen",
+  "ort": "",
+  "liga": "bezirksliga-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sv-ochsenhausen",
+  "name": "SV Ochsenhausen",
+  "kurz": "Ochsenhausen",
+  "ort": "",
+  "liga": "bezirksliga-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "fc-1911-krauchenwies-hausen-a-a-goeggingen-i",
+  "name": "FC 1911 Krauchenwies/Hausen a.A./Göggingen I",
+  "kurz": "Krauchenwies",
+  "ort": "",
+  "liga": "bezirksliga-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sv-sulmetingen",
+  "name": "SV Sulmetingen",
+  "kurz": "Sulmetingen",
+  "ort": "",
+  "liga": "bezirksliga-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "tsv-kirchberg-iller",
+  "name": "TSV Kirchberg/Iller",
+  "kurz": "Kirchberg",
+  "ort": "",
+  "liga": "bezirksliga-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sv-burgrieden",
+  "name": "SV Burgrieden",
+  "kurz": "Burgrieden",
+  "ort": "",
+  "liga": "bezirksliga-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sv-hohentengen",
+  "name": "SV Hohentengen",
+  "kurz": "Hohentengen",
+  "ort": "",
+  "liga": "bezirksliga-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sv-baustetten",
+  "name": "SV Baustetten",
+  "kurz": "Baustetten",
+  "ort": "",
+  "liga": "bezirksliga-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-muttensweiler-hochdorf",
+  "name": "SGM Muttensweiler/Hochdorf",
+  "kurz": "Muttensweiler",
+  "ort": "",
+  "liga": "bezirksliga-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "spfr-hundersingen",
+  "name": "Spfr Hundersingen",
+  "kurz": "Hundersingen",
+  "ort": "",
+  "liga": "bezirksliga-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "fc-ostrach",
+  "name": "FC Ostrach",
+  "kurz": "Ostrach",
+  "ort": "",
+  "liga": "bezirksliga-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "fv-biberach",
+  "name": "FV Biberach",
+  "kurz": "Biberach",
+  "ort": "",
+  "liga": "bezirksliga-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-gutenzell-schoenebuerg",
+  "name": "SGM Gutenzell/Schönebürg",
+  "kurz": "Gutenzell",
+  "ort": "",
+  "liga": "bezirksliga-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-aepfingen-baltringen",
+  "name": "SGM Äpfingen/Baltringen",
+  "kurz": "Äpfingen",
+  "ort": "",
+  "liga": "bezirksliga-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-altshausen-ebenweiler-i",
+  "name": "SGM Altshausen/Ebenweiler I",
+  "kurz": "Altshausen",
+  "ort": "",
+  "liga": "kreisliga-a1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-sv-bronnen-tsv-neufra",
+  "name": "SGM SV Bronnen/TSV Neufra",
+  "kurz": "Bronnen",
+  "ort": "",
+  "liga": "kreisliga-a1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-tsv-gammertingen-sg-kfh-kettenacker",
+  "name": "SGM TSV Gammertingen/SG KFH Kettenacker",
+  "kurz": "Gammertingen",
+  "ort": "",
+  "liga": "kreisliga-a1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-sc-bloenried-sv-ebersbach",
+  "name": "SGM SC Blönried/SV Ebersbach",
+  "kurz": "Blönried",
+  "ort": "",
+  "liga": "kreisliga-a1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sg-hettingen-inneringen",
+  "name": "SG Hettingen/Inneringen",
+  "kurz": "Hettingen",
+  "ort": "",
+  "liga": "kreisliga-a1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-sv-bolstern-sv-hochberg-i",
+  "name": "SGM SV Bolstern/SV Hochberg I",
+  "kurz": "Bolstern",
+  "ort": "",
+  "liga": "kreisliga-a1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "fv-altheim",
+  "name": "FV Altheim",
+  "kurz": "Altheim",
+  "ort": "",
+  "liga": "kreisliga-a1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sc-tuerkiyemspor-saulgau",
+  "name": "SC Türkiyemspor Saulgau",
+  "kurz": "Türkiyemspor Saulgau",
+  "ort": "",
+  "liga": "kreisliga-a1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-fc-99-fc-laiz",
+  "name": "SGM FC 99/FC Laiz",
+  "kurz": "Laiz",
+  "ort": "",
+  "liga": "kreisliga-a1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "fv-bad-saulgau",
+  "name": "FV Bad Saulgau",
+  "kurz": "Bad Saulgau",
+  "ort": "",
+  "liga": "kreisliga-a1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sv-langenenslingen",
+  "name": "SV Langenenslingen",
+  "kurz": "Langenenslingen",
+  "ort": "",
+  "liga": "kreisliga-a1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "tsv-sigmaringendorf",
+  "name": "TSV Sigmaringendorf",
+  "kurz": "Sigmaringendorf",
+  "ort": "",
+  "liga": "kreisliga-a1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sv-herbertingen",
+  "name": "SV Herbertingen",
+  "kurz": "Herbertingen",
+  "ort": "",
+  "liga": "kreisliga-a1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "fc-mengen-ii",
+  "name": "FC Mengen II",
+  "kurz": "Mengen II",
+  "ort": "",
+  "liga": "kreisliga-a1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "tsv-maegerkingen",
+  "name": "TSV Mägerkingen",
+  "kurz": "Mägerkingen",
+  "ort": "",
+  "liga": "kreisliga-a1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-sv-schmeien-i-sv-sigmaringen-ii",
+  "name": "SGM SV Schmeien I/SV Sigmaringen II",
+  "kurz": "Schmeien/Sigmaringen II",
+  "ort": "",
+  "liga": "kreisliga-b1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sv-bingen-hitzkofen",
+  "name": "SV Bingen/Hitzkofen",
+  "kurz": "Bingen",
+  "ort": "",
+  "liga": "kreisliga-b1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "tsv-sigmaringendorf-ii",
+  "name": "TSV Sigmaringendorf II",
+  "kurz": "Sigmaringendorf II",
+  "ort": "",
+  "liga": "kreisliga-b1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-altshausen-ebenweiler-ii",
+  "name": "SGM Altshausen/Ebenweiler II",
+  "kurz": "Altshausen II",
+  "ort": "",
+  "liga": "kreisliga-b1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-sv-bolstern-sv-hochberg-ii-flex",
+  "name": "SGM SV Bolstern/SV Hochberg II (Flex)",
+  "kurz": "Bolstern II",
+  "ort": "",
+  "liga": "kreisliga-b1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-fv-weithart-tsv-rulfingen",
+  "name": "SGM FV Weithart/TSV Rulfingen",
+  "kurz": "Weithart",
+  "ort": "",
+  "liga": "kreisliga-b1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-fv-veringenstadt-i-sg-hettingen-inneringen-ii",
+  "name": "SGM FV Veringenstadt I / SG Hettingen/Inneringen II",
+  "kurz": "Veringenstadt/Hettingen II",
+  "ort": "",
+  "liga": "kreisliga-b1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-fc-99-fc-laiz-ii",
+  "name": "SGM FC 99/FC Laiz II",
+  "kurz": "Laiz II",
+  "ort": "",
+  "liga": "kreisliga-b1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-tsv-scheer-sv-ennetach",
+  "name": "SGM TSV Scheer/SV Ennetach",
+  "kurz": "Scheer",
+  "ort": "",
+  "liga": "kreisliga-b1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-fc-blochingen-i-fc-mengen-iii",
+  "name": "SGM FC Blochingen I/FC Mengen III",
+  "kurz": "Blochingen/Mengen III",
+  "ort": "",
+  "liga": "kreisliga-b1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-sv-bronnen-tsv-neufra-ii",
+  "name": "SGM SV Bronnen/TSV Neufra II",
+  "kurz": "Bronnen II",
+  "ort": "",
+  "liga": "kreisliga-b1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-sc-bloenried-ii-sv-ebersbach-ii",
+  "name": "SGM SC Blönried II/SV Ebersbach II",
+  "kurz": "Blönried II",
+  "ort": "",
+  "liga": "kreisliga-b1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sv-herbertingen-ii",
+  "name": "SV Herbertingen II",
+  "kurz": "Herbertingen II",
+  "ort": "",
+  "liga": "kreisliga-b1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-fv-altheim-ii-sv-langenenslingen-ii",
+  "name": "SGM FV Altheim II / SV Langenenslingen II",
+  "kurz": "Altheim/Langenenslingen II",
+  "ort": "",
+  "liga": "kreisliga-b1-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-gutenzell-schoenebuerg-ii",
+  "name": "SGM Gutenzell/Schönebürg II",
+  "kurz": "Gutenzell II",
+  "ort": "",
+  "liga": "kreisliga-b2-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "fv-fulgenstadt",
+  "name": "FV Fulgenstadt",
+  "kurz": "Fulgenstadt",
+  "ort": "",
+  "liga": "kreisliga-b2-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "fc-1911-krauchenwies-hausen-a-a-goeggingen-ii",
+  "name": "FC 1911 Krauchenwies/Hausen a.A./Göggingen II",
+  "kurz": "Krauchenwies II",
+  "ort": "",
+  "liga": "kreisliga-b2-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-mittelbuch-ii-ringschnait-ii",
+  "name": "SGM Mittelbuch II/Ringschnait II",
+  "kurz": "Mittelbuch/Ringschnait II",
+  "ort": "",
+  "liga": "kreisliga-b2-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-fc-ostrach-ii-sv-hosskirch-i",
+  "name": "SGM FC Ostrach II/SV Hoßkirch I",
+  "kurz": "Ostrach II/Hoßkirch",
+  "ort": "",
+  "liga": "kreisliga-b2-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "tsv-kirchberg-iller-ii",
+  "name": "TSV Kirchberg/Iller II",
+  "kurz": "Kirchberg II",
+  "ort": "",
+  "liga": "kreisliga-b2-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sv-hohentengen-ii",
+  "name": "SV Hohentengen II",
+  "kurz": "Hohentengen II",
+  "ort": "",
+  "liga": "kreisliga-b2-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sv-baustetten-ii-flex",
+  "name": "SV Baustetten II (flex)",
+  "kurz": "Baustetten II",
+  "ort": "",
+  "liga": "kreisliga-b2-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "spfr-hundersingen-ii",
+  "name": "Spfr Hundersingen II",
+  "kurz": "Hundersingen II",
+  "ort": "",
+  "liga": "kreisliga-b2-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sv-burgrieden-ii-flex",
+  "name": "SV Burgrieden II (flex)",
+  "kurz": "Burgrieden II",
+  "ort": "",
+  "liga": "kreisliga-b2-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-baltringen-aepfingen-ii",
+  "name": "SGM Baltringen/Äpfingen II",
+  "kurz": "Baltringen/Äpfingen II",
+  "ort": "",
+  "liga": "kreisliga-b2-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sgm-muttensweiler-hochdorf-ii",
+  "name": "SGM Muttensweiler/Hochdorf II",
+  "kurz": "Muttensweiler II",
+  "ort": "",
+  "liga": "kreisliga-b2-oberschwaben",
+  "farbe": ""
+ },
+ {
+  "id": "sc-tuerkiyemspor-saulgau-ii",
+  "name": "SC Türkiyemspor Saulgau II",
+  "kurz": "Türkiyemspor Saulgau II",
+  "ort": "",
+  "liga": "kreisliga-b2-oberschwaben",
+  "farbe": ""
+ }
 ]

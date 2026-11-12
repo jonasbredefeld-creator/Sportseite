@@ -1,42 +1,129 @@
 [
-  {
-    "id": "gal-sigmaringen-ummendorf",
-    "titel": "SV Sigmaringen gegen SGM Ummendorf/Fischbach",
-    "spiel": "bzl-13-sigmaringen-ummendorf",
-    "datum": "2026-11-08",
-    "fotograf": "Sportseite",
-    "bilder": [
-      { "src": "", "titel": "Wiest köpft zum 2:2", "stichwoerter": ["Tor", "felix-wiest"] },
-      { "src": "", "titel": "Roth trifft früh", "stichwoerter": ["Tor", "jan-roth"] },
-      { "src": "", "titel": "Jubel auf der Gegengerade", "stichwoerter": ["Fans"] },
-      { "src": "", "titel": "Zweikampf im Mittelfeld", "stichwoerter": ["Zweikampf"] },
-      { "src": "", "titel": "Stehle zum 1:1", "stichwoerter": ["Tor", "marco-stehle"] },
-      { "src": "", "titel": "Abpfiff", "stichwoerter": ["Stimmung"] }
+ {
+  "id": "gal-sigmaringen-ostrach",
+  "titel": "SV Sigmaringen gegen FC Ostrach",
+  "spiel": "bzl-13-sigmaringen-ostrach",
+  "datum": "2026-11-08",
+  "fotograf": "Sportseite",
+  "bilder": [
+   {
+    "src": "",
+    "titel": "Wiest köpft zum 2:2",
+    "stichwoerter": [
+     "Tor",
+     "felix-wiest"
     ]
-  },
-  {
-    "id": "gal-mengen-sigmaringen",
-    "titel": "FC Mengen gegen SV Sigmaringen",
-    "spiel": "bzl-12-mengen-sigmaringen",
-    "datum": "2026-11-01",
-    "fotograf": "Sportseite",
-    "bilder": [
-      { "src": "", "titel": "Hagel zum 2:1", "stichwoerter": ["Tor", "tim-hagel"] },
-      { "src": "", "titel": "Berger bejubelt die Führung", "stichwoerter": ["Jubel", "lukas-berger"] },
-      { "src": "", "titel": "Flutlicht in Mengen", "stichwoerter": ["Stimmung"] },
-      { "src": "", "titel": "Parade in der Schlussphase", "stichwoerter": ["Torwart"] }
+   },
+   {
+    "src": "",
+    "titel": "Baur trifft früh",
+    "stichwoerter": [
+     "Tor",
+     "nico-baur"
     ]
-  },
-  {
-    "id": "gal-laiz-inzigkofen",
-    "titel": "FC Laiz gegen FC Inzigkofen/Vilsingen/Engelswies",
-    "spiel": "kla-12-laiz-inzigkofen",
-    "datum": "2026-11-08",
-    "fotograf": "Sportseite",
-    "bilder": [
-      { "src": "", "titel": "Lutz zum 3:1", "stichwoerter": ["Tor", "kevin-lutz"] },
-      { "src": "", "titel": "Seeger verkürzt", "stichwoerter": ["Tor", "max-seeger"] },
-      { "src": "", "titel": "Derbystimmung", "stichwoerter": ["Fans"] }
+   },
+   {
+    "src": "",
+    "titel": "Jubel auf der Gegengerade",
+    "stichwoerter": [
+     "Fans"
     ]
-  }
+   },
+   {
+    "src": "",
+    "titel": "Zweikampf im Mittelfeld",
+    "stichwoerter": [
+     "Zweikampf"
+    ]
+   },
+   {
+    "src": "",
+    "titel": "Stehle zum 1:1",
+    "stichwoerter": [
+     "Tor",
+     "marco-stehle"
+    ]
+   },
+   {
+    "src": "",
+    "titel": "Renz pariert",
+    "stichwoerter": [
+     "Torwart",
+     "tobias-renz"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "gal-mengen-riedlingen",
+  "titel": "FC Mengen gegen TSV Riedlingen",
+  "spiel": "ll-13-mengen-riedlingen",
+  "datum": "2026-11-08",
+  "fotograf": "Sportseite",
+  "bilder": [
+   {
+    "src": "",
+    "titel": "Berger zum 1:0",
+    "stichwoerter": [
+     "Tor",
+     "lukas-berger"
+    ]
+   },
+   {
+    "src": "",
+    "titel": "Hagel macht den Deckel drauf",
+    "stichwoerter": [
+     "Tor",
+     "tim-hagel"
+    ]
+   },
+   {
+    "src": "",
+    "titel": "Flutlicht in Mengen",
+    "stichwoerter": [
+     "Stimmung"
+    ]
+   },
+   {
+    "src": "",
+    "titel": "Wahl verkürzt",
+    "stichwoerter": [
+     "Tor",
+     "luca-wahl"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "gal-laiz-sigmaringendorf",
+  "titel": "SGM FC 99/FC Laiz gegen TSV Sigmaringendorf",
+  "spiel": "kla-13-laiz-sigmaringendorf",
+  "datum": "2026-11-08",
+  "fotograf": "Sportseite",
+  "bilder": [
+   {
+    "src": "",
+    "titel": "Lutz zum 3:1",
+    "stichwoerter": [
+     "Tor",
+     "kevin-lutz"
+    ]
+   },
+   {
+    "src": "",
+    "titel": "Seeger gleicht aus",
+    "stichwoerter": [
+     "Tor",
+     "max-seeger"
+    ]
+   },
+   {
+    "src": "",
+    "titel": "Derbystimmung",
+    "stichwoerter": [
+     "Fans"
+    ]
+   }
+  ]
+ }
 ]

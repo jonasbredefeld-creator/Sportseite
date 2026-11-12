@@ -164,7 +164,7 @@ function spielKarte(d, s) {
     const klasse = !gespielt ? "" : tore > gegner ? " sieger" : tore < gegner ? " verlierer" : "";
     return `
       <div class="zeile${klasse}">
-        <span class="verein"><span class="vereinspunkt" style="background:${esc(v?.farbe)}"></span><span>${esc(v?.name)}</span></span>
+        <span class="verein">${v?.farbe ? `<span class="vereinspunkt" style="background:${esc(v.farbe)}"></span>` : ""}<span>${esc(v?.name)}</span></span>
         ${gespielt ? `<span class="tore">${tore}</span>` : ""}
       </div>`;
   };
@@ -322,7 +322,7 @@ const norm = (s) => String(s ?? "").toLowerCase()
 
 function suchIndex(d) {
   const e = [];
-  d.vereine.forEach((v) => e.push({ typ: "Verein", titel: v.name, unter: `${v.ort}, ${d.liga(v.liga)?.kurz}`, href: `verein.html?id=${v.id}`, text: [v.name, v.kurz, v.ort], rang: 3 }));
+  d.vereine.forEach((v) => e.push({ typ: "Verein", titel: v.name, unter: [v.ort, d.liga(v.liga)?.name].filter(Boolean).join(", "), href: `verein.html?id=${v.id}`, text: [v.name, v.kurz, v.ort], rang: 3 }));
   d.spieler.forEach((sp) => e.push({ typ: "Spieler", titel: sp.name, unter: `${d.verein(sp.verein)?.name}, ${sp.position}`, href: `spieler.html?id=${sp.id}`, bild: sp.bild || "", text: [sp.name, d.verein(sp.verein)?.kurz], rang: 3, id: sp.id }));
   d.ligen.forEach((l) => e.push({ typ: "Liga", titel: l.name, unter: `${l.sportart}, Saison ${l.saison}`, href: `liga.html?id=${l.id}`, text: [l.name, l.kurz], rang: 2 }));
   d.berichte.forEach((b) => { const s = b.spiel && d.spiel(b.spiel); e.push({ typ: "News", titel: b.titel, unter: datumMittel(b.datum), href: `bericht.html?id=${b.id}`, text: [b.titel, b.teaser, s && d.verein(s.heim)?.name, s && d.verein(s.gast)?.name], rang: 1 }); });
@@ -523,7 +523,7 @@ const seiten = {
         <section class="abschnitt">
           <div class="abschnitt-kopf"><h2>${esc(l.name)}</h2></div>
           <div class="karte box"><ul class="liste">
-            ${d.vereine.filter((v) => v.liga === l.id).map((v) => `<li><span class="vereinspunkt" style="display:inline-block;margin-right:8px;background:${esc(v.farbe)}"></span><a href="verein.html?id=${v.id}">${esc(v.name)}</a> <span class="leise">${esc(v.ort)}</span></li>`).join("")}
+            ${d.vereine.filter((v) => v.liga === l.id).map((v) => `<li>${v.farbe ? `<span class="vereinspunkt" style="display:inline-block;margin-right:8px;background:${esc(v.farbe)}"></span>` : ""}<a href="verein.html?id=${v.id}">${esc(v.name)}</a> <span class="leise">${esc(v.ort)}</span></li>`).join("")}
           </ul></div>
         </section>`).join("")}`;
   },
@@ -540,7 +540,7 @@ const seiten = {
       <div class="seitenkopf">
         <span class="kategorie">${esc(d.liga(v.liga)?.name)}${platz ? `, Platz ${platz}` : ""}</span>
         <h1>${esc(v.name)}</h1>
-        <p>${esc(v.ort)}</p>
+        ${v.ort ? `<p>${esc(v.ort)}</p>` : ""}
       </div>
       <div class="zwei">
         <div>
