@@ -39,7 +39,8 @@ body {
 
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
-p a, .link { color: var(--blau); text-decoration: underline; text-underline-offset: 3px; }
+p a, .link { color: var(--blau); font-weight: 500; }
+p a:hover, .link:hover { color: var(--blau-tief); }
 :focus-visible { outline: 3px solid var(--rot); outline-offset: 2px; }
 
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
@@ -137,7 +138,7 @@ button[aria-expanded="true"] + .ausklapp { display: block; }
 }
 .abschnitt-kopf h2 { margin: 0; font-size: 26px; font-weight: 600; line-height: 1.15; }
 .abschnitt-kopf a { color: var(--blau); font-weight: 500; font-size: 16px; }
-.abschnitt-kopf a:hover { text-decoration: underline; }
+.abschnitt-kopf a:hover { opacity: 0.85; }
 
 .karte { background: var(--weiss); border-radius: var(--radius); box-shadow: var(--schatten); overflow: hidden; }
 .kategorie { color: var(--blau); font-size: 15px; font-weight: 500; }
@@ -288,7 +289,7 @@ td a:hover { color: var(--blau); }
 }
 .spielkopf .team { overflow-wrap: anywhere; hyphens: auto; font-size: clamp(20px, 3vw, 32px); font-weight: 600; line-height: 1.15; }
 .spielkopf .team:first-child { text-align: right; }
-.spielkopf .team a:hover { text-decoration: underline; }
+.spielkopf .team a:hover { opacity: 0.85; }
 .spielkopf .stand {
   font-family: var(--zahl);
   font-weight: 700;
@@ -333,7 +334,7 @@ td a:hover { color: var(--blau); }
 .fuss { margin-top: 72px; background: var(--blau-tief); color: rgba(255, 255, 255, 0.85); padding: 36px 0; font-size: 15px; }
 .fuss .wrap { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
 .fuss nav { display: flex; gap: 20px; flex-wrap: wrap; }
-.fuss a:hover { color: #fff; text-decoration: underline; }
+.fuss a:hover { color: #fff; }
 .fuss strong { color: #fff; font-weight: 600; }
 
 /* ---------- Responsiv ---------- */
@@ -488,3 +489,27 @@ td a:hover { color: var(--blau); }
   .suche { order: -1; width: 100%; margin: 4px 0 8px; }
   .such-vorschau { left: 0; right: auto; width: 100%; }
 }
+
+/* ---------- Wechselticker als Liste ---------- */
+.wechsel-tabelle { padding: 0; }
+.wechsel-zeile {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1.4fr) minmax(0, 2fr) auto;
+  gap: 20px;
+  align-items: center;
+  padding: 16px 22px;
+  border-top: 1px solid var(--linie);
+}
+.wechsel-zeile:first-child { border-top: 0; }
+.wechsel-zeile .wechsel-name { font-size: 18px; }
+.wechsel-zeile .vereine { display: flex; align-items: center; gap: 12px; font-size: 16px; flex-wrap: wrap; }
+.wechsel-zeile .pfeil-rechts { color: var(--rot); font-weight: 600; }
+.wechsel-zeile .vereine .ziel { font-weight: 600; color: var(--blau); }
+.wechsel-zeile .rechts { text-align: right; white-space: nowrap; }
+.monat { font-size: 15px; color: var(--leise); font-weight: 600; padding: 22px 22px 8px; border-top: 1px solid var(--linie); }
+.monat:first-child { border-top: 0; padding-top: 18px; }
+@media (max-width: 700px) {
+  .wechsel-zeile { grid-template-columns: 56px 1fr; gap: 6px 14px; padding: 14px 16px; }
+  .wechsel-zeile .vereine, .wechsel-zeile .rechts { grid-column: 2; text-align: left; }
+}
+.wechsel-zeile .vereine a:not(.ziel) { color: var(--leise); font-weight: 500; }

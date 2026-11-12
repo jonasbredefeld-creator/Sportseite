@@ -5,30 +5,27 @@
   "name": "Martin Haas",
   "von": "",
   "zu": "sv-hohentengen",
-  "text": "Übernimmt zur Wintervorbereitung als Cheftrainer."
+  "news": "trainerwechsel-hohentengen"
  },
  {
   "datum": "2026-11-07",
   "typ": "Spieler",
   "spieler": "tobias-renz",
   "von": "sgm-fc-99-fc-laiz",
-  "zu": "sv-sigmaringen",
-  "text": "Wechsel in der Winterpause, spielberechtigt ab der Rückrunde."
+  "zu": "sv-sigmaringen"
  },
  {
   "datum": "2026-11-05",
   "typ": "Spieler",
   "spieler": "daniel-moser",
   "von": "tsv-ummendorf",
-  "zu": "fc-mengen",
-  "text": "Verstärkt die Defensive des FC Mengen."
+  "zu": "fc-mengen"
  },
  {
   "datum": "2026-11-03",
   "typ": "Spieler",
   "spieler": "florian-ott",
   "von": "spfr-hundersingen",
-  "zu": "fv-bad-saulgau",
-  "text": "Rückkehr zum Jugendverein."
+  "zu": "fv-bad-saulgau"
  }
 ]

@@ -436,8 +436,6 @@ const seiten = {
     document.title = `${l.name} | ${d.site.name}`;
     const tage = [...new Set(d.spiele.filter((s) => s.liga === l.id).map((s) => s.spieltag))].sort((a, b) => a - b);
     const start = aktuellerSpieltag(d, l.id);
-    const vereinIds = d.vereine.filter((v) => v.liga === l.id).map((v) => v.id);
-    const wechsel = d.wechsel.filter((w) => vereinIds.includes(w.zu) || vereinIds.includes(w.von)).sort((a, b) => b.datum.localeCompare(a.datum));
     return `
       <div class="seitenkopf"><span class="kategorie">${esc(l.sportart)}, Saison ${esc(l.saison)}</span><h1>${esc(l.name)}</h1></div>
       <div class="zwei">
@@ -460,12 +458,6 @@ const seiten = {
         </div>
         <aside>
           <div class="karte box"><h2>Torjäger</h2>${torjaegerListe(d, torjaeger(d, (s) => s.liga === l.id).slice(0, 10))}</div>
-          ${wechsel.length ? `
-            <div class="karte box" style="margin-top:24px">
-              <h2>Wechsel</h2>
-              <div class="wechsel-liste">${wechsel.slice(0, 5).map((w) => wechselEintrag(d, w)).join("")}</div>
-              <p style="margin:12px 0 0"><a class="link" href="wechsel.html">Alle Wechsel</a></p>
-            </div>` : ""}
         </aside>
       </div>`;
   },
@@ -587,7 +579,7 @@ const seiten = {
       </div>
       ${(() => {
         const ws = d.wechsel.filter((w) => w.spieler === sp.id);
-        return ws.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>Wechsel</h2></div><div class="karte box"><ul class="liste">${ws.map((w) => `<li>${w.von ? `${vereinLink(d, w.von)} → ` : ""}${vereinLink(d, w.zu)} <span class="leise">${datumMittel(w.datum)}</span><br>${esc(w.text)}</li>`).join("")}</ul></div></section>` : "";
+        return ws.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>Wechsel</h2></div><div class="karte box"><ul class="liste">${ws.map((w) => `<li>${w.von ? `${vereinLink(d, w.von)} → ` : ""}${vereinLink(d, w.zu)} <span class="leise">${datumMittel(w.datum)}</span></li>`).join("")}</ul></div></section>` : "";
       })()}
       ${bilder.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>Bilder</h2></div><div class="bilderraster">${bilder.map(({ g, b }) => `<a href="galerie.html?id=${g.id}"><figure>${foto(b)}<figcaption>${esc(b.titel)}</figcaption></figure></a>`).join("")}</div></section>` : ""}`;
   },
@@ -657,12 +649,35 @@ const seiten = {
   },
 
   wechsel(d) {
+    const liste = [...d.wechsel].sort((a, b) => b.datum.localeCompare(a.datum));
+    const monat = (iso) => new Date(iso + "T12:00:00").toLocaleDateString("de-DE", { month: "long", year: "numeric" });
+    let letzter = "";
+    const zeilen = liste.map((w) => {
+      const sp = w.spieler && d.spielerById(w.spieler);
+      const news = w.news && d.berichte.find((b) => b.id === w.news);
+      const m = monat(w.datum);
+      const kopf = m !== letzter ? `<div class="monat">${m}</div>` : "";
+      letzter = m;
+      return `${kopf}
+        <div class="wechsel-zeile">
+          ${portraet(sp)}
+          <div>
+            <span class="kategorie">${esc(w.typ)}${sp ? `, ${esc(sp.position)}` : ""}</span>
+            <div class="wechsel-name">${sp ? `<a class="link" href="spieler.html?id=${sp.id}">${esc(sp.name)}</a>` : esc(w.name)}</div>
+          </div>
+          <div class="vereine">
+            ${w.von ? `${vereinLink(d, w.von)} <span class="pfeil-rechts" aria-label="wechselt zu">→</span>` : `<span class="leise">Neu bei</span>`}
+            <a class="ziel" href="verein.html?id=${w.zu}">${esc(d.verein(w.zu)?.name)}</a>
+          </div>
+          <div class="rechts">
+            <div class="leise">${datumMittel(w.datum)}</div>
+            ${news ? `<a class="link" href="bericht.html?id=${news.id}">Zur News</a>` : ""}
+          </div>
+        </div>`;
+    }).join("");
     return `
       <div class="seitenkopf"><h1>Wechselticker</h1><p>Spieler- und Trainerwechsel der Region, neueste zuerst.</p></div>
-      <div class="raster zwei-spalten">
-        ${[...d.wechsel].sort((a, b) => b.datum.localeCompare(a.datum)).map((w) => `
-          <div class="karte box">${wechselEintrag(d, w)}<p style="margin:12px 0 0">${esc(w.text)}</p></div>`).join("")}
-      </div>`;
+      <div class="karte wechsel-tabelle">${zeilen}</div>`;
   },
 
   highlights(d) {
