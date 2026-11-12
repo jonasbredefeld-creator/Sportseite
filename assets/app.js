@@ -47,7 +47,7 @@ async function laden() {
 
 const BEREICH = {
   start: "start", ligen: "ligen", liga: "ligen", berichte: "berichte", bericht: "berichte",
-  galerien: "bilder", galerie: "bilder", wechsel: "wechsel", highlights: "highlights", video: "highlights",
+  galerien: "bilder", galerie: "bilder", transfers: "transfers", highlights: "highlights", video: "highlights",
   verein: "ligen", spieler: "ligen", spiel: "ligen"
 };
 
@@ -91,7 +91,7 @@ function rahmen(d, seite) {
         ${punkt("berichte", "berichte.html", "News")}
         ${punkt("highlights", "highlights.html", "Highlights")}
         ${punkt("bilder", "galerien.html", "Bilder")}
-        ${punkt("wechsel", "wechsel.html", "Wechsel")}
+        ${punkt("transfers", "transfers.html", "Transfers")}
         <form class="suche" action="suche.html" role="search" autocomplete="off">
           <label class="sr" for="suchfeld">Teams, Spieler und News suchen</label>
           <svg class="lupe" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M13 13l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -325,6 +325,15 @@ function kaderHtml(d, v) {
     </section>`;
 }
 
+// Vereinswappen: Logo, wenn eingetragen (Feld "logo" in vereine.json), sonst ein Kürzel
+function wappen(v, klasse = "") {
+  if (!v) return `<span class="wappen leer ${klasse}" aria-hidden="true"></span>`;
+  if (v.logo) return `<img class="wappen ${klasse}" src="${esc(v.logo)}" alt="" loading="lazy">`;
+  const w = String(v.kurz || v.name).replace(/[^A-Za-zÄÖÜäöüß0-9 \-\/]/g, "").split(/[\s\-\/]+/).filter(Boolean);
+  const kuerzel = (w.length > 1 ? w.map((x) => x[0]).join("") : w[0] || "").slice(0, 3).toUpperCase();
+  return `<span class="wappen ${klasse}" aria-hidden="true"${v.farbe ? ` style="background:${esc(v.farbe)};color:#fff"` : ""}>${esc(kuerzel)}</span>`;
+}
+
 function berichtKarte(b) {
   const rot = b.kategorie === "Vorschau" ? " rot" : "";
   return `
@@ -358,21 +367,6 @@ function videoKarte(v) {
 
 function portraet(sp, klasse = "") {
   return foto(sp?.bild ? { src: sp.bild, titel: sp.name } : null, `portraet ${klasse}`);
-}
-
-function wechselEintrag(d, w) {
-  const sp = w.spieler && d.spielerById(w.spieler);
-  const name = sp ? `<a class="link" href="spieler.html?id=${sp.id}">${esc(sp.name)}</a>` : esc(w.name);
-  return `
-    <div class="wechsel">
-      ${portraet(sp)}
-      <div>
-        <span class="kategorie">${esc(w.typ)}${sp ? `, ${esc(sp.position)}` : ""}</span>
-        <div class="wechsel-name">${name}</div>
-        <div class="wechsel-weg">${w.von ? `${esc(d.verein(w.von)?.kurz)} <span aria-label="zu">→</span> ` : "Neu bei "}<strong>${esc(d.verein(w.zu)?.kurz)}</strong></div>
-        <div class="leise">${datumMittel(w.datum)}</div>
-      </div>
-    </div>`;
 }
 
 function galerieKarte(g) {
@@ -791,7 +785,7 @@ const seiten = {
       </div>
       ${(() => {
         const ws = d.wechsel.filter((w) => w.spieler === sp.id);
-        return ws.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>Wechsel</h2></div><div class="karte box"><ul class="liste">${ws.map((w) => `<li>${w.von ? `${vereinLink(d, w.von)} → ` : ""}${vereinLink(d, w.zu)} <span class="leise">${datumMittel(w.datum)}</span></li>`).join("")}</ul></div></section>` : "";
+        return ws.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>Transfers</h2></div><div class="karte box"><ul class="liste">${ws.map((w) => `<li>${w.von ? `${vereinLink(d, w.von)} → ` : ""}${vereinLink(d, w.zu)} <span class="leise">${datumMittel(w.datum)}</span></li>`).join("")}</ul></div></section>` : "";
       })()}
       ${bilder.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>Bilder</h2></div><div class="bilderraster">${bilder.map(({ g, b }) => `<a href="galerie.html?id=${g.id}"><figure>${foto(b)}<figcaption>${esc(b.titel)}</figcaption></figure></a>`).join("")}</div></section>` : ""}`;
   },
@@ -885,7 +879,7 @@ const seiten = {
       <div class="bilderraster">${g.bilder.map((b) => `<figure>${foto(b)}<figcaption>${esc(b.titel)}</figcaption></figure>`).join("")}</div>`;
   },
 
-  wechsel(d) {
+  transfers(d) {
     const liste = [...d.wechsel].sort((a, b) => b.datum.localeCompare(a.datum));
     const monat = (iso) => new Date(iso + "T12:00:00").toLocaleDateString("de-DE", { month: "long", year: "numeric" });
     let letzter = "";
@@ -897,14 +891,16 @@ const seiten = {
       letzter = m;
       return `${kopf}
         <div class="wechsel-zeile">
-          ${portraet(sp)}
           <div>
             <span class="kategorie">${esc(w.typ)}${sp ? `, ${esc(sp.position)}` : ""}</span>
             <div class="wechsel-name">${sp ? `<a class="link" href="spieler.html?id=${sp.id}">${esc(sp.name)}</a>` : esc(w.name)}</div>
           </div>
           <div class="vereine">
-            ${w.von ? `${vereinLink(d, w.von)} <span class="pfeil-rechts" aria-label="wechselt zu">→</span>` : `<span class="leise">Neu bei</span>`}
-            <a class="ziel" href="verein.html?id=${w.zu}">${esc(d.verein(w.zu)?.name)}</a>
+            ${w.von
+              ? `<a class="verein-von" href="verein.html?id=${w.von}">${wappen(d.verein(w.von))}<span class="lang">${esc(d.verein(w.von)?.name)}</span><span class="kurz">${esc(d.verein(w.von)?.kurz)}</span></a>`
+              : `<span class="verein-von leise"><span>neu</span></span>`}
+            <span class="pfeil-rechts" aria-label="wechselt zu">→</span>
+            <a class="ziel" href="verein.html?id=${w.zu}">${wappen(d.verein(w.zu))}<span class="lang">${esc(d.verein(w.zu)?.name)}</span><span class="kurz">${esc(d.verein(w.zu)?.kurz)}</span></a>
           </div>
           <div class="rechts">
             <div class="leise">${datumMittel(w.datum)}</div>
@@ -913,7 +909,7 @@ const seiten = {
         </div>`;
     }).join("");
     return `
-      <div class="seitenkopf"><h1>Wechselticker</h1><p>Spieler- und Trainerwechsel der Region, neueste zuerst.</p></div>
+      <div class="seitenkopf"><h1>Transfers</h1><p>Spieler- und Trainerwechsel der Region, neueste zuerst.</p></div>
       <div class="karte wechsel-tabelle">${zeilen}</div>`;
   },
 

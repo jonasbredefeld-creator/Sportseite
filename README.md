@@ -31,7 +31,7 @@ Tabellen und Torjäger werden automatisch aus den Spielen berechnet.
 
 ## Seiten
 
-`index.html` Start · `ligen.html` · `liga.html?id=` · `vereine.html` · `verein.html?id=` · `spieler.html?id=` · `spiel.html?id=` · `galerien.html` · `galerie.html?id=` · `berichte.html` (News) · `bericht.html?id=` · `suche.html?q=` · `highlights.html` · `video.html?id=` · `wechsel.html` · `partner.html` · `impressum.html` · `datenschutz.html`
+`index.html` Start · `ligen.html` · `liga.html?id=` · `vereine.html` · `verein.html?id=` · `spieler.html?id=` · `spiel.html?id=` · `galerien.html` · `galerie.html?id=` · `berichte.html` (News) · `bericht.html?id=` · `suche.html?q=` · `highlights.html` · `video.html?id=` · `transfers.html` · `partner.html` · `impressum.html` · `datenschutz.html`
 
 ## Lokal ansehen
 
@@ -64,3 +64,7 @@ Bei Sportarten neben Fußball begleiten wir meist nur ein Team, nicht die ganze 
 ## Kader
 
 Spieler in `spieler.json` mit `position` eintragen. Die Vereinsseite gruppiert automatisch nach Tor, Abwehr, Mittelfeld, Sturm (bei anderen Sportarten nach deren Positionen) und zeigt den Kader als Raster über die volle Breite.
+
+## Vereinswappen
+
+In `vereine.json` kann jeder Verein ein Feld `"logo": "assets/logos/sv-sigmaringen.png"` bekommen (nur mit Erlaubnis des Vereins). Ohne Logo zeigt die Seite ein Kürzel aus dem Kurznamen, mit `farbe` in Vereinsfarbe.
