@@ -523,8 +523,6 @@ const seiten = {
       ...d.berichteSortiert.filter((b) => !b.haupt)
     ];
     const unter = rest.slice(0, 3);
-    const hauptSpiel = haupt?.spiel && d.spiel(haupt.spiel);
-    const hauptGal = hauptSpiel?.galerie;
 
     // Ergebnis-Reiter: je Fußball-Liga der letzte Spieltag, andere Sportarten nur, wenn sie an diesem Wochenende gespielt haben
     const juengst = d.gespielt.filter((s) => !d.teamLiga(s.liga)).map((s) => s.datum).sort().pop();
@@ -548,11 +546,6 @@ const seiten = {
             <span class="kategorie">${esc(haupt.kategorie)}</span>
             <a href="bericht.html?id=${haupt.id}"><h1>${esc(haupt.titel)}</h1></a>
             <p>${esc(haupt.teaser)}</p>
-            <div class="aufmacher-links">
-              ${hauptSpiel ? `<a href="spiel.html?id=${hauptSpiel.id}">Zum Spiel mit allen Toren</a>` : ""}
-              ${hauptGal ? `<a href="galerie.html?id=${hauptGal}">Alle Bilder vom Spiel</a>` : ""}
-              ${haupt.liga ? `<a href="liga.html?id=${haupt.liga}">Tabelle ${esc(d.liga(haupt.liga)?.kurz)}</a>` : ""}
-            </div>
           </div>
         </article>` : ""}
 

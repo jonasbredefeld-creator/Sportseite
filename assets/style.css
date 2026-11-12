@@ -169,13 +169,9 @@ button[aria-expanded="true"] + .ausklapp { display: block; }
 /* ---------- Aufmacher ---------- */
 .aufmacher { margin-top: 32px; display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
 .aufmacher .foto { aspect-ratio: auto; min-height: 420px; }
-.aufmacher-text { padding: 40px 36px; display: flex; flex-direction: column; }
+.aufmacher-text { padding: 40px 36px; display: flex; flex-direction: column; justify-content: center; }
 .aufmacher h1 { font-size: clamp(28px, 3vw, 38px); line-height: 1.15; font-weight: 600; margin: 12px 0 14px; }
 .aufmacher p { color: var(--leise); margin: 0; }
-.aufmacher-links { margin-top: auto; padding-top: 24px; display: grid; gap: 10px; }
-.aufmacher-links a { color: var(--tinte); font-weight: 500; }
-.aufmacher-links a:hover { color: var(--blau); }
-.aufmacher-links a::after { content: " ›"; color: var(--blau); }
 .aufmacher:hover h1 { color: var(--blau); }
 
 /* ---------- Kartenraster ---------- */
