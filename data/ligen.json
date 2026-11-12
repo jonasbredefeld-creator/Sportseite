@@ -42,14 +42,5 @@
   "saison": "2026/27",
   "team": "sigmaringen-deers",
   "tabelleLink": "https://www.basketball-bund.net/"
- },
- {
-  "id": "football-landesliga",
-  "name": "Landesliga Baden-Württemberg",
-  "kurz": "Landesliga",
-  "sportart": "Football",
-  "saison": "2026",
-  "team": "sigmaringen-hornets",
-  "hinweis": "Saisonpause. Die neue Saison beginnt im April."
  }
 ]

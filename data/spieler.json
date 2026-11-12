@@ -168,19 +168,179 @@
   "bild": ""
  },
  {
-  "id": "niklas-fritz",
-  "name": "Niklas Fritz",
-  "verein": "sigmaringen-hornets",
-  "position": "Quarterback",
-  "nummer": 12,
+  "id": "jan-kaiser",
+  "name": "Jan Kaiser",
+  "verein": "sv-sigmaringen",
+  "position": "Tor",
+  "nummer": 22,
   "bild": ""
  },
  {
-  "id": "samuel-keck",
-  "name": "Samuel Keck",
-  "verein": "sigmaringen-hornets",
-  "position": "Running Back",
+  "id": "dominik-weber",
+  "name": "Dominik Weber",
+  "verein": "sv-sigmaringen",
+  "position": "Tor",
+  "nummer": 30,
+  "bild": ""
+ },
+ {
+  "id": "simon-gerster",
+  "name": "Simon Gerster",
+  "verein": "sv-sigmaringen",
+  "position": "Abwehr",
+  "nummer": 2,
+  "bild": ""
+ },
+ {
+  "id": "patrick-hahn",
+  "name": "Patrick Hahn",
+  "verein": "sv-sigmaringen",
+  "position": "Abwehr",
+  "nummer": 3,
+  "bild": ""
+ },
+ {
+  "id": "moritz-knoll",
+  "name": "Moritz Knoll",
+  "verein": "sv-sigmaringen",
+  "position": "Abwehr",
+  "nummer": 5,
+  "bild": ""
+ },
+ {
+  "id": "lars-maier",
+  "name": "Lars Maier",
+  "verein": "sv-sigmaringen",
+  "position": "Abwehr",
+  "nummer": 13,
+  "bild": ""
+ },
+ {
+  "id": "philipp-dreher",
+  "name": "Philipp Dreher",
+  "verein": "sv-sigmaringen",
+  "position": "Abwehr",
+  "nummer": 15,
+  "bild": ""
+ },
+ {
+  "id": "robin-fischer",
+  "name": "Robin Fischer",
+  "verein": "sv-sigmaringen",
+  "position": "Abwehr",
+  "nummer": 19,
+  "bild": ""
+ },
+ {
+  "id": "kai-schaefer",
+  "name": "Kai Schäfer",
+  "verein": "sv-sigmaringen",
+  "position": "Abwehr",
+  "nummer": 24,
+  "bild": ""
+ },
+ {
+  "id": "david-ruf",
+  "name": "David Ruf",
+  "verein": "sv-sigmaringen",
+  "position": "Mittelfeld",
+  "nummer": 6,
+  "bild": ""
+ },
+ {
+  "id": "julian-keller",
+  "name": "Julian Keller",
+  "verein": "sv-sigmaringen",
+  "position": "Mittelfeld",
+  "nummer": 7,
+  "bild": ""
+ },
+ {
+  "id": "fabian-bucher",
+  "name": "Fabian Bucher",
+  "verein": "sv-sigmaringen",
+  "position": "Mittelfeld",
+  "nummer": 8,
+  "bild": ""
+ },
+ {
+  "id": "noah-leiber",
+  "name": "Noah Leiber",
+  "verein": "sv-sigmaringen",
+  "position": "Mittelfeld",
+  "nummer": 14,
+  "bild": ""
+ },
+ {
+  "id": "elias-pfaff",
+  "name": "Elias Pfaff",
+  "verein": "sv-sigmaringen",
+  "position": "Mittelfeld",
+  "nummer": 16,
+  "bild": ""
+ },
+ {
+  "id": "leon-sauter",
+  "name": "Leon Sauter",
+  "verein": "sv-sigmaringen",
+  "position": "Mittelfeld",
+  "nummer": 17,
+  "bild": ""
+ },
+ {
+  "id": "jakob-winter",
+  "name": "Jakob Winter",
+  "verein": "sv-sigmaringen",
+  "position": "Mittelfeld",
+  "nummer": 18,
+  "bild": ""
+ },
+ {
+  "id": "tim-engler",
+  "name": "Tim Engler",
+  "verein": "sv-sigmaringen",
+  "position": "Mittelfeld",
+  "nummer": 20,
+  "bild": ""
+ },
+ {
+  "id": "ben-haering",
+  "name": "Ben Häring",
+  "verein": "sv-sigmaringen",
+  "position": "Mittelfeld",
   "nummer": 23,
+  "bild": ""
+ },
+ {
+  "id": "max-rapp",
+  "name": "Max Rapp",
+  "verein": "sv-sigmaringen",
+  "position": "Sturm",
+  "nummer": 9,
+  "bild": ""
+ },
+ {
+  "id": "nils-gaiser",
+  "name": "Nils Gaiser",
+  "verein": "sv-sigmaringen",
+  "position": "Sturm",
+  "nummer": 11,
+  "bild": ""
+ },
+ {
+  "id": "luis-hermann",
+  "name": "Luis Hermann",
+  "verein": "sv-sigmaringen",
+  "position": "Sturm",
+  "nummer": 21,
+  "bild": ""
+ },
+ {
+  "id": "paul-stoeckle",
+  "name": "Paul Stöckle",
+  "verein": "sv-sigmaringen",
+  "position": "Sturm",
+  "nummer": 27,
   "bild": ""
  }
 ]

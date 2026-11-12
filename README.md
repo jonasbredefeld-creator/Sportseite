@@ -58,4 +58,9 @@ Bei Sportarten neben Fußball begleiten wir meist nur ein Team, nicht die ganze 
 - `vereine.json`: das Team und die Gegner mit dieser Liga eintragen. Gegner bekommen eine eigene Seite mit den Spielen gegen unser Team.
 - `spiele.json`: wie bei Fußball, `toreHeim`/`toreGast` ist der Endstand. Dazu optional `"abschnitte"` (Viertel oder Halbzeiten, z. B. `[[18,20],[22,15],[16,21],[22,15]]`) und `"scorer"` (`[{"spieler": "id", "punkte": 24}]`). Kein `spieltag` nötig.
 - News, Videos und Galerien erben die Sportart über ihr Spiel. Sie bekommen automatisch ein Etikett, und auf News, Highlights und Bilder erscheinen Filter, sobald es mehr als eine Sportart gibt.
+- Eine Team-Liga erscheint erst im Menü, auf der Ligen- und der Vereinsseite, wenn es Inhalt gibt: mindestens ein Spiel mit Kurzbericht, News, Galerie oder Video. Einfach anlegen, es taucht automatisch auf.
 - Auf der Startseite erscheint die Sportart als eigener Ergebnis-Reiter nur, wenn das Team am selben Wochenende wie der Fußball gespielt hat.
+
+## Kader
+
+Spieler in `spieler.json` mit `position` eintragen. Die Vereinsseite gruppiert automatisch nach Tor, Abwehr, Mittelfeld, Sturm (bei anderen Sportarten nach deren Positionen) und zeigt den Kader als Raster über die volle Breite.

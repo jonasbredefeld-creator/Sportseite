@@ -96,22 +96,5 @@
    "src": "",
    "titel": "Hartmann zieht zum Korb"
   }
- },
- {
-  "id": "hornets-saisonbilanz",
-  "kategorie": "Landesliga",
-  "liga": "football-landesliga",
-  "spiel": "af-hornets-biberach",
-  "datum": "2026-09-13",
-  "titel": "Hornets beenden die Saison mit einem Heimsieg",
-  "teaser": "28:21 gegen Biberach zum Abschluss. Running Back Samuel Keck trug den Ball dreimal in die Endzone.",
-  "text": [
-   "Vor gut gefüllten Rängen zeigten die Hornets ihr bestes Saisonspiel.",
-   "Im April geht es weiter."
-  ],
-  "bild": {
-   "src": "",
-   "titel": "Keck läuft zum Touchdown"
-  }
  }
 ]

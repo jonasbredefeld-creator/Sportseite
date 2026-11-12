@@ -619,3 +619,32 @@ td a:hover { color: var(--blau); }
 .abschnitte .name { width: 40%; }
 .abschnitte tbody .name { color: var(--tinte); font-size: 16px; }
 .abschnitte tbody tr:last-child > * { border-bottom: 0; }
+
+/* ---------- Kader ---------- */
+.kader { padding: 6px 22px 22px; }
+.kader-gruppe h3 { font-size: 15px; font-weight: 600; color: var(--leise); margin: 18px 0 10px; }
+.kader-raster { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px 16px; }
+.kader-karte { display: grid; grid-template-columns: 40px 30px minmax(0, 1fr); align-items: center; gap: 10px; padding: 6px 8px 6px 6px; border-radius: 6px; }
+.kader-karte:hover { background: var(--blau-hell); }
+.kader-karte:hover .kader-name { color: var(--blau); }
+.kader-karte .foto.kader-bild { width: 40px; height: 48px; aspect-ratio: auto; border-radius: 4px; overflow: hidden; }
+.kader-bild .foto-leer div { font-size: 0; }
+.kader-bild .foto-leer svg { width: 16px; height: 16px; }
+.kader-nr { font-family: var(--zahl); font-weight: 700; font-size: 20px; color: var(--blau); text-align: right; }
+.kader-name { font-size: 16px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.alle-zeigen {
+  display: block; width: 100%; padding: 12px; border: 0; border-top: 1px solid var(--linie);
+  background: none; font: inherit; font-size: 15px; font-weight: 500; color: var(--blau); cursor: pointer;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+.alle-zeigen:hover { background: var(--blau-hell); }
+@media (max-width: 560px) {
+  .kader { padding: 4px 12px 14px; }
+  .kader-raster { grid-template-columns: 1fr 1fr; gap: 2px 6px; }
+  .kader-karte { grid-template-columns: 28px 22px minmax(0, 1fr); gap: 6px; padding: 5px 4px; }
+  .kader-karte .foto.kader-bild { width: 28px; height: 34px; }
+  .kader-nr { font-size: 16px; }
+  .kader-bild .foto-leer svg { display: none; }
+  .kader-name { font-size: 14px; }
+  .kader-gruppe h3 { margin: 14px 0 6px; }
+}

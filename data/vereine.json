@@ -622,29 +622,5 @@
   "ort": "",
   "liga": "basketball-oberliga",
   "farbe": ""
- },
- {
-  "id": "sigmaringen-hornets",
-  "name": "Sigmaringen Hornets",
-  "kurz": "Hornets",
-  "ort": "",
-  "liga": "football-landesliga",
-  "farbe": ""
- },
- {
-  "id": "af-biberach-bulls",
-  "name": "Biberach Bulls",
-  "kurz": "Biberach",
-  "ort": "",
-  "liga": "football-landesliga",
-  "farbe": ""
- },
- {
-  "id": "af-albstadt-titans",
-  "name": "Albstadt Titans",
-  "kurz": "Albstadt",
-  "ort": "",
-  "liga": "football-landesliga",
-  "farbe": ""
  }
 ]
