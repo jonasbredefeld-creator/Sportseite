@@ -1,5 +1,34 @@
 [
-  { "datum": "2026-11-10", "typ": "Trainer", "name": "Neuer Cheftrainer", "von": "", "zu": "sv-uttenweiler", "text": "Uttenweiler stellt sich zur Rückrunde an der Seitenlinie neu auf." },
-  { "datum": "2026-11-07", "typ": "Spieler", "name": "Torhüter", "von": "fc-laiz", "zu": "sv-sigmaringen", "text": "Wechsel in der Winterpause, spielberechtigt ab der Rückrunde." },
-  { "datum": "2026-11-03", "typ": "Spieler", "name": "Stürmer", "von": "sv-hundersingen", "zu": "fv-bad-saulgau", "text": "Rückkehr zum Jugendverein." }
+  {
+    "datum": "2026-11-10",
+    "typ": "Trainer",
+    "name": "Martin Haas",
+    "von": "",
+    "zu": "sv-uttenweiler",
+    "text": "Übernimmt zur Wintervorbereitung als Cheftrainer."
+  },
+  {
+    "datum": "2026-11-07",
+    "typ": "Spieler",
+    "spieler": "tobias-renz",
+    "von": "fc-laiz",
+    "zu": "sv-sigmaringen",
+    "text": "Wechsel in der Winterpause, spielberechtigt ab der Rückrunde."
+  },
+  {
+    "datum": "2026-11-05",
+    "typ": "Spieler",
+    "spieler": "daniel-moser",
+    "von": "sgm-ummendorf-fischbach",
+    "zu": "fc-mengen",
+    "text": "Verstärkt die Defensive des Tabellenführers."
+  },
+  {
+    "datum": "2026-11-03",
+    "typ": "Spieler",
+    "spieler": "florian-ott",
+    "von": "sv-hundersingen",
+    "zu": "fv-bad-saulgau",
+    "text": "Rückkehr zum Jugendverein."
+  }
 ]

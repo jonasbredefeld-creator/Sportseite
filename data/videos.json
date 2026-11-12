@@ -1,0 +1,52 @@
+[
+  {
+    "id": "vid-sigmaringen-ummendorf",
+    "typ": "Highlights",
+    "titel": "Alle Tore: SV Sigmaringen gegen SGM Ummendorf/Fischbach",
+    "spiel": "bzl-13-sigmaringen-ummendorf",
+    "datum": "2026-11-08",
+    "dauer": "2:14",
+    "src": "",
+    "poster": ""
+  },
+  {
+    "id": "vid-wiest-ausgleich",
+    "typ": "Tor",
+    "titel": "Wiest köpft in der 88. Minute zum 2:2",
+    "spiel": "bzl-13-sigmaringen-ummendorf",
+    "datum": "2026-11-08",
+    "dauer": "0:24",
+    "src": "",
+    "poster": ""
+  },
+  {
+    "id": "vid-spieltag-13",
+    "typ": "Spieltag",
+    "titel": "Bezirksliga, 13. Spieltag in 30 Sekunden",
+    "liga": "bezirksliga-oberschwaben",
+    "datum": "2026-11-09",
+    "dauer": "0:31",
+    "src": "",
+    "poster": ""
+  },
+  {
+    "id": "vid-laiz-inzigkofen",
+    "typ": "Highlights",
+    "titel": "Dreierpack im Derby: Laiz gegen Inzigkofen",
+    "spiel": "kla-12-laiz-inzigkofen",
+    "datum": "2026-11-08",
+    "dauer": "1:48",
+    "src": "",
+    "poster": ""
+  },
+  {
+    "id": "vid-mengen-sigmaringen",
+    "typ": "Highlights",
+    "titel": "Hagels Treffer entscheidet das Topspiel",
+    "spiel": "bzl-12-mengen-sigmaringen",
+    "datum": "2026-11-01",
+    "dauer": "1:56",
+    "src": "",
+    "poster": ""
+  }
+]

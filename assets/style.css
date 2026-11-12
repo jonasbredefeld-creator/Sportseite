@@ -383,3 +383,46 @@ td a:hover { color: var(--blau); }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
+
+/* ---------- Videos ---------- */
+.video-bild {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, #24366f 0%, #0d1f78 100%);
+  overflow: hidden;
+  display: block;
+}
+.video-bild img { width: 100%; height: 100%; object-fit: cover; }
+.video-bild .play { position: absolute; inset: 0; display: grid; place-items: center; }
+.video-bild .play svg { width: 56px; height: 56px; }
+.video-bild .foto-leer { color: rgba(255, 255, 255, 0.6); }
+.video-bild .dauer {
+  position: absolute; right: 10px; bottom: 10px;
+  background: rgba(0, 0, 0, 0.7); color: #fff; font-size: 13px; padding: 3px 7px; border-radius: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.video-karte .inhalt { padding: 14px 16px 18px; }
+.video-karte h3 { font-size: 18px; line-height: 1.3; font-weight: 600; margin: 6px 0 0; }
+.video-karte:hover h3 { color: var(--blau); }
+.video-karte:hover .play svg circle { fill: var(--rot); }
+.video-karte .datum { color: var(--leise); font-size: 14px; margin-top: 6px; }
+.player { width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius); background: #000; }
+.raster.zwei-spalten { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+/* ---------- Wechsel und Porträts ---------- */
+.foto.portraet { aspect-ratio: 4 / 5; border-radius: var(--radius); }
+.foto.portraet .foto-leer { font-size: 0; }
+.foto.portraet .foto-leer svg { width: 28px; height: 28px; margin: 0; }
+.wechsel { display: grid; grid-template-columns: 64px 1fr; gap: 14px; align-items: center; }
+.wechsel-liste .wechsel { padding: 12px 0; border-top: 1px solid var(--linie); }
+.wechsel-liste .wechsel:first-child { border-top: 0; padding-top: 0; }
+.wechsel-name { font-weight: 600; font-size: 17px; margin-top: 2px; }
+.wechsel-weg { font-size: 15px; }
+.wechsel-weg strong { color: var(--blau); font-weight: 600; }
+.kader-zeile { display: flex; align-items: center; gap: 10px; }
+.foto.portraet.mini { width: 36px; flex: none; border-radius: 4px; }
+.foto.portraet.mini .foto-leer svg { width: 16px; height: 16px; }
+
+@media (max-width: 560px) {
+  .raster.zwei-spalten { grid-template-columns: 1fr; }
+}

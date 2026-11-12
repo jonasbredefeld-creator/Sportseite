@@ -1,7 +1,7 @@
 // Sportseite – rendert alle Seiten aus den JSON-Dateien im Ordner /data.
 // Neue Ergebnisse, Berichte, Spieler oder Galerien = nur die JSON-Dateien ändern.
 
-const DATEN = ["site", "ligen", "vereine", "spieler", "spiele", "galerien", "wechsel", "berichte"];
+const DATEN = ["site", "ligen", "vereine", "spieler", "spiele", "galerien", "wechsel", "berichte", "videos"];
 
 const $ = (sel, el = document) => el.querySelector(sel);
 const $$ = (sel, el = document) => [...el.querySelectorAll(sel)];
@@ -29,6 +29,7 @@ async function laden() {
   d.galerie = (id) => d.galerien.find((g) => g.id === id);
   d.spiel = (id) => d.spiele.find((s) => s.id === id);
   d.gespielt = d.spiele.filter((s) => Number.isInteger(s.toreHeim));
+  d.videosSortiert = [...d.videos].sort((a, b) => b.datum.localeCompare(a.datum));
   d.berichteSortiert = [...d.berichte].sort((a, b) => b.datum.localeCompare(a.datum));
   return d;
 }
@@ -37,8 +38,8 @@ async function laden() {
 
 const BEREICH = {
   start: "start", ligen: "ligen", liga: "ligen", berichte: "berichte", bericht: "berichte",
-  galerien: "bilder", galerie: "bilder", wechsel: "wechsel",
-  vereine: "mehr", verein: "mehr", spieler: "mehr", spiel: "ergebnisse", partner: "mehr", impressum: "mehr", datenschutz: "mehr"
+  galerien: "bilder", galerie: "bilder", wechsel: "wechsel", highlights: "highlights", video: "highlights",
+  vereine: "mehr", verein: "mehr", spieler: "mehr", spiel: "ligen", partner: "mehr", impressum: "mehr", datenschutz: "mehr"
 };
 
 function rahmen(d, seite) {
@@ -52,8 +53,7 @@ function rahmen(d, seite) {
     </div>`;
   const punkt = (key, href, titel) => `<div class="menue-punkt"><a href="${href}"${cur(key)}>${titel}</a></div>`;
 
-  const ligenLinks = d.ligen.map((l) => `<a href="liga.html?id=${l.id}">${esc(l.name)}<span class="klein">${esc(l.sportart)}, Saison ${esc(l.saison)}</span></a>`).join("");
-  const ergebnisLinks = d.ligen.map((l) => `<a href="liga.html?id=${l.id}#spieltage">${esc(l.kurz)}<span class="klein">Ergebnisse und Spielplan</span></a>`).join("");
+  const ligenLinks = d.ligen.map((l) => `<a href="liga.html?id=${l.id}">${esc(l.name)}<span class="klein">Tabelle, Ergebnisse und Spielplan</span></a>`).join("");
 
   const kopf = document.createElement("div");
   kopf.innerHTML = `
@@ -71,8 +71,8 @@ function rahmen(d, seite) {
       <div class="wrap">
         ${punkt("start", "index.html", "Home")}
         ${ausklapp("ligen", "Ligen", ligenLinks)}
-        ${ausklapp("ergebnisse", "Ergebnisse", ergebnisLinks)}
         ${punkt("berichte", "berichte.html", "Berichte")}
+        ${punkt("highlights", "highlights.html", "Highlights")}
         ${punkt("bilder", "galerien.html", "Bilder")}
         ${punkt("wechsel", "wechsel.html", "Wechsel")}
         ${ausklapp("mehr", "Mehr", `
@@ -167,6 +167,43 @@ function berichtKarte(b) {
         <div class="datum">${datumMittel(b.datum)}</div>
       </div>
     </a>`;
+}
+
+const PLAY = `<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="rgba(13,31,120,0.85)"/><path d="M19 15l15 9-15 9z" fill="#fff"/></svg>`;
+
+function videoKarte(v) {
+  return `
+    <a class="karte video-karte" href="video.html?id=${v.id}">
+      <div class="video-bild">
+        ${v.poster ? `<img src="${esc(v.poster)}" alt="" loading="lazy">` : ""}
+        <span class="play">${PLAY}</span>
+        <span class="dauer">${esc(v.dauer)}</span>
+      </div>
+      <div class="inhalt">
+        <span class="kategorie rot">${esc(v.typ)}</span>
+        <h3>${esc(v.titel)}</h3>
+        <div class="datum">${datumMittel(v.datum)}</div>
+      </div>
+    </a>`;
+}
+
+function portraet(sp, klasse = "") {
+  return foto(sp?.bild ? { src: sp.bild, titel: sp.name } : null, `portraet ${klasse}`);
+}
+
+function wechselEintrag(d, w) {
+  const sp = w.spieler && d.spielerById(w.spieler);
+  const name = sp ? `<a class="link" href="spieler.html?id=${sp.id}">${esc(sp.name)}</a>` : esc(w.name);
+  return `
+    <div class="wechsel">
+      ${portraet(sp)}
+      <div>
+        <span class="kategorie">${esc(w.typ)}${sp ? `, ${esc(sp.position)}` : ""}</span>
+        <div class="wechsel-name">${name}</div>
+        <div class="wechsel-weg">${w.von ? `${esc(d.verein(w.von)?.kurz)} <span aria-label="zu">→</span> ` : "Neu bei "}<strong>${esc(d.verein(w.zu)?.kurz)}</strong></div>
+        <div class="leise">${datumMittel(w.datum)}</div>
+      </div>
+    </div>`;
 }
 
 function galerieKarte(g) {
@@ -285,6 +322,12 @@ const seiten = {
             </div>`).join("")}
         </section>` : ""}
 
+      ${d.videos.length ? `
+        <section class="abschnitt" aria-labelledby="hl-titel">
+          <div class="abschnitt-kopf"><h2 id="hl-titel">Highlights</h2><a href="highlights.html">Alle Videos</a></div>
+          <div class="raster vier">${d.videosSortiert.slice(0, 4).map(videoKarte).join("")}</div>
+        </section>` : ""}
+
       ${gals.length ? `
         <section class="abschnitt" aria-labelledby="bilder-titel">
           <div class="abschnitt-kopf"><h2 id="bilder-titel">Bilder vom Wochenende</h2><a href="galerien.html">Alle Galerien</a></div>
@@ -307,9 +350,9 @@ const seiten = {
           </div>
           <div class="karte box" style="margin-top:24px">
             <h2>Wechselticker</h2>
-            <ul class="liste">
-              ${d.wechsel.slice(0, 3).map((w) => `<li><strong>${esc(w.typ)}:</strong> ${esc(w.name)} ${w.von ? `von ${esc(d.verein(w.von)?.kurz)} ` : ""}zu ${esc(d.verein(w.zu)?.kurz)}<br><span class="leise">${datumMittel(w.datum)}</span></li>`).join("")}
-            </ul>
+            <div class="wechsel-liste">
+              ${[...d.wechsel].sort((a, b) => b.datum.localeCompare(a.datum)).slice(0, 3).map((w) => wechselEintrag(d, w)).join("")}
+            </div>
             <p style="margin:12px 0 0"><a class="link" href="wechsel.html">Alle Wechsel</a></p>
           </div>
         </aside>
@@ -354,7 +397,7 @@ const seiten = {
           <div id="spieltage">
             ${tage.map((t) => `
               <div class="abschnitt">
-                <div class="abschnitt-kopf"><h2>${t}. Spieltag</h2></div>
+                <div class="abschnitt-kopf"><h2>${t}. Spieltag</h2>${t === letzterSpieltag(d, l.id) ? `<span class="leise">aktuell</span>` : ""}</div>
                 <div class="ergebnis-streifen">${d.spiele.filter((s) => s.liga === l.id && s.spieltag === t).map((s) => spielKarte(d, s)).join("")}</div>
               </div>`).join("")}
           </div>
@@ -433,7 +476,7 @@ const seiten = {
           <div class="karte box" style="margin-top:24px">
             <h2>Kader</h2>
             <ul class="liste">
-              ${kader.map((s) => `<li><span class="rang">${s.nummer}</span><a href="spieler.html?id=${s.id}">${esc(s.name)}</a> <span class="leise">${esc(s.position)}</span></li>`).join("") || "<li>Kader noch nicht eingetragen.</li>"}
+              ${kader.map((s) => `<li class="kader-zeile">${portraet(s, "mini")}<span class="rang">${s.nummer}</span><a href="spieler.html?id=${s.id}">${esc(s.name)}</a> <span class="leise">${esc(s.position)}</span></li>`).join("") || "<li>Kader noch nicht eingetragen.</li>"}
             </ul>
           </div>
         </aside>
@@ -452,7 +495,7 @@ const seiten = {
     return `
       <div class="seitenkopf"><span class="kategorie">${esc(d.verein(sp.verein)?.name)}</span><h1>${esc(sp.name)}</h1></div>
       <div class="karte box profil">
-        ${foto({ titel: "Porträt" }, "hoch")}
+        ${portraet(sp, "hoch")}
         <div>
           <div class="rueckennummer">${sp.nummer}</div>
           <p class="leise">${esc(sp.position)}, ${vereinLink(d, sp.verein)}</p>
@@ -465,6 +508,10 @@ const seiten = {
           </ul>
         </div>
       </div>
+      ${(() => {
+        const ws = d.wechsel.filter((w) => w.spieler === sp.id);
+        return ws.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>Wechsel</h2></div><div class="karte box"><ul class="liste">${ws.map((w) => `<li>${w.von ? `${vereinLink(d, w.von)} → ` : ""}${vereinLink(d, w.zu)} <span class="leise">${datumMittel(w.datum)}</span><br>${esc(w.text)}</li>`).join("")}</ul></div></section>` : "";
+      })()}
       ${bilder.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>Bilder</h2></div><div class="bilderraster">${bilder.map(({ g, b }) => `<a href="galerie.html?id=${g.id}"><figure>${foto(b)}<figcaption>${esc(b.titel)}</figcaption></figure></a>`).join("")}</div></section>` : ""}`;
   },
 
@@ -476,6 +523,8 @@ const seiten = {
     const gespielt = Number.isInteger(s.toreHeim);
     const gal = s.galerie && d.galerie(s.galerie);
     const bericht = d.berichte.find((b) => b.spiel === s.id);
+    const videos = d.videos.filter((v) => v.spiel === s.id);
+    const nichts = gespielt && !s.bericht && !bericht && !gal && !videos.length && !(s.tore || []).length;
     return `
       <div class="seitenkopf"><span class="kategorie">${esc(d.liga(s.liga)?.name)}, ${s.spieltag}. Spieltag</span><p>${datumLang(s.datum)}, ${esc(s.anstoss)} Uhr</p></div>
       <div class="spielkopf">
@@ -487,6 +536,12 @@ const seiten = {
         <div>
           ${s.bericht ? `<div class="abschnitt-kopf"><h2>Kurzbericht</h2></div><p style="font-size:19px;margin:0 0 12px">${esc(s.bericht)}</p>` : gespielt ? "" : `<div class="abschnitt-kopf"><h2>Vorschau</h2></div><p>Das Spiel steht noch aus.</p>`}
           ${bericht ? `<p><a class="link" href="bericht.html?id=${bericht.id}">Zum ausführlichen Bericht</a></p>` : ""}
+          ${nichts ? `<p class="leise">Zu diesem Spiel gibt es nur das Ergebnis. Bericht, Bilder und Videos gibt es von den Spielen, bei denen wir vor Ort waren.</p>` : ""}
+          ${videos.length ? `
+            <div class="abschnitt">
+              <div class="abschnitt-kopf"><h2>Videos</h2></div>
+              <div class="raster zwei-spalten">${videos.map(videoKarte).join("")}</div>
+            </div>` : ""}
           ${gal ? `
             <div class="abschnitt">
               <div class="abschnitt-kopf"><h2>Bilder</h2><a href="galerie.html?id=${gal.id}">Alle ${gal.bilder.length} Bilder</a></div>
@@ -527,14 +582,40 @@ const seiten = {
   wechsel(d) {
     return `
       <div class="seitenkopf"><h1>Wechselticker</h1><p>Spieler- und Trainerwechsel der Region, neueste zuerst.</p></div>
-      <div class="karte box"><ul class="liste">
+      <div class="raster zwei-spalten">
         ${[...d.wechsel].sort((a, b) => b.datum.localeCompare(a.datum)).map((w) => `
-          <li>
-            <span class="kategorie">${esc(w.typ)}</span><br>
-            <strong>${esc(w.name)}</strong> ${w.von ? `von ${vereinLink(d, w.von)} ` : ""}zu ${vereinLink(d, w.zu)}
-            <br>${esc(w.text)} <span class="leise">${datumMittel(w.datum)}</span>
-          </li>`).join("")}
-      </ul></div>`;
+          <div class="karte box">${wechselEintrag(d, w)}<p style="margin:12px 0 0">${esc(w.text)}</p></div>`).join("")}
+      </div>`;
+  },
+
+  highlights(d) {
+    const typen = [...new Set(d.videos.map((v) => v.typ))];
+    return `
+      <div class="seitenkopf"><h1>Highlights</h1><p>Tore, Szenen und Spieltage im Video.</p></div>
+      ${typen.map((t) => `
+        <section class="abschnitt">
+          <div class="abschnitt-kopf"><h2>${t === "Tor" ? "Einzelne Tore" : t === "Spieltag" ? "Spieltag in 30 Sekunden" : "Spiel-Highlights"}</h2></div>
+          <div class="raster vier">${d.videosSortiert.filter((v) => v.typ === t).map(videoKarte).join("")}</div>
+        </section>`).join("")}`;
+  },
+
+  video(d) {
+    const v = d.videos.find((x) => x.id === param("id"));
+    if (!v) return nichtGefunden("Video");
+    document.title = `${v.titel} | ${d.site.name}`;
+    const s = v.spiel && d.spiel(v.spiel);
+    const weitere = d.videosSortiert.filter((x) => x.id !== v.id).slice(0, 4);
+    return `
+      <div class="seitenkopf"><span class="kategorie rot">${esc(v.typ)}</span><h1>${esc(v.titel)}</h1><p>${datumLang(v.datum)}, ${esc(v.dauer)} Minuten</p></div>
+      <div class="zwei">
+        <div>
+          ${v.src
+            ? `<video class="player" src="${esc(v.src)}" ${v.poster ? `poster="${esc(v.poster)}"` : ""} controls playsinline preload="metadata"></video>`
+            : `<div class="video-bild player"><span class="play">${PLAY}</span><span class="foto-leer" style="align-items:end;padding-bottom:20%">Video folgt</span></div>`}
+        </div>
+        <aside>${s ? `<div class="abschnitt-kopf"><h2>Das Spiel</h2></div>${spielKarte(d, s)}` : v.liga ? `<p><a class="link" href="liga.html?id=${v.liga}">Zur Tabelle</a></p>` : ""}</aside>
+      </div>
+      ${weitere.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>Weitere Highlights</h2></div><div class="raster vier">${weitere.map(videoKarte).join("")}</div></section>` : ""}`;
   },
 
   statisch() { return null; }

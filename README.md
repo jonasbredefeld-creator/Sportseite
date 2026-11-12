@@ -20,17 +20,18 @@ Jeder Push auf `main` geht danach automatisch live. Eine eigene Domain kann spä
 | `data/site.json` | Name, Claim, Region. `"demo": true` zeigt den gelben Hinweis oben. |
 | `data/ligen.json` | Ligen mit Saison |
 | `data/vereine.json` | Vereine, Liga, Vereinsfarbe |
-| `data/spieler.json` | Spieler mit Verein, Position, Rückennummer |
+| `data/spieler.json` | Spieler mit Verein, Position, Rückennummer, optional `bild` für das Porträt |
 | `data/spiele.json` | Spiele. Ohne `toreHeim`/`toreGast` gilt ein Spiel als noch offen. `tore` = Torschützen mit Minute. |
 | `data/galerien.json` | Galerien pro Spiel. `src` = Bildadresse (später aus R2), `stichwoerter` mit Spieler-ID verknüpft Bilder mit dem Spielerprofil. |
-| `data/wechsel.json` | Wechselticker |
+| `data/wechsel.json` | Wechselticker. Mit `spieler` (ID) wird der Wechsel mit dem Spielerprofil und dessen Porträt verknüpft. |
+| `data/videos.json` | Highlight-Videos. `typ` = Highlights, Tor oder Spieltag; `spiel` verknüpft das Video mit dem Spiel; `src` = Videodatei (später aus R2). |
 | `data/berichte.json` | Berichte. `"haupt": true` macht einen Bericht zum Aufmacher auf der Startseite. |
 
 Tabellen und Torjäger werden automatisch aus den Spielen berechnet.
 
 ## Seiten
 
-`index.html` Start · `ligen.html` · `liga.html?id=` · `vereine.html` · `verein.html?id=` · `spieler.html?id=` · `spiel.html?id=` · `galerien.html` · `galerie.html?id=` · `wechsel.html` · `partner.html` · `impressum.html` · `datenschutz.html`
+`index.html` Start · `ligen.html` · `liga.html?id=` · `vereine.html` · `verein.html?id=` · `spieler.html?id=` · `spiel.html?id=` · `galerien.html` · `galerie.html?id=` · `berichte.html` · `bericht.html?id=` · `highlights.html` · `video.html?id=` · `wechsel.html` · `partner.html` · `impressum.html` · `datenschutz.html`
 
 ## Lokal ansehen
 
