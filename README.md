@@ -31,7 +31,7 @@ Tabellen und Torjäger werden automatisch aus den Spielen berechnet.
 
 ## Seiten
 
-`index.html` Start · `ligen.html` · `liga.html?id=` · `vereine.html` · `verein.html?id=` · `spieler.html?id=` · `spiel.html?id=` · `galerien.html` · `galerie.html?id=` · `berichte.html` · `bericht.html?id=` · `highlights.html` · `video.html?id=` · `wechsel.html` · `partner.html` · `impressum.html` · `datenschutz.html`
+`index.html` Start · `ligen.html` · `liga.html?id=` · `vereine.html` · `verein.html?id=` · `spieler.html?id=` · `spiel.html?id=` · `galerien.html` · `galerie.html?id=` · `berichte.html` (News) · `bericht.html?id=` · `suche.html?q=` · `highlights.html` · `video.html?id=` · `wechsel.html` · `partner.html` · `impressum.html` · `datenschutz.html`
 
 ## Lokal ansehen
 

@@ -25,6 +25,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { -webkit-text-size-adjust: 100%; }
 
 body {
@@ -360,8 +361,9 @@ td a:hover { color: var(--blau); }
     border-radius: var(--radius);
     cursor: pointer;
   }
-  .menue { display: none; position: static; }
-  .menue.offen { display: block; }
+  .menue { position: static; }
+  .menue .menue-punkt { display: none; }
+  .menue.offen .menue-punkt { display: flex; }
   .menue .wrap { flex-direction: column; padding: 8px 16px 12px; }
   .menue-punkt { flex-direction: column; }
   .menue-punkt > a, .menue-punkt > button { padding: 14px 4px; border-bottom: 1px solid var(--linie); width: 100%; justify-content: space-between; }
@@ -425,4 +427,64 @@ td a:hover { color: var(--blau); }
 
 @media (max-width: 560px) {
   .raster.zwei-spalten { grid-template-columns: 1fr; }
+}
+
+/* ---------- Suche ---------- */
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.suche { position: relative; margin-left: auto; align-self: center; width: 300px; }
+.suche input {
+  width: 100%;
+  font: 400 16px/1 var(--text);
+  padding: 11px 14px 11px 40px;
+  border: 1px solid var(--linie);
+  border-radius: 999px;
+  background: var(--grau);
+  color: var(--tinte);
+}
+.suche input::placeholder { color: var(--leise); }
+.suche input:focus { outline: none; border-color: var(--blau); background: #fff; box-shadow: 0 0 0 3px var(--blau-hell); }
+.suche .lupe { position: absolute; left: 14px; top: 50%; width: 17px; height: 17px; transform: translateY(-50%); color: var(--leise); pointer-events: none; }
+.such-vorschau {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  width: 380px;
+  max-width: calc(100vw - 32px);
+  background: #fff;
+  border: 1px solid var(--linie);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 28px rgba(16, 24, 48, 0.14);
+  padding: 6px 0;
+  z-index: 30;
+}
+.such-vorschau a { display: flex; align-items: center; gap: 12px; padding: 9px 14px; }
+.such-vorschau a:hover, .such-vorschau a:focus { background: var(--blau-hell); outline: none; }
+.such-vorschau strong { display: block; font-weight: 600; font-size: 15px; }
+.such-vorschau .klein { display: block; font-size: 13px; color: var(--leise); }
+.such-vorschau .alle { color: var(--blau); font-weight: 500; font-size: 15px; border-top: 1px solid var(--linie); margin-top: 4px; }
+.such-vorschau .leer { padding: 12px 14px; color: var(--leise); font-size: 15px; }
+.such-typ {
+  flex: none; width: 52px; text-align: center;
+  font-size: 12px; font-weight: 600; color: var(--blau);
+  background: var(--blau-hell); border-radius: 4px; padding: 4px 0;
+}
+
+/* ---------- Spieltag blättern ---------- */
+.spieltag-kopf { justify-content: flex-start; align-items: center; gap: 10px; }
+.spieltag-kopf h2 { min-width: 150px; text-align: center; }
+.blaettern {
+  width: 36px; height: 36px; display: grid; place-items: center;
+  border: 1px solid var(--linie); background: #fff; border-radius: 50%;
+  color: var(--blau); cursor: pointer;
+}
+.blaettern .pfeil { width: 14px; height: 14px; }
+.blaettern[data-richtung="-1"] .pfeil { transform: rotate(90deg); }
+.blaettern[data-richtung="1"] .pfeil { transform: rotate(-90deg); }
+.blaettern:hover:not(:disabled) { background: var(--blau-hell); }
+.blaettern:disabled { opacity: 0.35; cursor: default; }
+
+@media (max-width: 1100px) { .suche { width: 220px; } }
+@media (max-width: 820px) {
+  .suche { order: -1; width: 100%; margin: 4px 0 8px; }
+  .such-vorschau { left: 0; right: auto; width: 100%; }
 }
