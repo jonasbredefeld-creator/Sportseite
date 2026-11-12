@@ -9,7 +9,13 @@
   "gast": "sv-reinstetten",
   "toreHeim": 1,
   "toreGast": 0,
-  "tore": []
+  "tore": [
+   {
+    "min": 65,
+    "spieler": null,
+    "verein": "tsv-neu-ulm"
+   }
+  ]
  },
  {
   "id": "ll-12-ehingen-sued-olympia-laupheim",
@@ -21,7 +27,28 @@
   "gast": "fv-olympia-laupheim",
   "toreHeim": 3,
   "toreGast": 1,
-  "tore": []
+  "tore": [
+   {
+    "min": 6,
+    "spieler": null,
+    "verein": "ssv-ehingen-sued"
+   },
+   {
+    "min": 40,
+    "spieler": null,
+    "verein": "ssv-ehingen-sued"
+   },
+   {
+    "min": 52,
+    "spieler": null,
+    "verein": "fv-olympia-laupheim"
+   },
+   {
+    "min": 55,
+    "spieler": null,
+    "verein": "ssv-ehingen-sued"
+   }
+  ]
  },
  {
   "id": "ll-12-buch-tuerkguecue-ulm",
@@ -33,7 +60,33 @@
   "gast": "sc-tuerkguecue-ulm",
   "toreHeim": 3,
   "toreGast": 2,
-  "tore": []
+  "tore": [
+   {
+    "min": 14,
+    "spieler": null,
+    "verein": "tsv-buch"
+   },
+   {
+    "min": 18,
+    "spieler": null,
+    "verein": "tsv-buch"
+   },
+   {
+    "min": 28,
+    "spieler": null,
+    "verein": "tsv-buch"
+   },
+   {
+    "min": 51,
+    "spieler": null,
+    "verein": "sc-tuerkguecue-ulm"
+   },
+   {
+    "min": 83,
+    "spieler": null,
+    "verein": "sc-tuerkguecue-ulm"
+   }
+  ]
  },
  {
   "id": "ll-12-blaubeuren-mietingen",
@@ -45,7 +98,18 @@
   "gast": "sv-mietingen",
   "toreHeim": 1,
   "toreGast": 1,
-  "tore": []
+  "tore": [
+   {
+    "min": 22,
+    "spieler": null,
+    "verein": "fc-blaubeuren"
+   },
+   {
+    "min": 24,
+    "spieler": null,
+    "verein": "sv-mietingen"
+   }
+  ]
  },
  {
   "id": "ll-12-mengen-wangen",
@@ -58,6 +122,16 @@
   "toreHeim": 1,
   "toreGast": 2,
   "tore": [
+   {
+    "min": 19,
+    "spieler": null,
+    "verein": "fc-wangen"
+   },
+   {
+    "min": 28,
+    "spieler": null,
+    "verein": "fc-wangen"
+   },
    {
     "min": 31,
     "spieler": "daniel-moser",
@@ -76,6 +150,11 @@
   "toreHeim": 2,
   "toreGast": 1,
   "tore": [
+   {
+    "min": 26,
+    "spieler": null,
+    "verein": "fv-rot-weiss-weiler"
+   },
    {
     "min": 27,
     "spieler": "luca-wahl",
@@ -100,9 +179,19 @@
   "toreGast": 2,
   "tore": [
    {
+    "min": 13,
+    "spieler": null,
+    "verein": "tsv-heimenkirch"
+   },
+   {
     "min": 17,
     "spieler": "jan-roth",
     "verein": "tsv-ummendorf"
+   },
+   {
+    "min": 73,
+    "spieler": null,
+    "verein": "tsv-heimenkirch"
    },
    {
     "min": 90,
@@ -121,7 +210,18 @@
   "gast": "ssg-ulm",
   "toreHeim": 1,
   "toreGast": 1,
-  "tore": []
+  "tore": [
+   {
+    "min": 29,
+    "spieler": null,
+    "verein": "ssg-ulm"
+   },
+   {
+    "min": 69,
+    "spieler": null,
+    "verein": "tsv-eschach"
+   }
+  ]
  },
  {
   "id": "ll-13-mengen-riedlingen",
@@ -168,7 +268,28 @@
   "gast": "sv-mietingen",
   "toreHeim": 3,
   "toreGast": 1,
-  "tore": []
+  "tore": [
+   {
+    "min": 27,
+    "spieler": null,
+    "verein": "fc-wangen"
+   },
+   {
+    "min": 56,
+    "spieler": null,
+    "verein": "sv-mietingen"
+   },
+   {
+    "min": 61,
+    "spieler": null,
+    "verein": "fc-wangen"
+   },
+   {
+    "min": 84,
+    "spieler": null,
+    "verein": "fc-wangen"
+   }
+  ]
  },
  {
   "id": "ll-13-tuerkguecue-ulm-buch",
@@ -180,7 +301,13 @@
   "gast": "tsv-buch",
   "toreHeim": 1,
   "toreGast": 0,
-  "tore": []
+  "tore": [
+   {
+    "min": 23,
+    "spieler": null,
+    "verein": "sc-tuerkguecue-ulm"
+   }
+  ]
  },
  {
   "id": "ll-13-ehingen-sued-blaubeuren",
@@ -192,7 +319,23 @@
   "gast": "fc-blaubeuren",
   "toreHeim": 1,
   "toreGast": 2,
-  "tore": []
+  "tore": [
+   {
+    "min": 49,
+    "spieler": null,
+    "verein": "fc-blaubeuren"
+   },
+   {
+    "min": 53,
+    "spieler": null,
+    "verein": "fc-blaubeuren"
+   },
+   {
+    "min": 80,
+    "spieler": null,
+    "verein": "ssv-ehingen-sued"
+   }
+  ]
  },
  {
   "id": "ll-13-olympia-laupheim-eschach",
@@ -204,7 +347,28 @@
   "gast": "tsv-eschach",
   "toreHeim": 3,
   "toreGast": 1,
-  "tore": []
+  "tore": [
+   {
+    "min": 12,
+    "spieler": null,
+    "verein": "fv-olympia-laupheim"
+   },
+   {
+    "min": 18,
+    "spieler": null,
+    "verein": "fv-olympia-laupheim"
+   },
+   {
+    "min": 35,
+    "spieler": null,
+    "verein": "tsv-eschach"
+   },
+   {
+    "min": 51,
+    "spieler": null,
+    "verein": "fv-olympia-laupheim"
+   }
+  ]
  },
  {
   "id": "ll-13-neu-ulm-ummendorf",
@@ -216,7 +380,13 @@
   "gast": "tsv-ummendorf",
   "toreHeim": 1,
   "toreGast": 0,
-  "tore": []
+  "tore": [
+   {
+    "min": 72,
+    "spieler": null,
+    "verein": "tsv-neu-ulm"
+   }
+  ]
  },
  {
   "id": "ll-13-rot-weiss-weiler-reinstetten",
@@ -228,7 +398,23 @@
   "gast": "sv-reinstetten",
   "toreHeim": 1,
   "toreGast": 2,
-  "tore": []
+  "tore": [
+   {
+    "min": 5,
+    "spieler": null,
+    "verein": "sv-reinstetten"
+   },
+   {
+    "min": 30,
+    "spieler": null,
+    "verein": "fv-rot-weiss-weiler"
+   },
+   {
+    "min": 31,
+    "spieler": null,
+    "verein": "sv-reinstetten"
+   }
+  ]
  },
  {
   "id": "ll-13-ulm-heimenkirch",
@@ -240,7 +426,23 @@
   "gast": "tsv-heimenkirch",
   "toreHeim": 2,
   "toreGast": 1,
-  "tore": []
+  "tore": [
+   {
+    "min": 3,
+    "spieler": null,
+    "verein": "ssg-ulm"
+   },
+   {
+    "min": 24,
+    "spieler": null,
+    "verein": "tsv-heimenkirch"
+   },
+   {
+    "min": 47,
+    "spieler": null,
+    "verein": "ssg-ulm"
+   }
+  ]
  },
  {
   "id": "ll-14-mengen-ummendorf",
@@ -350,6 +552,11 @@
   "toreGast": 2,
   "tore": [
    {
+    "min": 9,
+    "spieler": null,
+    "verein": "fv-bad-schussenried"
+   },
+   {
     "min": 15,
     "spieler": "david-kessler",
     "verein": "sv-hohentengen"
@@ -358,6 +565,21 @@
     "min": 38,
     "spieler": "david-kessler",
     "verein": "sv-hohentengen"
+   },
+   {
+    "min": 41,
+    "spieler": null,
+    "verein": "fv-bad-schussenried"
+   },
+   {
+    "min": 69,
+    "spieler": null,
+    "verein": "fv-bad-schussenried"
+   },
+   {
+    "min": 72,
+    "spieler": null,
+    "verein": "fv-bad-schussenried"
    }
   ]
  },
@@ -371,7 +593,28 @@
   "gast": "sgm-aepfingen-baltringen",
   "toreHeim": 2,
   "toreGast": 2,
-  "tore": []
+  "tore": [
+   {
+    "min": 25,
+    "spieler": null,
+    "verein": "sgm-aepfingen-baltringen"
+   },
+   {
+    "min": 34,
+    "spieler": null,
+    "verein": "sgm-aepfingen-baltringen"
+   },
+   {
+    "min": 70,
+    "spieler": null,
+    "verein": "tsv-kirchberg-iller"
+   },
+   {
+    "min": 77,
+    "spieler": null,
+    "verein": "tsv-kirchberg-iller"
+   }
+  ]
  },
  {
   "id": "bzl-12-baustetten-ochsenhausen",
@@ -384,6 +627,21 @@
   "toreHeim": 3,
   "toreGast": 1,
   "tore": [
+   {
+    "min": 4,
+    "spieler": null,
+    "verein": "sv-baustetten"
+   },
+   {
+    "min": 11,
+    "spieler": null,
+    "verein": "sv-baustetten"
+   },
+   {
+    "min": 51,
+    "spieler": null,
+    "verein": "sv-baustetten"
+   },
    {
     "min": 84,
     "spieler": "jonas-heim",
@@ -401,7 +659,18 @@
   "gast": "sgm-ringschnait-mittelbuch-i",
   "toreHeim": 1,
   "toreGast": 1,
-  "tore": []
+  "tore": [
+   {
+    "min": 36,
+    "spieler": null,
+    "verein": "sgm-ringschnait-mittelbuch-i"
+   },
+   {
+    "min": 76,
+    "spieler": null,
+    "verein": "sv-burgrieden"
+   }
+  ]
  },
  {
   "id": "bzl-12-ostrach-sigmaringen",
@@ -451,7 +720,33 @@
   "gast": "sgm-gutenzell-schoenebuerg",
   "toreHeim": 3,
   "toreGast": 2,
-  "tore": []
+  "tore": [
+   {
+    "min": 22,
+    "spieler": null,
+    "verein": "sgm-gutenzell-schoenebuerg"
+   },
+   {
+    "min": 46,
+    "spieler": null,
+    "verein": "sgm-muttensweiler-hochdorf"
+   },
+   {
+    "min": 65,
+    "spieler": null,
+    "verein": "sgm-muttensweiler-hochdorf"
+   },
+   {
+    "min": 66,
+    "spieler": null,
+    "verein": "sgm-muttensweiler-hochdorf"
+   },
+   {
+    "min": 90,
+    "spieler": null,
+    "verein": "sgm-gutenzell-schoenebuerg"
+   }
+  ]
  },
  {
   "id": "bzl-12-sulmetingen-hundersingen",
@@ -486,6 +781,11 @@
     "min": 30,
     "spieler": "marco-stehle",
     "verein": "sv-sigmaringen"
+   },
+   {
+    "min": 62,
+    "spieler": null,
+    "verein": "fc-ostrach"
    },
    {
     "min": 88,
@@ -534,7 +834,23 @@
   "gast": "sv-sulmetingen",
   "toreHeim": 2,
   "toreGast": 1,
-  "tore": []
+  "tore": [
+   {
+    "min": 3,
+    "spieler": null,
+    "verein": "sgm-ringschnait-mittelbuch-i"
+   },
+   {
+    "min": 30,
+    "spieler": null,
+    "verein": "sgm-ringschnait-mittelbuch-i"
+   },
+   {
+    "min": 85,
+    "spieler": null,
+    "verein": "sv-sulmetingen"
+   }
+  ]
  },
  {
   "id": "bzl-13-baustetten-bad-schussenried",
@@ -558,7 +874,18 @@
   "gast": "sv-burgrieden",
   "toreHeim": 2,
   "toreGast": 0,
-  "tore": []
+  "tore": [
+   {
+    "min": 43,
+    "spieler": null,
+    "verein": "sgm-muttensweiler-hochdorf"
+   },
+   {
+    "min": 67,
+    "spieler": null,
+    "verein": "sgm-muttensweiler-hochdorf"
+   }
+  ]
  },
  {
   "id": "bzl-13-hundersingen-kirchberg",
@@ -570,7 +897,28 @@
   "gast": "tsv-kirchberg-iller",
   "toreHeim": 2,
   "toreGast": 2,
-  "tore": []
+  "tore": [
+   {
+    "min": 12,
+    "spieler": null,
+    "verein": "spfr-hundersingen"
+   },
+   {
+    "min": 17,
+    "spieler": null,
+    "verein": "tsv-kirchberg-iller"
+   },
+   {
+    "min": 54,
+    "spieler": null,
+    "verein": "spfr-hundersingen"
+   },
+   {
+    "min": 89,
+    "spieler": null,
+    "verein": "tsv-kirchberg-iller"
+   }
+  ]
  },
  {
   "id": "bzl-13-aepfingen-krauchenwies",
@@ -582,7 +930,23 @@
   "gast": "fc-1911-krauchenwies-hausen-a-a-goeggingen-i",
   "toreHeim": 1,
   "toreGast": 2,
-  "tore": []
+  "tore": [
+   {
+    "min": 49,
+    "spieler": null,
+    "verein": "fc-1911-krauchenwies-hausen-a-a-goeggingen-i"
+   },
+   {
+    "min": 62,
+    "spieler": null,
+    "verein": "sgm-aepfingen-baltringen"
+   },
+   {
+    "min": 83,
+    "spieler": null,
+    "verein": "fc-1911-krauchenwies-hausen-a-a-goeggingen-i"
+   }
+  ]
  },
  {
   "id": "bzl-13-gutenzell-biberach",
@@ -737,6 +1101,11 @@
     "min": 52,
     "spieler": "kevin-lutz",
     "verein": "sgm-fc-99-fc-laiz"
+   },
+   {
+    "min": 64,
+    "spieler": null,
+    "verein": "sgm-sv-bronnen-tsv-neufra"
    }
   ]
  },
@@ -755,6 +1124,11 @@
     "min": 76,
     "spieler": "elias-brehm",
     "verein": "sv-herbertingen"
+   },
+   {
+    "min": 90,
+    "spieler": null,
+    "verein": "fv-altheim"
    }
   ]
  },
@@ -768,7 +1142,28 @@
   "gast": "sg-hettingen-inneringen",
   "toreHeim": 3,
   "toreGast": 1,
-  "tore": []
+  "tore": [
+   {
+    "min": 49,
+    "spieler": null,
+    "verein": "tsv-maegerkingen"
+   },
+   {
+    "min": 64,
+    "spieler": null,
+    "verein": "tsv-maegerkingen"
+   },
+   {
+    "min": 72,
+    "spieler": null,
+    "verein": "sg-hettingen-inneringen"
+   },
+   {
+    "min": 82,
+    "spieler": null,
+    "verein": "tsv-maegerkingen"
+   }
+  ]
  },
  {
   "id": "kla-12-bolstern-langenenslingen",
@@ -780,7 +1175,33 @@
   "gast": "sv-langenenslingen",
   "toreHeim": 2,
   "toreGast": 3,
-  "tore": []
+  "tore": [
+   {
+    "min": 24,
+    "spieler": null,
+    "verein": "sgm-sv-bolstern-sv-hochberg-i"
+   },
+   {
+    "min": 26,
+    "spieler": null,
+    "verein": "sv-langenenslingen"
+   },
+   {
+    "min": 51,
+    "spieler": null,
+    "verein": "sgm-sv-bolstern-sv-hochberg-i"
+   },
+   {
+    "min": 83,
+    "spieler": null,
+    "verein": "sv-langenenslingen"
+   },
+   {
+    "min": 85,
+    "spieler": null,
+    "verein": "sv-langenenslingen"
+   }
+  ]
  },
  {
   "id": "kla-12-mengen-ii-gammertingen",
@@ -792,7 +1213,33 @@
   "gast": "sgm-tsv-gammertingen-sg-kfh-kettenacker",
   "toreHeim": 2,
   "toreGast": 3,
-  "tore": []
+  "tore": [
+   {
+    "min": 5,
+    "spieler": null,
+    "verein": "sgm-tsv-gammertingen-sg-kfh-kettenacker"
+   },
+   {
+    "min": 40,
+    "spieler": null,
+    "verein": "sgm-tsv-gammertingen-sg-kfh-kettenacker"
+   },
+   {
+    "min": 50,
+    "spieler": null,
+    "verein": "sgm-tsv-gammertingen-sg-kfh-kettenacker"
+   },
+   {
+    "min": 70,
+    "spieler": null,
+    "verein": "fc-mengen-ii"
+   },
+   {
+    "min": 82,
+    "spieler": null,
+    "verein": "fc-mengen-ii"
+   }
+  ]
  },
  {
   "id": "kla-12-altshausen-bloenried",
@@ -804,7 +1251,18 @@
   "gast": "sgm-sc-bloenried-sv-ebersbach",
   "toreHeim": 2,
   "toreGast": 0,
-  "tore": []
+  "tore": [
+   {
+    "min": 60,
+    "spieler": null,
+    "verein": "sgm-altshausen-ebenweiler-i"
+   },
+   {
+    "min": 83,
+    "spieler": null,
+    "verein": "sgm-altshausen-ebenweiler-i"
+   }
+  ]
  },
  {
   "id": "kla-13-laiz-sigmaringendorf",
@@ -875,7 +1333,18 @@
   "gast": "sgm-altshausen-ebenweiler-i",
   "toreHeim": 1,
   "toreGast": 1,
-  "tore": []
+  "tore": [
+   {
+    "min": 7,
+    "spieler": null,
+    "verein": "fc-mengen-ii"
+   },
+   {
+    "min": 67,
+    "spieler": null,
+    "verein": "sgm-altshausen-ebenweiler-i"
+   }
+  ]
  },
  {
   "id": "kla-13-bloenried-altheim",
@@ -887,7 +1356,33 @@
   "gast": "fv-altheim",
   "toreHeim": 2,
   "toreGast": 3,
-  "tore": []
+  "tore": [
+   {
+    "min": 16,
+    "spieler": null,
+    "verein": "sgm-sc-bloenried-sv-ebersbach"
+   },
+   {
+    "min": 32,
+    "spieler": null,
+    "verein": "fv-altheim"
+   },
+   {
+    "min": 41,
+    "spieler": null,
+    "verein": "fv-altheim"
+   },
+   {
+    "min": 42,
+    "spieler": null,
+    "verein": "fv-altheim"
+   },
+   {
+    "min": 71,
+    "spieler": null,
+    "verein": "sgm-sc-bloenried-sv-ebersbach"
+   }
+  ]
  },
  {
   "id": "kla-13-tuerkiyemspor-saulgau-gammertingen",
@@ -899,7 +1394,13 @@
   "gast": "sgm-tsv-gammertingen-sg-kfh-kettenacker",
   "toreHeim": 0,
   "toreGast": 1,
-  "tore": []
+  "tore": [
+   {
+    "min": 47,
+    "spieler": null,
+    "verein": "sgm-tsv-gammertingen-sg-kfh-kettenacker"
+   }
+  ]
  },
  {
   "id": "kla-13-langenenslingen-hettingen",
@@ -911,7 +1412,33 @@
   "gast": "sg-hettingen-inneringen",
   "toreHeim": 3,
   "toreGast": 2,
-  "tore": []
+  "tore": [
+   {
+    "min": 13,
+    "spieler": null,
+    "verein": "sv-langenenslingen"
+   },
+   {
+    "min": 49,
+    "spieler": null,
+    "verein": "sg-hettingen-inneringen"
+   },
+   {
+    "min": 56,
+    "spieler": null,
+    "verein": "sv-langenenslingen"
+   },
+   {
+    "min": 70,
+    "spieler": null,
+    "verein": "sg-hettingen-inneringen"
+   },
+   {
+    "min": 77,
+    "spieler": null,
+    "verein": "sv-langenenslingen"
+   }
+  ]
  },
  {
   "id": "kla-13-bronnen-maegerkingen",
@@ -923,7 +1450,38 @@
   "gast": "tsv-maegerkingen",
   "toreHeim": 4,
   "toreGast": 2,
-  "tore": []
+  "tore": [
+   {
+    "min": 17,
+    "spieler": null,
+    "verein": "sgm-sv-bronnen-tsv-neufra"
+   },
+   {
+    "min": 22,
+    "spieler": null,
+    "verein": "tsv-maegerkingen"
+   },
+   {
+    "min": 28,
+    "spieler": null,
+    "verein": "sgm-sv-bronnen-tsv-neufra"
+   },
+   {
+    "min": 57,
+    "spieler": null,
+    "verein": "sgm-sv-bronnen-tsv-neufra"
+   },
+   {
+    "min": 68,
+    "spieler": null,
+    "verein": "sgm-sv-bronnen-tsv-neufra"
+   },
+   {
+    "min": 77,
+    "spieler": null,
+    "verein": "tsv-maegerkingen"
+   }
+  ]
  },
  {
   "id": "kla-14-bad-saulgau-langenenslingen",
@@ -998,7 +1556,38 @@
   "gast": "tsv-sigmaringendorf-ii",
   "toreHeim": 3,
   "toreGast": 3,
-  "tore": []
+  "tore": [
+   {
+    "min": 10,
+    "spieler": null,
+    "verein": "tsv-sigmaringendorf-ii"
+   },
+   {
+    "min": 15,
+    "spieler": null,
+    "verein": "sgm-fv-weithart-tsv-rulfingen"
+   },
+   {
+    "min": 18,
+    "spieler": null,
+    "verein": "sgm-fv-weithart-tsv-rulfingen"
+   },
+   {
+    "min": 44,
+    "spieler": null,
+    "verein": "tsv-sigmaringendorf-ii"
+   },
+   {
+    "min": 71,
+    "spieler": null,
+    "verein": "tsv-sigmaringendorf-ii"
+   },
+   {
+    "min": 73,
+    "spieler": null,
+    "verein": "sgm-fv-weithart-tsv-rulfingen"
+   }
+  ]
  },
  {
   "id": "klb1-12-altshausen-ii-bingen",
@@ -1010,7 +1599,23 @@
   "gast": "sv-bingen-hitzkofen",
   "toreHeim": 1,
   "toreGast": 2,
-  "tore": []
+  "tore": [
+   {
+    "min": 20,
+    "spieler": null,
+    "verein": "sv-bingen-hitzkofen"
+   },
+   {
+    "min": 46,
+    "spieler": null,
+    "verein": "sv-bingen-hitzkofen"
+   },
+   {
+    "min": 54,
+    "spieler": null,
+    "verein": "sgm-altshausen-ebenweiler-ii"
+   }
+  ]
  },
  {
   "id": "klb1-12-altheim-ii-herbertingen-ii",
@@ -1022,7 +1627,33 @@
   "gast": "sv-herbertingen-ii",
   "toreHeim": 4,
   "toreGast": 1,
-  "tore": []
+  "tore": [
+   {
+    "min": 5,
+    "spieler": null,
+    "verein": "sgm-fv-altheim-ii-sv-langenenslingen-ii"
+   },
+   {
+    "min": 11,
+    "spieler": null,
+    "verein": "sgm-fv-altheim-ii-sv-langenenslingen-ii"
+   },
+   {
+    "min": 40,
+    "spieler": null,
+    "verein": "sgm-fv-altheim-ii-sv-langenenslingen-ii"
+   },
+   {
+    "min": 77,
+    "spieler": null,
+    "verein": "sv-herbertingen-ii"
+   },
+   {
+    "min": 90,
+    "spieler": null,
+    "verein": "sgm-fv-altheim-ii-sv-langenenslingen-ii"
+   }
+  ]
  },
  {
   "id": "klb1-12-schmeien-ii-bronnen-ii",
@@ -1034,7 +1665,28 @@
   "gast": "sgm-sv-bronnen-tsv-neufra-ii",
   "toreHeim": 2,
   "toreGast": 2,
-  "tore": []
+  "tore": [
+   {
+    "min": 22,
+    "spieler": null,
+    "verein": "sgm-sv-schmeien-i-sv-sigmaringen-ii"
+   },
+   {
+    "min": 43,
+    "spieler": null,
+    "verein": "sgm-sv-schmeien-i-sv-sigmaringen-ii"
+   },
+   {
+    "min": 51,
+    "spieler": null,
+    "verein": "sgm-sv-bronnen-tsv-neufra-ii"
+   },
+   {
+    "min": 75,
+    "spieler": null,
+    "verein": "sgm-sv-bronnen-tsv-neufra-ii"
+   }
+  ]
  },
  {
   "id": "klb1-12-laiz-ii-scheer",
@@ -1046,7 +1698,13 @@
   "gast": "sgm-tsv-scheer-sv-ennetach",
   "toreHeim": 0,
   "toreGast": 1,
-  "tore": []
+  "tore": [
+   {
+    "min": 86,
+    "spieler": null,
+    "verein": "sgm-tsv-scheer-sv-ennetach"
+   }
+  ]
  },
  {
   "id": "klb1-12-veringenstadt-ii-bloenried-ii",
@@ -1058,7 +1716,23 @@
   "gast": "sgm-sc-bloenried-ii-sv-ebersbach-ii",
   "toreHeim": 1,
   "toreGast": 2,
-  "tore": []
+  "tore": [
+   {
+    "min": 36,
+    "spieler": null,
+    "verein": "sgm-sc-bloenried-ii-sv-ebersbach-ii"
+   },
+   {
+    "min": 65,
+    "spieler": null,
+    "verein": "sgm-sc-bloenried-ii-sv-ebersbach-ii"
+   },
+   {
+    "min": 78,
+    "spieler": null,
+    "verein": "sgm-fv-veringenstadt-i-sg-hettingen-inneringen-ii"
+   }
+  ]
  },
  {
   "id": "klb1-12-bolstern-ii-blochingen-iii",
@@ -1070,7 +1744,38 @@
   "gast": "sgm-fc-blochingen-i-fc-mengen-iii",
   "toreHeim": 4,
   "toreGast": 2,
-  "tore": []
+  "tore": [
+   {
+    "min": 14,
+    "spieler": null,
+    "verein": "sgm-sv-bolstern-sv-hochberg-ii-flex"
+   },
+   {
+    "min": 50,
+    "spieler": null,
+    "verein": "sgm-fc-blochingen-i-fc-mengen-iii"
+   },
+   {
+    "min": 57,
+    "spieler": null,
+    "verein": "sgm-fc-blochingen-i-fc-mengen-iii"
+   },
+   {
+    "min": 58,
+    "spieler": null,
+    "verein": "sgm-sv-bolstern-sv-hochberg-ii-flex"
+   },
+   {
+    "min": 65,
+    "spieler": null,
+    "verein": "sgm-sv-bolstern-sv-hochberg-ii-flex"
+   },
+   {
+    "min": 84,
+    "spieler": null,
+    "verein": "sgm-sv-bolstern-sv-hochberg-ii-flex"
+   }
+  ]
  },
  {
   "id": "klb1-13-altshausen-ii-bronnen-ii",
@@ -1082,7 +1787,23 @@
   "gast": "sgm-sv-bronnen-tsv-neufra-ii",
   "toreHeim": 1,
   "toreGast": 2,
-  "tore": []
+  "tore": [
+   {
+    "min": 52,
+    "spieler": null,
+    "verein": "sgm-sv-bronnen-tsv-neufra-ii"
+   },
+   {
+    "min": 65,
+    "spieler": null,
+    "verein": "sgm-sv-bronnen-tsv-neufra-ii"
+   },
+   {
+    "min": 89,
+    "spieler": null,
+    "verein": "sgm-altshausen-ebenweiler-ii"
+   }
+  ]
  },
  {
   "id": "klb1-13-laiz-ii-scheer",
@@ -1094,7 +1815,18 @@
   "gast": "sgm-tsv-scheer-sv-ennetach",
   "toreHeim": 1,
   "toreGast": 1,
-  "tore": []
+  "tore": [
+   {
+    "min": 49,
+    "spieler": null,
+    "verein": "sgm-tsv-scheer-sv-ennetach"
+   },
+   {
+    "min": 64,
+    "spieler": null,
+    "verein": "sgm-fc-99-fc-laiz-ii"
+   }
+  ]
  },
  {
   "id": "klb1-13-sigmaringendorf-ii-altheim-ii",
@@ -1106,7 +1838,23 @@
   "gast": "sgm-fv-altheim-ii-sv-langenenslingen-ii",
   "toreHeim": 2,
   "toreGast": 1,
-  "tore": []
+  "tore": [
+   {
+    "min": 49,
+    "spieler": null,
+    "verein": "tsv-sigmaringendorf-ii"
+   },
+   {
+    "min": 58,
+    "spieler": null,
+    "verein": "tsv-sigmaringendorf-ii"
+   },
+   {
+    "min": 76,
+    "spieler": null,
+    "verein": "sgm-fv-altheim-ii-sv-langenenslingen-ii"
+   }
+  ]
  },
  {
   "id": "klb1-13-weithart-bolstern-ii",
@@ -1118,7 +1866,33 @@
   "gast": "sgm-sv-bolstern-sv-hochberg-ii-flex",
   "toreHeim": 3,
   "toreGast": 2,
-  "tore": []
+  "tore": [
+   {
+    "min": 14,
+    "spieler": null,
+    "verein": "sgm-sv-bolstern-sv-hochberg-ii-flex"
+   },
+   {
+    "min": 27,
+    "spieler": null,
+    "verein": "sgm-fv-weithart-tsv-rulfingen"
+   },
+   {
+    "min": 47,
+    "spieler": null,
+    "verein": "sgm-fv-weithart-tsv-rulfingen"
+   },
+   {
+    "min": 80,
+    "spieler": null,
+    "verein": "sgm-sv-bolstern-sv-hochberg-ii-flex"
+   },
+   {
+    "min": 84,
+    "spieler": null,
+    "verein": "sgm-fv-weithart-tsv-rulfingen"
+   }
+  ]
  },
  {
   "id": "klb1-13-veringenstadt-ii-schmeien-ii",
@@ -1130,7 +1904,38 @@
   "gast": "sgm-sv-schmeien-i-sv-sigmaringen-ii",
   "toreHeim": 4,
   "toreGast": 2,
-  "tore": []
+  "tore": [
+   {
+    "min": 17,
+    "spieler": null,
+    "verein": "sgm-fv-veringenstadt-i-sg-hettingen-inneringen-ii"
+   },
+   {
+    "min": 29,
+    "spieler": null,
+    "verein": "sgm-sv-schmeien-i-sv-sigmaringen-ii"
+   },
+   {
+    "min": 31,
+    "spieler": null,
+    "verein": "sgm-fv-veringenstadt-i-sg-hettingen-inneringen-ii"
+   },
+   {
+    "min": 34,
+    "spieler": null,
+    "verein": "sgm-sv-schmeien-i-sv-sigmaringen-ii"
+   },
+   {
+    "min": 60,
+    "spieler": null,
+    "verein": "sgm-fv-veringenstadt-i-sg-hettingen-inneringen-ii"
+   },
+   {
+    "min": 88,
+    "spieler": null,
+    "verein": "sgm-fv-veringenstadt-i-sg-hettingen-inneringen-ii"
+   }
+  ]
  },
  {
   "id": "klb1-13-bingen-bloenried-ii",
@@ -1142,7 +1947,18 @@
   "gast": "sgm-sc-bloenried-ii-sv-ebersbach-ii",
   "toreHeim": 1,
   "toreGast": 1,
-  "tore": []
+  "tore": [
+   {
+    "min": 44,
+    "spieler": null,
+    "verein": "sgm-sc-bloenried-ii-sv-ebersbach-ii"
+   },
+   {
+    "min": 46,
+    "spieler": null,
+    "verein": "sv-bingen-hitzkofen"
+   }
+  ]
  },
  {
   "id": "klb1-13-herbertingen-ii-blochingen-iii",
@@ -1154,7 +1970,33 @@
   "gast": "sgm-fc-blochingen-i-fc-mengen-iii",
   "toreHeim": 3,
   "toreGast": 2,
-  "tore": []
+  "tore": [
+   {
+    "min": 7,
+    "spieler": null,
+    "verein": "sgm-fc-blochingen-i-fc-mengen-iii"
+   },
+   {
+    "min": 30,
+    "spieler": null,
+    "verein": "sv-herbertingen-ii"
+   },
+   {
+    "min": 34,
+    "spieler": null,
+    "verein": "sgm-fc-blochingen-i-fc-mengen-iii"
+   },
+   {
+    "min": 47,
+    "spieler": null,
+    "verein": "sv-herbertingen-ii"
+   },
+   {
+    "min": 83,
+    "spieler": null,
+    "verein": "sv-herbertingen-ii"
+   }
+  ]
  },
  {
   "id": "klb1-14-bronnen-ii-veringenstadt-ii",
@@ -1229,7 +2071,28 @@
   "gast": "sgm-muttensweiler-hochdorf-ii",
   "toreHeim": 1,
   "toreGast": 3,
-  "tore": []
+  "tore": [
+   {
+    "min": 7,
+    "spieler": null,
+    "verein": "sgm-muttensweiler-hochdorf-ii"
+   },
+   {
+    "min": 9,
+    "spieler": null,
+    "verein": "sgm-muttensweiler-hochdorf-ii"
+   },
+   {
+    "min": 46,
+    "spieler": null,
+    "verein": "sgm-muttensweiler-hochdorf-ii"
+   },
+   {
+    "min": 69,
+    "spieler": null,
+    "verein": "fc-1911-krauchenwies-hausen-a-a-goeggingen-ii"
+   }
+  ]
  },
  {
   "id": "klb2-12-kirchberg-ii-baltringen-ii",
@@ -1241,7 +2104,18 @@
   "gast": "sgm-baltringen-aepfingen-ii",
   "toreHeim": 0,
   "toreGast": 2,
-  "tore": []
+  "tore": [
+   {
+    "min": 33,
+    "spieler": null,
+    "verein": "sgm-baltringen-aepfingen-ii"
+   },
+   {
+    "min": 78,
+    "spieler": null,
+    "verein": "sgm-baltringen-aepfingen-ii"
+   }
+  ]
  },
  {
   "id": "klb2-12-burgrieden-ii-tuerkiyemspor-saulgau-ii",
@@ -1253,7 +2127,18 @@
   "gast": "sc-tuerkiyemspor-saulgau-ii",
   "toreHeim": 1,
   "toreGast": 1,
-  "tore": []
+  "tore": [
+   {
+    "min": 32,
+    "spieler": null,
+    "verein": "sv-burgrieden-ii-flex"
+   },
+   {
+    "min": 58,
+    "spieler": null,
+    "verein": "sc-tuerkiyemspor-saulgau-ii"
+   }
+  ]
  },
  {
   "id": "klb2-12-mittelbuch-ii-gutenzell-ii",
@@ -1265,7 +2150,23 @@
   "gast": "sgm-gutenzell-schoenebuerg-ii",
   "toreHeim": 2,
   "toreGast": 1,
-  "tore": []
+  "tore": [
+   {
+    "min": 10,
+    "spieler": null,
+    "verein": "sgm-mittelbuch-ii-ringschnait-ii"
+   },
+   {
+    "min": 66,
+    "spieler": null,
+    "verein": "sgm-mittelbuch-ii-ringschnait-ii"
+   },
+   {
+    "min": 70,
+    "spieler": null,
+    "verein": "sgm-gutenzell-schoenebuerg-ii"
+   }
+  ]
  },
  {
   "id": "klb2-12-ostrach-hundersingen-ii",
@@ -1277,7 +2178,28 @@
   "gast": "spfr-hundersingen-ii",
   "toreHeim": 2,
   "toreGast": 2,
-  "tore": []
+  "tore": [
+   {
+    "min": 51,
+    "spieler": null,
+    "verein": "spfr-hundersingen-ii"
+   },
+   {
+    "min": 72,
+    "spieler": null,
+    "verein": "sgm-fc-ostrach-ii-sv-hosskirch-i"
+   },
+   {
+    "min": 83,
+    "spieler": null,
+    "verein": "spfr-hundersingen-ii"
+   },
+   {
+    "min": 84,
+    "spieler": null,
+    "verein": "sgm-fc-ostrach-ii-sv-hosskirch-i"
+   }
+  ]
  },
  {
   "id": "klb2-12-hohentengen-ii-baustetten-ii",
@@ -1289,7 +2211,23 @@
   "gast": "sv-baustetten-ii-flex",
   "toreHeim": 2,
   "toreGast": 1,
-  "tore": []
+  "tore": [
+   {
+    "min": 11,
+    "spieler": null,
+    "verein": "sv-baustetten-ii-flex"
+   },
+   {
+    "min": 27,
+    "spieler": null,
+    "verein": "sv-hohentengen-ii"
+   },
+   {
+    "min": 74,
+    "spieler": null,
+    "verein": "sv-hohentengen-ii"
+   }
+  ]
  },
  {
   "id": "klb2-13-baltringen-ii-fulgenstadt",
@@ -1301,7 +2239,23 @@
   "gast": "fv-fulgenstadt",
   "toreHeim": 3,
   "toreGast": 0,
-  "tore": []
+  "tore": [
+   {
+    "min": 3,
+    "spieler": null,
+    "verein": "sgm-baltringen-aepfingen-ii"
+   },
+   {
+    "min": 21,
+    "spieler": null,
+    "verein": "sgm-baltringen-aepfingen-ii"
+   },
+   {
+    "min": 32,
+    "spieler": null,
+    "verein": "sgm-baltringen-aepfingen-ii"
+   }
+  ]
  },
  {
   "id": "klb2-13-krauchenwies-ii-muttensweiler-ii",
@@ -1313,7 +2267,23 @@
   "gast": "sgm-muttensweiler-hochdorf-ii",
   "toreHeim": 0,
   "toreGast": 3,
-  "tore": []
+  "tore": [
+   {
+    "min": 25,
+    "spieler": null,
+    "verein": "sgm-muttensweiler-hochdorf-ii"
+   },
+   {
+    "min": 37,
+    "spieler": null,
+    "verein": "sgm-muttensweiler-hochdorf-ii"
+   },
+   {
+    "min": 51,
+    "spieler": null,
+    "verein": "sgm-muttensweiler-hochdorf-ii"
+   }
+  ]
  },
  {
   "id": "klb2-13-mittelbuch-ii-hohentengen-ii",
@@ -1325,7 +2295,28 @@
   "gast": "sv-hohentengen-ii",
   "toreHeim": 3,
   "toreGast": 1,
-  "tore": []
+  "tore": [
+   {
+    "min": 33,
+    "spieler": null,
+    "verein": "sgm-mittelbuch-ii-ringschnait-ii"
+   },
+   {
+    "min": 48,
+    "spieler": null,
+    "verein": "sgm-mittelbuch-ii-ringschnait-ii"
+   },
+   {
+    "min": 52,
+    "spieler": null,
+    "verein": "sgm-mittelbuch-ii-ringschnait-ii"
+   },
+   {
+    "min": 61,
+    "spieler": null,
+    "verein": "sv-hohentengen-ii"
+   }
+  ]
  },
  {
   "id": "klb2-13-baustetten-ii-kirchberg-ii",
@@ -1337,7 +2328,18 @@
   "gast": "tsv-kirchberg-iller-ii",
   "toreHeim": 1,
   "toreGast": 1,
-  "tore": []
+  "tore": [
+   {
+    "min": 7,
+    "spieler": null,
+    "verein": "tsv-kirchberg-iller-ii"
+   },
+   {
+    "min": 80,
+    "spieler": null,
+    "verein": "sv-baustetten-ii-flex"
+   }
+  ]
  },
  {
   "id": "klb2-13-tuerkiyemspor-saulgau-ii-burgrieden-ii",
@@ -1349,7 +2351,38 @@
   "gast": "sv-burgrieden-ii-flex",
   "toreHeim": 4,
   "toreGast": 2,
-  "tore": []
+  "tore": [
+   {
+    "min": 5,
+    "spieler": null,
+    "verein": "sc-tuerkiyemspor-saulgau-ii"
+   },
+   {
+    "min": 14,
+    "spieler": null,
+    "verein": "sv-burgrieden-ii-flex"
+   },
+   {
+    "min": 33,
+    "spieler": null,
+    "verein": "sc-tuerkiyemspor-saulgau-ii"
+   },
+   {
+    "min": 51,
+    "spieler": null,
+    "verein": "sv-burgrieden-ii-flex"
+   },
+   {
+    "min": 68,
+    "spieler": null,
+    "verein": "sc-tuerkiyemspor-saulgau-ii"
+   },
+   {
+    "min": 88,
+    "spieler": null,
+    "verein": "sc-tuerkiyemspor-saulgau-ii"
+   }
+  ]
  },
  {
   "id": "klb2-13-hundersingen-ii-gutenzell-ii",
@@ -1361,7 +2394,13 @@
   "gast": "sgm-gutenzell-schoenebuerg-ii",
   "toreHeim": 1,
   "toreGast": 0,
-  "tore": []
+  "tore": [
+   {
+    "min": 28,
+    "spieler": null,
+    "verein": "spfr-hundersingen-ii"
+   }
+  ]
  },
  {
   "id": "klb2-14-krauchenwies-ii-burgrieden-ii",

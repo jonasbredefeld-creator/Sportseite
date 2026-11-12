@@ -513,3 +513,83 @@ td a:hover { color: var(--blau); }
   .wechsel-zeile .vereine, .wechsel-zeile .rechts { grid-column: 2; text-align: left; }
 }
 .wechsel-zeile .vereine a:not(.ziel) { color: var(--leise); font-weight: 500; }
+
+/* ---------- Spielliste (Ligenseite, Vorschau) ---------- */
+.spieltag-kopf {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 16px 20px; border-bottom: 1px solid var(--linie);
+}
+.spieltag-kopf h2 { margin: 0; font-size: 22px; font-weight: 600; min-width: 0; text-align: left; }
+.blaetter-knoepfe { display: flex; gap: 8px; }
+.spiel-zeile {
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr) 64px minmax(0, 1fr) 72px;
+  gap: 12px; align-items: center;
+  padding: 12px 20px; border-top: 1px solid var(--linie);
+  font-size: 16px;
+}
+.spiel-zeile:first-child { border-top: 0; }
+.spiel-zeile:hover { background: var(--blau-hell); }
+.spiel-zeile .wann { font-size: 13px; color: var(--leise); line-height: 1.3; }
+.spiel-zeile .heim { text-align: right; }
+.spiel-zeile .heim, .spiel-zeile .gast { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.spiel-zeile .sieger { font-weight: 600; }
+.spiel-zeile .ergebnis {
+  justify-self: center; font-family: var(--zahl); font-weight: 700; font-size: 20px;
+  background: var(--blau-tief); color: #fff; border-radius: 4px; padding: 3px 10px 2px; min-width: 56px; text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.spiel-zeile .ergebnis.offen { background: var(--grau); color: var(--leise); }
+.spiel-zeile .marken { text-align: right; }
+.marke-foto { font-size: 12px; font-weight: 600; color: var(--rot); }
+
+/* ---------- Torverlauf ---------- */
+.verlauf-karte { margin-top: 16px; padding: 18px 20px; }
+.torverlauf { list-style: none; margin: 0; padding: 0; position: relative; }
+.torverlauf::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: var(--linie); transform: translateX(-50%); }
+.torverlauf li { display: grid; grid-template-columns: 1fr 64px 1fr; align-items: center; gap: 14px; padding: 6px 0; position: relative; }
+.torverlauf .links { text-align: right; }
+.torverlauf .tor-text { display: inline-flex; align-items: baseline; gap: 8px; font-size: 16px; }
+.torverlauf .tor-heim .tor-text { flex-direction: row; }
+.torverlauf .tor-gast .tor-text { flex-direction: row-reverse; }
+.torverlauf .tor-min { font-family: var(--zahl); font-weight: 700; font-size: 18px; color: var(--leise); min-width: 30px; }
+.torverlauf .tor-heim .tor-min { text-align: right; }
+.torverlauf .zwischen {
+  justify-self: center; font-family: var(--zahl); font-weight: 700; font-size: 18px;
+  background: #fff; border: 2px solid var(--blau); color: var(--blau-tief);
+  border-radius: 999px; padding: 2px 10px 1px; min-width: 52px; text-align: center; font-variant-numeric: tabular-nums;
+}
+.torverlauf .zwischen.g { border-color: var(--rot); }
+
+/* ---------- Vergleich und Vorschau ---------- */
+.vergleich { padding: 6px 0 10px; }
+.v-kopf { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px; padding: 12px 20px; border-bottom: 1px solid var(--linie); font-weight: 600; }
+.v-kopf h2 { margin: 0; font-size: 16px; color: var(--leise); font-weight: 600; }
+.v-kopf span:last-child { text-align: right; }
+.v-zeile { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px; padding: 9px 20px; }
+.v-zeile .t { font-size: 14px; color: var(--leise); text-align: center; }
+.v-zeile .a, .v-zeile .b { font-family: var(--zahl); font-weight: 700; font-size: 20px; }
+.v-zeile .b { text-align: right; }
+.form { display: inline-flex; gap: 3px; vertical-align: middle; }
+.form span { width: 20px; height: 20px; border-radius: 3px; display: inline-grid; place-items: center; font: 600 11px/1 var(--text); color: #fff; }
+.form .f-S { background: #2e8b57; }
+.form .f-U { background: #9aa3b5; }
+.form .f-N { background: var(--rot); }
+.zwei-gleich { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.zwei-gleich .spiel-zeile { grid-template-columns: 52px minmax(0, 1fr) 54px minmax(0, 1fr); padding: 10px 14px; font-size: 14px; gap: 8px; }
+.zwei-gleich .spiel-zeile .marken { display: none; }
+.zwei-gleich .spiel-zeile .ergebnis { font-size: 17px; min-width: 46px; padding: 2px 6px 1px; }
+.bericht-zeile { display: block; padding: 18px 20px; margin-bottom: 16px; }
+.bericht-zeile h3 { margin: 6px 0 6px; font-size: 20px; font-weight: 600; }
+.bericht-zeile:hover h3 { color: var(--blau); }
+.bericht-zeile p { margin: 0; }
+
+@media (max-width: 1000px) { .zwei-gleich { grid-template-columns: 1fr; } }
+@media (max-width: 560px) {
+  .spiel-zeile { grid-template-columns: minmax(0, 1fr) 52px minmax(0, 1fr); padding: 10px 12px; font-size: 14px; gap: 8px; }
+  .spiel-zeile .wann, .spiel-zeile .marken { display: none; }
+  .spiel-zeile .ergebnis { font-size: 17px; min-width: 46px; padding: 2px 6px 1px; }
+  .torverlauf li { grid-template-columns: 1fr 52px 1fr; gap: 8px; }
+  .torverlauf .tor-text { font-size: 14px; gap: 5px; }
+  .verlauf-karte { padding: 14px 10px; }
+}

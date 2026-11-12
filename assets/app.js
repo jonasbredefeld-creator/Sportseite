@@ -179,6 +179,51 @@ function spielKarte(d, s) {
     </a>`;
 }
 
+function spielZeile(d, s) {
+  const h = d.verein(s.heim), g = d.verein(s.gast);
+  const gespielt = Number.isInteger(s.toreHeim);
+  const fett = (a, b) => (gespielt && a > b ? " sieger" : "");
+  return `
+    <a class="spiel-zeile" href="spiel.html?id=${s.id}">
+      <span class="wann">${datumKurz(s.datum)}${gespielt ? "" : `<br><span class="anstoss">${esc(s.anstoss)}</span>`}</span>
+      <span class="heim${fett(s.toreHeim, s.toreGast)}">${esc(h?.name)}</span>
+      <span class="ergebnis${gespielt ? "" : " offen"}">${gespielt ? `${s.toreHeim}:${s.toreGast}` : "–:–"}</span>
+      <span class="gast${fett(s.toreGast, s.toreHeim)}">${esc(g?.name)}</span>
+      <span class="marken">${s.galerie ? `<span class="marke-foto">Fotos</span>` : ""}${s.topspiel ? `<span class="marke-foto">Topspiel</span>` : ""}</span>
+    </a>`;
+}
+
+function torVerlauf(d, s) {
+  let h = 0, g = 0;
+  const zeilen = [...(s.tore || [])].sort((a, b) => a.min - b.min).map((t) => {
+    const heim = t.verein === s.heim;
+    heim ? h++ : g++;
+    const sp = t.spieler && d.spielerById(t.spieler);
+    const name = sp ? `<a class="link" href="spieler.html?id=${sp.id}">${esc(sp.name)}</a>` : `<span class="leise">Torschütze nicht gemeldet</span>`;
+    const seite = `<span class="tor-text">${name}<span class="tor-min">${t.min}'</span></span>`;
+    return `
+      <li class="${heim ? "tor-heim" : "tor-gast"}">
+        <span class="links">${heim ? seite : ""}</span>
+        <span class="zwischen${heim ? " h" : " g"}">${h}:${g}</span>
+        <span class="rechts">${heim ? "" : seite}</span>
+      </li>`;
+  }).join("");
+  return zeilen ? `<ol class="torverlauf">${zeilen}</ol>` : `<p class="leise" style="text-align:center;margin:0">Keine Tore.</p>`;
+}
+
+function teamZahlen(d, ligaId, vid) {
+  const tab = tabelle(d, ligaId);
+  const platz = tab.findIndex((r) => r.id === vid) + 1;
+  const zeile = tab.find((r) => r.id === vid) || {};
+  const letzte = d.gespielt.filter((s) => s.liga === ligaId && (s.heim === vid || s.gast === vid)).sort((a, b) => b.datum.localeCompare(a.datum)).slice(0, 5);
+  const form = letzte.map((s) => {
+    const eig = s.heim === vid ? s.toreHeim : s.toreGast, geg = s.heim === vid ? s.toreGast : s.toreHeim;
+    return eig > geg ? "S" : eig < geg ? "N" : "U";
+  });
+  const tj = torjaeger(d, (s) => s.liga === ligaId).filter(([id]) => d.spielerById(id)?.verein === vid).slice(0, 3);
+  return { platz, zeile, letzte, form, tj };
+}
+
 function berichtKarte(b) {
   const rot = b.kategorie === "Vorschau" ? " rot" : "";
   return `
@@ -440,15 +485,17 @@ const seiten = {
       <div class="seitenkopf"><span class="kategorie">${esc(l.sportart)}, Saison ${esc(l.saison)}</span><h1>${esc(l.name)}</h1></div>
       <div class="zwei">
         <div>
-          <section id="spieltage" data-tage="${tage.join(",")}" data-aktuell="${start}">
-            <div class="abschnitt-kopf spieltag-kopf">
-              <button type="button" class="blaettern" data-richtung="-1" aria-label="Vorheriger Spieltag">${PFEIL}</button>
+          <section id="spieltage" class="karte" data-tage="${tage.join(",")}" data-aktuell="${start}">
+            <div class="spieltag-kopf">
               <h2 id="spieltag-titel"></h2>
-              <button type="button" class="blaettern" data-richtung="1" aria-label="Nächster Spieltag">${PFEIL}</button>
+              <div class="blaetter-knoepfe">
+                <button type="button" class="blaettern" data-richtung="-1" aria-label="Vorheriger Spieltag">${PFEIL}</button>
+                <button type="button" class="blaettern" data-richtung="1" aria-label="Nächster Spieltag">${PFEIL}</button>
+              </div>
             </div>
             ${tage.map((t) => `
-              <div class="ergebnis-streifen" data-spieltag="${t}" hidden>
-                ${d.spiele.filter((s) => s.liga === l.id && s.spieltag === t).map((s) => spielKarte(d, s)).join("")}
+              <div class="spiel-liste" data-spieltag="${t}" hidden>
+                ${d.spiele.filter((s) => s.liga === l.id && s.spieltag === t).map((s) => spielZeile(d, s)).join("")}
               </div>`).join("")}
           </section>
           <section class="abschnitt">
@@ -593,7 +640,30 @@ const seiten = {
     const gal = s.galerie && d.galerie(s.galerie);
     const bericht = d.berichte.find((b) => b.spiel === s.id);
     const videos = d.videos.filter((v) => v.spiel === s.id);
-    const nichts = gespielt && !s.bericht && !bericht && !gal && !videos.length && !(s.tore || []).length;
+    const zh = teamZahlen(d, s.liga, s.heim), zg = teamZahlen(d, s.liga, s.gast);
+
+    const formPunkte = (f) => f.length ? `<span class="form">${f.map((x) => `<span class="f-${x}" title="${x === "S" ? "Sieg" : x === "N" ? "Niederlage" : "Unentschieden"}">${x}</span>`).join("")}</span>` : "–";
+    const vergleich = `
+      <div class="karte vergleich">
+        <div class="v-kopf"><span>${esc(h?.kurz)}</span><h2>Vergleich</h2><span>${esc(g?.kurz)}</span></div>
+        ${[
+          ["Tabellenplatz", `${zh.platz}.`, `${zg.platz}.`],
+          ["Punkte", zh.zeile.pkt ?? 0, zg.zeile.pkt ?? 0],
+          ["Tore", `${zh.zeile.tore ?? 0}:${zh.zeile.gegen ?? 0}`, `${zg.zeile.tore ?? 0}:${zg.zeile.gegen ?? 0}`],
+          ["Form", formPunkte(zh.form), formPunkte(zg.form)]
+        ].map(([t, a, b]) => `<div class="v-zeile"><span class="a">${a}</span><span class="t">${t}</span><span class="b">${b}</span></div>`).join("")}
+      </div>`;
+    const letzteSpiele = (z, v) => `
+      <div class="karte">
+        <div class="spieltag-kopf"><h2 style="font-size:20px">Letzte Spiele ${esc(v?.kurz)}</h2></div>
+        <div class="spiel-liste">${z.letzte.map((x) => spielZeile(d, x)).join("") || `<p class="leise" style="padding:0 20px 16px">Noch keine Spiele.</p>`}</div>
+      </div>`;
+    const torjaegerTeams = (zh.tj.length || zg.tj.length) ? `
+      <div class="karte box">
+        <h2>Torjäger</h2>
+        <ol class="liste">${[...zh.tj, ...zg.tj].sort((a, b) => b[1] - a[1]).map(([id, n]) => { const sp = d.spielerById(id); return `<li><a href="spieler.html?id=${id}">${esc(sp.name)}</a> <span class="leise">${esc(d.verein(sp.verein)?.kurz)}, ${n} ${n === 1 ? "Tor" : "Tore"}</span></li>`; }).join("")}</ol>
+      </div>` : "";
+
     return `
       <div class="seitenkopf"><span class="kategorie">${esc(d.liga(s.liga)?.name)}, ${s.spieltag}. Spieltag</span><p>${datumLang(s.datum)}, ${esc(s.anstoss)} Uhr</p></div>
       <div class="spielkopf">
@@ -601,11 +671,18 @@ const seiten = {
         <span class="stand${gespielt ? "" : " offen"}">${gespielt ? `${s.toreHeim}:${s.toreGast}` : esc(s.anstoss)}</span>
         <div class="team"><a href="verein.html?id=${g?.id}">${esc(g?.name)}</a></div>
       </div>
+      ${gespielt ? `<div class="karte verlauf-karte">${torVerlauf(d, s)}</div>` : ""}
       <div class="zwei abschnitt">
         <div>
-          ${s.bericht ? `<div class="abschnitt-kopf"><h2>Kurzbericht</h2></div><p style="font-size:19px;margin:0 0 12px">${esc(s.bericht)}</p>` : gespielt ? "" : `<div class="abschnitt-kopf"><h2>Vorschau</h2></div><p>Das Spiel steht noch aus.</p>`}
-          ${bericht ? `<p><a class="link" href="bericht.html?id=${bericht.id}">Zum ausführlichen Bericht</a></p>` : ""}
-          ${nichts ? `<p class="leise">Zu diesem Spiel gibt es nur das Ergebnis. Bericht, Bilder und Videos gibt es von den Spielen, bei denen wir vor Ort waren.</p>` : ""}
+          ${gespielt ? `
+            ${s.bericht ? `<div class="abschnitt-kopf"><h2>Kurzbericht</h2></div><p style="font-size:19px;margin:0 0 12px">${esc(s.bericht)}</p>` : ""}
+            ${bericht ? `<p><a class="link" href="bericht.html?id=${bericht.id}">Zum ausführlichen Bericht</a></p>` : ""}
+            ${!s.bericht && !bericht && !gal && !videos.length ? `<p class="leise">Bericht, Bilder und Videos gibt es von den Spielen, bei denen wir vor Ort waren.</p>` : ""}
+          ` : `
+            <div class="abschnitt-kopf"><h2>Vorschau</h2></div>
+            ${bericht ? `<a class="karte bericht-zeile" href="bericht.html?id=${bericht.id}"><span class="kategorie rot">${esc(bericht.kategorie)}</span><h3>${esc(bericht.titel)}</h3><p class="leise">${esc(bericht.teaser)}</p></a>` : ""}
+            <div class="zwei-gleich">${letzteSpiele(zh, h)}${letzteSpiele(zg, g)}</div>
+          `}
           ${videos.length ? `
             <div class="abschnitt">
               <div class="abschnitt-kopf"><h2>Videos</h2></div>
@@ -618,16 +695,9 @@ const seiten = {
             </div>` : ""}
         </div>
         <aside>
-          ${gespielt ? `
-            <div class="karte box">
-              <h2>Tore</h2>
-              <ul class="torliste">
-                ${(s.tore || []).map((t) => {
-                  const sp = d.spielerById(t.spieler);
-                  return `<li><span class="min">${t.min}'</span>${sp ? `<a class="link" href="spieler.html?id=${sp.id}">${esc(sp.name)}</a>` : "Unbekannt"} <span class="leise">${esc(d.verein(t.verein)?.kurz)}</span></li>`;
-                }).join("") || "<li>Keine Tore.</li>"}
-              </ul>
-            </div>` : ""}
+          ${vergleich}
+          ${gespielt ? "" : torjaegerTeams}
+          <p style="margin-top:16px"><a class="link" href="liga.html?id=${s.liga}">Zur Tabelle der ${esc(d.liga(s.liga)?.kurz)}</a></p>
         </aside>
       </div>`;
   },
