@@ -48,7 +48,7 @@ async function laden() {
 const BEREICH = {
   start: "start", ligen: "ligen", liga: "ligen", berichte: "berichte", bericht: "berichte",
   galerien: "bilder", galerie: "bilder", wechsel: "wechsel", highlights: "highlights", video: "highlights",
-  vereine: "vereine", verein: "vereine", spieler: "vereine", spiel: "ligen"
+  verein: "ligen", spieler: "ligen", spiel: "ligen"
 };
 
 function rahmen(d, seite) {
@@ -88,7 +88,6 @@ function rahmen(d, seite) {
       <div class="wrap">
         ${punkt("start", "index.html", "Home")}
         ${ausklapp("ligen", "Ligen", ligenLinks)}
-        ${punkt("vereine", "vereine.html", "Vereine")}
         ${punkt("berichte", "berichte.html", "News")}
         ${punkt("highlights", "highlights.html", "Highlights")}
         ${punkt("bilder", "galerien.html", "Bilder")}
