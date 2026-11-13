@@ -730,3 +730,4 @@ img.wappen { background: none; border-radius: 0; }
   .slider-daumen button { width: 72px; }
 }
 @media (prefers-reduced-motion: reduce) { .slider-spur { scroll-behavior: auto; } }
+.tabellen-hinweis { margin: 0 0 10px; font-size: 15px; }

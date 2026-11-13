@@ -438,9 +438,8 @@ function tabellenUmschalter(d, ligaId) {
     </div>
     ${ANSICHTEN.map(([id], i) => `
       <div data-tabelle="${id}"${i ? " hidden" : ""}>
-        ${id === "rueckrunde" && rueckLeer
-          ? `<div class="karte box"><p class="leise" style="margin:0">Die Rückrunde beginnt mit dem ${rl + 1}. Spieltag.</p></div>`
-          : tabelleHtml(d, ligaId, id)}
+        ${id === "rueckrunde" && rueckLeer ? `<p class="leise tabellen-hinweis">Die Rückrunde beginnt mit dem ${rl + 1}. Spieltag.</p>` : ""}
+        ${tabelleHtml(d, ligaId, id)}
       </div>`).join("")}`;
 }
 
