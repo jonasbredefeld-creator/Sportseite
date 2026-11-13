@@ -797,7 +797,7 @@ tr.eigenes-team td { background: var(--blau-hell); font-weight: 600; }
   /* Das Diagramm wird auf dem Handy etwa auf die Hälfte verkleinert, daher Schrift und Linien im SVG größer */
   .pv-achse { font-size: 24px; }
   .pv-gegner { font-size: 22px; }
-  .pv-wert { font-size: 30px; }
+  .pv-wert { font-size: 26px; }
   .pv-linie { stroke-width: 4.5; }
   .pv-schnitt { stroke-width: 2.5; }
   .pv-punkt circle { r: 9; stroke-width: 3; }
@@ -819,3 +819,7 @@ tr.eigenes-team td { background: var(--blau-hell); font-weight: 600; }
 }
 .spiel-bericht .kurztext { margin: 8px 0 0; font-size: 17px; line-height: 1.5; color: var(--tinte); }
 .team-zahlen { margin-top: 48px; }
+.spieler-zahlen { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 420px; margin: 14px 0 22px; }
+.spieler-zahlen.vier { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 640px; }
+.pv-wert.pv-hoch { fill: var(--blau-tief); }
+@media (max-width: 560px) { .spieler-zahlen.vier { grid-template-columns: repeat(2, minmax(0, 1fr)); } .spieler-zahlen.vier div:nth-child(3) { border-left: 0; } .spieler-zahlen.vier div:nth-child(n+3) { border-top: 1px solid var(--linie); } }

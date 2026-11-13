@@ -419,7 +419,7 @@ function punkteVerlauf(d, sp, liste) {
             <title>${datumMittel(s.datum)} gegen ${esc(gegner({ s })?.name)}: ${x.punkte} Punkte</title>
             <rect x="${xPos(i) - 22}" y="${ob - 10}" width="44" height="${H - ob - un + 20}" fill="transparent"/>
             <circle cx="${xPos(i)}" cy="${yPos(x.punkte)}" r="5"/>
-            ${i === hoch ? `<text x="${xPos(i)}" y="${yPos(x.punkte) - 12}" class="pv-wert" text-anchor="middle">${x.punkte}</text>` : ""}
+            <text x="${xPos(i)}" y="${yPos(x.punkte) - 12}" class="pv-wert${i === hoch ? " pv-hoch" : ""}" text-anchor="middle">${x.punkte}</text>
             <text x="${xPos(i)}" y="${H - un + 20}" class="pv-achse" text-anchor="middle">${datumKurz(s.datum).replace(/^\S+\s/, "")}</text>
             <text x="${xPos(i)}" y="${H - un + 36}" class="pv-achse pv-gegner" text-anchor="middle">${esc(gegner({ s })?.kurz)}</text>
           </a>`).join("")}
@@ -620,25 +620,8 @@ function torjaeger(d, filter = () => true) {
   return Object.entries(zahl).sort((a, b) => b[1] - a[1]);
 }
 
-// Einsatzminuten, Feld "minuten" im Spiel: { "spieler-id": 90, ... }
-function minuten(d, filter = () => true) {
-  const m = {};
-  d.gespielt.filter(filter).forEach((s) => Object.entries(s.minuten || {}).forEach(([id, min]) => {
-    m[id] = m[id] || { min: 0, spiele: 0 };
-    m[id].min += min; m[id].spiele++;
-  }));
-  return Object.entries(m).sort((a, b) => b[1].min - a[1].min);
-}
-
 // Ranglisten zeigen immer 10 Plätze, leere Plätze als Strich
 const auffuellen = (html, anzahl, start) => html + Array.from({ length: Math.max(0, 10 - anzahl) }, (_, i) => `<li class="leer-platz"><span class="rang">${start + i + 1}</span><span class="leise">–</span></li>`).join("");
-
-function minutenListe(d, eintraege) {
-  return `<ol class="liste">${eintraege.map(([id, x], i) => {
-    const sp = d.spielerById(id);
-    return `<li><span class="rang">${i + 1}</span><a href="spieler.html?id=${id}">${esc(sp?.name)}</a> <span class="leise">${esc(d.verein(sp?.verein)?.kurz)}, ${x.min.toLocaleString("de-DE")} Min.</span></li>`;
-  }).join("") + auffuellen("", eintraege.length, eintraege.length)}</ol>`;
-}
 
 function torjaegerListe(d, eintraege) {
   return `<ol class="liste">${eintraege.map(([id, n], i) => {
@@ -833,7 +816,6 @@ const seiten = {
         </div>
         <aside>
           <div class="karte box"><h2>Torjäger</h2>${torjaegerListe(d, torjaeger(d, (s) => s.liga === l.id).slice(0, 10))}</div>
-          <div class="karte box" style="margin-top:24px"><h2>Meiste Einsatzminuten</h2>${minutenListe(d, minuten(d, (s) => s.liga === l.id).slice(0, 10))}</div>
         </aside>
       </div>`;
   },
@@ -976,13 +958,22 @@ const seiten = {
         <div>
           ${sp.nummer != null ? `<div class="rueckennummer">${sp.nummer}</div>` : ""}
           <p class="leise">${esc(sp.position)}, ${vereinLink(d, sp.verein)}</p>
-          <div class="werte">
-            ${mitPunkten
-              ? `<div><strong>${summe}</strong>PTS</div><div><strong>${punkteSpiele.length ? (summe / punkteSpiele.length).toFixed(1).replace(".", ",") : "0"}</strong>PPG</div>`
-              : `<div><strong>${eigeneTore.length}</strong>Tore</div>`}
-            ${(() => { const m = minuten(d).find(([id]) => id === sp.id)?.[1]; return m ? `<div><strong>${m.min.toLocaleString("de-DE")}</strong>Minuten</div>` : ""; })()}
-            <div><strong>${einsaetze}</strong>Spiele des Vereins</div>
-          </div>
+          ${(() => {
+            const komma = (n) => n.toFixed(1).replace(".", ",");
+            if (mitPunkten) {
+              const ftm = punkteSpiele.reduce((a, { x }) => a + (x.ftm || 0), 0), fta = punkteSpiele.reduce((a, { x }) => a + (x.fta || 0), 0);
+              return `<div class="bilanz-zahlen spieler-zahlen vier">
+                <div><strong>${punkteSpiele.length ? komma(summe / punkteSpiele.length) : "0"}</strong><span>PPG</span></div>
+                <div><strong>${summe}</strong><span>PTS</span></div>
+                <div><strong>${fta ? `${komma((ftm / fta) * 100)}%` : "–"}</strong><span>FT% (${ftm}/${fta})</span></div>
+                <div><strong>${punkteSpiele.length}</strong><span>Spiele</span></div>
+              </div>`;
+            }
+            return `<div class="bilanz-zahlen spieler-zahlen">
+              <div><strong>${eigeneTore.length}</strong><span>Tore</span></div>
+              <div><strong>${einsaetze}</strong><span>Spiele des Vereins</span></div>
+            </div>`;
+          })()}
           ${mitPunkten ? punkteVerlauf(d, sp, punkteSpiele) : ""}
           <ul class="torliste"${mitPunkten ? " hidden" : ""}>
             ${mitPunkten ? ""
