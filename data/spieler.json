@@ -1291,7 +1291,7 @@
   "id": "bb-leonardo-butic",
   "name": "Leonardo Butic",
   "verein": "tb-sigmaringen",
-  "position": "Spieler",
+  "position": "SG",
   "nummer": null,
   "bild": ""
  },
@@ -1299,7 +1299,7 @@
   "id": "bb-michael-cierotzki",
   "name": "Michael Cierotzki",
   "verein": "tb-sigmaringen",
-  "position": "Spieler",
+  "position": "PG",
   "nummer": null,
   "bild": ""
  },
@@ -1307,7 +1307,7 @@
   "id": "bb-luka-siric",
   "name": "Luka Siric",
   "verein": "tb-sigmaringen",
-  "position": "Spieler",
+  "position": "C/PF",
   "nummer": null,
   "bild": ""
  },
@@ -1315,7 +1315,7 @@
   "id": "bb-juergen-stojku",
   "name": "Jürgen Stojku",
   "verein": "tb-sigmaringen",
-  "position": "Spieler",
+  "position": "SG/SF",
   "nummer": null,
   "bild": ""
  },
@@ -1323,7 +1323,7 @@
   "id": "bb-aaron-pahl",
   "name": "Aaron Pahl",
   "verein": "tb-sigmaringen",
-  "position": "Spieler",
+  "position": "PF/SF",
   "nummer": null,
   "bild": ""
  },
@@ -1331,7 +1331,7 @@
   "id": "bb-liam-wetzel",
   "name": "Liam Wetzel",
   "verein": "tb-sigmaringen",
-  "position": "Spieler",
+  "position": "PG/SG",
   "nummer": null,
   "bild": ""
  },
@@ -1339,7 +1339,7 @@
   "id": "bb-tim-klasen",
   "name": "Tim Klasen",
   "verein": "tb-sigmaringen",
-  "position": "Spieler",
+  "position": "C/PF",
   "nummer": null,
   "bild": ""
  },
@@ -1347,7 +1347,7 @@
   "id": "bb-raphael-allmaier",
   "name": "Raphael Allmaier",
   "verein": "tb-sigmaringen",
-  "position": "Spieler",
+  "position": "C/PF",
   "nummer": null,
   "bild": ""
  },
@@ -1427,7 +1427,7 @@
   "id": "bb-marko-rozga",
   "name": "Marko Rozga",
   "verein": "tb-sigmaringen",
-  "position": "Spieler",
+  "position": "SG/SF",
   "nummer": null,
   "bild": ""
  },
@@ -1596,6 +1596,22 @@
   "name": "Dominik Keib",
   "verein": "bb-sv-blitzenreute",
   "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-aaron-leiprand",
+  "name": "Aaron Leiprand",
+  "verein": "tb-sigmaringen",
+  "position": "SG/PG",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-holger-herms",
+  "name": "Holger Herms",
+  "verein": "tb-sigmaringen",
+  "position": "Trainer",
   "nummer": null,
   "bild": ""
  }

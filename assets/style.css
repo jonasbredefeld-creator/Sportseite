@@ -823,3 +823,6 @@ tr.eigenes-team td { background: var(--blau-hell); font-weight: 600; }
 .spieler-zahlen.vier { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 640px; }
 .pv-wert.pv-hoch { fill: var(--blau-tief); }
 @media (max-width: 560px) { .spieler-zahlen.vier { grid-template-columns: repeat(2, minmax(0, 1fr)); } .spieler-zahlen.vier div:nth-child(3) { border-left: 0; } .spieler-zahlen.vier div:nth-child(n+3) { border-top: 1px solid var(--linie); } }
+.kader-name small { display: block; font-size: 13px; color: var(--leise); font-weight: 500; }
+.kader-karte.ohne-nr { grid-template-columns: 40px minmax(0, 1fr); }
+@media (max-width: 560px) { .kader-karte.ohne-nr { grid-template-columns: 28px minmax(0, 1fr); } }

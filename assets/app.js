@@ -448,25 +448,28 @@ function bilanzKarte(d, ligaId) {
 }
 
 // Kader nach Positionen gruppiert, als Raster über die volle Breite
-const POSITIONEN = ["Tor", "Abwehr", "Mittelfeld", "Sturm", "Guard", "Forward", "Center", "Quarterback", "Running Back", "Trainer"];
+const POSITIONEN = ["Tor", "Abwehr", "Mittelfeld", "Sturm", "Guards", "Forwards", "Center", "Quarterback", "Running Back", "Spieler", "Trainer"];
 const POS_TITEL = { Tor: "Torhüter" };
+// Basketball: "C/PF" -> Gruppe nach der zuerst genannten Position, im Kader steht die volle Angabe
+const BB_GRUPPE = { PG: "Guards", SG: "Guards", G: "Guards", SF: "Forwards", PF: "Forwards", F: "Forwards", C: "Center" };
+const posGruppe = (pos) => BB_GRUPPE[String(pos || "").split("/")[0].trim()] || pos || "Spieler";
 
 function kaderHtml(d, v) {
   const kader = d.spieler.filter((s) => s.verein === v.id);
-  const gruppen = [...new Set(kader.map((s) => s.position))]
+  const gruppen = [...new Set(kader.map((s) => posGruppe(s.position)))]
     .sort((a, b) => (POSITIONEN.indexOf(a) + 1 || 99) - (POSITIONEN.indexOf(b) + 1 || 99));
   return `
     <section class="abschnitt" id="kader">
-      <div class="abschnitt-kopf"><h2>Kader</h2>${kader.length ? `<span class="leise">${kader.length} Spieler</span>` : ""}</div>
+      <div class="abschnitt-kopf"><h2>Kader</h2>${kader.length ? `<span class="leise">${kader.filter((s) => s.position !== "Trainer").length} Spieler</span>` : ""}</div>
       ${kader.length ? `<div class="karte kader">${gruppen.map((p) => `
         <div class="kader-gruppe">
           <h3>${esc(POS_TITEL[p] || p)}</h3>
           <div class="kader-raster">
-            ${kader.filter((s) => s.position === p).sort((a, b) => (a.nummer ?? 99) - (b.nummer ?? 99) || a.name.localeCompare(b.name, "de")).map((s) => `
-              <a class="kader-karte" href="spieler.html?id=${s.id}">
+            ${kader.filter((s) => posGruppe(s.position) === p).sort((a, b) => (a.nummer ?? 99) - (b.nummer ?? 99) || a.name.localeCompare(b.name, "de")).map((s) => `
+              <a class="kader-karte${s.nummer == null ? " ohne-nr" : ""}" href="spieler.html?id=${s.id}">
                 ${portraet(s, "kader-bild")}
-                <span class="kader-nr">${s.nummer ?? ""}</span>
-                <span class="kader-name">${esc(s.name)}</span>
+                ${s.nummer == null ? "" : `<span class="kader-nr">${s.nummer}</span>`}
+                <span class="kader-name">${esc(s.name)}${BB_GRUPPE[String(s.position).split("/")[0]] ? `<small>${esc(s.position)}</small>` : ""}</span>
               </a>`).join("")}
           </div>
         </div>`).join("")}</div>` : `<div class="karte box"><p class="leise" style="margin:0">Kader noch nicht eingetragen.</p></div>`}
@@ -947,6 +950,7 @@ const seiten = {
     const einsaetze = d.gespielt.filter((s) => s.heim === sp.verein || s.gast === sp.verein).length;
     const punkteSpiele = [];
     d.gespielt.forEach((s) => (s.scorer || []).forEach((x) => { if (x.spieler === sp.id) punkteSpiele.push({ s, x }); }));
+    const istTrainer = sp.position === "Trainer";
     const mitPunkten = d.teamLiga(d.verein(sp.verein)?.liga);
     const summe = punkteSpiele.reduce((a, { x }) => a + x.punkte, 0);
     const bilder = [];
@@ -958,7 +962,7 @@ const seiten = {
         <div>
           ${sp.nummer != null ? `<div class="rueckennummer">${sp.nummer}</div>` : ""}
           <p class="leise">${esc(sp.position)}, ${vereinLink(d, sp.verein)}</p>
-          ${(() => {
+          ${istTrainer ? "" : (() => {
             const komma = (n) => n.toFixed(1).replace(".", ",");
             if (mitPunkten) {
               const ftm = punkteSpiele.reduce((a, { x }) => a + (x.ftm || 0), 0), fta = punkteSpiele.reduce((a, { x }) => a + (x.fta || 0), 0);
@@ -974,7 +978,7 @@ const seiten = {
               <div><strong>${einsaetze}</strong><span>Spiele des Vereins</span></div>
             </div>`;
           })()}
-          ${mitPunkten ? punkteVerlauf(d, sp, punkteSpiele) : ""}
+          ${mitPunkten && !istTrainer ? punkteVerlauf(d, sp, punkteSpiele) : ""}
           <ul class="torliste"${mitPunkten ? " hidden" : ""}>
             ${mitPunkten ? ""
               : eigeneTore.map(({ s, t }) => `<li><span class="min">${t.min}'</span><a class="link" href="spiel.html?id=${s.id}">${esc(d.verein(s.heim)?.kurz)} gegen ${esc(d.verein(s.gast)?.kurz)}</a> <span class="leise">${datumMittel(s.datum)}</span></li>`).join("") || "<li>Noch keine Tore.</li>"}
