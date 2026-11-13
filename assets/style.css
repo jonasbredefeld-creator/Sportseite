@@ -867,3 +867,6 @@ img.wappen.such { width: 32px; height: 32px; object-fit: contain; }
 #filter-anzahl { padding-bottom: 10px; font-size: 14px; }
 .filter-leer { padding: 18px 22px; margin: 0; }
 @media (max-width: 560px) { .transfer-filter label, .transfer-filter select { width: 100%; min-width: 0; } }
+.aside-abstand { margin-top: 24px; }
+.aside-abstand:empty { display: none; }
+.zwei-gleich { margin-top: 16px; }
