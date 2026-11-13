@@ -817,3 +817,5 @@ tr.eigenes-team td { background: var(--blau-hell); font-weight: 600; }
   .boxscore-paar { grid-template-columns: 1fr; gap: 16px; }
   .bericht-reihe .spiel-bericht { grid-template-columns: 1fr; }
 }
+.spiel-bericht .kurztext { margin: 8px 0 0; font-size: 17px; line-height: 1.5; color: var(--tinte); }
+.team-zahlen { margin-top: 48px; }

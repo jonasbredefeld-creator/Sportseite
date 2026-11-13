@@ -302,6 +302,16 @@ const spielBerichtKarte = (b) => `
     </div>
   </a>`;
 
+// Kurzbericht ohne eigenen Artikel: gleiche Karte, Bild aus der Galerie oder Platzhalter
+const kurzberichtKarte = (s, gal) => `
+  <${gal ? `a href="galerie.html?id=${gal.id}"` : "div"} class="karte spiel-bericht">
+    ${foto(gal?.bilder?.[0] || { titel: "Bild zum Spiel" })}
+    <div class="inhalt">
+      <span class="kategorie">Kurzbericht</span>
+      <p class="kurztext">${esc(s.bericht)}</p>
+    </div>
+  </${gal ? "a" : "div"}>`;
+
 function scorerListe(d, s) {
   const l = s.scorer || [];
   if (!l.length) return "";
@@ -1032,7 +1042,7 @@ const seiten = {
       <div class="zwei abschnitt">
         <div>
           ${gespielt ? `
-            ${bericht ? spielBerichtKarte(bericht) : s.bericht ? `<div class="abschnitt-kopf"><h2>Kurzbericht</h2></div><p style="font-size:19px;margin:0 0 12px">${esc(s.bericht)}</p>` : ""}
+            ${bericht ? spielBerichtKarte(bericht) : s.bericht ? kurzberichtKarte(s, gal) : ""}
             ${!s.bericht && !bericht && !gal && !videos.length ? `<p class="leise">Bericht, Bilder und Videos gibt es von den Spielen, bei denen wir vor Ort waren.</p>` : ""}
           ` : `
             <div class="abschnitt-kopf"><h2>Vorschau</h2></div>
@@ -1261,7 +1271,7 @@ function spielTeamModus(d, s, { h, g, gespielt, gal, bericht, videos, l }) {
     <div class="zwei abschnitt bericht-reihe">
       <div>
         ${gespielt ? `
-          ${bericht ? spielBerichtKarte(bericht) : s.bericht ? `<div class="karte box kurzbericht"><span class="kategorie">Kurzbericht</span><p>${esc(s.bericht)}</p></div>` : ""}
+          ${bericht ? spielBerichtKarte(bericht) : s.bericht ? kurzberichtKarte(s, gal) : ""}
         ` : `
           <div class="abschnitt-kopf"><h2>Vorschau</h2></div>
           ${bericht ? `<a class="karte bericht-zeile" href="bericht.html?id=${bericht.id}"><span class="kategorie rot">${esc(bericht.kategorie)}</span><h3>${esc(bericht.titel)}</h3><p class="leise">${esc(bericht.teaser)}</p></a>` : ""}
