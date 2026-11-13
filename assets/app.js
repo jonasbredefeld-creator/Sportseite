@@ -401,36 +401,60 @@ function letzterSpieltag(d, ligaId) {
   return tage.length ? Math.max(...tage) : null;
 }
 
-function tabelle(d, ligaId) {
+// Spieltage pro Runde: bei gerader Teamzahl n-1, bei ungerader n (wegen spielfrei)
+const rundenLaenge = (d, ligaId) => { const n = d.vereine.filter((v) => v.liga === ligaId).length; return n % 2 ? n : n - 1; };
+
+// ansicht: gesamt, hinrunde, rueckrunde, heim, auswaerts
+function tabelle(d, ligaId, ansicht = "gesamt") {
   const zeilen = {};
+  const rl = rundenLaenge(d, ligaId);
   d.vereine.filter((v) => v.liga === ligaId).forEach((v) => {
     zeilen[v.id] = { id: v.id, sp: 0, s: 0, u: 0, n: 0, tore: 0, gegen: 0, pkt: 0 };
   });
-  d.gespielt.filter((s) => s.liga === ligaId).forEach((s) => {
-    const h = zeilen[s.heim], g = zeilen[s.gast];
-    if (!h || !g) return;
-    h.sp++; g.sp++;
-    h.tore += s.toreHeim; h.gegen += s.toreGast;
-    g.tore += s.toreGast; g.gegen += s.toreHeim;
-    if (s.toreHeim > s.toreGast) { h.s++; g.n++; h.pkt += 3; }
-    else if (s.toreHeim < s.toreGast) { g.s++; h.n++; g.pkt += 3; }
-    else { h.u++; g.u++; h.pkt++; g.pkt++; }
-  });
+  const zaehlen = (z, eig, geg) => {
+    z.sp++; z.tore += eig; z.gegen += geg;
+    if (eig > geg) { z.s++; z.pkt += 3; } else if (eig < geg) z.n++; else { z.u++; z.pkt++; }
+  };
+  d.gespielt.filter((s) => s.liga === ligaId)
+    .filter((s) => ansicht === "hinrunde" ? s.spieltag <= rl : ansicht === "rueckrunde" ? s.spieltag > rl : true)
+    .forEach((s) => {
+      const h = zeilen[s.heim], g = zeilen[s.gast];
+      if (!h || !g) return;
+      if (ansicht !== "auswaerts") zaehlen(h, s.toreHeim, s.toreGast);
+      if (ansicht !== "heim") zaehlen(g, s.toreGast, s.toreHeim);
+    });
   return Object.values(zeilen).sort((a, b) =>
     b.pkt - a.pkt || (b.tore - b.gegen) - (a.tore - a.gegen) || b.tore - a.tore);
 }
 
-function tabelleHtml(d, ligaId) {
-  const z = tabelle(d, ligaId);
+const ANSICHTEN = [["gesamt", "Gesamt"], ["hinrunde", "Hinrunde"], ["rueckrunde", "Rückrunde"], ["heim", "Heim"], ["auswaerts", "Auswärts"]];
+
+function tabellenUmschalter(d, ligaId) {
+  const rl = rundenLaenge(d, ligaId);
+  const rueckLeer = !d.gespielt.some((s) => s.liga === ligaId && s.spieltag > rl);
+  return `
+    <div class="liga-reiter tabellen-reiter" role="group" aria-label="Tabellenansicht">
+      ${ANSICHTEN.map(([id, txt], i) => `<button type="button" data-ansicht="${id}" aria-pressed="${i === 0}">${txt}</button>`).join("")}
+    </div>
+    ${ANSICHTEN.map(([id], i) => `
+      <div data-tabelle="${id}"${i ? " hidden" : ""}>
+        ${id === "rueckrunde" && rueckLeer
+          ? `<div class="karte box"><p class="leise" style="margin:0">Die Rückrunde beginnt mit dem ${rl + 1}. Spieltag.</p></div>`
+          : tabelleHtml(d, ligaId, id)}
+      </div>`).join("")}`;
+}
+
+function tabelleHtml(d, ligaId, ansicht = "gesamt") {
+  const z = tabelle(d, ligaId, ansicht);
   return `
     <div class="karte tabelle-wrap"><table>
-      <thead><tr><th></th><th>Verein</th><th class="zahl">Sp.</th><th class="zahl">S</th><th class="zahl">U</th><th class="zahl">N</th><th class="zahl">Tore</th><th class="zahl">Diff.</th><th class="zahl">Pkt.</th></tr></thead>
+      <thead><tr><th></th><th>Verein</th><th class="zahl">Sp.</th><th class="zahl sun">S</th><th class="zahl sun">U</th><th class="zahl sun">N</th><th class="zahl">Tore</th><th class="zahl">Diff.</th><th class="zahl">Pkt.</th></tr></thead>
       <tbody>
         ${z.map((r, i) => `
           <tr>
             <td class="platz">${i + 1}</td>
-            <td><a href="verein.html?id=${r.id}">${esc(d.verein(r.id)?.name)}</a></td>
-            <td class="zahl">${r.sp}</td><td class="zahl">${r.s}</td><td class="zahl">${r.u}</td><td class="zahl">${r.n}</td>
+            <td class="tab-verein"><a href="verein.html?id=${r.id}"><span class="lang">${esc(d.verein(r.id)?.name)}</span><span class="kurz">${esc(d.verein(r.id)?.kurz)}</span></a></td>
+            <td class="zahl">${r.sp}</td><td class="zahl sun">${r.s}</td><td class="zahl sun">${r.u}</td><td class="zahl sun">${r.n}</td>
             <td class="zahl">${r.tore}:${r.gegen}</td>
             <td class="zahl">${r.tore - r.gegen > 0 ? "+" : ""}${r.tore - r.gegen}</td>
             <td class="zahl punkte">${r.pkt}</td>
@@ -446,6 +470,23 @@ function torjaeger(d, filter = () => true) {
     if (t.spieler) zahl[t.spieler] = (zahl[t.spieler] || 0) + 1;
   }));
   return Object.entries(zahl).sort((a, b) => b[1] - a[1]);
+}
+
+// Einsatzminuten, Feld "minuten" im Spiel: { "spieler-id": 90, ... }
+function minuten(d, filter = () => true) {
+  const m = {};
+  d.gespielt.filter(filter).forEach((s) => Object.entries(s.minuten || {}).forEach(([id, min]) => {
+    m[id] = m[id] || { min: 0, spiele: 0 };
+    m[id].min += min; m[id].spiele++;
+  }));
+  return Object.entries(m).sort((a, b) => b[1].min - a[1].min);
+}
+
+function minutenListe(d, eintraege) {
+  return `<ol class="liste">${eintraege.map(([id, x], i) => {
+    const sp = d.spielerById(id);
+    return `<li><span class="rang">${i + 1}</span><a href="spieler.html?id=${id}">${esc(sp?.name)}</a> <span class="leise">${esc(d.verein(sp?.verein)?.kurz)}, ${x.min.toLocaleString("de-DE")} Min.</span></li>`;
+  }).join("") || "<li>Noch keine Einsatzzeiten eingetragen.</li>"}</ol>`;
 }
 
 function torjaegerListe(d, eintraege) {
@@ -625,11 +666,12 @@ const seiten = {
           </section>
           <section class="abschnitt">
             <div class="abschnitt-kopf"><h2>Tabelle</h2></div>
-            ${tabelleHtml(d, l.id)}
+            ${tabellenUmschalter(d, l.id)}
           </section>
         </div>
         <aside>
           <div class="karte box"><h2>Torjäger</h2>${torjaegerListe(d, torjaeger(d, (s) => s.liga === l.id).slice(0, 10))}</div>
+          <div class="karte box" style="margin-top:24px"><h2>Meiste Einsatzminuten</h2>${minutenListe(d, minuten(d, (s) => s.liga === l.id).slice(0, 10))}</div>
         </aside>
       </div>`;
   },
@@ -774,6 +816,7 @@ const seiten = {
             ${mitPunkten
               ? `<div><strong>${summe}</strong>Punkte</div><div><strong>${punkteSpiele.length ? (summe / punkteSpiele.length).toFixed(1).replace(".", ",") : "0"}</strong>pro Spiel</div>`
               : `<div><strong>${eigeneTore.length}</strong>Tore</div>`}
+            ${(() => { const m = minuten(d).find(([id]) => id === sp.id)?.[1]; return m ? `<div><strong>${m.min.toLocaleString("de-DE")}</strong>Minuten</div>` : ""; })()}
             <div><strong>${einsaetze}</strong>Spiele des Vereins</div>
           </div>
           <ul class="torliste">
@@ -1046,6 +1089,10 @@ function nichtGefunden(was) {
     if (html !== null) ziel.innerHTML = html;
     if (seite === "start") seiten.nachStart();
     if (seite === "liga") seiten.nachLiga();
+    $$(".tabellen-reiter button").forEach((b, _, alle) => b.addEventListener("click", () => {
+      alle.forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+      $$("[data-tabelle]").forEach((el) => { el.hidden = el.dataset.tabelle !== b.dataset.ansicht; });
+    }));
     sportFilterAktivieren();
     // Transfers: jeweils 25 weitere einblenden
     const weitere = $("#weitere-transfers");

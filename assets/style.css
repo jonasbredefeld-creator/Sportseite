@@ -672,3 +672,14 @@ img.wappen { background: none; border-radius: 0; }
 .vereins-raster { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0 20px; padding: 10px 20px; }
 .vereins-raster a { padding: 10px 6px; border-bottom: 1px solid var(--linie); font-size: 16px; }
 .vereins-raster a:hover { color: var(--blau); }
+.tabellen-reiter { margin-bottom: 14px; }
+.zwei > * { min-width: 0; }
+.tab-verein .kurz { display: none; }
+@media (max-width: 560px) {
+  .tab-verein .lang { display: none; }
+  .tab-verein .kurz { display: inline; }
+  .tabelle-wrap .sun { display: none; }
+  .tabelle-wrap th, .tabelle-wrap td { padding: 9px 7px; }
+  .tabelle-wrap td.platz { width: 28px; font-size: 17px; }
+  .tab-verein { max-width: 130px; overflow: hidden; text-overflow: ellipsis; }
+}

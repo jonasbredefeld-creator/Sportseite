@@ -137,7 +137,12 @@
     "spieler": "daniel-moser",
     "verein": "fc-mengen"
    }
-  ]
+  ],
+  "minuten": {
+   "lukas-berger": 90,
+   "tim-hagel": 65,
+   "daniel-moser": 65
+  }
  },
  {
   "id": "ll-12-riedlingen-rot-weiss-weiler",
@@ -165,7 +170,10 @@
     "spieler": "luca-wahl",
     "verein": "tsv-riedlingen"
    }
-  ]
+  ],
+  "minuten": {
+   "luca-wahl": 90
+  }
  },
  {
   "id": "ll-12-heimenkirch-ummendorf",
@@ -198,7 +206,10 @@
     "spieler": "jan-roth",
     "verein": "tsv-ummendorf"
    }
-  ]
+  ],
+  "minuten": {
+   "jan-roth": 90
+  }
  },
  {
   "id": "ll-12-eschach-ulm",
@@ -256,7 +267,13 @@
     "verein": "fc-mengen"
    }
   ],
-  "galerie": "gal-mengen-riedlingen"
+  "galerie": "gal-mengen-riedlingen",
+  "minuten": {
+   "lukas-berger": 65,
+   "tim-hagel": 78,
+   "daniel-moser": 65,
+   "luca-wahl": 90
+  }
  },
  {
   "id": "ll-13-wangen-mietingen",
@@ -386,7 +403,10 @@
     "spieler": null,
     "verein": "tsv-neu-ulm"
    }
-  ]
+  ],
+  "minuten": {
+   "jan-roth": 65
+  }
  },
  {
   "id": "ll-13-rot-weiss-weiler-reinstetten",
@@ -538,7 +558,10 @@
     "spieler": "paul-mayer",
     "verein": "fv-biberach"
    }
-  ]
+  ],
+  "minuten": {
+   "paul-mayer": 90
+  }
  },
  {
   "id": "bzl-12-bad-schussenried-hohentengen",
@@ -581,7 +604,10 @@
     "spieler": null,
     "verein": "fv-bad-schussenried"
    }
-  ]
+  ],
+  "minuten": {
+   "david-kessler": 78
+  }
  },
  {
   "id": "bzl-12-kirchberg-aepfingen",
@@ -647,7 +673,10 @@
     "spieler": "jonas-heim",
     "verein": "sv-ochsenhausen"
    }
-  ]
+  ],
+  "minuten": {
+   "jonas-heim": 90
+  }
  },
  {
   "id": "bzl-12-burgrieden-ringschnait",
@@ -708,7 +737,24 @@
     "spieler": "marco-stehle",
     "verein": "sv-sigmaringen"
    }
-  ]
+  ],
+  "minuten": {
+   "nico-baur": 65,
+   "tobias-renz": 90,
+   "robin-fischer": 76,
+   "philipp-dreher": 90,
+   "jakob-winter": 60,
+   "ben-haering": 90,
+   "max-rapp": 90,
+   "nils-gaiser": 90,
+   "noah-leiber": 90,
+   "julian-keller": 90,
+   "elias-pfaff": 67,
+   "simon-gerster": 90,
+   "dominik-weber": 23,
+   "leon-sauter": 14,
+   "jan-kaiser": 30
+  }
  },
  {
   "id": "bzl-12-muttensweiler-gutenzell",
@@ -793,7 +839,24 @@
     "verein": "sv-sigmaringen"
    }
   ],
-  "galerie": "gal-sigmaringen-ostrach"
+  "galerie": "gal-sigmaringen-ostrach",
+  "minuten": {
+   "tobias-renz": 90,
+   "max-rapp": 90,
+   "felix-wiest": 90,
+   "david-ruf": 83,
+   "marco-stehle": 90,
+   "kai-schaefer": 90,
+   "jakob-winter": 90,
+   "noah-leiber": 58,
+   "fabian-bucher": 85,
+   "tim-engler": 90,
+   "philipp-dreher": 90,
+   "robin-fischer": 5,
+   "nils-gaiser": 7,
+   "leon-sauter": 32,
+   "nico-baur": 90
+  }
  },
  {
   "id": "bzl-13-hohentengen-ochsenhausen",
@@ -822,7 +885,11 @@
     "spieler": "david-kessler",
     "verein": "sv-hohentengen"
    }
-  ]
+  ],
+  "minuten": {
+   "david-kessler": 90,
+   "jonas-heim": 78
+  }
  },
  {
   "id": "bzl-13-ringschnait-sulmetingen",
@@ -974,7 +1041,10 @@
     "spieler": "paul-mayer",
     "verein": "fv-biberach"
    }
-  ]
+  ],
+  "minuten": {
+   "paul-mayer": 90
+  }
  },
  {
   "id": "bzl-14-hundersingen-krauchenwies",
@@ -1074,7 +1144,13 @@
     "spieler": "max-seeger",
     "verein": "tsv-sigmaringendorf"
    }
-  ]
+  ],
+  "minuten": {
+   "simon-frick": 90,
+   "florian-ott": 78,
+   "max-seeger": 90,
+   "robin-gerster": 78
+  }
  },
  {
   "id": "kla-12-laiz-bronnen",
@@ -1107,7 +1183,10 @@
     "spieler": null,
     "verein": "sgm-sv-bronnen-tsv-neufra"
    }
-  ]
+  ],
+  "minuten": {
+   "kevin-lutz": 65
+  }
  },
  {
   "id": "kla-12-altheim-herbertingen",
@@ -1130,7 +1209,10 @@
     "spieler": null,
     "verein": "fv-altheim"
    }
-  ]
+  ],
+  "minuten": {
+   "elias-brehm": 78
+  }
  },
  {
   "id": "kla-12-maegerkingen-hettingen",
@@ -1297,7 +1379,12 @@
     "verein": "sgm-fc-99-fc-laiz"
    }
   ],
-  "galerie": "gal-laiz-sigmaringendorf"
+  "galerie": "gal-laiz-sigmaringendorf",
+  "minuten": {
+   "kevin-lutz": 65,
+   "max-seeger": 90,
+   "robin-gerster": 65
+  }
  },
  {
   "id": "kla-13-bad-saulgau-herbertingen",
@@ -1321,7 +1408,12 @@
     "spieler": "florian-ott",
     "verein": "fv-bad-saulgau"
    }
-  ]
+  ],
+  "minuten": {
+   "simon-frick": 65,
+   "florian-ott": 78,
+   "elias-brehm": 65
+  }
  },
  {
   "id": "kla-13-mengen-ii-altshausen",

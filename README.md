@@ -68,3 +68,11 @@ Spieler in `spieler.json` mit `position` eintragen. Die Vereinsseite gruppiert a
 ## Vereinswappen
 
 In `vereine.json` kann jeder Verein ein Feld `"logo": "assets/logos/sv-sigmaringen.png"` bekommen (nur mit Erlaubnis des Vereins). Ohne Logo zeigt die Seite ein Kürzel aus dem Kurznamen, mit `farbe` in Vereinsfarbe.
+
+## Einsatzminuten
+
+Optional pro Spiel in `spiele.json`: `"minuten": {"spieler-id": 90, "andere-id": 25}`. Daraus berechnet die Seite die Top 10 der Einsatzminuten pro Liga und die Minuten auf dem Spielerprofil.
+
+## Tabellenansichten
+
+Gesamt, Hinrunde, Rückrunde, Heim und Auswärts werden aus den Ergebnissen berechnet. Die Hinrunde endet nach (Anzahl Teams − 1) Spieltagen, bei ungerader Teamzahl nach (Anzahl Teams) Spieltagen.
