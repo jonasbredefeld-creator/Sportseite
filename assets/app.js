@@ -130,7 +130,7 @@ function rahmen(d, seite) {
     const treffer = suchen(index, feld.value).slice(0, 7);
     if (!feld.value.trim()) return schliessen();
     vorschau.innerHTML = treffer.length
-      ? treffer.map((t) => `<a role="option" href="${t.href}">${t.bild !== undefined ? portraet({ bild: t.bild }, "mini") : `<span class="such-typ">${esc(t.typ)}</span>`}<span><strong>${esc(t.titel)}</strong><span class="klein">${esc(t.unter)}</span></span></a>`).join("")
+      ? treffer.map((t) => `<a role="option" href="${t.href}">${t.verein ? wappen(t.verein, "such") : t.bild !== undefined ? portraet({ bild: t.bild }, "mini") : `<span class="such-typ">${esc(t.typ)}</span>`}<span><strong>${esc(t.titel)}</strong><span class="klein">${esc(t.unter)}</span></span></a>`).join("")
         + `<a class="alle" href="suche.html?q=${encodeURIComponent(feld.value)}">Alle Ergebnisse für „${esc(feld.value)}“</a>`
       : `<div class="leer">Nichts gefunden. Probier einen Vereinsnamen, Ort oder Nachnamen.</div>`;
     vorschau.hidden = false;
@@ -392,6 +392,40 @@ function teamTabelle(d, l) {
     </section>`;
 }
 
+// Tabellenplatz nach jedem der letzten sechs Spieltage (1 oben), als Linie
+function platzVerlauf(d, ligaId, vid) {
+  const spiele = d.gespielt.filter((s) => s.liga === ligaId && s.spieltag && (s.heim === vid || s.gast === vid))
+    .sort((a, b) => a.spieltag - b.spieltag).slice(-6);
+  if (spiele.length < 2) return "";
+  const teams = d.vereine.filter((v) => v.liga === ligaId).length;
+  const punkte = spiele.map((s) => ({ s, platz: tabelle(d, ligaId, "gesamt", s.spieltag).findIndex((r) => r.id === vid) + 1 }));
+  const W = 640, H = 230, li = 36, re = 18, ob = 26, un = 52, innen = 40;
+  const xPos = (i) => li + innen + (i * (W - li - re - 2 * innen)) / (punkte.length - 1);
+  const yPos = (p) => ob + ((p - 1) / Math.max(1, teams - 1)) * (H - ob - un);
+  const marken = [1, Math.ceil(teams / 2), teams];
+  const ergebnis = (s) => {
+    const eig = s.heim === vid ? s.toreHeim : s.toreGast, geg = s.heim === vid ? s.toreGast : s.toreHeim;
+    return { text: `${eig}:${geg}`, art: eig > geg ? "S" : eig < geg ? "N" : "U", gegner: d.verein(s.heim === vid ? s.gast : s.heim) };
+  };
+  return `
+    <figure class="punkte-verlauf platz-verlauf karte box">
+      <figcaption>Tabellenplatz, letzte ${punkte.length} Spieltage</figcaption>
+      <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Tabellenplatz: ${punkte.map(({ s, platz }) => `${s.spieltag}. Spieltag Platz ${platz}`).join(", ")}">
+        ${marken.map((m) => `<line x1="${li}" x2="${W - re}" y1="${yPos(m)}" y2="${yPos(m)}" class="pv-raster"/><text x="${li - 8}" y="${yPos(m) + 4}" class="pv-achse" text-anchor="end">${m}.</text>`).join("")}
+        <polyline points="${punkte.map(({ platz }, i) => `${xPos(i)},${yPos(platz)}`).join(" ")}" class="pv-linie"/>
+        ${punkte.map(({ s, platz }, i) => { const e = ergebnis(s); return `
+          <a href="spiel.html?id=${s.id}" class="pv-punkt">
+            <title>${s.spieltag}. Spieltag: ${e.text} gegen ${esc(e.gegner?.name)}, danach Platz ${platz}</title>
+            <rect x="${xPos(i) - 24}" y="${ob - 14}" width="48" height="${H - ob - un + 28}" fill="transparent"/>
+            <circle cx="${xPos(i)}" cy="${yPos(platz)}" r="5"/>
+            <text x="${xPos(i)}" y="${yPos(platz) - 12}" class="pv-wert" text-anchor="middle">${platz}.</text>
+            <text x="${xPos(i)}" y="${H - un + 20}" class="pv-achse" text-anchor="middle">${s.spieltag}. ST</text>
+            <text x="${xPos(i)}" y="${H - un + 38}" class="pv-achse pv-ergebnis pv-${e.art}" text-anchor="middle">${e.text} ${esc(e.gegner?.kuerzel || (e.gegner?.kurz || "").slice(0, 3).toUpperCase())}</text>
+          </a>`; }).join("")}
+      </svg>
+    </figure>`;
+}
+
 // Punkte pro Spiel als Linie (eine Serie, Saisonschnitt als gestrichelte Bezugslinie)
 function punkteVerlauf(d, sp, liste) {
   const l = [...liste].sort((a, b) => a.s.datum.localeCompare(b.s.datum));
@@ -556,7 +590,7 @@ function letzterSpieltag(d, ligaId) {
 const rundenLaenge = (d, ligaId) => { const n = d.vereine.filter((v) => v.liga === ligaId).length; return n % 2 ? n : n - 1; };
 
 // ansicht: gesamt, hinrunde, rueckrunde, heim, auswaerts
-function tabelle(d, ligaId, ansicht = "gesamt") {
+function tabelle(d, ligaId, ansicht = "gesamt", bis = Infinity) {
   const zeilen = {};
   const rl = rundenLaenge(d, ligaId);
   d.vereine.filter((v) => v.liga === ligaId).forEach((v) => {
@@ -566,7 +600,7 @@ function tabelle(d, ligaId, ansicht = "gesamt") {
     z.sp++; z.tore += eig; z.gegen += geg;
     if (eig > geg) { z.s++; z.pkt += 3; } else if (eig < geg) z.n++; else { z.u++; z.pkt++; }
   };
-  d.gespielt.filter((s) => s.liga === ligaId)
+  d.gespielt.filter((s) => s.liga === ligaId && (s.spieltag || 0) <= bis)
     .filter((s) => ansicht === "hinrunde" ? s.spieltag <= rl : ansicht === "rueckrunde" ? s.spieltag > rl : true)
     .forEach((s) => {
       const h = zeilen[s.heim], g = zeilen[s.gast];
@@ -677,7 +711,7 @@ const norm = (s) => String(s ?? "").toLowerCase()
 
 function suchIndex(d) {
   const e = [];
-  d.vereine.forEach((v) => e.push({ typ: "Verein", titel: v.name, unter: [v.ort, d.liga(v.liga)?.name].filter(Boolean).join(", "), href: `verein.html?id=${v.id}`, text: [v.name, v.kurz, v.ort], rang: 3 }));
+  d.vereine.forEach((v) => e.push({ typ: "Verein", titel: v.name, unter: [v.ort, d.liga(v.liga)?.name].filter(Boolean).join(", "), href: `verein.html?id=${v.id}`, text: [v.name, v.kurz, v.ort], rang: 3, verein: v }));
   d.spieler.forEach((sp) => e.push({ typ: "Spieler", titel: sp.name, unter: `${d.verein(sp.verein)?.name}, ${sp.position}`, href: `spieler.html?id=${sp.id}`, bild: sp.bild || "", text: [sp.name, d.verein(sp.verein)?.kurz], rang: 3, id: sp.id }));
   d.ligen.forEach((l) => e.push({ typ: "Liga", titel: l.name, unter: `${l.sportart}, Saison ${l.saison}`, href: l.team ? `verein.html?id=${l.team}` : `liga.html?id=${l.id}`, text: [l.name, l.kurz, l.sportart], rang: 2 }));
   d.berichte.forEach((b) => { const s = b.spiel && d.spiel(b.spiel); e.push({ typ: "News", titel: b.titel, unter: datumMittel(b.datum), href: `bericht.html?id=${b.id}`, text: [b.titel, b.teaser, s && d.verein(s.heim)?.name, s && d.verein(s.gast)?.name], rang: 1 }); });
@@ -929,6 +963,7 @@ const seiten = {
         <div>
           <div class="abschnitt-kopf"><h2>Spiele</h2></div>
           ${spielListe}
+          ${teamModus ? "" : platzVerlauf(d, v.liga, v.id)}
           ${news.length ? `<div class="abschnitt"><div class="abschnitt-kopf"><h2>News</h2></div><div class="raster">${news.slice(0, 3).map(berichtKarte).join("")}</div></div>` : ""}
         </div>
         <aside>
@@ -1232,7 +1267,7 @@ const seiten = {
       .filter((v, i, a) => a.indexOf(v) === i);
     const news = gruppe("News"), ligen = gruppe("Liga");
     const nichts = !treffer.length && !bilder.length && !gals.length && !videos.length;
-    const liste = (arr) => `<div class="karte box"><ul class="liste">${arr.map((t) => `<li class="kader-zeile">${t.bild !== undefined ? portraet({ bild: t.bild }, "mini") : ""}<a href="${t.href}"><strong>${esc(t.titel)}</strong></a> <span class="leise">${esc(t.unter)}</span></li>`).join("")}</ul></div>`;
+    const liste = (arr) => `<div class="karte box"><ul class="liste">${arr.map((t) => `<li class="kader-zeile">${t.verein ? wappen(t.verein, "such") : t.bild !== undefined ? portraet({ bild: t.bild }, "mini") : ""}<a href="${t.href}"><strong>${esc(t.titel)}</strong></a> <span class="leise">${esc(t.unter)}</span></li>`).join("")}</ul></div>`;
     return `
       <div class="seitenkopf"><h1>${q ? `Suche nach „${esc(q)}“` : "Suche"}</h1>
         <p>${q ? (nichts ? "Keine Treffer. Probier einen Vereinsnamen, Ort oder Nachnamen." : "Teams, Spieler, News, Videos und Bilder.") : "Gib oben rechts ein Team oder einen Spieler ein."}</p></div>

@@ -830,3 +830,11 @@ tr.eigenes-team td { background: var(--blau-hell); font-weight: 600; }
 .artikel .zwischentitel { font-size: 22px; margin: 32px 0 10px; }
 /* Platzhalter in der rechten Spalte, damit das Logo bündig mit der Spieleliste beginnt */
 .aside-platz { visibility: hidden; }
+
+/* Tabellenplatz-Verlauf (Fußball) */
+.platz-verlauf { margin-top: 24px; }
+.pv-ergebnis { font-weight: 600; }
+.pv-S { fill: #2e8b57; } .pv-N { fill: var(--rot); } .pv-U { fill: var(--leise); }
+/* Wappen in der Suche */
+.wappen.such { width: 32px; height: 32px; font-size: 11px; flex: none; }
+img.wappen.such { width: 32px; height: 32px; object-fit: contain; }
