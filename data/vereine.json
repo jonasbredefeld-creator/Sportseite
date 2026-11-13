@@ -624,5 +624,37 @@
   "ort": "",
   "liga": "basketball-kreisliga-sued",
   "farbe": ""
+ },
+ {
+  "id": "bb-tg-stockach",
+  "name": "TG Stockach",
+  "kurz": "Stockach",
+  "ort": "",
+  "liga": "basketball-kreisliga-sued",
+  "farbe": ""
+ },
+ {
+  "id": "bb-bc-ueberlingen",
+  "name": "BC Überlingen",
+  "kurz": "Überlingen",
+  "ort": "",
+  "liga": "basketball-kreisliga-sued",
+  "farbe": ""
+ },
+ {
+  "id": "bb-bg-bodensee-2",
+  "name": "BG Bodensee 2",
+  "kurz": "Bodensee 2",
+  "ort": "",
+  "liga": "basketball-kreisliga-sued",
+  "farbe": ""
+ },
+ {
+  "id": "bb-tv-konstanz-3",
+  "name": "TV Konstanz 3",
+  "kurz": "Konstanz 3",
+  "ort": "",
+  "liga": "basketball-kreisliga-sued",
+  "farbe": ""
  }
 ]

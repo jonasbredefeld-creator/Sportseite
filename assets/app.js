@@ -188,7 +188,7 @@ function spielKarte(d, s) {
   return `
     <a class="karte spiel-karte" href="spiel.html?id=${s.id}">
       <div class="spiel-meta">
-        <span>${sm ? `<span class="sport-marke">${sm}</span> ` : ""}${datumKurz(s.datum)}${gespielt ? "" : `, <span class="anstoss">${esc(s.anstoss)} Uhr</span>`}</span>
+        <span>${sm ? `<span class="sport-marke">${sm}</span> ` : ""}${datumKurz(s.datum)}${gespielt || !s.anstoss ? "" : `, <span class="anstoss">${esc(s.anstoss)} Uhr</span>`}</span>
         ${s.galerie ? `<span class="fotos">Fotos</span>` : s.topspiel ? `<span class="fotos">Topspiel</span>` : ""}
       </div>
       ${zeile(h, s.toreHeim, s.toreGast)}
@@ -1027,10 +1027,10 @@ const seiten = {
       </div>` : "";
 
     return `
-      <div class="seitenkopf"><span class="kategorie">${esc(d.liga(s.liga)?.name)}, ${s.spieltag}. Spieltag</span><p>${datumLang(s.datum)}, ${esc(s.anstoss)} Uhr</p></div>
+      <div class="seitenkopf"><span class="kategorie">${esc(d.liga(s.liga)?.name)}, ${s.spieltag}. Spieltag</span><p>${datumLang(s.datum)}${s.anstoss ? `, ${esc(s.anstoss)} Uhr` : ""}</p></div>
       <div class="spielkopf">
         <div class="team"><a href="verein.html?id=${h?.id}">${esc(h?.name)}</a></div>
-        <span class="stand${gespielt ? "" : " offen"}">${gespielt ? `${s.toreHeim}:${s.toreGast}` : esc(s.anstoss)}</span>
+        <span class="stand${gespielt ? "" : " offen"}">${gespielt ? `${s.toreHeim}:${s.toreGast}` : esc(s.anstoss) || "–:–"}</span>
         <div class="team"><a href="verein.html?id=${g?.id}">${esc(g?.name)}</a></div>
       </div>
       ${gespielt ? `<div class="karte verlauf-karte">${torVerlauf(d, s)}</div>` : ""}
@@ -1255,10 +1255,10 @@ function spielTeamModus(d, s, { h, g, gespielt, gal, bericht, videos, l }) {
   const team = d.verein(l.team);
   const b = bilanz(d, l.id);
   return `
-    <div class="seitenkopf"><span class="kategorie">${esc(l.sportart)}, ${esc(l.name)}</span><p>${datumLang(s.datum)}, ${esc(s.anstoss)} Uhr</p></div>
+    <div class="seitenkopf"><span class="kategorie">${esc(l.sportart)}, ${esc(l.name)}</span><p>${datumLang(s.datum)}${s.anstoss ? `, ${esc(s.anstoss)} Uhr` : ""}</p></div>
     <div class="spielkopf">
       <div class="team"><a href="verein.html?id=${h?.id}">${esc(h?.name)}</a></div>
-      <span class="stand${gespielt ? "" : " offen"}">${gespielt ? `${s.toreHeim}:${s.toreGast}` : esc(s.anstoss)}</span>
+      <span class="stand${gespielt ? "" : " offen"}">${gespielt ? `${s.toreHeim}:${s.toreGast}` : esc(s.anstoss) || "–:–"}</span>
       <div class="team"><a href="verein.html?id=${g?.id}">${esc(g?.name)}</a></div>
     </div>
     ${s.wertung ? `<p class="wertung-hinweis">${esc(s.wertung)}</p>` : ""}

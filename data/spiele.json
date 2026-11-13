@@ -3146,5 +3146,93 @@
     "eff": 0
    }
   ]
+ },
+ {
+  "id": "bb-2026-12-12-sigmaringen-tg-stockach",
+  "liga": "basketball-kreisliga-sued",
+  "datum": "2026-12-12",
+  "anstoss": "",
+  "heim": "tb-sigmaringen",
+  "gast": "bb-tg-stockach"
+ },
+ {
+  "id": "bb-2027-03-06-sigmaringen-bc-ueberlingen",
+  "liga": "basketball-kreisliga-sued",
+  "datum": "2027-03-06",
+  "anstoss": "",
+  "heim": "tb-sigmaringen",
+  "gast": "bb-bc-ueberlingen"
+ },
+ {
+  "id": "bb-2026-12-05-sigmaringen-bg-bodensee-2",
+  "liga": "basketball-kreisliga-sued",
+  "datum": "2026-12-05",
+  "anstoss": "",
+  "heim": "tb-sigmaringen",
+  "gast": "bb-bg-bodensee-2"
+ },
+ {
+  "id": "bb-2026-11-21-sigmaringen-tv-konstanz-3",
+  "liga": "basketball-kreisliga-sued",
+  "datum": "2026-11-21",
+  "anstoss": "",
+  "heim": "tb-sigmaringen",
+  "gast": "bb-tv-konstanz-3"
+ },
+ {
+  "id": "bb-2027-01-30-sigmaringen-tv-weingarten-2",
+  "liga": "basketball-kreisliga-sued",
+  "datum": "2027-01-30",
+  "anstoss": "",
+  "heim": "tb-sigmaringen",
+  "gast": "bb-tv-weingarten-2"
+ },
+ {
+  "id": "bb-2026-11-29-tg-stockach-sigmaringen",
+  "liga": "basketball-kreisliga-sued",
+  "datum": "2026-11-29",
+  "anstoss": "",
+  "heim": "bb-tg-stockach",
+  "gast": "tb-sigmaringen"
+ },
+ {
+  "id": "bb-2027-02-28-sv-blitzenreute-sigmaringen",
+  "liga": "basketball-kreisliga-sued",
+  "datum": "2027-02-28",
+  "anstoss": "",
+  "heim": "bb-sv-blitzenreute",
+  "gast": "tb-sigmaringen"
+ },
+ {
+  "id": "bb-2026-11-15-bc-ueberlingen-sigmaringen",
+  "liga": "basketball-kreisliga-sued",
+  "datum": "2026-11-15",
+  "anstoss": "",
+  "heim": "bb-bc-ueberlingen",
+  "gast": "tb-sigmaringen"
+ },
+ {
+  "id": "bb-2026-12-20-bg-bodensee-2-sigmaringen",
+  "liga": "basketball-kreisliga-sued",
+  "datum": "2026-12-20",
+  "anstoss": "",
+  "heim": "bb-bg-bodensee-2",
+  "gast": "tb-sigmaringen"
+ },
+ {
+  "id": "bb-2027-03-14-tv-konstanz-3-sigmaringen",
+  "liga": "basketball-kreisliga-sued",
+  "datum": "2027-03-14",
+  "anstoss": "",
+  "heim": "bb-tv-konstanz-3",
+  "gast": "tb-sigmaringen"
+ },
+ {
+  "id": "bb-2027-02-20-tg-bad-waldsee-sigmaringen",
+  "liga": "basketball-kreisliga-sued",
+  "datum": "2027-02-20",
+  "anstoss": "",
+  "heim": "bb-tg-bad-waldsee",
+  "gast": "tb-sigmaringen"
  }
 ]
