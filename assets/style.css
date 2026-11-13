@@ -780,3 +780,26 @@ img.wappen.gross { width: auto; max-width: 160px; height: 112px; }
 .team-zahlen { gap: 24px; align-items: start; }
 .team-zahlen > .abschnitt { margin-top: 0; }
 tr.eigenes-team td { background: var(--blau-hell); font-weight: 600; }
+
+/* ---------- Punkteverlauf (Spielerprofil Basketball) ---------- */
+.punkte-verlauf { margin: 8px 0 0; }
+.punkte-verlauf figcaption { font-weight: 600; font-size: 16px; margin-bottom: 6px; }
+.punkte-verlauf svg { width: 100%; height: auto; display: block; overflow: visible; }
+.pv-raster { stroke: var(--linie); stroke-width: 1; }
+.pv-schnitt { stroke: var(--leise); stroke-width: 1.5; stroke-dasharray: 5 5; opacity: .7; }
+.pv-linie { fill: none; stroke: var(--blau); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.pv-punkt circle { fill: var(--blau); stroke: #fff; stroke-width: 2; transition: r .12s; }
+.pv-punkt:hover circle, .pv-punkt:focus circle { r: 7; fill: var(--blau-tief); }
+.pv-achse { font: 500 13px var(--text); fill: var(--leise); }
+.pv-gegner { font-size: 12px; }
+.pv-wert { font: 700 16px var(--zahl); fill: var(--tinte); }
+@media (max-width: 560px) {
+  /* Das Diagramm wird auf dem Handy etwa auf die Hälfte verkleinert, daher Schrift und Linien im SVG größer */
+  .pv-achse { font-size: 24px; }
+  .pv-gegner { font-size: 22px; }
+  .pv-wert { font-size: 30px; }
+  .pv-linie { stroke-width: 4.5; }
+  .pv-schnitt { stroke-width: 2.5; }
+  .pv-punkt circle { r: 9; stroke-width: 3; }
+  .punkte-verlauf svg { margin-bottom: 18px; }
+}

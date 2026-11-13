@@ -382,6 +382,41 @@ function teamTabelle(d, l) {
     </section>`;
 }
 
+// Punkte pro Spiel als Linie (eine Serie, Saisonschnitt als gestrichelte Bezugslinie)
+function punkteVerlauf(d, sp, liste) {
+  const l = [...liste].sort((a, b) => a.s.datum.localeCompare(b.s.datum));
+  if (!l.length) return `<p class="leise">Noch keine Punkte eingetragen.</p>`;
+  const W = 640, H = 230, li = 36, re = 18, ob = 26, un = 48;
+  const max = Math.max(10, Math.ceil(Math.max(...l.map(({ x }) => x.punkte)) / 5) * 5);
+  const innen = 44;   // Abstand der Punkte zur Y-Achse, damit sich Achsen- und Datumsbeschriftung nicht überlagern
+  const xPos = (i) => (l.length === 1 ? (li + W - re) / 2 : li + innen + (i * (W - li - re - 2 * innen)) / (l.length - 1));
+  const yPos = (v) => ob + (1 - v / max) * (H - ob - un);
+  const schnitt = l.reduce((a, { x }) => a + x.punkte, 0) / l.length;
+  const raster = [0, max / 2, max].map((v) => `<line x1="${li}" x2="${W - re}" y1="${yPos(v)}" y2="${yPos(v)}" class="pv-raster"/><text x="${li - 8}" y="${yPos(v) + 4}" class="pv-achse" text-anchor="end">${v}</text>`).join("");
+  const gegner = ({ s }) => d.verein(s.heim === sp.verein ? s.gast : s.heim);
+  const punkte = l.map(({ x }, i) => `${xPos(i)},${yPos(x.punkte)}`).join(" ");
+  const hoch = l.reduce((m, e, i) => (e.x.punkte > l[m].x.punkte ? i : m), 0);
+  return `
+    <figure class="punkte-verlauf">
+      <figcaption>Punkte pro Spiel</figcaption>
+      <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Punkte pro Spiel: ${l.map(({ s, x }) => `${datumKurz(s.datum)} ${x.punkte}`).join(", ")}">
+        ${raster}
+        <line x1="${li}" x2="${W - re}" y1="${yPos(schnitt)}" y2="${yPos(schnitt)}" class="pv-schnitt"/>
+        <text x="${W - re}" y="${yPos(schnitt) - 6}" class="pv-achse" text-anchor="end">Ø ${schnitt.toFixed(1).replace(".", ",")}</text>
+        <polyline points="${punkte}" class="pv-linie"/>
+        ${l.map(({ s, x }, i) => `
+          <a href="spiel.html?id=${s.id}" class="pv-punkt">
+            <title>${datumMittel(s.datum)} gegen ${esc(gegner({ s })?.name)}: ${x.punkte} Punkte</title>
+            <rect x="${xPos(i) - 22}" y="${ob - 10}" width="44" height="${H - ob - un + 20}" fill="transparent"/>
+            <circle cx="${xPos(i)}" cy="${yPos(x.punkte)}" r="5"/>
+            ${i === hoch ? `<text x="${xPos(i)}" y="${yPos(x.punkte) - 12}" class="pv-wert" text-anchor="middle">${x.punkte}</text>` : ""}
+            <text x="${xPos(i)}" y="${H - un + 20}" class="pv-achse" text-anchor="middle">${datumKurz(s.datum).replace(/^\S+\s/, "")}</text>
+            <text x="${xPos(i)}" y="${H - un + 36}" class="pv-achse pv-gegner" text-anchor="middle">${esc(gegner({ s })?.kurz)}</text>
+          </a>`).join("")}
+      </svg>
+    </figure>`;
+}
+
 function bilanzKarte(d, ligaId) {
   const l = d.liga(ligaId), b = bilanz(d, ligaId), t = d.verein(l.team);
   const diff = b.fuer - b.gegen;
@@ -938,9 +973,9 @@ const seiten = {
             ${(() => { const m = minuten(d).find(([id]) => id === sp.id)?.[1]; return m ? `<div><strong>${m.min.toLocaleString("de-DE")}</strong>Minuten</div>` : ""; })()}
             <div><strong>${einsaetze}</strong>Spiele des Vereins</div>
           </div>
-          <ul class="torliste">
-            ${mitPunkten
-              ? punkteSpiele.map(({ s, x }) => `<li><span class="min">${x.punkte}</span><a class="link" href="spiel.html?id=${s.id}">${esc(d.verein(s.heim)?.kurz)} gegen ${esc(d.verein(s.gast)?.kurz)}</a> <span class="leise">${datumMittel(s.datum)}</span></li>`).join("") || "<li>Noch keine Punkte eingetragen.</li>"
+          ${mitPunkten ? punkteVerlauf(d, sp, punkteSpiele) : ""}
+          <ul class="torliste"${mitPunkten ? " hidden" : ""}>
+            ${mitPunkten ? ""
               : eigeneTore.map(({ s, t }) => `<li><span class="min">${t.min}'</span><a class="link" href="spiel.html?id=${s.id}">${esc(d.verein(s.heim)?.kurz)} gegen ${esc(d.verein(s.gast)?.kurz)}</a> <span class="leise">${datumMittel(s.datum)}</span></li>`).join("") || "<li>Noch keine Tore.</li>"}
           </ul>
         </div>

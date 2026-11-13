@@ -41,6 +41,72 @@
   "sportart": "Basketball",
   "saison": "2026/27",
   "team": "tb-sigmaringen",
-  "bezirk": "Alb/Bodensee, Senioren männlich"
+  "bezirk": "Alb/Bodensee, Senioren männlich",
+  "tabelle": [
+   {
+    "team": "TG Stockach",
+    "sp": 3,
+    "s": 3,
+    "n": 0,
+    "pkt": 6,
+    "koerbe": "233:122"
+   },
+   {
+    "team": "SV Blitzenreute",
+    "sp": 3,
+    "s": 3,
+    "n": 0,
+    "pkt": 6,
+    "koerbe": "217:167"
+   },
+   {
+    "team": "BC Überlingen",
+    "sp": 3,
+    "s": 2,
+    "n": 1,
+    "pkt": 4,
+    "koerbe": "178:198"
+   },
+   {
+    "team": "BG Bodensee 2",
+    "sp": 3,
+    "s": 1,
+    "n": 2,
+    "pkt": 2,
+    "koerbe": "195:233"
+   },
+   {
+    "team": "TV Konstanz 3",
+    "sp": 3,
+    "s": 1,
+    "n": 2,
+    "pkt": 2,
+    "koerbe": "208:238"
+   },
+   {
+    "team": "TV Weingarten 2",
+    "sp": 3,
+    "s": 1,
+    "n": 2,
+    "pkt": 2,
+    "koerbe": "128:124"
+   },
+   {
+    "team": "TG Bad Waldsee",
+    "sp": 3,
+    "s": 1,
+    "n": 2,
+    "pkt": 2,
+    "koerbe": "165:204"
+   },
+   {
+    "team": "TB Sigmaringen",
+    "sp": 3,
+    "s": 0,
+    "n": 3,
+    "pkt": -1,
+    "koerbe": "106:144"
+   }
+  ]
  }
 ]
