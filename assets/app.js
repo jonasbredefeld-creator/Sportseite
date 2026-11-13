@@ -860,7 +860,7 @@ const seiten = {
           ${foto(b.bild)}
           ${b.bild?.titel ? `<div class="bildtext">${esc(b.bild.titel)}</div>` : ""}
           <p class="einleitung">${esc(b.teaser)}</p>
-          ${(b.text || []).map((t) => `<p>${esc(t)}</p>`).join("")}
+          ${(b.text || []).map((t) => (t.startsWith("## ") ? `<h2 class="zwischentitel">${esc(t.slice(3))}</h2>` : `<p>${esc(t)}</p>`)).join("")}
           ${s?.galerie ? `<p><a class="knopf" href="galerie.html?id=${s.galerie}">Alle Bilder vom Spiel</a></p>` : ""}
         </article>
         <aside>

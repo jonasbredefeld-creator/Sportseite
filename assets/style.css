@@ -826,3 +826,4 @@ tr.eigenes-team td { background: var(--blau-hell); font-weight: 600; }
 .kader-name small { display: block; font-size: 13px; color: var(--leise); font-weight: 500; }
 .kader-karte.ohne-nr { grid-template-columns: 40px minmax(0, 1fr); }
 @media (max-width: 560px) { .kader-karte.ohne-nr { grid-template-columns: 28px minmax(0, 1fr); } }
+.artikel .zwischentitel { font-size: 22px; margin: 32px 0 10px; }
