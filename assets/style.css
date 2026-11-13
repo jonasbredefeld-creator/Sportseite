@@ -731,3 +731,4 @@ img.wappen { background: none; border-radius: 0; }
 }
 @media (prefers-reduced-motion: reduce) { .slider-spur { scroll-behavior: auto; } }
 .tabellen-hinweis { margin: 0 0 10px; font-size: 15px; }
+.slider-text .copyright { color: var(--leise); opacity: .75; font-size: 14px; margin-left: 6px; white-space: nowrap; }

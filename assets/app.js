@@ -932,7 +932,7 @@ const seiten = {
     if (!g) return nichtGefunden("Galerie");
     document.title = `${g.titel} | ${d.site.name}`;
     return `
-      <div class="seitenkopf"><span class="kategorie">${datumLang(g.datum)}</span><h1>${esc(g.titel)}</h1><p>${g.bilder.length} Bilder, Fotos: ${esc(g.fotograf)}${g.spiel ? `. <a class="link" href="spiel.html?id=${g.spiel}">Zum Spiel</a>` : ""}</p></div>
+      <div class="seitenkopf"><span class="kategorie">${datumLang(g.datum)}</span><h1>${esc(g.titel)}</h1><p>${g.bilder.length} Bilder${g.spiel ? `. <a class="link" href="spiel.html?id=${g.spiel}">Zum Spiel</a>` : ""}</p></div>
       <section class="slider" aria-roledescription="Bildergalerie" aria-label="${esc(g.titel)}">
         <div class="slider-buehne">
           <div class="slider-spur" tabindex="0">
@@ -945,7 +945,7 @@ const seiten = {
           <button type="button" class="slider-pfeil weiter" aria-label="Nächstes Bild">${PFEIL}</button>
           <span class="slider-zaehler" aria-live="polite"><span id="slider-nr">1</span> / ${g.bilder.length}</span>
         </div>
-        <p class="slider-text" id="slider-text">${esc(g.bilder[0]?.titel || "")}</p>
+        <p class="slider-text"><span id="slider-text">${esc(g.bilder[0]?.titel || "")}</span> <span class="copyright">© ${esc(g.fotograf || d.site.name)}</span></p>
         <div class="slider-daumen" aria-label="Bild wählen">
           ${g.bilder.map((b, i) => `<button type="button" aria-current="${i === 0}" aria-label="Bild ${i + 1}" data-i="${i}">${b.src ? `<img src="${esc(b.src)}" alt="" loading="lazy">` : `<span>${i + 1}</span>`}</button>`).join("")}
         </div>
@@ -966,12 +966,12 @@ const seiten = {
       daumen.forEach((b, j) => b.setAttribute("aria-current", String(j === i)));
       const dl = daumen[i], leiste = dl?.parentElement;
       if (dl) leiste.scrollTo({ left: dl.offsetLeft - leiste.clientWidth / 2 + dl.clientWidth / 2, behavior: "smooth" });
-      zurueck.disabled = i === 0;
-      weiter.disabled = i === slides.length - 1;
       history.replaceState(null, "", `#bild-${i + 1}`);
     };
     const gehe = (i, sanft = true) => {
-      i = Math.max(0, Math.min(slides.length - 1, i));
+      // Endlos: vor dem ersten kommt das letzte Bild, nach dem letzten das erste
+      const n = slides.length;
+      if (i < 0 || i >= n) { i = (i + n) % n; sanft = false; }
       programm = sanft && i !== aktiv;
       spur.scrollTo({ left: i * spur.clientWidth, behavior: sanft ? "smooth" : "auto" });
       markieren(i);
