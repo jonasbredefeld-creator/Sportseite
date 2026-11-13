@@ -431,6 +431,40 @@ function platzVerlauf(d, ligaId, vid) {
     </figure>`;
 }
 
+// Vorschau: Tabellenplatz beider Teams über die letzten sechs Spieltage in einem Diagramm
+function platzVergleich(d, ligaId, idA, idB) {
+  const tage = [...new Set(d.gespielt.filter((s) => s.liga === ligaId && s.spieltag).map((s) => s.spieltag))].sort((a, b) => a - b).slice(-6);
+  if (tage.length < 2) return "";
+  const teams = d.vereine.filter((v) => v.liga === ligaId).length;
+  const reihe = (id) => tage.map((t) => tabelle(d, ligaId, "gesamt", t).findIndex((r) => r.id === id) + 1);
+  const A = reihe(idA), B = reihe(idB);
+  const W = 640, H = 210, li = 36, re = 18, ob = 28, un = 38, innen = 40;
+  const xPos = (i) => li + innen + (i * (W - li - re - 2 * innen)) / (tage.length - 1);
+  const yPos = (p) => ob + ((p - 1) / Math.max(1, teams - 1)) * (H - ob - un);
+  const marken = [1, Math.ceil(teams / 2), teams];
+  const serie = (werte, klasse, oben) => `
+    <polyline points="${werte.map((p, i) => `${xPos(i)},${yPos(p)}`).join(" ")}" class="pv-linie ${klasse}"/>
+    ${werte.map((p, i) => {
+      const anderer = (klasse === "team-a" ? B : A)[i];
+      const ueber = p < anderer || (p === anderer && oben);
+      return `<circle cx="${xPos(i)}" cy="${yPos(p)}" r="5" class="pv-kreis ${klasse}"/><text x="${xPos(i)}" y="${yPos(p) + (ueber ? -11 : 21)}" class="pv-wert" text-anchor="middle">${p}.</text>`;
+    }).join("")}`;
+  const vA = d.verein(idA), vB = d.verein(idB);
+  return `
+    <figure class="punkte-verlauf platz-verlauf karte box vergleich-verlauf">
+      <figcaption>
+        <span>Tabellenplatz, letzte ${tage.length} Spieltage</span>
+        <span class="legende"><span class="team-a">${esc(vA?.kurz)}</span><span class="team-b">${esc(vB?.kurz)}</span></span>
+      </figcaption>
+      <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Tabellenplatz ${esc(vA?.kurz)}: ${A.join(", ")}. ${esc(vB?.kurz)}: ${B.join(", ")}">
+        ${marken.map((m) => `<line x1="${li}" x2="${W - re}" y1="${yPos(m)}" y2="${yPos(m)}" class="pv-raster"/><text x="${li - 8}" y="${yPos(m) + 4}" class="pv-achse" text-anchor="end">${m}.</text>`).join("")}
+        ${serie(B, "team-b", false)}
+        ${serie(A, "team-a", true)}
+        ${tage.map((t, i) => `<text x="${xPos(i)}" y="${H - un + 26}" class="pv-achse" text-anchor="middle"><tspan class="pv-lang">${t}. Spieltag</tspan><tspan class="pv-kurz">${t}.</tspan></text>`).join("")}
+      </svg>
+    </figure>`;
+}
+
 // Punkte pro Spiel als Linie (eine Serie, Saisonschnitt als gestrichelte Bezugslinie)
 function punkteVerlauf(d, sp, liste) {
   const l = [...liste].sort((a, b) => a.s.datum.localeCompare(b.s.datum));
@@ -1081,7 +1115,9 @@ const seiten = {
     const torjaegerTeams = (zh.tj.length || zg.tj.length) ? `
       <div class="karte box torjaeger-box">
         <h2>Torjäger</h2>
-        <ol class="liste">${[...zh.tj, ...zg.tj].sort((a, b) => b[1] - a[1]).map(([id, n]) => { const sp = d.spielerById(id); return `<li><a href="spieler.html?id=${id}">${esc(sp.name)}</a> <span class="leise">${esc(d.verein(sp.verein)?.kurz)}, ${n} ${n === 1 ? "Tor" : "Tore"}</span></li>`; }).join("")}</ol>
+        ${[[h, zh], [g, zg]].map(([v, z]) => `
+          <h3 class="scorer-team">${esc(v?.kurz)}</h3>
+          <ol class="liste">${z.tj.map(([id, n]) => `<li><a href="spieler.html?id=${id}">${esc(d.spielerById(id)?.name)}</a> <span class="leise">${n} ${n === 1 ? "Tor" : "Tore"}</span></li>`).join("") || `<li class="leise">Noch keine Torschützen eingetragen.</li>`}</ol>`).join("")}
         <p class="bilanz-link"><a class="link" href="liga.html?id=${s.liga}">Zur Tabelle der ${esc(d.liga(s.liga)?.kurz)}</a></p>
       </div>` : "";
 
@@ -1108,6 +1144,7 @@ const seiten = {
                   <p class="leise">${datumLang(s.datum)}${s.anstoss ? `, ${esc(s.anstoss)} Uhr` : ""}. Der Vorbericht folgt vor dem Spiel.</p>
                 </div>
               </div>`}
+            ${platzVergleich(d, s.liga, s.heim, s.gast)}
             <div class="zwei-gleich">${letzteSpiele(zh, h)}${letzteSpiele(zg, g)}</div>
           `}
           ${videos.length ? `
@@ -1123,6 +1160,11 @@ const seiten = {
         </div>
         <aside>
           ${vergleich}
+          ${gespielt ? "" : (() => {
+            // Letztes Duell der beiden Teams
+            const duell = d.gespielt.filter((x) => x.id !== s.id && ((x.heim === s.heim && x.gast === s.gast) || (x.heim === s.gast && x.gast === s.heim))).sort((a, b) => b.datum.localeCompare(a.datum))[0];
+            return duell ? `<div class="aside-abstand"><div class="karte"><div class="spieltag-kopf"><h2 style="font-size:20px">Letztes Duell</h2></div><div class="spiel-liste">${spielZeile(d, duell, true)}</div></div></div>` : "";
+          })()}
           ${gespielt ? `<p style="margin-top:16px"><a class="link" href="liga.html?id=${s.liga}">Zur Tabelle der ${esc(d.liga(s.liga)?.kurz)}</a></p>` : `<div class="aside-abstand torjaeger-teams">${torjaegerTeams || `<div class="karte box"><h2>Torjäger</h2><p class="leise">Noch keine Torschützen eingetragen.</p></div>`}</div>`}
         </aside>
       </div>`;
