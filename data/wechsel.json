@@ -27,5 +27,261 @@
   "spieler": "florian-ott",
   "von": "spfr-hundersingen",
   "zu": "fv-bad-saulgau"
+ },
+ {
+  "datum": "2026-10-31",
+  "typ": "Spieler",
+  "name": "Felix Hepp",
+  "position": "Tor",
+  "von": "sv-ochsenhausen",
+  "zu": "sgm-altshausen-ebenweiler-ii"
+ },
+ {
+  "datum": "2026-10-29",
+  "typ": "Spieler",
+  "name": "Sebastian Gerster",
+  "position": "Tor",
+  "von": "fc-mengen",
+  "zu": "sgm-mittelbuch-ii-ringschnait-ii"
+ },
+ {
+  "datum": "2026-10-27",
+  "typ": "Spieler",
+  "name": "Yannick Hepp",
+  "position": "Sturm",
+  "von": "sgm-fv-veringenstadt-i-sg-hettingen-inneringen-ii",
+  "zu": "fv-olympia-laupheim"
+ },
+ {
+  "datum": "2026-10-26",
+  "typ": "Spieler",
+  "name": "Yannick Wetzel",
+  "position": "Tor",
+  "von": "sgm-muttensweiler-hochdorf-ii",
+  "zu": "sc-tuerkguecue-ulm"
+ },
+ {
+  "datum": "2026-10-23",
+  "typ": "Spieler",
+  "name": "Yannick Gerster",
+  "position": "Abwehr",
+  "von": "sgm-altshausen-ebenweiler-ii",
+  "zu": "tsv-buch"
+ },
+ {
+  "datum": "2026-10-21",
+  "typ": "Spieler",
+  "name": "Andreas Volk",
+  "position": "Mittelfeld",
+  "von": "sgm-fv-veringenstadt-i-sg-hettingen-inneringen-ii",
+  "zu": "sv-sigmaringen"
+ },
+ {
+  "datum": "2026-10-18",
+  "typ": "Spieler",
+  "name": "Benedikt Wetzel",
+  "position": "Abwehr",
+  "von": "sv-burgrieden",
+  "zu": "sv-reinstetten"
+ },
+ {
+  "datum": "2026-10-16",
+  "typ": "Spieler",
+  "name": "Jonas Wetzel",
+  "position": "Tor",
+  "von": "tsv-riedlingen",
+  "zu": "sv-burgrieden-ii-flex"
+ },
+ {
+  "datum": "2026-10-13",
+  "typ": "Spieler",
+  "name": "Andreas Zimmermann",
+  "position": "Mittelfeld",
+  "von": "sgm-muttensweiler-hochdorf",
+  "zu": "fc-1911-krauchenwies-hausen-a-a-goeggingen-ii"
+ },
+ {
+  "datum": "2026-10-11",
+  "typ": "Spieler",
+  "name": "Marcel Brugger",
+  "position": "Abwehr",
+  "von": "sgm-sc-bloenried-ii-sv-ebersbach-ii",
+  "zu": "tsv-maegerkingen"
+ },
+ {
+  "datum": "2026-10-08",
+  "typ": "Spieler",
+  "name": "Benedikt Stumpp",
+  "position": "Sturm",
+  "von": "sgm-aepfingen-baltringen",
+  "zu": "tsv-heimenkirch"
+ },
+ {
+  "datum": "2026-10-06",
+  "typ": "Spieler",
+  "name": "Christian Hepp",
+  "position": "Tor",
+  "von": "sgm-sv-bronnen-tsv-neufra-ii",
+  "zu": "sg-hettingen-inneringen"
+ },
+ {
+  "datum": "2026-10-03",
+  "typ": "Spieler",
+  "name": "Kevin Kuhn",
+  "position": "Sturm",
+  "von": "sgm-fv-veringenstadt-i-sg-hettingen-inneringen-ii",
+  "zu": "sv-sulmetingen"
+ },
+ {
+  "datum": "2026-10-01",
+  "typ": "Spieler",
+  "name": "Andreas Wetzel",
+  "position": "Mittelfeld",
+  "von": "tsv-eschach",
+  "zu": "fc-blaubeuren"
+ },
+ {
+  "datum": "2026-09-29",
+  "typ": "Spieler",
+  "name": "Benedikt Bendel",
+  "position": "Tor",
+  "von": "sv-herbertingen",
+  "zu": "fc-1911-krauchenwies-hausen-a-a-goeggingen-ii"
+ },
+ {
+  "datum": "2026-09-28",
+  "typ": "Spieler",
+  "name": "Jonas Gerster",
+  "position": "Mittelfeld",
+  "von": "sgm-tsv-gammertingen-sg-kfh-kettenacker",
+  "zu": "sgm-fv-altheim-ii-sv-langenenslingen-ii"
+ },
+ {
+  "datum": "2026-09-25",
+  "typ": "Spieler",
+  "name": "Marcel Hagel",
+  "position": "Mittelfeld",
+  "von": "sc-tuerkiyemspor-saulgau-ii",
+  "zu": "sgm-sv-bronnen-tsv-neufra-ii"
+ },
+ {
+  "datum": "2026-09-24",
+  "typ": "Spieler",
+  "name": "Stefan Rapp",
+  "position": "Tor",
+  "von": "sv-herbertingen-ii",
+  "zu": "fc-mengen-ii"
+ },
+ {
+  "datum": "2026-09-22",
+  "typ": "Spieler",
+  "name": "Marcel Kuhn",
+  "position": "Abwehr",
+  "von": "fc-mengen",
+  "zu": "spfr-hundersingen"
+ },
+ {
+  "datum": "2026-09-20",
+  "typ": "Spieler",
+  "name": "Jonas Rieger",
+  "position": "Sturm",
+  "von": "sgm-altshausen-ebenweiler-ii",
+  "zu": "fc-1911-krauchenwies-hausen-a-a-goeggingen-ii"
+ },
+ {
+  "datum": "2026-09-18",
+  "typ": "Spieler",
+  "name": "Marco Zimmermann",
+  "position": "Mittelfeld",
+  "von": "sv-burgrieden-ii-flex",
+  "zu": "sgm-sc-bloenried-sv-ebersbach"
+ },
+ {
+  "datum": "2026-09-15",
+  "typ": "Spieler",
+  "name": "Tobias Brugger",
+  "position": "Abwehr",
+  "von": "sgm-fv-veringenstadt-i-sg-hettingen-inneringen-ii",
+  "zu": "fc-mengen-ii"
+ },
+ {
+  "datum": "2026-09-14",
+  "typ": "Spieler",
+  "name": "Yannick Brugger",
+  "position": "Tor",
+  "von": "tsv-kirchberg-iller",
+  "zu": "sv-ochsenhausen"
+ },
+ {
+  "datum": "2026-09-12",
+  "typ": "Spieler",
+  "name": "Marcel Schmid",
+  "position": "Abwehr",
+  "von": "sv-burgrieden",
+  "zu": "sgm-sv-bronnen-tsv-neufra"
+ },
+ {
+  "datum": "2026-09-10",
+  "typ": "Spieler",
+  "name": "Christian Wetzel",
+  "position": "Mittelfeld",
+  "von": "sv-baustetten-ii-flex",
+  "zu": "sgm-sv-schmeien-i-sv-sigmaringen-ii"
+ },
+ {
+  "datum": "2026-09-09",
+  "typ": "Spieler",
+  "name": "Pascal Uhl",
+  "position": "Sturm",
+  "von": "sgm-fc-ostrach-ii-sv-hosskirch-i",
+  "zu": "tsv-buch"
+ },
+ {
+  "datum": "2026-09-07",
+  "typ": "Spieler",
+  "name": "Tim Kloos",
+  "position": "Sturm",
+  "von": "sgm-sv-bolstern-sv-hochberg-ii-flex",
+  "zu": "sgm-altshausen-ebenweiler-ii"
+ },
+ {
+  "datum": "2026-09-06",
+  "typ": "Spieler",
+  "name": "Sebastian Bendel",
+  "position": "Abwehr",
+  "von": "sv-hohentengen",
+  "zu": "fv-olympia-laupheim"
+ },
+ {
+  "datum": "2026-09-05",
+  "typ": "Spieler",
+  "name": "Tim Schmid",
+  "position": "Abwehr",
+  "von": "tsv-sigmaringendorf",
+  "zu": "tsv-buch"
+ },
+ {
+  "datum": "2026-09-02",
+  "typ": "Spieler",
+  "name": "Christian Schmid",
+  "position": "Tor",
+  "von": "tsv-riedlingen",
+  "zu": "tsv-maegerkingen"
+ },
+ {
+  "datum": "2026-09-01",
+  "typ": "Spieler",
+  "name": "Dennis Ruess",
+  "position": "Mittelfeld",
+  "von": "sv-bingen-hitzkofen",
+  "zu": "sv-ochsenhausen"
+ },
+ {
+  "datum": "2026-08-30",
+  "typ": "Spieler",
+  "name": "Sven Bendel",
+  "position": "Sturm",
+  "von": "sc-tuerkguecue-ulm",
+  "zu": "tsv-ummendorf"
  }
 ]

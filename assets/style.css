@@ -491,15 +491,15 @@ td a:hover { color: var(--blau); }
 .wechsel-tabelle { padding: 0; }
 .wechsel-zeile {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) auto;
-  gap: 20px;
+  grid-template-columns: minmax(0, 1fr) 280px 32px 280px 120px;
+  gap: 16px;
   align-items: center;
   padding: 14px 22px;
   border-top: 1px solid var(--linie);
 }
 .wechsel-zeile:first-child { border-top: 0; }
 .wechsel-zeile .wechsel-name { font-size: 18px; font-weight: 600; margin-top: 2px; }
-.wechsel-zeile .vereine { display: grid; grid-template-columns: minmax(0, 1fr) 24px minmax(0, 1fr); align-items: center; gap: 12px; font-size: 16px; }
+.wechsel-zeile .vereine { display: contents; font-size: 16px; }
 .wechsel-zeile .vereine > a, .wechsel-zeile .vereine > .verein-von { display: flex; align-items: center; gap: 10px; min-width: 0; }
 .wechsel-zeile .vereine span:not(.wappen) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .wechsel-zeile .verein-von { color: var(--leise); }
@@ -516,12 +516,16 @@ td a:hover { color: var(--blau); }
 img.wappen { background: none; border-radius: 0; }
 .wappen.leer { background: var(--grau); border: 1px dashed var(--linie); }
 .wechsel-zeile .kurz { display: none; }
-.wechsel-zeile .verein-von > span:only-child { padding-left: 50px; }
+.wechsel-zeile .verein-von > span:only-child { padding-left: 50px; color: var(--leise); }
 .monat { font-size: 15px; color: var(--leise); font-weight: 600; padding: 22px 22px 8px; border-top: 1px solid var(--linie); }
 .monat:first-child { border-top: 0; padding-top: 18px; }
+@media (max-width: 1100px) {
+  .wechsel-zeile { grid-template-columns: minmax(0, 1fr) 210px 28px 210px 110px; }
+}
 @media (max-width: 760px) {
   .wechsel-zeile { grid-template-columns: 1fr auto; gap: 10px 14px; padding: 14px 16px; }
-  .wechsel-zeile .vereine { grid-column: 1 / -1; grid-row: 2; gap: 8px; font-size: 15px; }
+  .wechsel-zeile .rechts { width: auto; }
+  .wechsel-zeile .vereine { display: grid; grid-template-columns: minmax(0, 1fr) 20px minmax(0, 1fr); align-items: center; grid-column: 1 / -1; grid-row: 2; gap: 8px; font-size: 15px; }
   .wechsel-zeile .rechts { grid-column: 2; grid-row: 1; align-self: start; }
   .wappen { width: 32px; height: 32px; font-size: 11px; }
   .wechsel-zeile .lang { display: none; }

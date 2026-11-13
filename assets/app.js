@@ -882,17 +882,19 @@ const seiten = {
   transfers(d) {
     const liste = [...d.wechsel].sort((a, b) => b.datum.localeCompare(a.datum));
     const monat = (iso) => new Date(iso + "T12:00:00").toLocaleDateString("de-DE", { month: "long", year: "numeric" });
+    const PRO_SEITE = 25;
     let letzter = "";
-    const zeilen = liste.map((w) => {
+    const zeilen = liste.map((w, i) => {
+      const versteckt = i >= PRO_SEITE ? ` data-nr="${i}" hidden` : "";
       const sp = w.spieler && d.spielerById(w.spieler);
       const news = w.news && d.berichte.find((b) => b.id === w.news);
       const m = monat(w.datum);
-      const kopf = m !== letzter ? `<div class="monat">${m}</div>` : "";
+      const kopf = m !== letzter ? `<div class="monat"${versteckt}>${m}</div>` : "";
       letzter = m;
       return `${kopf}
-        <div class="wechsel-zeile">
+        <div class="wechsel-zeile"${versteckt}>
           <div>
-            <span class="kategorie">${esc(w.typ)}${sp ? `, ${esc(sp.position)}` : ""}</span>
+            <span class="kategorie">${esc(w.typ)}${(sp?.position || w.position) ? `, ${esc(sp?.position || w.position)}` : ""}</span>
             <div class="wechsel-name">${sp ? `<a class="link" href="spieler.html?id=${sp.id}">${esc(sp.name)}</a>` : esc(w.name)}</div>
           </div>
           <div class="vereine">
@@ -910,7 +912,10 @@ const seiten = {
     }).join("");
     return `
       <div class="seitenkopf"><h1>Transfers</h1><p>Spieler- und Trainerwechsel der Region, neueste zuerst.</p></div>
-      <div class="karte wechsel-tabelle">${zeilen}</div>`;
+      <div class="karte wechsel-tabelle">
+        ${zeilen}
+        ${liste.length > PRO_SEITE ? `<button type="button" class="alle-zeigen" id="weitere-transfers">Weitere Transfers laden</button>` : ""}
+      </div>`;
   },
 
   highlights(d) {
@@ -1042,7 +1047,15 @@ function nichtGefunden(was) {
     if (seite === "start") seiten.nachStart();
     if (seite === "liga") seiten.nachLiga();
     sportFilterAktivieren();
-    $$(".alle-zeigen").forEach((b) => {
+    // Transfers: jeweils 25 weitere einblenden
+    const weitere = $("#weitere-transfers");
+    if (weitere) weitere.addEventListener("click", () => {
+      const rest = $$(".wechsel-tabelle [data-nr][hidden]");
+      const grenze = rest.length ? Number(rest[0].dataset.nr) + 25 : 0;
+      rest.forEach((el) => { if (Number(el.dataset.nr) < grenze) el.hidden = false; });
+      if (!$$(".wechsel-tabelle [data-nr][hidden]").length) weitere.remove();
+    });
+    $$(".alle-zeigen:not(#weitere-transfers)").forEach((b) => {
       const anfang = b.textContent;
       b.addEventListener("click", () => {
         const auf = b.getAttribute("aria-expanded") === "true";
