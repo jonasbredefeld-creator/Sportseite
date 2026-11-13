@@ -635,13 +635,25 @@ function tabellenUmschalter(d, ligaId) {
 
 function tabelleHtml(d, ligaId, ansicht = "gesamt") {
   const z = tabelle(d, ligaId, ansicht);
+  // Vergleich mit dem Stand vor dem letzten gespielten Spieltag
+  const letzter = Math.max(0, ...d.gespielt.filter((s) => s.liga === ligaId && s.spieltag).map((s) => s.spieltag));
+  const vorher = letzter > 1 ? tabelle(d, ligaId, ansicht, letzter - 1).map((r) => r.id) : [];
+  const trend = (id, platz) => {
+    const alt = vorher.indexOf(id) + 1;
+    if (!alt) return `<span class="trend"></span>`;
+    const diff = alt - platz;
+    if (!diff) return `<span class="trend gleich" title="Platz gehalten" aria-label="Platz gehalten">–</span>`;
+    const hoch = diff > 0;
+    return `<span class="trend ${hoch ? "hoch" : "runter"}" title="${hoch ? "Verbessert" : "Verschlechtert"} von Platz ${alt}" aria-label="${hoch ? "verbessert" : "verschlechtert"} um ${Math.abs(diff)}"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="${hoch ? "M5 1.5 9 7.5H1z" : "M5 8.5 1 2.5h8z"}"/></svg></span>`;
+  };
   return `
     <div class="karte tabelle-wrap"><table>
-      <thead><tr><th></th><th>Verein</th><th class="zahl">Sp.</th><th class="zahl sun">S</th><th class="zahl sun">U</th><th class="zahl sun">N</th><th class="zahl">Tore</th><th class="zahl">Diff.</th><th class="zahl">Pkt.</th></tr></thead>
+      <thead><tr><th></th><th></th><th>Verein</th><th class="zahl">Sp.</th><th class="zahl sun">S</th><th class="zahl sun">U</th><th class="zahl sun">N</th><th class="zahl">Tore</th><th class="zahl">Diff.</th><th class="zahl">Pkt.</th></tr></thead>
       <tbody>
         ${z.map((r, i) => `
           <tr>
             <td class="platz">${i + 1}</td>
+            <td class="trend-zelle">${trend(r.id, i + 1)}</td>
             <td class="tab-verein"><a href="verein.html?id=${r.id}"><span class="lang">${esc(d.verein(r.id)?.name)}</span><span class="kurz">${esc(d.verein(r.id)?.kurz)}</span></a></td>
             <td class="zahl">${r.sp}</td><td class="zahl sun">${r.s}</td><td class="zahl sun">${r.u}</td><td class="zahl sun">${r.n}</td>
             <td class="zahl">${r.tore}:${r.gegen}</td>
@@ -650,7 +662,7 @@ function tabelleHtml(d, ligaId, ansicht = "gesamt") {
           </tr>`).join("")}
       </tbody>
     </table></div>
-    <p class="leise">Tabelle berechnet aus den eingetragenen Ergebnissen.</p>`;
+    <p class="leise">Tabelle berechnet aus den eingetragenen Ergebnissen. Pfeile zeigen die Veränderung zum Vorspieltag.</p>`;
 }
 
 function torjaeger(d, filter = () => true) {
