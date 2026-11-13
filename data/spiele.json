@@ -2549,93 +2549,288 @@
   "gast": "sgm-baltringen-aepfingen-ii"
  },
  {
-  "id": "bb-deers-ehingen",
-  "liga": "basketball-oberliga",
-  "datum": "2026-11-07",
-  "anstoss": "19:30",
-  "heim": "sigmaringen-deers",
-  "gast": "bb-tsv-ehingen",
-  "toreHeim": 78,
-  "toreGast": 71,
-  "abschnitte": [
-   [
-    18,
-    20
-   ],
-   [
-    22,
-    15
-   ],
-   [
-    16,
-    21
-   ],
-   [
-    22,
-    15
-   ]
-  ],
+  "id": "bb-1-weingarten-sigmaringen",
+  "liga": "basketball-kreisliga-sued",
+  "spieltag": 1,
+  "datum": "2026-10-11",
+  "anstoss": "16:45",
+  "heim": "bb-tv-weingarten-2",
+  "gast": "tb-sigmaringen",
+  "toreHeim": 20,
+  "toreGast": 0,
+  "wertung": "Das Spiel wurde mit 20:0 für Weingarten gewertet. Auf dem Feld endete es 59:50.",
   "scorer": [
    {
-    "spieler": "kevin-hartmann",
-    "punkte": 24
-   },
-   {
-    "spieler": "luca-brenner",
-    "punkte": 17
-   },
-   {
-    "spieler": "marvin-seitz",
+    "spieler": "bb-lucas-crochet",
     "punkte": 12
+   },
+   {
+    "spieler": "bb-leonardo-butic",
+    "punkte": 11
+   },
+   {
+    "spieler": "bb-michael-cierotzki",
+    "punkte": 9
+   },
+   {
+    "spieler": "bb-luka-siric",
+    "punkte": 6
+   },
+   {
+    "spieler": "bb-juergen-stojku",
+    "punkte": 6
+   },
+   {
+    "spieler": "bb-aaron-pahl",
+    "punkte": 4
+   },
+   {
+    "spieler": "bb-liam-wetzel",
+    "punkte": 2
+   },
+   {
+    "spieler": "bb-tim-klasen",
+    "punkte": 0
+   },
+   {
+    "spieler": "bb-raphael-allmaier",
+    "punkte": 0
+   },
+   {
+    "spieler": "bb-max-zimmermann",
+    "punkte": 9
+   },
+   {
+    "spieler": "bb-erfan-khozeimeh-sarbisheh",
+    "punkte": 8
+   },
+   {
+    "spieler": "bb-immanuel-muetze",
+    "punkte": 8
+   },
+   {
+    "spieler": "bb-connor-bergmann",
+    "punkte": 8
+   },
+   {
+    "spieler": "bb-joel-oswald",
+    "punkte": 7
+   },
+   {
+    "spieler": "bb-igor-rogowski",
+    "punkte": 7
+   },
+   {
+    "spieler": "bb-robert-muetze",
+    "punkte": 2
    }
   ],
-  "galerie": "gal-deers-ehingen",
-  "bericht": "Nach drei engen Vierteln zogen die Deers im Schlussabschnitt davon. Kevin Hartmann traf viermal von der Dreierlinie."
+  "quelle": "https://www.basketball-bund.net/static/#/spiel/2896355/boxscore"
  },
  {
-  "id": "bb-tuttlingen-deers",
-  "liga": "basketball-oberliga",
-  "datum": "2026-10-31",
-  "anstoss": "20:00",
-  "heim": "bb-bg-tuttlingen",
-  "gast": "sigmaringen-deers",
-  "toreHeim": 84,
-  "toreGast": 76,
+  "id": "bb-2-sigmaringen-waldsee",
+  "liga": "basketball-kreisliga-sued",
+  "spieltag": 2,
+  "datum": "2026-10-17",
+  "anstoss": "16:00",
+  "heim": "tb-sigmaringen",
+  "gast": "bb-tg-bad-waldsee",
+  "toreHeim": 46,
+  "toreGast": 57,
   "abschnitte": [
    [
-    21,
-    19
-   ],
-   [
-    20,
+    11,
     18
    ],
    [
-    24,
-    17
+    10,
+    19
    ],
    [
-    19,
-    22
+    13,
+    11
+   ],
+   [
+    12,
+    9
    ]
   ],
   "scorer": [
    {
-    "spieler": "luca-brenner",
-    "punkte": 21
+    "spieler": "bb-michael-cierotzki",
+    "punkte": 14
    },
    {
-    "spieler": "kevin-hartmann",
-    "punkte": 15
+    "spieler": "bb-lucas-crochet",
+    "punkte": 8
+   },
+   {
+    "spieler": "bb-liam-wetzel",
+    "punkte": 7
+   },
+   {
+    "spieler": "bb-leonardo-butic",
+    "punkte": 4
+   },
+   {
+    "spieler": "bb-luka-siric",
+    "punkte": 4
+   },
+   {
+    "spieler": "bb-juergen-stojku",
+    "punkte": 4
+   },
+   {
+    "spieler": "bb-raphael-allmaier",
+    "punkte": 3
+   },
+   {
+    "spieler": "bb-till-klasen",
+    "punkte": 2
+   },
+   {
+    "spieler": "bb-tim-klasen",
+    "punkte": 0
+   },
+   {
+    "spieler": "bb-aaron-pahl",
+    "punkte": 0
+   },
+   {
+    "spieler": "bb-andreas-papst",
+    "punkte": 0
+   },
+   {
+    "spieler": "bb-marko-rozga",
+    "punkte": 0
+   },
+   {
+    "spieler": "bb-simon-buehler",
+    "punkte": 17
+   },
+   {
+    "spieler": "bb-sebastian-hartwig",
+    "punkte": 16
+   },
+   {
+    "spieler": "bb-georg-zvonarev",
+    "punkte": 9
+   },
+   {
+    "spieler": "bb-almir-nokic",
+    "punkte": 7
+   },
+   {
+    "spieler": "bb-lukas-engstler",
+    "punkte": 5
+   },
+   {
+    "spieler": "bb-bilal-demirkiran",
+    "punkte": 3
    }
-  ]
+  ],
+  "quelle": "https://www.basketball-bund.net/static/#/spiel/2896358/boxscore",
+  "bericht": "Die erste Halbzeit gab den Ausschlag: Bad Waldsee führte zur Pause 37:21. Danach gewann der TB beide Viertel, kam aber nicht mehr heran. Michael Cierotzki traf 14 Punkte."
  },
  {
-  "id": "bb-deers-ravensburg",
-  "liga": "basketball-oberliga",
-  "datum": "2026-11-14",
-  "anstoss": "19:30",
-  "heim": "sigmaringen-deers",
-  "gast": "bb-tv-ravensburg"
+  "id": "bb-3-sigmaringen-blitzenreute",
+  "liga": "basketball-kreisliga-sued",
+  "spieltag": 3,
+  "datum": "2026-11-07",
+  "anstoss": "16:00",
+  "heim": "tb-sigmaringen",
+  "gast": "bb-sv-blitzenreute",
+  "toreHeim": 60,
+  "toreGast": 67,
+  "abschnitte": [
+   [
+    16,
+    18
+   ],
+   [
+    19,
+    12
+   ],
+   [
+    8,
+    26
+   ],
+   [
+    17,
+    11
+   ]
+  ],
+  "scorer": [
+   {
+    "spieler": "bb-michael-cierotzki",
+    "punkte": 19
+   },
+   {
+    "spieler": "bb-leonardo-butic",
+    "punkte": 17
+   },
+   {
+    "spieler": "bb-tim-klasen",
+    "punkte": 7
+   },
+   {
+    "spieler": "bb-lucas-crochet",
+    "punkte": 6
+   },
+   {
+    "spieler": "bb-aaron-pahl",
+    "punkte": 4
+   },
+   {
+    "spieler": "bb-till-klasen",
+    "punkte": 3
+   },
+   {
+    "spieler": "bb-juergen-stojku",
+    "punkte": 2
+   },
+   {
+    "spieler": "bb-raphael-allmaier",
+    "punkte": 2
+   },
+   {
+    "spieler": "bb-andreas-papst",
+    "punkte": 0
+   },
+   {
+    "spieler": "bb-marko-rozga",
+    "punkte": 0
+   },
+   {
+    "spieler": "bb-liam-wetzel",
+    "punkte": 0
+   },
+   {
+    "spieler": "bb-klaudijo-kola",
+    "punkte": 30
+   },
+   {
+    "spieler": "bb-robert-juric",
+    "punkte": 12
+   },
+   {
+    "spieler": "bb-abel-yacob",
+    "punkte": 12
+   },
+   {
+    "spieler": "bb-mikail-gabriel-hahn",
+    "punkte": 7
+   },
+   {
+    "spieler": "bb-diogo-gomes",
+    "punkte": 4
+   },
+   {
+    "spieler": "bb-pavlos-soumpalas",
+    "punkte": 2
+   }
+  ],
+  "quelle": "https://www.basketball-bund.net/static/#/spiel/2896362/boxscore",
+  "bericht": "Zur Pause führte der TB 35:30, dann kippte das Spiel: Das dritte Viertel ging mit 8:26 an Blitzenreute. Klaudijo Kola war mit 30 Punkten nicht zu stoppen."
  }
 ]

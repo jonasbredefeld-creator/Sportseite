@@ -592,35 +592,35 @@
   "farbe": ""
  },
  {
-  "id": "sigmaringen-deers",
-  "name": "Sigmaringen Deers",
-  "kurz": "Deers",
+  "id": "tb-sigmaringen",
+  "name": "TB Sigmaringen",
+  "kurz": "TB Sigmaringen",
   "ort": "",
-  "liga": "basketball-oberliga",
+  "liga": "basketball-kreisliga-sued",
   "farbe": ""
  },
  {
-  "id": "bb-tsv-ehingen",
-  "name": "TSV Ehingen",
-  "kurz": "Ehingen",
+  "id": "bb-tv-weingarten-2",
+  "name": "TV Weingarten 2",
+  "kurz": "Weingarten 2",
   "ort": "",
-  "liga": "basketball-oberliga",
+  "liga": "basketball-kreisliga-sued",
   "farbe": ""
  },
  {
-  "id": "bb-tv-ravensburg",
-  "name": "TV Ravensburg",
-  "kurz": "Ravensburg",
+  "id": "bb-tg-bad-waldsee",
+  "name": "TG Bad Waldsee",
+  "kurz": "Bad Waldsee",
   "ort": "",
-  "liga": "basketball-oberliga",
+  "liga": "basketball-kreisliga-sued",
   "farbe": ""
  },
  {
-  "id": "bb-bg-tuttlingen",
-  "name": "BG Tuttlingen",
-  "kurz": "Tuttlingen",
+  "id": "bb-sv-blitzenreute",
+  "name": "SV Blitzenreute",
+  "kurz": "Blitzenreute",
   "ort": "",
-  "liga": "basketball-oberliga",
+  "liga": "basketball-kreisliga-sued",
   "farbe": ""
  }
 ]

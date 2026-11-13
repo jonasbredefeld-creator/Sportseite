@@ -732,3 +732,7 @@ img.wappen { background: none; border-radius: 0; }
 @media (prefers-reduced-motion: reduce) { .slider-spur { scroll-behavior: auto; } }
 .tabellen-hinweis { margin: 0 0 10px; font-size: 15px; }
 .slider-text .copyright { color: var(--leise); opacity: .75; font-size: 14px; margin-left: 6px; white-space: nowrap; }
+.scorer-team { font-size: 14px; font-weight: 600; color: var(--leise); margin: 14px 0 4px; }
+.scorer-team:first-of-type { margin-top: 4px; }
+.quelle { margin: 14px 0 0; font-size: 14px; }
+.wertung-hinweis { margin: 14px 0 0; padding: 12px 16px; background: #fff4e5; border-left: 3px solid #e8a33a; border-radius: 6px; font-size: 15px; }

@@ -144,30 +144,6 @@
   "bild": ""
  },
  {
-  "id": "kevin-hartmann",
-  "name": "Kevin Hartmann",
-  "verein": "sigmaringen-deers",
-  "position": "Guard",
-  "nummer": 7,
-  "bild": ""
- },
- {
-  "id": "luca-brenner",
-  "name": "Luca Brenner",
-  "verein": "sigmaringen-deers",
-  "position": "Forward",
-  "nummer": 11,
-  "bild": ""
- },
- {
-  "id": "marvin-seitz",
-  "name": "Marvin Seitz",
-  "verein": "sigmaringen-deers",
-  "position": "Center",
-  "nummer": 15,
-  "bild": ""
- },
- {
   "id": "jan-kaiser",
   "name": "Jan Kaiser",
   "verein": "sv-sigmaringen",
@@ -1301,6 +1277,254 @@
   "verein": "tsv-kirchberg-iller-ii",
   "position": "Sturm",
   "nummer": 20,
+  "bild": ""
+ },
+ {
+  "id": "bb-lucas-crochet",
+  "name": "Lucas Crochet",
+  "verein": "tb-sigmaringen",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-leonardo-butic",
+  "name": "Leonardo Butic",
+  "verein": "tb-sigmaringen",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-michael-cierotzki",
+  "name": "Michael Cierotzki",
+  "verein": "tb-sigmaringen",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-luka-siric",
+  "name": "Luka Siric",
+  "verein": "tb-sigmaringen",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-juergen-stojku",
+  "name": "Jürgen Stojku",
+  "verein": "tb-sigmaringen",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-aaron-pahl",
+  "name": "Aaron Pahl",
+  "verein": "tb-sigmaringen",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-liam-wetzel",
+  "name": "Liam Wetzel",
+  "verein": "tb-sigmaringen",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-tim-klasen",
+  "name": "Tim Klasen",
+  "verein": "tb-sigmaringen",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-raphael-allmaier",
+  "name": "Raphael Allmaier",
+  "verein": "tb-sigmaringen",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-max-zimmermann",
+  "name": "Max Zimmermann",
+  "verein": "bb-tv-weingarten-2",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-erfan-khozeimeh-sarbisheh",
+  "name": "Erfan Khozeimeh Sarbisheh",
+  "verein": "bb-tv-weingarten-2",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-immanuel-muetze",
+  "name": "Immanuel Mütze",
+  "verein": "bb-tv-weingarten-2",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-connor-bergmann",
+  "name": "Connor Bergmann",
+  "verein": "bb-tv-weingarten-2",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-joel-oswald",
+  "name": "Joel Oswald",
+  "verein": "bb-tv-weingarten-2",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-igor-rogowski",
+  "name": "Igor Rogowski",
+  "verein": "bb-tv-weingarten-2",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-robert-muetze",
+  "name": "Robert Mütze",
+  "verein": "bb-tv-weingarten-2",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-till-klasen",
+  "name": "Till Klasen",
+  "verein": "tb-sigmaringen",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-andreas-papst",
+  "name": "Andreas Papst",
+  "verein": "tb-sigmaringen",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-marko-rozga",
+  "name": "Marko Rozga",
+  "verein": "tb-sigmaringen",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-simon-buehler",
+  "name": "Simon Bühler",
+  "verein": "bb-tg-bad-waldsee",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-sebastian-hartwig",
+  "name": "Sebastian Hartwig",
+  "verein": "bb-tg-bad-waldsee",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-georg-zvonarev",
+  "name": "Georg Zvonarev",
+  "verein": "bb-tg-bad-waldsee",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-almir-nokic",
+  "name": "Almir Nokic",
+  "verein": "bb-tg-bad-waldsee",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-lukas-engstler",
+  "name": "Lukas Engstler",
+  "verein": "bb-tg-bad-waldsee",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-bilal-demirkiran",
+  "name": "Bilal Demirkiran",
+  "verein": "bb-tg-bad-waldsee",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-klaudijo-kola",
+  "name": "Klaudijo Kola",
+  "verein": "bb-sv-blitzenreute",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-robert-juric",
+  "name": "Robert Juric",
+  "verein": "bb-sv-blitzenreute",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-abel-yacob",
+  "name": "Abel Yacob",
+  "verein": "bb-sv-blitzenreute",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-mikail-gabriel-hahn",
+  "name": "Mikail Gabriel Hahn",
+  "verein": "bb-sv-blitzenreute",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-diogo-gomes",
+  "name": "Diogo Gomes",
+  "verein": "bb-sv-blitzenreute",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-pavlos-soumpalas",
+  "name": "Pavlos Soumpalas",
+  "verein": "bb-sv-blitzenreute",
+  "position": "Spieler",
+  "nummer": null,
   "bild": ""
  }
 ]

@@ -74,7 +74,7 @@ function rahmen(d, seite) {
 
   const kopf = document.createElement("div");
   kopf.innerHTML = `
-    ${d.site.demo ? `<div class="demo-hinweis">Vorschau mit Beispieldaten. Ergebnisse, Spieler und Berichte sind erfunden.</div>` : ""}
+    ${d.site.demo ? `<div class="demo-hinweis">Vorschau mit Beispieldaten. Fußball ist erfunden, das Basketball-Beispiel (TB Sigmaringen) ist echt.</div>` : ""}
     <header class="kopf">
       <div class="wrap">
         <a class="marke" href="index.html">
@@ -259,10 +259,17 @@ function abschnittTabelle(d, s) {
 function scorerListe(d, s) {
   const l = s.scorer || [];
   if (!l.length) return "";
+  const teamListe = (vid) => {
+    const e = l.filter((x) => d.spielerById(x.spieler)?.verein === vid && x.punkte > 0).sort((a, b) => b.punkte - a.punkte).slice(0, 5);
+    if (!e.length) return "";
+    return `<h3 class="scorer-team">${esc(d.verein(vid)?.name)}</h3>
+      <ol class="liste">${e.map((x) => `<li><a href="spieler.html?id=${x.spieler}">${esc(d.spielerById(x.spieler)?.name)}</a> <span class="leise">${x.punkte} Punkte</span></li>`).join("")}</ol>`;
+  };
   return `
     <div class="karte box">
       <h2>${s._sport === "Basketball" ? "Beste Werfer" : "Punkte"}</h2>
-      <ol class="liste">${l.map((x) => { const sp = d.spielerById(x.spieler); return `<li><a href="spieler.html?id=${x.spieler}">${esc(sp?.name)}</a> <span class="leise">${esc(d.verein(sp?.verein)?.kurz)}, ${x.punkte} Punkte</span></li>`; }).join("")}</ol>
+      ${teamListe(s.heim)}${teamListe(s.gast)}
+      ${s.quelle ? `<p class="leise quelle"><a class="link" href="${esc(s.quelle)}" target="_blank" rel="noopener">Ganzer Boxscore beim Basketball-Bund</a></p>` : ""}
     </div>`;
 }
 
@@ -343,10 +350,10 @@ function kaderHtml(d, v) {
         <div class="kader-gruppe">
           <h3>${esc(POS_TITEL[p] || p)}</h3>
           <div class="kader-raster">
-            ${kader.filter((s) => s.position === p).sort((a, b) => a.nummer - b.nummer).map((s) => `
+            ${kader.filter((s) => s.position === p).sort((a, b) => (a.nummer ?? 99) - (b.nummer ?? 99) || a.name.localeCompare(b.name, "de")).map((s) => `
               <a class="kader-karte" href="spieler.html?id=${s.id}">
                 ${portraet(s, "kader-bild")}
-                <span class="kader-nr">${s.nummer}</span>
+                <span class="kader-nr">${s.nummer ?? ""}</span>
                 <span class="kader-name">${esc(s.name)}</span>
               </a>`).join("")}
           </div>
@@ -750,7 +757,7 @@ const seiten = {
     return `
       <div class="zwei" style="margin-top:32px">
         <article class="artikel">
-          <span class="kategorie${b.kategorie === "Vorschau" ? " rot" : ""}">${esc(b.kategorie)}</span>
+          <span class="kategorie${b.kategorie === "Vorschau" ? " rot" : ""}">${esc(kategorieText(b, b.kategorie))}</span>
           <h1 style="font-size:clamp(28px,4vw,42px);line-height:1.12;font-weight:600;margin:8px 0 10px">${esc(b.titel)}</h1>
           <p class="leise" style="font-size:15px">${datumLang(b.datum)}</p>
           ${foto(b.bild)}
@@ -854,7 +861,7 @@ const seiten = {
       <div class="karte box profil">
         ${portraet(sp, "hoch")}
         <div>
-          <div class="rueckennummer">${sp.nummer}</div>
+          ${sp.nummer != null ? `<div class="rueckennummer">${sp.nummer}</div>` : ""}
           <p class="leise">${esc(sp.position)}, ${vereinLink(d, sp.verein)}</p>
           <div class="werte">
             ${mitPunkten
@@ -1147,6 +1154,7 @@ function spielTeamModus(d, s, { h, g, gespielt, gal, bericht, videos, l }) {
       <span class="stand${gespielt ? "" : " offen"}">${gespielt ? `${s.toreHeim}:${s.toreGast}` : esc(s.anstoss)}</span>
       <div class="team"><a href="verein.html?id=${g?.id}">${esc(g?.name)}</a></div>
     </div>
+    ${s.wertung ? `<p class="wertung-hinweis">${esc(s.wertung)}</p>` : ""}
     ${gespielt && s.abschnitte?.length ? `<div class="karte verlauf-karte tabelle-wrap">${abschnittTabelle(d, s)}</div>` : ""}
     <div class="zwei abschnitt">
       <div>

@@ -81,20 +81,23 @@
   }
  },
  {
-  "id": "deers-drehen-schlussviertel",
-  "kategorie": "Oberliga",
-  "liga": "basketball-oberliga",
-  "spiel": "bb-deers-ehingen",
-  "datum": "2026-11-07",
-  "titel": "Starkes Schlussviertel: Deers schlagen Ehingen 78:71",
-  "teaser": "Nach drei engen Vierteln zogen die Sigmaringer am Ende davon. Kevin Hartmann war mit 24 Punkten bester Werfer.",
+  "id": "tb-sigmaringen-blitzenreute",
+  "kategorie": "Kreisliga Süd",
+  "liga": "basketball-kreisliga-sued",
+  "spiel": "bb-3-sigmaringen-blitzenreute",
+  "datum": "2026-11-08",
+  "titel": "Einbruch im dritten Viertel: TB Sigmaringen verliert 60:67 gegen Blitzenreute",
+  "teaser": "Zur Pause führte der TB noch mit fünf Punkten. Dann gewann Blitzenreute das dritte Viertel 26:8, und Klaudijo Kola kam am Ende auf 30 Punkte.",
   "text": [
-   "Lange stand es Spitz auf Knopf in der Halle. Ehingen führte nach dem dritten Viertel mit einem Punkt, dann trafen die Deers vier Würfe in Folge.",
-   "Am kommenden Samstag empfängt Sigmaringen den TV Ravensburg."
+   "Lange sah es nach dem ersten Saisonsieg aus. Nach einem knappen ersten Viertel (16:18) drehte der TB Sigmaringen im zweiten Abschnitt auf, gewann es 19:12 und ging mit einer 35:30-Führung in die Kabine.",
+   "Nach der Pause kippte das Spiel innerhalb von zehn Minuten. Nur acht Punkte gelangen den Sigmaringern im dritten Viertel, Blitzenreute legte 26 nach und drehte einen Fünf-Punkte-Rückstand in eine 56:43-Führung. Hauptgrund war Klaudijo Kola: Der Blitzenreuter traf zwölf Zweier, einen Dreier und drei Freiwürfe und beendete das Spiel mit 30 Punkten.",
+   "Im Schlussviertel kam der TB noch einmal zurück. 17:11 ging der letzte Abschnitt an die Gastgeber, für die Wende reichte es aber nicht mehr. Bester Werfer bei Sigmaringen war Michael Cierotzki mit 19 Punkten, darunter drei Dreier. Leonardo Butic kam auf 17 Punkte, musste aber wie Tim Klasen mit fünf Fouls vorzeitig vom Feld. Insgesamt sammelte der TB 24 Fouls, so viele wie der Gegner.",
+   "An der Freiwurflinie trafen beide Teams schwach: Sigmaringen verwandelte 11 von 26 Versuchen, Blitzenreute 13 von 29. Nach dem am grünen Tisch gewerteten Auftakt in Weingarten und dem 46:57 gegen Bad Waldsee wartet der TB nach drei Spieltagen weiter auf den ersten Sieg."
   ],
   "bild": {
    "src": "",
-   "titel": "Hartmann zieht zum Korb"
-  }
+   "titel": "TB Sigmaringen gegen SV Blitzenreute"
+  },
+  "quelle": "Boxscore: basketball-bund.net"
  }
 ]

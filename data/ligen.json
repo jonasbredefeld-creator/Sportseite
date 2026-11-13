@@ -35,12 +35,12 @@
   "saison": "2026/27"
  },
  {
-  "id": "basketball-oberliga",
-  "name": "Oberliga Württemberg",
-  "kurz": "Oberliga",
+  "id": "basketball-kreisliga-sued",
+  "name": "BBW4 Kreisliga Süd",
+  "kurz": "Kreisliga Süd",
   "sportart": "Basketball",
   "saison": "2026/27",
-  "team": "sigmaringen-deers",
-  "tabelleLink": "https://www.basketball-bund.net/"
+  "team": "tb-sigmaringen",
+  "bezirk": "Alb/Bodensee, Senioren männlich"
  }
 ]
