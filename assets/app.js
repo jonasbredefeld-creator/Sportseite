@@ -424,7 +424,8 @@ function tabelle(d, ligaId, ansicht = "gesamt") {
       if (ansicht !== "heim") zaehlen(g, s.toreGast, s.toreHeim);
     });
   return Object.values(zeilen).sort((a, b) =>
-    b.pkt - a.pkt || (b.tore - b.gegen) - (a.tore - a.gegen) || b.tore - a.tore);
+    b.pkt - a.pkt || (b.tore - b.gegen) - (a.tore - a.gegen) || b.tore - a.tore
+    || (d.verein(a.id)?.name || "").localeCompare(d.verein(b.id)?.name || "", "de"));
 }
 
 const ANSICHTEN = [["gesamt", "Gesamt"], ["hinrunde", "Hinrunde"], ["rueckrunde", "Rückrunde"], ["heim", "Heim"], ["auswaerts", "Auswärts"]];
