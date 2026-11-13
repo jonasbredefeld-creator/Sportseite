@@ -247,14 +247,60 @@ function teamZahlen(d, ligaId, vid) {
 function abschnittTabelle(d, s) {
   const a = s.abschnitte || [];
   if (!a.length) return "";
-  const kopf = a.map((_, i) => `<th>${i < 4 ? `${i + 1}.` : "VL"}</th>`).join("");
+  const q = a.length >= 4;
+  const kopf = a.map((_, i) => `<th>${q ? (i < 4 ? `Q${i + 1}` : `OT${a.length > 5 ? i - 3 : ""}`) : `${i + 1}. HZ`}</th>`).join("");
   const reihe = (v, i) => `<tr><th class="name">${esc(v?.name)}</th>${a.map((x) => `<td>${x[i]}</td>`).join("")}<td class="gesamt">${i ? s.toreGast : s.toreHeim}</td></tr>`;
   return `
     <table class="abschnitte">
-      <thead><tr><th class="name">${a.length === 2 ? "Halbzeit" : "Viertel"}</th>${kopf}<th>Gesamt</th></tr></thead>
+      <thead><tr><th class="name"></th>${kopf}<th>${q ? "Total" : "Gesamt"}</th></tr></thead>
       <tbody>${reihe(d.verein(s.heim), 0)}${reihe(d.verein(s.gast), 1)}</tbody>
     </table>`;
 }
+
+// Box Score je Team, kompakt: PTS, 2PM, 3PM, FT, FT%, PF, EFF
+function boxScore(d, s) {
+  const l = s.scorer || [];
+  if (!l.length || l[0].p2 === undefined) return "";
+  const tabelle = (vid) => {
+    const zeilen = l.filter((x) => (x.spieler ? d.spielerById(x.spieler)?.verein === vid : (x.verein || s.heim) === vid))
+      .sort((a, b) => b.punkte - a.punkte);
+    if (!zeilen.length) return "";
+    const sum = (k) => zeilen.reduce((a, x) => a + (x[k] || 0), 0);
+    const quote = (m, a) => (a ? `${Math.round((m / a) * 1000) / 10}`.replace(".", ",") + "%" : "–");
+    const zeile = (x) => `
+      <tr>
+        <td class="bs-name">${x.spieler ? `<a href="spieler.html?id=${x.spieler}">${esc(d.spielerById(x.spieler)?.name)}</a>` : `<span class="leise">${esc(x.name || "Unbekannt")}</span>`}</td>
+        <td class="zahl bs-pts">${x.punkte}</td><td class="zahl bs-weg">${x.p2}</td><td class="zahl">${x.p3}</td>
+        <td class="zahl">${x.ftm}/${x.fta}</td><td class="zahl bs-weg">${quote(x.ftm, x.fta)}</td>
+        <td class="zahl${x.pf >= 5 ? " bs-raus" : ""}"${x.pf >= 5 ? ' title="Mit fünf Fouls ausgeschieden"' : ""}>${x.pf}</td><td class="zahl bs-weg">${x.eff}</td>
+      </tr>`;
+    return `
+      <div class="karte tabelle-wrap boxscore">
+        <table>
+          <caption>${esc(d.verein(vid)?.name)}</caption>
+          <thead><tr><th>Player</th><th class="zahl">PTS</th><th class="zahl bs-weg">2PM</th><th class="zahl">3PM</th><th class="zahl">FT</th><th class="zahl bs-weg">FT%</th><th class="zahl">PF</th><th class="zahl bs-weg">EFF</th></tr></thead>
+          <tbody>${zeilen.map(zeile).join("")}</tbody>
+          <tfoot><tr><td>Total</td><td class="zahl bs-pts">${sum("punkte")}</td><td class="zahl bs-weg">${sum("p2")}</td><td class="zahl">${sum("p3")}</td><td class="zahl">${sum("ftm")}/${sum("fta")}</td><td class="zahl bs-weg">${quote(sum("ftm"), sum("fta"))}</td><td class="zahl">${sum("pf")}</td><td class="zahl bs-weg">${sum("eff")}</td></tr></tfoot>
+        </table>
+      </div>`;
+  };
+  return `
+    <section class="abschnitt">
+      <div class="abschnitt-kopf"><h2>Box Score</h2>${s.quelle ? `<a href="${esc(s.quelle)}" target="_blank" rel="noopener">Quelle: Basketball-Bund</a>` : ""}</div>
+      ${tabelle(s.heim)}${tabelle(s.gast)}
+    </section>`;
+}
+
+// Bericht zum Spiel als Karte mit Bild
+const spielBerichtKarte = (b) => `
+  <a class="karte spiel-bericht" href="bericht.html?id=${b.id}">
+    ${foto(b.bild)}
+    <div class="inhalt">
+      <span class="kategorie${b.kategorie === "Vorschau" ? " rot" : ""}">${b.kategorie === "Vorschau" ? "Vorschau" : "Spielbericht"}</span>
+      <h3>${esc(b.titel)}</h3>
+      <p class="leise">${esc(b.teaser)}</p>
+    </div>
+  </a>`;
 
 function scorerListe(d, s) {
   const l = s.scorer || [];
@@ -267,7 +313,7 @@ function scorerListe(d, s) {
   };
   return `
     <div class="karte box">
-      <h2>${s._sport === "Basketball" ? "Beste Werfer" : "Punkte"}</h2>
+      <h2>${s._sport === "Basketball" ? "Top Scorer" : "Punkte"}</h2>
       ${teamListe(s.heim)}${teamListe(s.gast)}
       ${s.quelle ? `<p class="leise quelle"><a class="link" href="${esc(s.quelle)}" target="_blank" rel="noopener">Ganzer Boxscore beim Basketball-Bund</a></p>` : ""}
     </div>`;
@@ -294,8 +340,8 @@ const formPunkte = (f) => f.length ? `<span class="form">${f.map((x) => `<span c
 function saisonStatistik(d, vereinId) {
   const st = {};
   d.gespielt.filter((s) => s.heim === vereinId || s.gast === vereinId).forEach((s) => (s.scorer || []).forEach((x) => {
-    const sp = d.spielerById(x.spieler);
-    if (sp?.verein !== vereinId) return;
+    const sp = x.spieler && d.spielerById(x.spieler);
+    if (!sp || sp.verein !== vereinId) return;
     const z = (st[x.spieler] = st[x.spieler] || { id: x.spieler, spiele: 0, punkte: 0, best: 0 });
     z.spiele++; z.punkte += x.punkte; z.best = Math.max(z.best, x.punkte);
   }));
@@ -304,9 +350,9 @@ function saisonStatistik(d, vereinId) {
   const komma = (n) => n.toFixed(1).replace(".", ",");
   return `
     <section class="abschnitt">
-      <div class="abschnitt-kopf"><h2>Saisonstatistik</h2><span class="leise">Punkte pro Spiel</span></div>
+      <div class="abschnitt-kopf"><h2>Saisonstatistik</h2><span class="leise">sortiert nach Points per Game</span></div>
       <div class="karte tabelle-wrap"><table>
-        <thead><tr><th></th><th>Spieler</th><th class="zahl">Spiele</th><th class="zahl">Punkte</th><th class="zahl">Bestwert</th><th class="zahl">Schnitt</th></tr></thead>
+        <thead><tr><th></th><th>Player</th><th class="zahl" title="Games played">GP</th><th class="zahl" title="Points">PTS</th><th class="zahl" title="Season high">High</th><th class="zahl" title="Points per game">PPG</th></tr></thead>
         <tbody>${zeilen.map((z, i) => `
           <tr>
             <td class="platz">${i + 1}</td>
@@ -321,17 +367,19 @@ function saisonStatistik(d, vereinId) {
 
 function bilanzKarte(d, ligaId) {
   const l = d.liga(ligaId), b = bilanz(d, ligaId), t = d.verein(l.team);
+  const diff = b.fuer - b.gegen;
   return `
     <div class="karte box bilanz">
-      <h2>Bilanz ${esc(t?.kurz)}</h2>
-      <div class="werte">
-        <div><strong>${b.s}</strong>Siege</div>
-        <div><strong>${b.n}</strong>Niederlagen</div>
-        ${b.u ? `<div><strong>${b.u}</strong>Unentsch.</div>` : ""}
+      <h2>${esc(t?.name)}</h2>
+      <div class="bilanz-zahlen">
+        <div><strong>${b.s}</strong><span>Siege</span></div>
+        <div><strong>${b.n}</strong><span>Niederlagen</span></div>
+        <div><strong>${l.platz ? `${l.platz}.` : "–"}</strong><span>Platz${l.teams ? ` von ${l.teams}` : ""}</span></div>
       </div>
-      <p class="leise" style="margin:0 0 8px">Punkte ${b.fuer}:${b.gegen}, Form ${formPunkte(b.form)}</p>
-      ${l.hinweis ? `<p style="margin:12px 0 0">${esc(l.hinweis)}</p>` : ""}
-      ${l.tabelleLink ? `<p style="margin:12px 0 0"><a class="link" href="${esc(l.tabelleLink)}" target="_blank" rel="noopener">Tabelle beim Verband</a></p>` : ""}
+      <div class="bilanz-zeile"><span>Punkte</span><span>${b.fuer}:${b.gegen} (${diff > 0 ? "+" : ""}${diff})</span></div>
+      <div class="bilanz-zeile"><span>Form</span>${formPunkte(b.form)}</div>
+      ${l.hinweis ? `<p class="leise" style="margin:12px 0 0">${esc(l.hinweis)}</p>` : ""}
+      ${l.tabelleLink ? `<p style="margin:14px 0 0"><a class="link" href="${esc(l.tabelleLink)}" target="_blank" rel="noopener">Tabelle beim Verband</a></p>` : ""}
     </div>`;
 }
 
@@ -865,7 +913,7 @@ const seiten = {
           <p class="leise">${esc(sp.position)}, ${vereinLink(d, sp.verein)}</p>
           <div class="werte">
             ${mitPunkten
-              ? `<div><strong>${summe}</strong>Punkte</div><div><strong>${punkteSpiele.length ? (summe / punkteSpiele.length).toFixed(1).replace(".", ",") : "0"}</strong>pro Spiel</div>`
+              ? `<div><strong>${summe}</strong>PTS</div><div><strong>${punkteSpiele.length ? (summe / punkteSpiele.length).toFixed(1).replace(".", ",") : "0"}</strong>PPG</div>`
               : `<div><strong>${eigeneTore.length}</strong>Tore</div>`}
             ${(() => { const m = minuten(d).find(([id]) => id === sp.id)?.[1]; return m ? `<div><strong>${m.min.toLocaleString("de-DE")}</strong>Minuten</div>` : ""; })()}
             <div><strong>${einsaetze}</strong>Spiele des Vereins</div>
@@ -929,8 +977,7 @@ const seiten = {
       <div class="zwei abschnitt">
         <div>
           ${gespielt ? `
-            ${s.bericht ? `<div class="abschnitt-kopf"><h2>Kurzbericht</h2></div><p style="font-size:19px;margin:0 0 12px">${esc(s.bericht)}</p>` : ""}
-            ${bericht ? `<p><a class="link" href="bericht.html?id=${bericht.id}">Zum ausführlichen Bericht</a></p>` : ""}
+            ${bericht ? spielBerichtKarte(bericht) : s.bericht ? `<div class="abschnitt-kopf"><h2>Kurzbericht</h2></div><p style="font-size:19px;margin:0 0 12px">${esc(s.bericht)}</p>` : ""}
             ${!s.bericht && !bericht && !gal && !videos.length ? `<p class="leise">Bericht, Bilder und Videos gibt es von den Spielen, bei denen wir vor Ort waren.</p>` : ""}
           ` : `
             <div class="abschnitt-kopf"><h2>Vorschau</h2></div>
@@ -1159,8 +1206,8 @@ function spielTeamModus(d, s, { h, g, gespielt, gal, bericht, videos, l }) {
     <div class="zwei abschnitt">
       <div>
         ${gespielt ? `
-          ${s.bericht ? `<div class="abschnitt-kopf"><h2>Kurzbericht</h2></div><p style="font-size:19px;margin:0 0 12px">${esc(s.bericht)}</p>` : ""}
-          ${bericht ? `<p><a class="link" href="bericht.html?id=${bericht.id}">Zum ausführlichen Bericht</a></p>` : ""}
+          ${bericht ? spielBerichtKarte(bericht) : s.bericht ? `<div class="abschnitt-kopf"><h2>Kurzbericht</h2></div><p style="font-size:19px;margin:0 0 12px">${esc(s.bericht)}</p>` : ""}
+          ${boxScore(d, s)}
         ` : `
           <div class="abschnitt-kopf"><h2>Vorschau</h2></div>
           ${bericht ? `<a class="karte bericht-zeile" href="bericht.html?id=${bericht.id}"><span class="kategorie rot">${esc(bericht.kategorie)}</span><h3>${esc(bericht.titel)}</h3><p class="leise">${esc(bericht.teaser)}</p></a>` : ""}
@@ -1181,8 +1228,7 @@ function spielTeamModus(d, s, { h, g, gespielt, gal, bericht, videos, l }) {
           </div>` : ""}
       </div>
       <aside>
-        ${gespielt ? scorerListe(d, s) : ""}
-        <div style="margin-top:24px">${bilanzKarte(d, l.id)}</div>
+        ${bilanzKarte(d, l.id)}
         <p style="margin-top:16px"><a class="link" href="verein.html?id=${team?.id}">Alle Spiele der ${esc(team?.name)}</a></p>
       </aside>
     </div>`;

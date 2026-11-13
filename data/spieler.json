@@ -1526,5 +1526,77 @@
   "position": "Spieler",
   "nummer": null,
   "bild": ""
+ },
+ {
+  "id": "bb-secgin-batur",
+  "name": "Secgin Batur",
+  "verein": "bb-tg-bad-waldsee",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-andreas-stellwag",
+  "name": "Andreas Stellwag",
+  "verein": "bb-tg-bad-waldsee",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-frederik-wiederhold",
+  "name": "Frederik Wiederhold",
+  "verein": "bb-tg-bad-waldsee",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-hakan-akcicek",
+  "name": "Hakan Akcicek",
+  "verein": "bb-sv-blitzenreute",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-nico-branz",
+  "name": "Nico Branz",
+  "verein": "bb-sv-blitzenreute",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-ibrahem-mohamed-elgendy",
+  "name": "Ibrahem Mohamed Elgendy",
+  "verein": "bb-sv-blitzenreute",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-ruben-gomes",
+  "name": "Ruben Gomes",
+  "verein": "bb-sv-blitzenreute",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-louis-kappler",
+  "name": "Louis Kappler",
+  "verein": "bb-sv-blitzenreute",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
+ },
+ {
+  "id": "bb-dominik-keib",
+  "name": "Dominik Keib",
+  "verein": "bb-sv-blitzenreute",
+  "position": "Spieler",
+  "nummer": null,
+  "bild": ""
  }
 ]
