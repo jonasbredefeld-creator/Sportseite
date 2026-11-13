@@ -959,6 +959,10 @@ const seiten = {
         <p class="bilanz-link"><a class="link" href="liga.html?id=${l.id}">Zur Tabelle</a></p>
       </div>`;
 
+    // News und Galerien zum Team gemeinsam, neueste zuerst
+    const beitraege = [...news.map((b) => ({ datum: b.datum, html: berichtKarte(b) })), ...gals.map((g) => ({ datum: g.datum, html: galerieKarte(g) }))]
+      .sort((a, b) => b.datum.localeCompare(a.datum));
+    const newsBlock = (spalten, max) => beitraege.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>News und Bilder</h2></div><div class="raster ${spalten}">${beitraege.slice(0, max).map((x) => x.html).join("")}</div></section>` : "";
     return `
       <div class="seitenkopf">
         <span class="kategorie">${teamModus ? `${esc(l.sportart)}, ` : ""}${esc(l?.name)}</span>
@@ -969,7 +973,7 @@ const seiten = {
         <div>
           <div class="abschnitt-kopf"><h2>Spiele</h2></div>
           ${spielListe}
-          ${teamModus ? "" : platzVerlauf(d, v.liga, v.id)}
+          ${teamModus ? newsBlock("zwei-spalten team-news", 4) : platzVerlauf(d, v.liga, v.id)}
         </div>
         <aside>
           <div class="abschnitt-kopf aside-platz" aria-hidden="true"><h2>&nbsp;</h2></div>
@@ -977,12 +981,7 @@ const seiten = {
           ${infoKarte}
         </aside>
       </div>
-      ${(() => {
-        // News und Galerien zum Team gemeinsam, neueste zuerst
-        const beitraege = [...news.map((b) => ({ datum: b.datum, html: berichtKarte(b) })), ...gals.map((g) => ({ datum: g.datum, html: galerieKarte(g) }))]
-          .sort((a, b) => b.datum.localeCompare(a.datum));
-        return beitraege.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>News und Bilder</h2></div><div class="raster vier">${beitraege.slice(0, 8).map((x) => x.html).join("")}</div></section>` : "";
-      })()}
+      ${teamModus ? "" : newsBlock("vier", 8)}
       ${unserTeam ? `<div class="zwei-gleich team-zahlen">${saisonStatistik(d, v.id)}${teamTabelle(d, l)}</div>` : ""}
       ${teamModus && !unserTeam ? "" : kaderHtml(d, v)}`;
   },

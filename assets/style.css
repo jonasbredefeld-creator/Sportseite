@@ -847,3 +847,4 @@ img.wappen.such { width: 32px; height: 32px; object-fit: contain; }
 @media (max-width: 560px) { .pv-lang { display: none; } .pv-kurz { display: inline; } }
 .team-oben .bilanz { display: flex; flex-direction: column; }
 .bilanz-link { margin: auto 0 0; padding-top: 14px; }
+.team-news { margin-top: 0; } .zwei > div > .abschnitt:has(.team-news) { margin-top: 32px; }
