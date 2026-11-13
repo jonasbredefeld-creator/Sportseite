@@ -899,7 +899,7 @@ const seiten = {
           </div>
           <div class="vereine">
             ${w.von
-              ? `<a class="verein-von" href="verein.html?id=${w.von}">${wappen(d.verein(w.von))}<span class="lang">${esc(d.verein(w.von)?.name)}</span><span class="kurz">${esc(d.verein(w.von)?.kurz)}</span></a>`
+              ? `<a class="verein-von" href="verein.html?id=${w.von}"><span class="lang">${esc(d.verein(w.von)?.name)}</span><span class="kurz">${esc(d.verein(w.von)?.kurz)}</span>${wappen(d.verein(w.von))}</a>`
               : `<span class="verein-von leise"><span>neu</span></span>`}
             <span class="pfeil-rechts" aria-label="wechselt zu">→</span>
             <a class="ziel" href="verein.html?id=${w.zu}">${wappen(d.verein(w.zu))}<span class="lang">${esc(d.verein(w.zu)?.name)}</span><span class="kurz">${esc(d.verein(w.zu)?.kurz)}</span></a>
