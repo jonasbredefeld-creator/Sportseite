@@ -844,7 +844,7 @@ const seiten = {
         const ws = d.wechsel.filter((w) => w.spieler === sp.id);
         return ws.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>Transfers</h2></div><div class="karte box"><ul class="liste">${ws.map((w) => `<li>${w.von ? `${vereinLink(d, w.von)} → ` : ""}${vereinLink(d, w.zu)} <span class="leise">${datumMittel(w.datum)}</span></li>`).join("")}</ul></div></section>` : "";
       })()}
-      ${bilder.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>Bilder</h2></div><div class="bilderraster">${bilder.map(({ g, b }) => `<a href="galerie.html?id=${g.id}"><figure>${foto(b)}<figcaption>${esc(b.titel)}</figcaption></figure></a>`).join("")}</div></section>` : ""}`;
+      ${bilder.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>Bilder</h2></div><div class="bilderraster">${bilder.map(({ g, b }) => `<a href="galerie.html?id=${g.id}#bild-${g.bilder.indexOf(b) + 1}"><figure>${foto(b)}<figcaption>${esc(b.titel)}</figcaption></figure></a>`).join("")}</div></section>` : ""}`;
   },
 
   spiel(d) {
@@ -933,7 +933,70 @@ const seiten = {
     document.title = `${g.titel} | ${d.site.name}`;
     return `
       <div class="seitenkopf"><span class="kategorie">${datumLang(g.datum)}</span><h1>${esc(g.titel)}</h1><p>${g.bilder.length} Bilder, Fotos: ${esc(g.fotograf)}${g.spiel ? `. <a class="link" href="spiel.html?id=${g.spiel}">Zum Spiel</a>` : ""}</p></div>
-      <div class="bilderraster">${g.bilder.map((b) => `<figure>${foto(b)}<figcaption>${esc(b.titel)}</figcaption></figure>`).join("")}</div>`;
+      <section class="slider" aria-roledescription="Bildergalerie" aria-label="${esc(g.titel)}">
+        <div class="slider-buehne">
+          <div class="slider-spur" tabindex="0">
+            ${g.bilder.map((b, i) => `
+              <figure class="slide" aria-label="Bild ${i + 1} von ${g.bilder.length}">
+                ${b.src ? `<img src="${esc(b.src)}" alt="${esc(b.titel)}" ${i > 1 ? 'loading="lazy"' : ""}>` : `<div class="foto-leer"><div>${KAMERA}Foto folgt</div></div>`}
+              </figure>`).join("")}
+          </div>
+          <button type="button" class="slider-pfeil zurueck" aria-label="Vorheriges Bild">${PFEIL}</button>
+          <button type="button" class="slider-pfeil weiter" aria-label="Nächstes Bild">${PFEIL}</button>
+          <span class="slider-zaehler" aria-live="polite"><span id="slider-nr">1</span> / ${g.bilder.length}</span>
+        </div>
+        <p class="slider-text" id="slider-text">${esc(g.bilder[0]?.titel || "")}</p>
+        <div class="slider-daumen" aria-label="Bild wählen">
+          ${g.bilder.map((b, i) => `<button type="button" aria-current="${i === 0}" aria-label="Bild ${i + 1}" data-i="${i}">${b.src ? `<img src="${esc(b.src)}" alt="" loading="lazy">` : `<span>${i + 1}</span>`}</button>`).join("")}
+        </div>
+      </section>`;
+  },
+
+  nachGalerie(d) {
+    const spur = $(".slider-spur");
+    if (!spur) return;
+    const titel = (d.galerie(param("id"))?.bilder || []).map((b) => b.titel);
+    const slides = $$(".slide", spur), daumen = $$(".slider-daumen button");
+    const zurueck = $(".slider-pfeil.zurueck"), weiter = $(".slider-pfeil.weiter");
+    let aktiv = 0, programm = false;
+    const markieren = (i) => {
+      aktiv = i;
+      $("#slider-nr").textContent = i + 1;
+      $("#slider-text").textContent = titel[i] || "";
+      daumen.forEach((b, j) => b.setAttribute("aria-current", String(j === i)));
+      const dl = daumen[i], leiste = dl?.parentElement;
+      if (dl) leiste.scrollTo({ left: dl.offsetLeft - leiste.clientWidth / 2 + dl.clientWidth / 2, behavior: "smooth" });
+      zurueck.disabled = i === 0;
+      weiter.disabled = i === slides.length - 1;
+      history.replaceState(null, "", `#bild-${i + 1}`);
+    };
+    const gehe = (i, sanft = true) => {
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      programm = sanft && i !== aktiv;
+      spur.scrollTo({ left: i * spur.clientWidth, behavior: sanft ? "smooth" : "auto" });
+      markieren(i);
+    };
+    zurueck.addEventListener("click", () => gehe(aktiv - 1));
+    weiter.addEventListener("click", () => gehe(aktiv + 1));
+    daumen.forEach((b) => b.addEventListener("click", () => gehe(Number(b.dataset.i))));
+    document.addEventListener("keydown", (e) => {
+      if (e.target.closest("input, textarea")) return;
+      if (e.key === "ArrowLeft") gehe(aktiv - 1);
+      if (e.key === "ArrowRight") gehe(aktiv + 1);
+    });
+    // Wischen auf dem Handy: die Spur rastet ein, danach Zähler nachziehen
+    let warte;
+    spur.addEventListener("scroll", () => {
+      clearTimeout(warte);
+      warte = setTimeout(() => {
+        if (programm) { programm = false; return; }   // Pfeil, Taste oder Vorschaubild hat das Scrollen ausgelöst
+        const i = Math.round(spur.scrollLeft / spur.clientWidth);
+        if (i !== aktiv) markieren(i);
+      }, 120);
+    });
+    window.addEventListener("resize", () => spur.scrollTo({ left: aktiv * spur.clientWidth }));
+    const start = Number((location.hash.match(/bild-(\d+)/) || [])[1]) - 1;
+    gehe(start > 0 ? start : 0, false);
   },
 
   transfers(d) {
@@ -1035,7 +1098,7 @@ const seiten = {
         </div>` : ""}
       ${ligen.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>Ligen</h2></div>${liste(ligen)}</section>` : ""}
       ${videos.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>Highlights</h2></div><div class="raster vier">${videos.map(videoKarte).join("")}</div></section>` : ""}
-      ${bilder.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>Bilder</h2></div><div class="bilderraster">${bilder.map(({ g, b }) => `<a href="galerie.html?id=${g.id}"><figure>${foto(b)}<figcaption>${esc(b.titel)}</figcaption></figure></a>`).join("")}</div></section>` : ""}
+      ${bilder.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>Bilder</h2></div><div class="bilderraster">${bilder.map(({ g, b }) => `<a href="galerie.html?id=${g.id}#bild-${g.bilder.indexOf(b) + 1}"><figure>${foto(b)}<figcaption>${esc(b.titel)}</figcaption></figure></a>`).join("")}</div></section>` : ""}
       ${gals.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>Galerien</h2></div><div class="raster vier">${gals.map(galerieKarte).join("")}</div></section>` : ""}
       ${news.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>News</h2></div><div class="raster">${news.map((t) => berichtKarte(d.berichte.find((b) => `bericht.html?id=${b.id}` === t.href))).join("")}</div></section>` : ""}`;
   },
@@ -1103,6 +1166,7 @@ function nichtGefunden(was) {
     if (html !== null) ziel.innerHTML = html;
     if (seite === "start") seiten.nachStart();
     if (seite === "liga") seiten.nachLiga();
+    if (seite === "galerie") seiten.nachGalerie(d);
     $$(".tabellen-reiter button").forEach((b, _, alle) => b.addEventListener("click", () => {
       alle.forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
       $$("[data-tabelle]").forEach((el) => { el.hidden = el.dataset.tabelle !== b.dataset.ansicht; });
