@@ -776,7 +776,7 @@ img.wappen { background: none; border-radius: 0; }
 .team-logo { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 26px 16px 22px; margin-bottom: 24px; text-align: center; }
 .team-logo span:last-child { font-weight: 600; font-size: 17px; }
 .wappen.gross { width: 112px; height: 112px; font-size: 30px; }
-img.wappen.gross { width: auto; max-width: 160px; height: 112px; }
+img.wappen.gross { width: auto; max-width: 200px; height: 150px; }
 .team-zahlen { gap: 24px; align-items: start; }
 .team-zahlen > .abschnitt { margin-top: 0; }
 tr.eigenes-team td { background: var(--blau-hell); font-weight: 600; }
