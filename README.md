@@ -76,3 +76,7 @@ Optional pro Spiel in `spiele.json`: `"minuten": {"spieler-id": 90, "andere-id":
 ## Tabellenansichten
 
 Gesamt, Hinrunde, Rückrunde, Heim und Auswärts werden aus den Ergebnissen berechnet. Die Hinrunde endet nach (Anzahl Teams − 1) Spieltagen, bei ungerader Teamzahl nach (Anzahl Teams) Spieltagen.
+
+## Tabelle für Team-Ligen (Basketball usw.)
+
+Von Hand in `ligen.json` bei der Liga: `"tabelle": [{"team": "TB Sigmaringen", "sp": 3, "s": 0, "n": 3, "koerbe": "106:144", "pkt": 0}, …]` in Tabellenreihenfolge. Der Platz in der Bilanz ergibt sich daraus. Kürzel im Wappen lassen sich mit `"kuerzel": "TBS"` in `vereine.json` festlegen.

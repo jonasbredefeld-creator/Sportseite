@@ -257,7 +257,7 @@ function abschnittTabelle(d, s) {
     </table>`;
 }
 
-// Box Score je Team, kompakt: PTS, 2PM, 3PM, FT, FT%, PF, EFF
+// Box Score je Team, kompakt: PTS, 2PM, 3PM, FT, FT%, PF
 function boxScore(d, s) {
   const l = s.scorer || [];
   if (!l.length || l[0].p2 === undefined) return "";
@@ -272,15 +272,15 @@ function boxScore(d, s) {
         <td class="bs-name">${x.spieler ? `<a href="spieler.html?id=${x.spieler}">${esc(d.spielerById(x.spieler)?.name)}</a>` : `<span class="leise">${esc(x.name || "Unbekannt")}</span>`}</td>
         <td class="zahl bs-pts">${x.punkte}</td><td class="zahl bs-weg">${x.p2}</td><td class="zahl">${x.p3}</td>
         <td class="zahl">${x.ftm}/${x.fta}</td><td class="zahl bs-weg">${quote(x.ftm, x.fta)}</td>
-        <td class="zahl${x.pf >= 5 ? " bs-raus" : ""}"${x.pf >= 5 ? ' title="Mit fünf Fouls ausgeschieden"' : ""}>${x.pf}</td><td class="zahl bs-weg">${x.eff}</td>
+        <td class="zahl${x.pf >= 5 ? " bs-raus" : ""}"${x.pf >= 5 ? ' title="Mit fünf Fouls ausgeschieden"' : ""}>${x.pf}</td>
       </tr>`;
     return `
       <div class="karte tabelle-wrap boxscore">
         <table>
           <caption>${esc(d.verein(vid)?.name)}</caption>
-          <thead><tr><th>Player</th><th class="zahl">PTS</th><th class="zahl bs-weg">2PM</th><th class="zahl">3PM</th><th class="zahl">FT</th><th class="zahl bs-weg">FT%</th><th class="zahl">PF</th><th class="zahl bs-weg">EFF</th></tr></thead>
+          <thead><tr><th>Player</th><th class="zahl">PTS</th><th class="zahl bs-weg">2PM</th><th class="zahl">3PM</th><th class="zahl">FT</th><th class="zahl bs-weg">FT%</th><th class="zahl">PF</th></tr></thead>
           <tbody>${zeilen.map(zeile).join("")}</tbody>
-          <tfoot><tr><td>Total</td><td class="zahl bs-pts">${sum("punkte")}</td><td class="zahl bs-weg">${sum("p2")}</td><td class="zahl">${sum("p3")}</td><td class="zahl">${sum("ftm")}/${sum("fta")}</td><td class="zahl bs-weg">${quote(sum("ftm"), sum("fta"))}</td><td class="zahl">${sum("pf")}</td><td class="zahl bs-weg">${sum("eff")}</td></tr></tfoot>
+          <tfoot><tr><td>Total</td><td class="zahl bs-pts">${sum("punkte")}</td><td class="zahl bs-weg">${sum("p2")}</td><td class="zahl">${sum("p3")}</td><td class="zahl">${sum("ftm")}/${sum("fta")}</td><td class="zahl bs-weg">${quote(sum("ftm"), sum("fta"))}</td><td class="zahl">${sum("pf")}</td></tr></tfoot>
         </table>
       </div>`;
   };
@@ -364,16 +364,36 @@ function saisonStatistik(d, vereinId) {
     </section>`;
 }
 
+// Tabelle einer Team-Liga, von Hand gepflegt in ligen.json: "tabelle": [{ "team": "Name", "sp": 3, "s": 3, "n": 0, "koerbe": "210:150", "pkt": 6 }]
+function teamTabelle(d, l) {
+  const z = l.tabelle || [];
+  const eigen = d.verein(l.team)?.name;
+  return `
+    <section class="abschnitt">
+      <div class="abschnitt-kopf"><h2>Tabelle</h2><span class="leise">${esc(l.name)}</span></div>
+      ${z.length ? `<div class="karte tabelle-wrap"><table>
+        <thead><tr><th></th><th>Team</th><th class="zahl">Sp.</th><th class="zahl">S</th><th class="zahl">N</th><th class="zahl">Körbe</th><th class="zahl">Pkt.</th></tr></thead>
+        <tbody>${z.map((r, i) => `
+          <tr${r.team === eigen ? ' class="eigenes-team"' : ""}>
+            <td class="platz">${i + 1}</td><td>${esc(r.team)}</td>
+            <td class="zahl">${r.sp}</td><td class="zahl">${r.s}</td><td class="zahl">${r.n}</td><td class="zahl">${esc(r.koerbe)}</td><td class="zahl punkte">${r.pkt}</td>
+          </tr>`).join("")}</tbody>
+      </table></div>` : `<div class="karte box"><p class="leise" style="margin:0">Die Tabelle wird nachgetragen.</p></div>`}
+    </section>`;
+}
+
 function bilanzKarte(d, ligaId) {
   const l = d.liga(ligaId), b = bilanz(d, ligaId), t = d.verein(l.team);
   const diff = b.fuer - b.gegen;
+  const ausTabelle = (l.tabelle || []).findIndex((r) => r.team === t?.name) + 1;
+  const platz = l.platz || ausTabelle || 0, teams = l.teams || (l.tabelle || []).length;
   return `
     <div class="karte box bilanz">
-      <h2>${esc(t?.name)}</h2>
+      <h2>Bilanz ${esc(l.saison)}</h2>
       <div class="bilanz-zahlen">
         <div><strong>${b.s}</strong><span>Siege</span></div>
         <div><strong>${b.n}</strong><span>Niederlagen</span></div>
-        <div><strong>${l.platz ? `${l.platz}.` : "–"}</strong><span>Platz${l.teams ? ` von ${l.teams}` : ""}</span></div>
+        <div><strong>${platz ? `${platz}.` : "–"}</strong><span>Platz${platz && teams ? ` von ${teams}` : ""}</span></div>
       </div>
       <div class="bilanz-zeile"><span>Punkte</span><span>${b.fuer}:${b.gegen} (${diff > 0 ? "+" : ""}${diff})</span></div>
       <div class="bilanz-zeile"><span>Form</span>${formPunkte(b.form)}</div>
@@ -413,7 +433,7 @@ function wappen(v, klasse = "") {
   if (!v) return `<span class="wappen leer ${klasse}" aria-hidden="true"></span>`;
   if (v.logo) return `<img class="wappen ${klasse}" src="${esc(v.logo)}" alt="" loading="lazy">`;
   const w = String(v.kurz || v.name).replace(/[^A-Za-zÄÖÜäöüß0-9 \-\/]/g, "").split(/[\s\-\/]+/).filter(Boolean);
-  const kuerzel = (w.length > 1 ? w.map((x) => x[0]).join("") : w[0] || "").slice(0, 3).toUpperCase();
+  const kuerzel = v.kuerzel || (w.length > 1 ? w.map((x) => x[0]).join("") : w[0] || "").slice(0, 3).toUpperCase();
   return `<span class="wappen ${klasse}" aria-hidden="true"${v.farbe ? ` style="background:${esc(v.farbe)};color:#fff"` : ""}>${esc(kuerzel)}</span>`;
 }
 
@@ -859,13 +879,14 @@ const seiten = {
       <div class="karte box"><p style="margin:0">In der ${esc(l.name)} begleiten wir die ${vereinLink(d, l.team)}. Hier stehen die Spiele gegen sie.</p></div>`) : `
       <div class="karte box bilanz">
         <h2>${esc(l?.kurz)}</h2>
-        <div class="werte">
-          <div><strong>${z.platz || "–"}.</strong>Platz</div>
-          <div><strong>${z.zeile.pkt ?? 0}</strong>Punkte</div>
-          <div><strong>${z.zeile.tore ?? 0}:${z.zeile.gegen ?? 0}</strong>Tore</div>
+        <div class="bilanz-zahlen">
+          <div><strong>${z.platz ? `${z.platz}.` : "–"}</strong><span>Platz</span></div>
+          <div><strong>${z.zeile.pkt ?? 0}</strong><span>Punkte</span></div>
+          <div><strong>${z.zeile.tore ?? 0}:${z.zeile.gegen ?? 0}</strong><span>Tore</span></div>
         </div>
-        <p class="leise" style="margin:0 0 12px">Form ${formPunkte(z.form)}</p>
-        <a class="link" href="liga.html?id=${l.id}">Zur Tabelle</a>
+        <div class="bilanz-zeile"><span>Bilanz</span><span>${z.zeile.s ?? 0} S, ${z.zeile.u ?? 0} U, ${z.zeile.n ?? 0} N</span></div>
+        <div class="bilanz-zeile"><span>Form</span>${formPunkte(z.form)}</div>
+        <p style="margin:14px 0 0"><a class="link" href="liga.html?id=${l.id}">Zur Tabelle</a></p>
       </div>`;
 
     return `
@@ -881,11 +902,11 @@ const seiten = {
           ${news.length ? `<div class="abschnitt"><div class="abschnitt-kopf"><h2>News</h2></div><div class="raster">${news.slice(0, 3).map(berichtKarte).join("")}</div></div>` : ""}
         </div>
         <aside>
+          <div class="karte team-logo">${wappen(v, "gross")}<span>${esc(v.name)}</span></div>
           ${infoKarte}
-          ${teamModus && !unserTeam ? "" : `<div class="karte" style="margin-top:24px">${foto({ titel: "Mannschaftsfoto" })}</div>`}
         </aside>
       </div>
-      ${unserTeam ? saisonStatistik(d, v.id) : ""}
+      ${unserTeam ? `<div class="zwei-gleich team-zahlen">${saisonStatistik(d, v.id)}${teamTabelle(d, l)}</div>` : ""}
       ${teamModus && !unserTeam ? "" : kaderHtml(d, v)}
       ${gals.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>Bilder</h2><a href="galerien.html">Alle Galerien</a></div><div class="raster vier">${gals.map(galerieKarte).join("")}</div></section>` : ""}`;
   },
