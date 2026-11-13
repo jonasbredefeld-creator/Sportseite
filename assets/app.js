@@ -196,16 +196,17 @@ function spielKarte(d, s) {
     </a>`;
 }
 
-function spielZeile(d, s) {
+function spielZeile(d, s, kurz = false) {
   const h = d.verein(s.heim), g = d.verein(s.gast);
+  const nm = (v) => (kurz ? v?.kurz || v?.name : v?.name);
   const gespielt = Number.isInteger(s.toreHeim);
   const fett = (a, b) => (gespielt && a > b ? " sieger" : "");
   return `
     <a class="spiel-zeile" href="spiel.html?id=${s.id}">
       <span class="wann">${datumKurz(s.datum)}${gespielt ? "" : `<br><span class="anstoss">${esc(s.anstoss)}</span>`}</span>
-      <span class="heim${fett(s.toreHeim, s.toreGast)}">${esc(h?.name)}</span>
+      <span class="heim${fett(s.toreHeim, s.toreGast)}">${esc(nm(h))}</span>
       <span class="ergebnis${gespielt ? "" : " offen"}">${gespielt ? `${s.toreHeim}:${s.toreGast}` : "–:–"}</span>
-      <span class="gast${fett(s.toreGast, s.toreHeim)}">${esc(g?.name)}</span>
+      <span class="gast${fett(s.toreGast, s.toreHeim)}">${esc(nm(g))}</span>
       <span class="marken">${s.galerie ? `<span class="marke-foto">Fotos</span>` : ""}${s.topspiel ? `<span class="marke-foto">Topspiel</span>` : ""}</span>
     </a>`;
 }
@@ -1075,12 +1076,13 @@ const seiten = {
     const letzteSpiele = (z, v) => `
       <div class="karte">
         <div class="spieltag-kopf"><h2 style="font-size:20px">Letzte Spiele ${esc(v?.kurz)}</h2></div>
-        <div class="spiel-liste">${z.letzte.slice(0, 3).map((x) => spielZeile(d, x)).join("") || `<p class="leise" style="padding:0 20px 16px">Noch keine Spiele.</p>`}</div>
+        <div class="spiel-liste">${z.letzte.slice(0, 3).map((x) => spielZeile(d, x, true)).join("") || `<p class="leise" style="padding:0 20px 16px">Noch keine Spiele.</p>`}</div>
       </div>`;
     const torjaegerTeams = (zh.tj.length || zg.tj.length) ? `
-      <div class="karte box">
+      <div class="karte box torjaeger-box">
         <h2>Torjäger</h2>
         <ol class="liste">${[...zh.tj, ...zg.tj].sort((a, b) => b[1] - a[1]).map(([id, n]) => { const sp = d.spielerById(id); return `<li><a href="spieler.html?id=${id}">${esc(sp.name)}</a> <span class="leise">${esc(d.verein(sp.verein)?.kurz)}, ${n} ${n === 1 ? "Tor" : "Tore"}</span></li>`; }).join("")}</ol>
+        <p class="bilanz-link"><a class="link" href="liga.html?id=${s.liga}">Zur Tabelle der ${esc(d.liga(s.liga)?.kurz)}</a></p>
       </div>` : "";
 
     return `
@@ -1091,14 +1093,21 @@ const seiten = {
         <div class="team"><a href="verein.html?id=${g?.id}">${esc(g?.name)}</a></div>
       </div>
       ${gespielt ? `<div class="karte verlauf-karte">${torVerlauf(d, s)}</div>` : ""}
-      <div class="zwei abschnitt">
+      <div class="zwei abschnitt${gespielt ? "" : " vorschau-reihe"}">
         <div>
           ${gespielt ? `
             ${bericht ? spielBerichtKarte(bericht) : s.bericht ? kurzberichtKarte(s, gal) : ""}
             ${!s.bericht && !bericht && !gal && !videos.length ? `<p class="leise">Bericht, Bilder und Videos gibt es von den Spielen, bei denen wir vor Ort waren.</p>` : ""}
           ` : `
-            <div class="abschnitt-kopf"><h2>Vorschau</h2></div>
-            ${bericht ? spielBerichtKarte(bericht) : ""}
+            ${bericht ? spielBerichtKarte(bericht) : `
+              <div class="karte spiel-bericht">
+                ${foto({ titel: `${h?.name} gegen ${g?.name}` })}
+                <div class="inhalt">
+                  <span class="kategorie rot">Vorschau</span>
+                  <h3>${esc(h?.kurz)} empfängt ${esc(g?.kurz)}</h3>
+                  <p class="leise">${datumLang(s.datum)}${s.anstoss ? `, ${esc(s.anstoss)} Uhr` : ""}. Der Vorbericht folgt vor dem Spiel.</p>
+                </div>
+              </div>`}
             <div class="zwei-gleich">${letzteSpiele(zh, h)}${letzteSpiele(zg, g)}</div>
           `}
           ${videos.length ? `
@@ -1114,8 +1123,7 @@ const seiten = {
         </div>
         <aside>
           ${vergleich}
-          ${gespielt ? "" : `<div class="aside-abstand">${torjaegerTeams}</div>`}
-          <p style="margin-top:16px"><a class="link" href="liga.html?id=${s.liga}">Zur Tabelle der ${esc(d.liga(s.liga)?.kurz)}</a></p>
+          ${gespielt ? `<p style="margin-top:16px"><a class="link" href="liga.html?id=${s.liga}">Zur Tabelle der ${esc(d.liga(s.liga)?.kurz)}</a></p>` : `<div class="aside-abstand torjaeger-teams">${torjaegerTeams || `<div class="karte box"><h2>Torjäger</h2><p class="leise">Noch keine Torschützen eingetragen.</p></div>`}</div>`}
         </aside>
       </div>`;
   },

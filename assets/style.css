@@ -870,3 +870,13 @@ img.wappen.such { width: 32px; height: 32px; object-fit: contain; }
 .aside-abstand { margin-top: 24px; }
 .aside-abstand:empty { display: none; }
 .zwei-gleich { margin-top: 16px; }
+/* Vorschau: beide Spalten oben und unten bündig, die Vorschaukarte füllt den Rest */
+.vorschau-reihe { align-items: stretch; }
+.vorschau-reihe > div, .vorschau-reihe > aside { display: flex; flex-direction: column; }
+.vorschau-reihe > div > .spiel-bericht { flex: 1; margin: 0; grid-template-columns: minmax(220px, 42%) minmax(0, 1fr); }
+.vorschau-reihe > div > .spiel-bericht .foto { min-height: 200px; }
+.vorschau-reihe > div > .spiel-bericht .inhalt { display: flex; flex-direction: column; justify-content: center; }
+.vorschau-reihe .torjaeger-teams { flex: 1; display: flex; }
+.vorschau-reihe .torjaeger-teams > .karte { flex: 1; display: flex; flex-direction: column; }
+.vorschau-reihe .zwei-gleich { margin-top: 24px; }
+@media (max-width: 1000px) { .vorschau-reihe > div > .spiel-bericht { grid-template-columns: 1fr; } }
