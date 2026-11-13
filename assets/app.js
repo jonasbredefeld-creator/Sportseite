@@ -287,7 +287,7 @@ function boxScore(d, s) {
   return `
     <section class="abschnitt">
       <div class="abschnitt-kopf"><h2>Box Score</h2></div>
-      ${tabelle(s.heim)}${tabelle(s.gast)}
+      <div class="boxscore-paar">${tabelle(s.heim)}${tabelle(s.gast)}</div>
     </section>`;
 }
 
@@ -1258,11 +1258,10 @@ function spielTeamModus(d, s, { h, g, gespielt, gal, bericht, videos, l }) {
     </div>
     ${s.wertung ? `<p class="wertung-hinweis">${esc(s.wertung)}</p>` : ""}
     ${gespielt && s.abschnitte?.length ? `<div class="karte verlauf-karte tabelle-wrap">${abschnittTabelle(d, s)}</div>` : ""}
-    <div class="zwei abschnitt">
+    <div class="zwei abschnitt bericht-reihe">
       <div>
         ${gespielt ? `
-          ${bericht ? spielBerichtKarte(bericht) : s.bericht ? `<div class="abschnitt-kopf"><h2>Kurzbericht</h2></div><p style="font-size:19px;margin:0 0 12px">${esc(s.bericht)}</p>` : ""}
-          ${boxScore(d, s)}
+          ${bericht ? spielBerichtKarte(bericht) : s.bericht ? `<div class="karte box kurzbericht"><span class="kategorie">Kurzbericht</span><p>${esc(s.bericht)}</p></div>` : ""}
         ` : `
           <div class="abschnitt-kopf"><h2>Vorschau</h2></div>
           ${bericht ? `<a class="karte bericht-zeile" href="bericht.html?id=${bericht.id}"><span class="kategorie rot">${esc(bericht.kategorie)}</span><h3>${esc(bericht.titel)}</h3><p class="leise">${esc(bericht.teaser)}</p></a>` : ""}
@@ -1271,22 +1270,20 @@ function spielTeamModus(d, s, { h, g, gespielt, gal, bericht, videos, l }) {
             <div class="spiel-liste">${b.spiele.slice(0, 5).map((x) => spielZeile(d, x)).join("") || `<p class="leise" style="padding:0 20px 16px">Noch keine Spiele.</p>`}</div>
           </div>
         `}
-        ${videos.length ? `
-          <div class="abschnitt">
-            <div class="abschnitt-kopf"><h2>Videos</h2></div>
-            <div class="raster zwei-spalten">${videos.map(videoKarte).join("")}</div>
-          </div>` : ""}
-        ${gal ? `
-          <div class="abschnitt">
-            <div class="abschnitt-kopf"><h2>Bilder</h2><a href="galerie.html?id=${gal.id}">Alle ${gal.bilder.length} Bilder</a></div>
-            <div class="bilderraster">${gal.bilder.slice(0, 3).map((x) => `<figure>${foto(x)}<figcaption>${esc(x.titel)}</figcaption></figure>`).join("")}</div>
-          </div>` : ""}
       </div>
-      <aside>
-        ${bilanzKarte(d, l.id)}
-        <p style="margin-top:16px"><a class="link" href="verein.html?id=${team?.id}">Alle Spiele der ${esc(team?.name)}</a></p>
-      </aside>
-    </div>`;
+      <aside>${bilanzKarte(d, l.id)}</aside>
+    </div>
+    ${gespielt ? boxScore(d, s) : ""}
+    ${videos.length ? `
+      <section class="abschnitt">
+        <div class="abschnitt-kopf"><h2>Videos</h2></div>
+        <div class="raster">${videos.map(videoKarte).join("")}</div>
+      </section>` : ""}
+    ${gal ? `
+      <section class="abschnitt">
+        <div class="abschnitt-kopf"><h2>Bilder</h2><a href="galerie.html?id=${gal.id}">Alle ${gal.bilder.length} Bilder</a></div>
+        <div class="bilderraster">${gal.bilder.slice(0, 4).map((x, i) => `<a href="galerie.html?id=${gal.id}#bild-${i + 1}"><figure>${foto(x)}<figcaption>${esc(x.titel)}</figcaption></figure></a>`).join("")}</div>
+      </section>` : ""}`;
 }
 
 function nichtGefunden(was) {

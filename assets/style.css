@@ -803,3 +803,17 @@ tr.eigenes-team td { background: var(--blau-hell); font-weight: 600; }
   .pv-punkt circle { r: 9; stroke-width: 3; }
   .punkte-verlauf svg { margin-bottom: 18px; }
 }
+
+/* ---------- Spielseite Basketball: Bericht so hoch wie die Bilanz, Box Scores nebeneinander ---------- */
+.bericht-reihe { align-items: stretch; }
+.bericht-reihe > div > .spiel-bericht, .bericht-reihe > div > .kurzbericht { height: 100%; margin: 0; }
+.bericht-reihe .spiel-bericht { grid-template-columns: minmax(200px, 40%) minmax(0, 1fr); }
+.bericht-reihe .spiel-bericht .inhalt { display: flex; flex-direction: column; justify-content: center; }
+.bericht-reihe aside .bilanz { height: 100%; }
+.kurzbericht p { font-size: 18px; margin: 8px 0 0; }
+.boxscore-paar { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+.boxscore-paar .boxscore { margin-bottom: 0; }
+@media (max-width: 1000px) {
+  .boxscore-paar { grid-template-columns: 1fr; gap: 16px; }
+  .bericht-reihe .spiel-bericht { grid-template-columns: 1fr; }
+}
