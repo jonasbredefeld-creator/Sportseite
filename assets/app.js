@@ -932,6 +932,7 @@ const seiten = {
           ${news.length ? `<div class="abschnitt"><div class="abschnitt-kopf"><h2>News</h2></div><div class="raster">${news.slice(0, 3).map(berichtKarte).join("")}</div></div>` : ""}
         </div>
         <aside>
+          <div class="abschnitt-kopf aside-platz" aria-hidden="true"><h2>&nbsp;</h2></div>
           <div class="karte team-logo">${wappen(v, "gross")}<span>${esc(v.name)}</span></div>
           ${infoKarte}
         </aside>

@@ -341,6 +341,7 @@ td a:hover { color: var(--blau); }
   .aufmacher .foto { min-height: 0; aspect-ratio: 16 / 9; }
   .aufmacher-text { padding: 24px 22px 26px; }
   .zwei { grid-template-columns: 1fr; }
+  .aside-platz { display: none; }
 }
 @media (max-width: 820px) {
   .raster { grid-template-columns: 1fr 1fr; }
@@ -827,3 +828,5 @@ tr.eigenes-team td { background: var(--blau-hell); font-weight: 600; }
 .kader-karte.ohne-nr { grid-template-columns: 40px minmax(0, 1fr); }
 @media (max-width: 560px) { .kader-karte.ohne-nr { grid-template-columns: 28px minmax(0, 1fr); } }
 .artikel .zwischentitel { font-size: 22px; margin: 32px 0 10px; }
+/* Platzhalter in der rechten Spalte, damit das Logo bündig mit der Spieleliste beginnt */
+.aside-platz { visibility: hidden; }
