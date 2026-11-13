@@ -283,6 +283,35 @@ function bilanz(d, ligaId) {
 
 const formPunkte = (f) => f.length ? `<span class="form">${f.map((x) => `<span class="f-${x}" title="${x === "S" ? "Sieg" : x === "N" ? "Niederlage" : "Unentschieden"}">${x}</span>`).join("")}</span>` : "–";
 
+// Saisonstatistik aus den Boxscores (Feld "scorer" je Spiel): Spiele, Punkte, Schnitt, Bestwert
+function saisonStatistik(d, vereinId) {
+  const st = {};
+  d.gespielt.filter((s) => s.heim === vereinId || s.gast === vereinId).forEach((s) => (s.scorer || []).forEach((x) => {
+    const sp = d.spielerById(x.spieler);
+    if (sp?.verein !== vereinId) return;
+    const z = (st[x.spieler] = st[x.spieler] || { id: x.spieler, spiele: 0, punkte: 0, best: 0 });
+    z.spiele++; z.punkte += x.punkte; z.best = Math.max(z.best, x.punkte);
+  }));
+  const zeilen = Object.values(st).map((z) => ({ ...z, schnitt: z.punkte / z.spiele })).sort((a, b) => b.schnitt - a.schnitt);
+  if (!zeilen.length) return "";
+  const komma = (n) => n.toFixed(1).replace(".", ",");
+  return `
+    <section class="abschnitt">
+      <div class="abschnitt-kopf"><h2>Saisonstatistik</h2><span class="leise">Punkte pro Spiel</span></div>
+      <div class="karte tabelle-wrap"><table>
+        <thead><tr><th></th><th>Spieler</th><th class="zahl">Spiele</th><th class="zahl">Punkte</th><th class="zahl">Bestwert</th><th class="zahl">Schnitt</th></tr></thead>
+        <tbody>${zeilen.map((z, i) => `
+          <tr>
+            <td class="platz">${i + 1}</td>
+            <td><a href="spieler.html?id=${z.id}">${esc(d.spielerById(z.id)?.name)}</a></td>
+            <td class="zahl">${z.spiele}</td><td class="zahl">${z.punkte}</td><td class="zahl">${z.best}</td>
+            <td class="zahl punkte">${komma(z.schnitt)}</td>
+          </tr>`).join("")}
+        </tbody>
+      </table></div>
+    </section>`;
+}
+
 function bilanzKarte(d, ligaId) {
   const l = d.liga(ligaId), b = bilanz(d, ligaId), t = d.verein(l.team);
   return `
@@ -802,6 +831,7 @@ const seiten = {
           ${teamModus && !unserTeam ? "" : `<div class="karte" style="margin-top:24px">${foto({ titel: "Mannschaftsfoto" })}</div>`}
         </aside>
       </div>
+      ${unserTeam ? saisonStatistik(d, v.id) : ""}
       ${teamModus && !unserTeam ? "" : kaderHtml(d, v)}
       ${gals.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>Bilder</h2><a href="galerien.html">Alle Galerien</a></div><div class="raster vier">${gals.map(galerieKarte).join("")}</div></section>` : ""}`;
   },
