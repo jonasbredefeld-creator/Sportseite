@@ -901,7 +901,7 @@ const seiten = {
             ${w.von
               ? `<a class="verein-von" href="verein.html?id=${w.von}"><span class="lang">${esc(d.verein(w.von)?.name)}</span><span class="kurz">${esc(d.verein(w.von)?.kurz)}</span>${wappen(d.verein(w.von))}</a>`
               : `<span class="verein-von leise"><span>neu</span></span>`}
-            <span class="pfeil-rechts" aria-label="wechselt zu">→</span>
+            <span class="pfeil-rechts" role="img" aria-label="wechselt zu"><svg viewBox="0 0 36 12" width="36" height="12" aria-hidden="true"><path d="M1 6h32M28 1.5 33.5 6 28 10.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             <a class="ziel" href="verein.html?id=${w.zu}">${wappen(d.verein(w.zu))}<span class="lang">${esc(d.verein(w.zu)?.name)}</span><span class="kurz">${esc(d.verein(w.zu)?.kurz)}</span></a>
           </div>
           <div class="rechts">

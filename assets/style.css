@@ -491,7 +491,7 @@ td a:hover { color: var(--blau); }
 .wechsel-tabelle { padding: 0; }
 .wechsel-zeile {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 280px 24px 280px 120px;
+  grid-template-columns: minmax(0, 1fr) 280px 44px 280px 120px;
   gap: 16px;
   align-items: center;
   padding: 14px 22px;
@@ -505,7 +505,8 @@ td a:hover { color: var(--blau); }
 .wechsel-zeile .verein-von { color: var(--leise); justify-content: flex-end; text-align: right; }
 .wechsel-zeile .ziel { font-weight: 600; color: var(--tinte); }
 .wechsel-zeile .vereine a:hover span { color: var(--blau); }
-.wechsel-zeile .pfeil-rechts { color: var(--rot); font-weight: 600; text-align: center; }
+.wechsel-zeile .pfeil-rechts { color: var(--rot); display: flex; justify-content: center; }
+.wechsel-zeile .pfeil-rechts svg { display: block; }
 .wechsel-zeile .rechts { text-align: right; white-space: nowrap; }
 .wappen {
   flex: none; width: 40px; height: 40px; border-radius: 50%;
@@ -520,14 +521,15 @@ img.wappen { background: none; border-radius: 0; }
 .monat { font-size: 15px; color: var(--leise); font-weight: 600; padding: 22px 22px 8px; border-top: 1px solid var(--linie); }
 .monat:first-child { border-top: 0; padding-top: 18px; }
 @media (max-width: 1100px) {
-  .wechsel-zeile { grid-template-columns: minmax(0, 1fr) 210px 28px 210px 110px; }
+  .wechsel-zeile { grid-template-columns: minmax(0, 1fr) 210px 44px 210px 110px; }
 }
 @media (max-width: 760px) {
   .wechsel-zeile { grid-template-columns: 1fr auto; gap: 10px 14px; padding: 14px 16px; }
   .wechsel-zeile .rechts { width: auto; }
-  .wechsel-zeile .vereine { display: grid; grid-template-columns: minmax(0, 1fr) 20px minmax(0, 1fr); align-items: center; grid-column: 1 / -1; grid-row: 2; gap: 8px; font-size: 15px; }
+  .wechsel-zeile .vereine { display: grid; grid-template-columns: minmax(0, 1fr) 36px minmax(0, 1fr); align-items: center; grid-column: 1 / -1; grid-row: 2; gap: 10px; font-size: 15px; }
   .wechsel-zeile .rechts { grid-column: 2; grid-row: 1; align-self: start; }
   .wappen { width: 32px; height: 32px; font-size: 11px; }
+  .wechsel-zeile .pfeil-rechts svg { width: 30px; }
   .wechsel-zeile .lang { display: none; }
   .wechsel-zeile .kurz { display: inline; }
   .wechsel-zeile .verein-von > span:only-child { padding-right: 42px; }
