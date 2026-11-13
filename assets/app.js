@@ -893,10 +893,10 @@ const seiten = {
     const teamModus = !!l?.team, unserTeam = l?.team === v.id;
     const z = teamModus ? null : teamZahlen(d, v.liga, v.id);
 
-    // Spiele: nächstes Spiel und die letzten fünf sichtbar, der Rest hinter einem Knopf
+    // Spiele: nächstes Spiel oben, darunter die letzten drei, der Rest, der Rest hinter einem Knopf
     const offen = spiele.filter((s) => !Number.isInteger(s.toreHeim)).reverse();
     const gespielt = spiele.filter((s) => Number.isInteger(s.toreHeim));
-    const sichtbar = new Set([...offen.slice(0, 1), ...gespielt.slice(0, 5)]);
+    const sichtbar = new Set([...offen.slice(0, 1), ...gespielt.slice(0, 3)]);
     const spielListe = `
       <div class="karte">
         <div class="spiel-liste">
