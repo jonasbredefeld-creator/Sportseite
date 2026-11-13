@@ -392,6 +392,9 @@ function teamTabelle(d, l) {
     </section>`;
 }
 
+// Gegnername für enge Beschriftungen: Ort aus dem Kurznamen, ohne Zusätze
+const ortKurz = (v) => { const k = (v?.kurz || v?.name || "").replace(/\s+(I{1,3}|\d)$/, ""); return k.length > 13 ? k.split(/[\/ ]/)[0] : k; };
+
 // Tabellenplatz nach jedem der letzten sechs Spieltage (1 oben), als Linie
 function platzVerlauf(d, ligaId, vid) {
   const spiele = d.gespielt.filter((s) => s.liga === ligaId && s.spieltag && (s.heim === vid || s.gast === vid))
@@ -399,7 +402,7 @@ function platzVerlauf(d, ligaId, vid) {
   if (spiele.length < 2) return "";
   const teams = d.vereine.filter((v) => v.liga === ligaId).length;
   const punkte = spiele.map((s) => ({ s, platz: tabelle(d, ligaId, "gesamt", s.spieltag).findIndex((r) => r.id === vid) + 1 }));
-  const W = 640, H = 230, li = 36, re = 18, ob = 26, un = 52, innen = 40;
+  const W = 640, H = 250, li = 36, re = 18, ob = 26, un = 72, innen = 40;
   const xPos = (i) => li + innen + (i * (W - li - re - 2 * innen)) / (punkte.length - 1);
   const yPos = (p) => ob + ((p - 1) / Math.max(1, teams - 1)) * (H - ob - un);
   const marken = [1, Math.ceil(teams / 2), teams];
@@ -419,8 +422,9 @@ function platzVerlauf(d, ligaId, vid) {
             <rect x="${xPos(i) - 24}" y="${ob - 14}" width="48" height="${H - ob - un + 28}" fill="transparent"/>
             <circle cx="${xPos(i)}" cy="${yPos(platz)}" r="5"/>
             <text x="${xPos(i)}" y="${yPos(platz) - 12}" class="pv-wert" text-anchor="middle">${platz}.</text>
-            <text x="${xPos(i)}" y="${H - un + 20}" class="pv-achse" text-anchor="middle">${s.spieltag}. ST</text>
-            <text x="${xPos(i)}" y="${H - un + 38}" class="pv-achse pv-ergebnis pv-${e.art}" text-anchor="middle">${e.text} ${esc(e.gegner?.kuerzel || (e.gegner?.kurz || "").slice(0, 3).toUpperCase())}</text>
+            <text x="${xPos(i)}" y="${H - un + 20}" class="pv-achse" text-anchor="middle"><tspan class="pv-lang">${s.spieltag}. Spieltag</tspan><tspan class="pv-kurz">${s.spieltag}.</tspan></text>
+            <text x="${xPos(i)}" y="${H - un + 39}" class="pv-achse pv-ergebnis pv-${e.art}" text-anchor="middle">${e.text}</text>
+            <text x="${xPos(i)}" y="${H - un + 57}" class="pv-achse pv-gegner" text-anchor="middle"><tspan class="pv-lang">${esc(ortKurz(e.gegner))}</tspan><tspan class="pv-kurz">${esc(ortKurz(e.gegner).slice(0, 3).toUpperCase())}</tspan></text>
           </a>`; }).join("")}
       </svg>
     </figure>`;
@@ -949,8 +953,10 @@ const seiten = {
           <div><strong>${z.zeile.tore ?? 0}:${z.zeile.gegen ?? 0}</strong><span>Tore</span></div>
         </div>
         <div class="bilanz-zeile"><span>Bilanz</span><span>${z.zeile.s ?? 0} S, ${z.zeile.u ?? 0} U, ${z.zeile.n ?? 0} N</span></div>
+        ${["heim", "auswaerts"].map((art) => { const r = tabelle(d, l.id, art).find((x) => x.id === v.id) || {}; const pl = tabelle(d, l.id, art).findIndex((x) => x.id === v.id) + 1;
+          return `<div class="bilanz-zeile"><span>${art === "heim" ? "Heim" : "Auswärts"}</span><span>${r.s ?? 0} S, ${r.u ?? 0} U, ${r.n ?? 0} N, ${r.pkt ?? 0} Pkt.${pl ? ` (${pl}.)` : ""}</span></div>`; }).join("")}
         <div class="bilanz-zeile"><span>Form</span>${formPunkte(z.form)}</div>
-        <p style="margin:14px 0 0"><a class="link" href="liga.html?id=${l.id}">Zur Tabelle</a></p>
+        <p class="bilanz-link"><a class="link" href="liga.html?id=${l.id}">Zur Tabelle</a></p>
       </div>`;
 
     return `
@@ -959,12 +965,11 @@ const seiten = {
         <h1>${esc(v.name)}</h1>
         ${v.ort ? `<p>${esc(v.ort)}</p>` : ""}
       </div>
-      <div class="zwei">
+      <div class="zwei${teamModus ? "" : " team-oben"}">
         <div>
           <div class="abschnitt-kopf"><h2>Spiele</h2></div>
           ${spielListe}
           ${teamModus ? "" : platzVerlauf(d, v.liga, v.id)}
-          ${news.length ? `<div class="abschnitt"><div class="abschnitt-kopf"><h2>News</h2></div><div class="raster">${news.slice(0, 3).map(berichtKarte).join("")}</div></div>` : ""}
         </div>
         <aside>
           <div class="abschnitt-kopf aside-platz" aria-hidden="true"><h2>&nbsp;</h2></div>
@@ -972,9 +977,14 @@ const seiten = {
           ${infoKarte}
         </aside>
       </div>
+      ${(() => {
+        // News und Galerien zum Team gemeinsam, neueste zuerst
+        const beitraege = [...news.map((b) => ({ datum: b.datum, html: berichtKarte(b) })), ...gals.map((g) => ({ datum: g.datum, html: galerieKarte(g) }))]
+          .sort((a, b) => b.datum.localeCompare(a.datum));
+        return beitraege.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>News und Bilder</h2></div><div class="raster vier">${beitraege.slice(0, 8).map((x) => x.html).join("")}</div></section>` : "";
+      })()}
       ${unserTeam ? `<div class="zwei-gleich team-zahlen">${saisonStatistik(d, v.id)}${teamTabelle(d, l)}</div>` : ""}
-      ${teamModus && !unserTeam ? "" : kaderHtml(d, v)}
-      ${gals.length ? `<section class="abschnitt"><div class="abschnitt-kopf"><h2>Bilder</h2><a href="galerien.html">Alle Galerien</a></div><div class="raster vier">${gals.map(galerieKarte).join("")}</div></section>` : ""}`;
+      ${teamModus && !unserTeam ? "" : kaderHtml(d, v)}`;
   },
 
   spieler(d) {

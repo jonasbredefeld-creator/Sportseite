@@ -838,3 +838,12 @@ tr.eigenes-team td { background: var(--blau-hell); font-weight: 600; }
 /* Wappen in der Suche */
 .wappen.such { width: 32px; height: 32px; font-size: 11px; flex: none; }
 img.wappen.such { width: 32px; height: 32px; object-fit: contain; }
+/* Teamseite oben: beide Spalten enden auf gleicher Höhe */
+.team-oben { align-items: stretch; }
+.team-oben > div, .team-oben > aside { display: flex; flex-direction: column; }
+.team-oben > div > .karte:last-child, .team-oben > aside > .karte:last-child { flex: 1; }
+.team-oben .platz-verlauf { display: flex; flex-direction: column; justify-content: center; margin-bottom: 0; }
+.pv-kurz { display: none; }
+@media (max-width: 560px) { .pv-lang { display: none; } .pv-kurz { display: inline; } }
+.team-oben .bilanz { display: flex; flex-direction: column; }
+.bilanz-link { margin: auto 0 0; padding-top: 14px; }
