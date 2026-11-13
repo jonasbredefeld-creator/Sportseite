@@ -683,3 +683,4 @@ img.wappen { background: none; border-radius: 0; }
   .tabelle-wrap td.platz { width: 28px; font-size: 17px; }
   .tab-verein { max-width: 130px; overflow: hidden; text-overflow: ellipsis; }
 }
+.liste .leer-platz { color: var(--leise); }

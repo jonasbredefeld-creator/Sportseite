@@ -12,7 +12,7 @@
   "tore": [
    {
     "min": 65,
-    "spieler": null,
+    "spieler": "robin-schlegel",
     "verein": "tsv-neu-ulm"
    }
   ]
@@ -30,22 +30,22 @@
   "tore": [
    {
     "min": 6,
-    "spieler": null,
+    "spieler": "philipp-buck",
     "verein": "ssv-ehingen-sued"
    },
    {
     "min": 40,
-    "spieler": null,
+    "spieler": "philipp-buck",
     "verein": "ssv-ehingen-sued"
    },
    {
     "min": 52,
-    "spieler": null,
+    "spieler": "benedikt-speh",
     "verein": "fv-olympia-laupheim"
    },
    {
     "min": 55,
-    "spieler": null,
+    "spieler": "philipp-buck",
     "verein": "ssv-ehingen-sued"
    }
   ]
@@ -63,27 +63,27 @@
   "tore": [
    {
     "min": 14,
-    "spieler": null,
+    "spieler": "fabian-ruess",
     "verein": "tsv-buch"
    },
    {
     "min": 18,
-    "spieler": null,
+    "spieler": "marcel-buck",
     "verein": "tsv-buch"
    },
    {
     "min": 28,
-    "spieler": null,
+    "spieler": "marcel-buck",
     "verein": "tsv-buch"
    },
    {
     "min": 51,
-    "spieler": null,
+    "spieler": "tim-haug",
     "verein": "sc-tuerkguecue-ulm"
    },
    {
     "min": 83,
-    "spieler": null,
+    "spieler": "nico-kloos",
     "verein": "sc-tuerkguecue-ulm"
    }
   ]
@@ -101,7 +101,7 @@
   "tore": [
    {
     "min": 22,
-    "spieler": null,
+    "spieler": "pascal-bendel",
     "verein": "fc-blaubeuren"
    },
    {
@@ -124,12 +124,12 @@
   "tore": [
    {
     "min": 19,
-    "spieler": null,
+    "spieler": "felix-uhl",
     "verein": "fc-wangen"
    },
    {
     "min": 28,
-    "spieler": null,
+    "spieler": "felix-uhl",
     "verein": "fc-wangen"
    },
    {
@@ -188,7 +188,7 @@
   "tore": [
    {
     "min": 13,
-    "spieler": null,
+    "spieler": "simon-pfister",
     "verein": "tsv-heimenkirch"
    },
    {
@@ -198,7 +198,7 @@
    },
    {
     "min": 73,
-    "spieler": null,
+    "spieler": "simon-pfister",
     "verein": "tsv-heimenkirch"
    },
    {
@@ -224,12 +224,12 @@
   "tore": [
    {
     "min": 29,
-    "spieler": null,
+    "spieler": "fabian-wetzel",
     "verein": "ssg-ulm"
    },
    {
     "min": 69,
-    "spieler": null,
+    "spieler": "dennis-schmid",
     "verein": "tsv-eschach"
    }
   ]
@@ -288,22 +288,22 @@
   "tore": [
    {
     "min": 27,
-    "spieler": null,
+    "spieler": "felix-uhl",
     "verein": "fc-wangen"
    },
    {
     "min": 56,
-    "spieler": null,
+    "spieler": "nico-schmid",
     "verein": "sv-mietingen"
    },
    {
     "min": 61,
-    "spieler": null,
+    "spieler": "felix-uhl",
     "verein": "fc-wangen"
    },
    {
     "min": 84,
-    "spieler": null,
+    "spieler": "felix-uhl",
     "verein": "fc-wangen"
    }
   ]
@@ -339,7 +339,7 @@
   "tore": [
    {
     "min": 49,
-    "spieler": null,
+    "spieler": "marco-bendel",
     "verein": "fc-blaubeuren"
    },
    {
@@ -349,7 +349,7 @@
    },
    {
     "min": 80,
-    "spieler": null,
+    "spieler": "fabian-fink",
     "verein": "ssv-ehingen-sued"
    }
   ]
@@ -372,17 +372,17 @@
    },
    {
     "min": 18,
-    "spieler": null,
+    "spieler": "benedikt-speh",
     "verein": "fv-olympia-laupheim"
    },
    {
     "min": 35,
-    "spieler": null,
+    "spieler": "dennis-schmid",
     "verein": "tsv-eschach"
    },
    {
     "min": 51,
-    "spieler": null,
+    "spieler": "benedikt-speh",
     "verein": "fv-olympia-laupheim"
    }
   ]
@@ -400,7 +400,7 @@
   "tore": [
    {
     "min": 72,
-    "spieler": null,
+    "spieler": "robin-schlegel",
     "verein": "tsv-neu-ulm"
    }
   ],
@@ -421,17 +421,17 @@
   "tore": [
    {
     "min": 5,
-    "spieler": null,
+    "spieler": "adrian-bendel",
     "verein": "sv-reinstetten"
    },
    {
     "min": 30,
-    "spieler": null,
+    "spieler": "benedikt-stumpp",
     "verein": "fv-rot-weiss-weiler"
    },
    {
     "min": 31,
-    "spieler": null,
+    "spieler": "adrian-bendel",
     "verein": "sv-reinstetten"
    }
   ]
@@ -449,7 +449,7 @@
   "tore": [
    {
     "min": 3,
-    "spieler": null,
+    "spieler": "stefan-kloos",
     "verein": "ssg-ulm"
    },
    {
@@ -459,7 +459,7 @@
    },
    {
     "min": 47,
-    "spieler": null,
+    "spieler": "fabian-wetzel",
     "verein": "ssg-ulm"
    }
   ]
@@ -576,7 +576,7 @@
   "tore": [
    {
     "min": 9,
-    "spieler": null,
+    "spieler": "tim-stumpp",
     "verein": "fv-bad-schussenried"
    },
    {
@@ -591,17 +591,17 @@
    },
    {
     "min": 41,
-    "spieler": null,
+    "spieler": "tim-stumpp",
     "verein": "fv-bad-schussenried"
    },
    {
     "min": 69,
-    "spieler": null,
+    "spieler": "tim-stumpp",
     "verein": "fv-bad-schussenried"
    },
    {
     "min": 72,
-    "spieler": null,
+    "spieler": "tim-stumpp",
     "verein": "fv-bad-schussenried"
    }
   ],
@@ -627,7 +627,7 @@
    },
    {
     "min": 34,
-    "spieler": null,
+    "spieler": "sven-dangel",
     "verein": "sgm-aepfingen-baltringen"
    },
    {
@@ -637,7 +637,7 @@
    },
    {
     "min": 77,
-    "spieler": null,
+    "spieler": "daniel-fink",
     "verein": "tsv-kirchberg-iller"
    }
   ]
@@ -665,7 +665,7 @@
    },
    {
     "min": 51,
-    "spieler": null,
+    "spieler": "leon-haug",
     "verein": "sv-baustetten"
    },
    {
@@ -691,7 +691,7 @@
   "tore": [
    {
     "min": 36,
-    "spieler": null,
+    "spieler": "tim-dangel",
     "verein": "sgm-ringschnait-mittelbuch-i"
    },
    {
@@ -769,12 +769,12 @@
   "tore": [
    {
     "min": 22,
-    "spieler": null,
+    "spieler": "benedikt-sigg",
     "verein": "sgm-gutenzell-schoenebuerg"
    },
    {
     "min": 46,
-    "spieler": null,
+    "spieler": "alexander-speh",
     "verein": "sgm-muttensweiler-hochdorf"
    },
    {
@@ -784,12 +784,12 @@
    },
    {
     "min": 66,
-    "spieler": null,
+    "spieler": "simon-rauch",
     "verein": "sgm-muttensweiler-hochdorf"
    },
    {
     "min": 90,
-    "spieler": null,
+    "spieler": "benedikt-sigg",
     "verein": "sgm-gutenzell-schoenebuerg"
    }
   ]
@@ -904,17 +904,17 @@
   "tore": [
    {
     "min": 3,
-    "spieler": null,
+    "spieler": "tim-dangel",
     "verein": "sgm-ringschnait-mittelbuch-i"
    },
    {
     "min": 30,
-    "spieler": null,
+    "spieler": "tim-dangel",
     "verein": "sgm-ringschnait-mittelbuch-i"
    },
    {
     "min": 85,
-    "spieler": null,
+    "spieler": "fabian-uhl",
     "verein": "sv-sulmetingen"
    }
   ]
@@ -944,12 +944,12 @@
   "tore": [
    {
     "min": 43,
-    "spieler": null,
+    "spieler": "alexander-speh",
     "verein": "sgm-muttensweiler-hochdorf"
    },
    {
     "min": 67,
-    "spieler": null,
+    "spieler": "simon-rauch",
     "verein": "sgm-muttensweiler-hochdorf"
    }
   ]
@@ -967,12 +967,12 @@
   "tore": [
    {
     "min": 12,
-    "spieler": null,
+    "spieler": "sven-brugger",
     "verein": "spfr-hundersingen"
    },
    {
     "min": 17,
-    "spieler": null,
+    "spieler": "tim-uhl",
     "verein": "tsv-kirchberg-iller"
    },
    {
@@ -982,7 +982,7 @@
    },
    {
     "min": 89,
-    "spieler": null,
+    "spieler": "tim-uhl",
     "verein": "tsv-kirchberg-iller"
    }
   ]
@@ -1000,17 +1000,17 @@
   "tore": [
    {
     "min": 49,
-    "spieler": null,
+    "spieler": "adrian-ruess",
     "verein": "fc-1911-krauchenwies-hausen-a-a-goeggingen-i"
    },
    {
     "min": 62,
-    "spieler": null,
+    "spieler": "sven-dangel",
     "verein": "sgm-aepfingen-baltringen"
    },
    {
     "min": 83,
-    "spieler": null,
+    "spieler": "benedikt-straub",
     "verein": "fc-1911-krauchenwies-hausen-a-a-goeggingen-i"
    }
   ]
@@ -1180,7 +1180,7 @@
    },
    {
     "min": 64,
-    "spieler": null,
+    "spieler": "adrian-haug",
     "verein": "sgm-sv-bronnen-tsv-neufra"
    }
   ],
@@ -1206,7 +1206,7 @@
    },
    {
     "min": 90,
-    "spieler": null,
+    "spieler": "stefan-eisele",
     "verein": "fv-altheim"
    }
   ],
@@ -1227,7 +1227,7 @@
   "tore": [
    {
     "min": 49,
-    "spieler": null,
+    "spieler": "matthias-volk",
     "verein": "tsv-maegerkingen"
    },
    {
@@ -1237,12 +1237,12 @@
    },
    {
     "min": 72,
-    "spieler": null,
+    "spieler": "daniel-hepp",
     "verein": "sg-hettingen-inneringen"
    },
    {
     "min": 82,
-    "spieler": null,
+    "spieler": "matthias-volk",
     "verein": "tsv-maegerkingen"
    }
   ]
@@ -1260,27 +1260,27 @@
   "tore": [
    {
     "min": 24,
-    "spieler": null,
+    "spieler": "benedikt-schlegel",
     "verein": "sgm-sv-bolstern-sv-hochberg-i"
    },
    {
     "min": 26,
-    "spieler": null,
+    "spieler": "philipp-ott",
     "verein": "sv-langenenslingen"
    },
    {
     "min": 51,
-    "spieler": null,
+    "spieler": "benedikt-schlegel",
     "verein": "sgm-sv-bolstern-sv-hochberg-i"
    },
    {
     "min": 83,
-    "spieler": null,
+    "spieler": "lukas-bendel",
     "verein": "sv-langenenslingen"
    },
    {
     "min": 85,
-    "spieler": null,
+    "spieler": "philipp-ott",
     "verein": "sv-langenenslingen"
    }
   ]
@@ -1298,12 +1298,12 @@
   "tore": [
    {
     "min": 5,
-    "spieler": null,
+    "spieler": "tim-fink",
     "verein": "sgm-tsv-gammertingen-sg-kfh-kettenacker"
    },
    {
     "min": 40,
-    "spieler": null,
+    "spieler": "marco-brugger",
     "verein": "sgm-tsv-gammertingen-sg-kfh-kettenacker"
    },
    {
@@ -1313,7 +1313,7 @@
    },
    {
     "min": 70,
-    "spieler": null,
+    "spieler": "nico-uhl",
     "verein": "fc-mengen-ii"
    },
    {
@@ -1336,12 +1336,12 @@
   "tore": [
    {
     "min": 60,
-    "spieler": null,
+    "spieler": "stefan-uhl",
     "verein": "sgm-altshausen-ebenweiler-i"
    },
    {
     "min": 83,
-    "spieler": null,
+    "spieler": "yannick-goeggel",
     "verein": "sgm-altshausen-ebenweiler-i"
    }
   ]
@@ -1428,12 +1428,12 @@
   "tore": [
    {
     "min": 7,
-    "spieler": null,
+    "spieler": "nico-uhl",
     "verein": "fc-mengen-ii"
    },
    {
     "min": 67,
-    "spieler": null,
+    "spieler": "yannick-goeggel",
     "verein": "sgm-altshausen-ebenweiler-i"
    }
   ]
@@ -1451,27 +1451,27 @@
   "tore": [
    {
     "min": 16,
-    "spieler": null,
+    "spieler": "philipp-loeffler",
     "verein": "sgm-sc-bloenried-sv-ebersbach"
    },
    {
     "min": 32,
-    "spieler": null,
+    "spieler": "stefan-eisele",
     "verein": "fv-altheim"
    },
    {
     "min": 41,
-    "spieler": null,
+    "spieler": "marco-speh",
     "verein": "fv-altheim"
    },
    {
     "min": 42,
-    "spieler": null,
+    "spieler": "stefan-eisele",
     "verein": "fv-altheim"
    },
    {
     "min": 71,
-    "spieler": null,
+    "spieler": "philipp-loeffler",
     "verein": "sgm-sc-bloenried-sv-ebersbach"
    }
   ]
@@ -1489,7 +1489,7 @@
   "tore": [
    {
     "min": 47,
-    "spieler": null,
+    "spieler": "marco-brugger",
     "verein": "sgm-tsv-gammertingen-sg-kfh-kettenacker"
    }
   ]
@@ -1507,12 +1507,12 @@
   "tore": [
    {
     "min": 13,
-    "spieler": null,
+    "spieler": "lukas-bendel",
     "verein": "sv-langenenslingen"
    },
    {
     "min": 49,
-    "spieler": null,
+    "spieler": "daniel-hepp",
     "verein": "sg-hettingen-inneringen"
    },
    {
@@ -1522,12 +1522,12 @@
    },
    {
     "min": 70,
-    "spieler": null,
+    "spieler": "daniel-hepp",
     "verein": "sg-hettingen-inneringen"
    },
    {
     "min": 77,
-    "spieler": null,
+    "spieler": "philipp-ott",
     "verein": "sv-langenenslingen"
    }
   ]
@@ -1545,27 +1545,27 @@
   "tore": [
    {
     "min": 17,
-    "spieler": null,
+    "spieler": "adrian-haug",
     "verein": "sgm-sv-bronnen-tsv-neufra"
    },
    {
     "min": 22,
-    "spieler": null,
+    "spieler": "matthias-volk",
     "verein": "tsv-maegerkingen"
    },
    {
     "min": 28,
-    "spieler": null,
+    "spieler": "adrian-haug",
     "verein": "sgm-sv-bronnen-tsv-neufra"
    },
    {
     "min": 57,
-    "spieler": null,
+    "spieler": "matthias-fink",
     "verein": "sgm-sv-bronnen-tsv-neufra"
    },
    {
     "min": 68,
-    "spieler": null,
+    "spieler": "adrian-haug",
     "verein": "sgm-sv-bronnen-tsv-neufra"
    },
    {
@@ -1651,7 +1651,7 @@
   "tore": [
    {
     "min": 10,
-    "spieler": null,
+    "spieler": "dennis-kloos",
     "verein": "tsv-sigmaringendorf-ii"
    },
    {
@@ -1661,12 +1661,12 @@
    },
    {
     "min": 18,
-    "spieler": null,
+    "spieler": "lukas-hepp",
     "verein": "sgm-fv-weithart-tsv-rulfingen"
    },
    {
     "min": 44,
-    "spieler": null,
+    "spieler": "moritz-wetzel",
     "verein": "tsv-sigmaringendorf-ii"
    },
    {
@@ -1676,7 +1676,7 @@
    },
    {
     "min": 73,
-    "spieler": null,
+    "spieler": "lukas-hepp",
     "verein": "sgm-fv-weithart-tsv-rulfingen"
    }
   ]
@@ -1694,17 +1694,17 @@
   "tore": [
    {
     "min": 20,
-    "spieler": null,
+    "spieler": "nico-haug",
     "verein": "sv-bingen-hitzkofen"
    },
    {
     "min": 46,
-    "spieler": null,
+    "spieler": "nico-haug",
     "verein": "sv-bingen-hitzkofen"
    },
    {
     "min": 54,
-    "spieler": null,
+    "spieler": "philipp-brugger",
     "verein": "sgm-altshausen-ebenweiler-ii"
    }
   ]
@@ -1722,17 +1722,17 @@
   "tore": [
    {
     "min": 5,
-    "spieler": null,
+    "spieler": "stefan-mauch",
     "verein": "sgm-fv-altheim-ii-sv-langenenslingen-ii"
    },
    {
     "min": 11,
-    "spieler": null,
+    "spieler": "stefan-mauch",
     "verein": "sgm-fv-altheim-ii-sv-langenenslingen-ii"
    },
    {
     "min": 40,
-    "spieler": null,
+    "spieler": "stefan-mauch",
     "verein": "sgm-fv-altheim-ii-sv-langenenslingen-ii"
    },
    {
@@ -1742,7 +1742,7 @@
    },
    {
     "min": 90,
-    "spieler": null,
+    "spieler": "stefan-mauch",
     "verein": "sgm-fv-altheim-ii-sv-langenenslingen-ii"
    }
   ]
@@ -1765,17 +1765,17 @@
    },
    {
     "min": 43,
-    "spieler": null,
+    "spieler": "simon-gnann",
     "verein": "sgm-sv-schmeien-i-sv-sigmaringen-ii"
    },
    {
     "min": 51,
-    "spieler": null,
+    "spieler": "alexander-dangel",
     "verein": "sgm-sv-bronnen-tsv-neufra-ii"
    },
    {
     "min": 75,
-    "spieler": null,
+    "spieler": "matthias-kuhn",
     "verein": "sgm-sv-bronnen-tsv-neufra-ii"
    }
   ]
@@ -1793,7 +1793,7 @@
   "tore": [
    {
     "min": 86,
-    "spieler": null,
+    "spieler": "marco-schmid",
     "verein": "sgm-tsv-scheer-sv-ennetach"
    }
   ]
@@ -1811,12 +1811,12 @@
   "tore": [
    {
     "min": 36,
-    "spieler": null,
+    "spieler": "yannick-gnann",
     "verein": "sgm-sc-bloenried-ii-sv-ebersbach-ii"
    },
    {
     "min": 65,
-    "spieler": null,
+    "spieler": "yannick-gnann",
     "verein": "sgm-sc-bloenried-ii-sv-ebersbach-ii"
    },
    {
@@ -1839,7 +1839,7 @@
   "tore": [
    {
     "min": 14,
-    "spieler": null,
+    "spieler": "simon-wetzel",
     "verein": "sgm-sv-bolstern-sv-hochberg-ii-flex"
    },
    {
@@ -1849,22 +1849,22 @@
    },
    {
     "min": 57,
-    "spieler": null,
+    "spieler": "simon-speh",
     "verein": "sgm-fc-blochingen-i-fc-mengen-iii"
    },
    {
     "min": 58,
-    "spieler": null,
+    "spieler": "simon-wetzel",
     "verein": "sgm-sv-bolstern-sv-hochberg-ii-flex"
    },
    {
     "min": 65,
-    "spieler": null,
+    "spieler": "dennis-buck",
     "verein": "sgm-sv-bolstern-sv-hochberg-ii-flex"
    },
    {
     "min": 84,
-    "spieler": null,
+    "spieler": "dennis-buck",
     "verein": "sgm-sv-bolstern-sv-hochberg-ii-flex"
    }
   ]
@@ -1882,17 +1882,17 @@
   "tore": [
    {
     "min": 52,
-    "spieler": null,
+    "spieler": "alexander-dangel",
     "verein": "sgm-sv-bronnen-tsv-neufra-ii"
    },
    {
     "min": 65,
-    "spieler": null,
+    "spieler": "alexander-dangel",
     "verein": "sgm-sv-bronnen-tsv-neufra-ii"
    },
    {
     "min": 89,
-    "spieler": null,
+    "spieler": "philipp-brugger",
     "verein": "sgm-altshausen-ebenweiler-ii"
    }
   ]
@@ -1910,12 +1910,12 @@
   "tore": [
    {
     "min": 49,
-    "spieler": null,
+    "spieler": "robin-buck",
     "verein": "sgm-tsv-scheer-sv-ennetach"
    },
    {
     "min": 64,
-    "spieler": null,
+    "spieler": "benedikt-rieger",
     "verein": "sgm-fc-99-fc-laiz-ii"
    }
   ]
@@ -1933,12 +1933,12 @@
   "tore": [
    {
     "min": 49,
-    "spieler": null,
+    "spieler": "moritz-wetzel",
     "verein": "tsv-sigmaringendorf-ii"
    },
    {
     "min": 58,
-    "spieler": null,
+    "spieler": "moritz-wetzel",
     "verein": "tsv-sigmaringendorf-ii"
    },
    {
@@ -1961,27 +1961,27 @@
   "tore": [
    {
     "min": 14,
-    "spieler": null,
+    "spieler": "dennis-buck",
     "verein": "sgm-sv-bolstern-sv-hochberg-ii-flex"
    },
    {
     "min": 27,
-    "spieler": null,
+    "spieler": "lukas-hepp",
     "verein": "sgm-fv-weithart-tsv-rulfingen"
    },
    {
     "min": 47,
-    "spieler": null,
+    "spieler": "marcel-schmid",
     "verein": "sgm-fv-weithart-tsv-rulfingen"
    },
    {
     "min": 80,
-    "spieler": null,
+    "spieler": "simon-wetzel",
     "verein": "sgm-sv-bolstern-sv-hochberg-ii-flex"
    },
    {
     "min": 84,
-    "spieler": null,
+    "spieler": "lukas-hepp",
     "verein": "sgm-fv-weithart-tsv-rulfingen"
    }
   ]
@@ -2004,17 +2004,17 @@
    },
    {
     "min": 29,
-    "spieler": null,
+    "spieler": "simon-gnann",
     "verein": "sgm-sv-schmeien-i-sv-sigmaringen-ii"
    },
    {
     "min": 31,
-    "spieler": null,
+    "spieler": "marco-pfister",
     "verein": "sgm-fv-veringenstadt-i-sg-hettingen-inneringen-ii"
    },
    {
     "min": 34,
-    "spieler": null,
+    "spieler": "simon-gnann",
     "verein": "sgm-sv-schmeien-i-sv-sigmaringen-ii"
    },
    {
@@ -2024,7 +2024,7 @@
    },
    {
     "min": 88,
-    "spieler": null,
+    "spieler": "marco-pfister",
     "verein": "sgm-fv-veringenstadt-i-sg-hettingen-inneringen-ii"
    }
   ]
@@ -2047,7 +2047,7 @@
    },
    {
     "min": 46,
-    "spieler": null,
+    "spieler": "jannik-ott",
     "verein": "sv-bingen-hitzkofen"
    }
   ]
@@ -2065,27 +2065,27 @@
   "tore": [
    {
     "min": 7,
-    "spieler": null,
+    "spieler": "simon-speh",
     "verein": "sgm-fc-blochingen-i-fc-mengen-iii"
    },
    {
     "min": 30,
-    "spieler": null,
+    "spieler": "alexander-schlegel",
     "verein": "sv-herbertingen-ii"
    },
    {
     "min": 34,
-    "spieler": null,
+    "spieler": "matthias-bendel",
     "verein": "sgm-fc-blochingen-i-fc-mengen-iii"
    },
    {
     "min": 47,
-    "spieler": null,
+    "spieler": "fabian-eisele",
     "verein": "sv-herbertingen-ii"
    },
    {
     "min": 83,
-    "spieler": null,
+    "spieler": "fabian-eisele",
     "verein": "sv-herbertingen-ii"
    }
   ]
@@ -2166,22 +2166,22 @@
   "tore": [
    {
     "min": 7,
-    "spieler": null,
+    "spieler": "manuel-hepp",
     "verein": "sgm-muttensweiler-hochdorf-ii"
    },
    {
     "min": 9,
-    "spieler": null,
+    "spieler": "manuel-hepp",
     "verein": "sgm-muttensweiler-hochdorf-ii"
    },
    {
     "min": 46,
-    "spieler": null,
+    "spieler": "manuel-hepp",
     "verein": "sgm-muttensweiler-hochdorf-ii"
    },
    {
     "min": 69,
-    "spieler": null,
+    "spieler": "daniel-rauch",
     "verein": "fc-1911-krauchenwies-hausen-a-a-goeggingen-ii"
    }
   ]
@@ -2199,7 +2199,7 @@
   "tore": [
    {
     "min": 33,
-    "spieler": null,
+    "spieler": "benedikt-hepp",
     "verein": "sgm-baltringen-aepfingen-ii"
    },
    {
@@ -2222,12 +2222,12 @@
   "tore": [
    {
     "min": 32,
-    "spieler": null,
+    "spieler": "moritz-stumpp",
     "verein": "sv-burgrieden-ii-flex"
    },
    {
     "min": 58,
-    "spieler": null,
+    "spieler": "felix-buck",
     "verein": "sc-tuerkiyemspor-saulgau-ii"
    }
   ]
@@ -2245,17 +2245,17 @@
   "tore": [
    {
     "min": 10,
-    "spieler": null,
+    "spieler": "adrian-kloos",
     "verein": "sgm-mittelbuch-ii-ringschnait-ii"
    },
    {
     "min": 66,
-    "spieler": null,
+    "spieler": "adrian-kloos",
     "verein": "sgm-mittelbuch-ii-ringschnait-ii"
    },
    {
     "min": 70,
-    "spieler": null,
+    "spieler": "moritz-kuhn",
     "verein": "sgm-gutenzell-schoenebuerg-ii"
    }
   ]
@@ -2273,12 +2273,12 @@
   "tore": [
    {
     "min": 51,
-    "spieler": null,
+    "spieler": "matthias-stumpp",
     "verein": "spfr-hundersingen-ii"
    },
    {
     "min": 72,
-    "spieler": null,
+    "spieler": "marcel-brugger",
     "verein": "sgm-fc-ostrach-ii-sv-hosskirch-i"
    },
    {
@@ -2288,7 +2288,7 @@
    },
    {
     "min": 84,
-    "spieler": null,
+    "spieler": "marcel-brugger",
     "verein": "sgm-fc-ostrach-ii-sv-hosskirch-i"
    }
   ]
@@ -2306,17 +2306,17 @@
   "tore": [
    {
     "min": 11,
-    "spieler": null,
+    "spieler": "marco-mauch",
     "verein": "sv-baustetten-ii-flex"
    },
    {
     "min": 27,
-    "spieler": null,
+    "spieler": "matthias-uhl",
     "verein": "sv-hohentengen-ii"
    },
    {
     "min": 74,
-    "spieler": null,
+    "spieler": "matthias-uhl",
     "verein": "sv-hohentengen-ii"
    }
   ]
@@ -2339,12 +2339,12 @@
    },
    {
     "min": 21,
-    "spieler": null,
+    "spieler": "felix-ott",
     "verein": "sgm-baltringen-aepfingen-ii"
    },
    {
     "min": 32,
-    "spieler": null,
+    "spieler": "felix-ott",
     "verein": "sgm-baltringen-aepfingen-ii"
    }
   ]
@@ -2362,17 +2362,17 @@
   "tore": [
    {
     "min": 25,
-    "spieler": null,
+    "spieler": "manuel-hepp",
     "verein": "sgm-muttensweiler-hochdorf-ii"
    },
    {
     "min": 37,
-    "spieler": null,
+    "spieler": "manuel-hepp",
     "verein": "sgm-muttensweiler-hochdorf-ii"
    },
    {
     "min": 51,
-    "spieler": null,
+    "spieler": "simon-fink",
     "verein": "sgm-muttensweiler-hochdorf-ii"
    }
   ]
@@ -2390,17 +2390,17 @@
   "tore": [
    {
     "min": 33,
-    "spieler": null,
+    "spieler": "adrian-kloos",
     "verein": "sgm-mittelbuch-ii-ringschnait-ii"
    },
    {
     "min": 48,
-    "spieler": null,
+    "spieler": "nico-straub",
     "verein": "sgm-mittelbuch-ii-ringschnait-ii"
    },
    {
     "min": 52,
-    "spieler": null,
+    "spieler": "adrian-kloos",
     "verein": "sgm-mittelbuch-ii-ringschnait-ii"
    },
    {
@@ -2423,12 +2423,12 @@
   "tore": [
    {
     "min": 7,
-    "spieler": null,
+    "spieler": "tim-goeggel",
     "verein": "tsv-kirchberg-iller-ii"
    },
    {
     "min": 80,
-    "spieler": null,
+    "spieler": "tim-pfister",
     "verein": "sv-baustetten-ii-flex"
    }
   ]
@@ -2451,7 +2451,7 @@
    },
    {
     "min": 14,
-    "spieler": null,
+    "spieler": "moritz-stumpp",
     "verein": "sv-burgrieden-ii-flex"
    },
    {
@@ -2461,12 +2461,12 @@
    },
    {
     "min": 51,
-    "spieler": null,
+    "spieler": "moritz-stumpp",
     "verein": "sv-burgrieden-ii-flex"
    },
    {
     "min": 68,
-    "spieler": null,
+    "spieler": "felix-buck",
     "verein": "sc-tuerkiyemspor-saulgau-ii"
    },
    {
@@ -2489,7 +2489,7 @@
   "tore": [
    {
     "min": 28,
-    "spieler": null,
+    "spieler": "matthias-stumpp",
     "verein": "spfr-hundersingen-ii"
    }
   ]

@@ -33,7 +33,7 @@ async function laden() {
   d.berichteSortiert = [...d.berichte].sort((a, b) => b.datum.localeCompare(a.datum));
   // Sportart: steht an der Liga. News, Videos und Galerien erben sie über ihr Spiel oder ihre Liga.
   d.sportVon = (x) => x?.sport || d.liga(x?.liga)?.sportart || (x?.spiel && d.liga(d.spiel(x.spiel)?.liga)?.sportart) || "Fußball";
-  [...d.berichte, ...d.videos, ...d.galerien, ...d.spiele].forEach((x) => { x._sport = d.sportVon(x); });
+  [...d.berichte, ...d.videos, ...d.galerien, ...d.spiele].forEach((x) => { x._sport = d.sportVon(x); x._liga = x.liga || (x.spiel && d.spiel(x.spiel)?.liga) || ""; });
   // Ligen, in denen wir nur ein Team begleiten (z. B. Basketball, Football)
   d.teamLiga = (id) => !!d.liga(id)?.team;
   // Eine Team-Liga erscheint erst, wenn es Inhalt gibt: ein Spiel mit Bericht, Bildern oder Video
@@ -337,7 +337,7 @@ function wappen(v, klasse = "") {
 function berichtKarte(b) {
   const rot = b.kategorie === "Vorschau" ? " rot" : "";
   return `
-    <a class="karte bericht-karte" href="bericht.html?id=${b.id}" data-sport="${esc(b._sport)}">
+    <a class="karte bericht-karte" href="bericht.html?id=${b.id}" data-sport="${esc(b._sport)}" data-liga="${esc(b._liga || "")}">
       ${foto(b.bild)}
       <div class="inhalt">
         <span class="kategorie${rot}">${esc(kategorieText(b, b.kategorie))}</span>
@@ -482,18 +482,21 @@ function minuten(d, filter = () => true) {
   return Object.entries(m).sort((a, b) => b[1].min - a[1].min);
 }
 
+// Ranglisten zeigen immer 10 Plätze, leere Plätze als Strich
+const auffuellen = (html, anzahl, start) => html + Array.from({ length: Math.max(0, 10 - anzahl) }, (_, i) => `<li class="leer-platz"><span class="rang">${start + i + 1}</span><span class="leise">–</span></li>`).join("");
+
 function minutenListe(d, eintraege) {
   return `<ol class="liste">${eintraege.map(([id, x], i) => {
     const sp = d.spielerById(id);
     return `<li><span class="rang">${i + 1}</span><a href="spieler.html?id=${id}">${esc(sp?.name)}</a> <span class="leise">${esc(d.verein(sp?.verein)?.kurz)}, ${x.min.toLocaleString("de-DE")} Min.</span></li>`;
-  }).join("") || "<li>Noch keine Einsatzzeiten eingetragen.</li>"}</ol>`;
+  }).join("") + auffuellen("", eintraege.length, eintraege.length)}</ol>`;
 }
 
 function torjaegerListe(d, eintraege) {
   return `<ol class="liste">${eintraege.map(([id, n], i) => {
     const sp = d.spielerById(id);
     return `<li><span class="rang">${i + 1}</span><a href="spieler.html?id=${id}">${esc(sp?.name)}</a> <span class="leise">${esc(d.verein(sp?.verein)?.kurz)}, ${n} ${n === 1 ? "Tor" : "Tore"}</span></li>`;
-  }).join("") || "<li>Noch keine Tore eingetragen.</li>"}</ol>`;
+  }).join("") + auffuellen("", eintraege.length, eintraege.length)}</ol>`;
 }
 
 /* ---------- Sport-Filter (erscheint erst ab zwei Sportarten) ---------- */
@@ -507,12 +510,23 @@ function sportFilter(items) {
   </div>`;
 }
 
+// Filter nach Liga (bei Team-Ligen steht die Sportart als Name)
+function ligaFilter(d, items) {
+  const ids = [...new Set(items.map((x) => x.liga || (x.spiel && d.spiel(x.spiel)?.liga)).filter(Boolean))];
+  const ligen = d.ligen.filter((l) => ids.includes(l.id));
+  if (ligen.length < 2) return "";
+  return `<div class="liga-reiter sport-filter" role="group" aria-label="Liga wählen" data-feld="liga">
+    <button type="button" data-filter="" aria-pressed="true">Alle</button>
+    ${ligen.map((l) => `<button type="button" data-filter="${l.id}" aria-pressed="false">${esc(l.team ? l.sportart : l.kurz)}</button>`).join("")}
+  </div>`;
+}
+
 function sportFilterAktivieren() {
   const knoepfe = $$(".sport-filter button");
   knoepfe.forEach((b) => b.addEventListener("click", () => {
     knoepfe.forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
-    const f = b.dataset.filter;
-    $$("#inhalt [data-sport]").forEach((el) => { el.hidden = !!f && el.dataset.sport !== f; });
+    const f = b.dataset.filter, feld = b.parentElement.dataset.feld || "sport";
+    $$(`#inhalt [data-${feld}]`).forEach((el) => { el.hidden = !!f && el.dataset[feld] !== f; });
     // Abschnitte ohne sichtbare Karten ausblenden
     $$("#inhalt section.abschnitt").forEach((sec) => {
       const karten = $$("[data-sport]", sec);
@@ -694,7 +708,7 @@ const seiten = {
   berichte(d) {
     return `
       <div class="seitenkopf"><h1>News</h1><p>Spielberichte, Vorschauen und Geschichten aus dem Amateursport der Region.</p></div>
-      ${sportFilter(d.berichte)}
+      ${ligaFilter(d, d.berichte)}
       <div class="raster">${d.berichteSortiert.map(berichtKarte).join("")}</div>`;
   },
 
