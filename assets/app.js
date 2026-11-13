@@ -286,7 +286,7 @@ function boxScore(d, s) {
   };
   return `
     <section class="abschnitt">
-      <div class="abschnitt-kopf"><h2>Box Score</h2>${s.quelle ? `<a href="${esc(s.quelle)}" target="_blank" rel="noopener">Quelle: Basketball-Bund</a>` : ""}</div>
+      <div class="abschnitt-kopf"><h2>Box Score</h2></div>
       ${tabelle(s.heim)}${tabelle(s.gast)}
     </section>`;
 }
@@ -315,7 +315,6 @@ function scorerListe(d, s) {
     <div class="karte box">
       <h2>${s._sport === "Basketball" ? "Top Scorer" : "Punkte"}</h2>
       ${teamListe(s.heim)}${teamListe(s.gast)}
-      ${s.quelle ? `<p class="leise quelle"><a class="link" href="${esc(s.quelle)}" target="_blank" rel="noopener">Ganzer Boxscore beim Basketball-Bund</a></p>` : ""}
     </div>`;
 }
 

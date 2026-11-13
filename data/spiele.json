@@ -2733,7 +2733,6 @@
     "eff": -2
    }
   ],
-  "quelle": "https://www.basketball-bund.net/static/#/spiel/2896355/boxscore",
   "gespieltHeim": 59,
   "gespieltGast": 50
  },
@@ -2977,7 +2976,6 @@
     "eff": 0
    }
   ],
-  "quelle": "https://www.basketball-bund.net/static/#/spiel/2896358/boxscore",
   "bericht": "Die erste Halbzeit gab den Ausschlag: Bad Waldsee führte zur Pause 37:21. Danach gewann der TB beide Viertel, kam aber nicht mehr heran. Michael Cierotzki traf 14 Punkte."
  },
  {
@@ -3239,7 +3237,6 @@
     "pf": 0,
     "eff": 0
    }
-  ],
-  "quelle": "https://www.basketball-bund.net/static/#/spiel/2896362/boxscore"
+  ]
  }
 ]
