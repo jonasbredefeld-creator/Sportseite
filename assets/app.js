@@ -1206,14 +1206,14 @@ const seiten = {
     const PRO_SEITE = 25;
     let letzter = "";
     const zeilen = liste.map((w, i) => {
-      const versteckt = i >= PRO_SEITE ? ` data-nr="${i}" hidden` : "";
+      const versteckt = i >= PRO_SEITE ? " hidden" : "";
       const sp = w.spieler && d.spielerById(w.spieler);
       const news = w.news && d.berichte.find((b) => b.id === w.news);
       const m = monat(w.datum);
-      const kopf = m !== letzter ? `<div class="monat"${versteckt}>${m}</div>` : "";
+      const kopf = m !== letzter ? `<div class="monat" data-monat${versteckt}>${m}</div>` : "";
       letzter = m;
       return `${kopf}
-        <div class="wechsel-zeile"${versteckt}>
+        <div class="wechsel-zeile" data-i="${i}" data-vereine="${[w.von, w.zu].filter(Boolean).join(" ")}" data-ligen="${[w.von, w.zu].map((x) => d.verein(x)?.liga).filter(Boolean).join(" ")}"${versteckt}>
           <div>
             <span class="kategorie">${esc(w.typ)}${(sp?.position || w.position) ? `, ${esc(sp?.position || w.position)}` : ""}</span>
             <div class="wechsel-name">${sp ? `<a class="link" href="spieler.html?id=${sp.id}">${esc(sp.name)}</a>` : esc(w.name)}</div>
@@ -1233,7 +1233,18 @@ const seiten = {
     }).join("");
     return `
       <div class="seitenkopf"><h1>Transfers</h1><p>Spieler- und Trainerwechsel der Region, neueste zuerst.</p></div>
+      ${(() => {
+        const ids = [...new Set(liste.flatMap((w) => [w.von, w.zu]).filter(Boolean))];
+        const ligen = d.ligen.filter((l) => ids.some((id) => d.verein(id)?.liga === l.id));
+        const vereine = ids.map((id) => d.verein(id)).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name, "de"));
+        return `<div class="transfer-filter">
+          <label><span>Liga</span><select id="filter-liga"><option value="">Alle Ligen</option>${ligen.map((l) => `<option value="${l.id}">${esc(l.name)}</option>`).join("")}</select></label>
+          <label><span>Verein</span><select id="filter-verein"><option value="">Alle Vereine</option>${vereine.map((v) => `<option value="${v.id}" data-liga="${v.liga}">${esc(v.name)}</option>`).join("")}</select></label>
+          <span class="leise" id="filter-anzahl"></span>
+        </div>`;
+      })()}
       <div class="karte wechsel-tabelle">
+        <p class="leise filter-leer" hidden>Keine Transfers für diese Auswahl.</p>
         ${zeilen}
         ${liste.length > PRO_SEITE ? `<button type="button" class="alle-zeigen" id="weitere-transfers">Weitere Transfers laden</button>` : ""}
       </div>`;
@@ -1371,13 +1382,39 @@ function nichtGefunden(was) {
     }));
     sportFilterAktivieren();
     // Transfers: jeweils 25 weitere einblenden
-    const weitere = $("#weitere-transfers");
-    if (weitere) weitere.addEventListener("click", () => {
-      const rest = $$(".wechsel-tabelle [data-nr][hidden]");
-      const grenze = rest.length ? Number(rest[0].dataset.nr) + 25 : 0;
-      rest.forEach((el) => { if (Number(el.dataset.nr) < grenze) el.hidden = false; });
-      if (!$$(".wechsel-tabelle [data-nr][hidden]").length) weitere.remove();
-    });
+    // und nach Liga oder Verein filtern
+    const tabelleT = $(".wechsel-tabelle");
+    if (tabelleT) {
+      const weitere = $("#weitere-transfers"), selLiga = $("#filter-liga"), selVerein = $("#filter-verein");
+      let grenze = 25;
+      const zeigen = () => {
+        const liga = selLiga.value, verein = selVerein.value, filter = !!(liga || verein);
+        let treffer = 0, sichtbar = 0;
+        $$(".wechsel-zeile", tabelleT).forEach((z) => {
+          const passt = (!liga || z.dataset.ligen.split(" ").includes(liga)) && (!verein || z.dataset.vereine.split(" ").includes(verein));
+          if (passt) treffer++;
+          z.hidden = !(passt && (filter || treffer <= grenze));
+          if (!z.hidden) sichtbar++;
+        });
+        // Monatsüberschrift nur, wenn darunter etwas sichtbar ist
+        $$("[data-monat]", tabelleT).forEach((m) => {
+          let el = m.nextElementSibling, an = false;
+          while (el && !el.hasAttribute("data-monat")) { if (el.classList.contains("wechsel-zeile") && !el.hidden) an = true; el = el.nextElementSibling; }
+          m.hidden = !an;
+        });
+        if (weitere) weitere.hidden = filter || treffer <= grenze;
+        $(".filter-leer", tabelleT).hidden = sichtbar > 0;
+        $("#filter-anzahl").textContent = filter ? `${treffer} ${treffer === 1 ? "Transfer" : "Transfers"}` : "";
+      };
+      selLiga.addEventListener("change", () => {
+        // Vereinsliste auf die gewählte Liga eingrenzen
+        $$("option[data-liga]", selVerein).forEach((o) => { o.hidden = !!selLiga.value && o.dataset.liga !== selLiga.value; });
+        if (selVerein.selectedOptions[0]?.hidden) selVerein.value = "";
+        zeigen();
+      });
+      selVerein.addEventListener("change", zeigen);
+      if (weitere) weitere.addEventListener("click", () => { grenze += 25; zeigen(); });
+    }
     $$(".alle-zeigen:not(#weitere-transfers)").forEach((b) => {
       const anfang = b.textContent;
       b.addEventListener("click", () => {

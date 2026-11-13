@@ -855,3 +855,15 @@ img.wappen.such { width: 32px; height: 32px; object-fit: contain; }
 .trend.hoch svg { fill: #2e8b57; }
 .trend.runter svg { fill: var(--rot); }
 .trend.gleich { color: #b4bac6; }
+/* Transfer-Filter */
+.transfer-filter { display: flex; flex-wrap: wrap; align-items: end; gap: 12px 16px; margin: 0 0 18px; }
+.transfer-filter label { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: var(--leise); }
+.transfer-filter select {
+  font: 500 15px var(--text); color: var(--tinte); min-width: 240px; padding: 9px 36px 9px 14px;
+  border: 1px solid var(--linie); border-radius: 999px; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%231c3fbf' stroke-width='1.8'/%3E%3C/svg%3E") no-repeat right 14px center / 12px;
+  appearance: none; cursor: pointer;
+}
+.transfer-filter select:focus-visible { outline: 2px solid var(--blau); outline-offset: 2px; }
+#filter-anzahl { padding-bottom: 10px; font-size: 14px; }
+.filter-leer { padding: 18px 22px; margin: 0; }
+@media (max-width: 560px) { .transfer-filter label, .transfer-filter select { width: 100%; min-width: 0; } }
