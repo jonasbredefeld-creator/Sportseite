@@ -393,8 +393,15 @@ function teamTabelle(d, l) {
     </section>`;
 }
 
+// Achsenbeschriftung unter einem Diagramm als HTML (skaliert nicht mit dem SVG)
+const achse = (W, punkte) => `<div class="pv-x">${punkte.map(({ x, html }) => `<div style="left:${((x / W) * 100).toFixed(2)}%">${html}</div>`).join("")}</div>`;
+
 // Gegnername für enge Beschriftungen: Ort aus dem Kurznamen, ohne Zusätze
-const ortKurz = (v) => { const k = (v?.kurz || v?.name || "").replace(/\s+(I{1,3}|\d)$/, ""); return k.length > 13 ? k.split(/[\/ ]/)[0] : k; };
+const ortKurz = (v) => {
+  let k = (v?.kurz || v?.name || "").replace(/\s+(I{1,3}|\d)$/, "").split("/")[0].trim();
+  if (k.length > 16) k = k.split(" ")[0];
+  return k;
+};
 
 // Tabellenplatz nach jedem der letzten sechs Spieltage (1 oben), als Linie
 function platzVerlauf(d, ligaId, vid) {
@@ -403,7 +410,7 @@ function platzVerlauf(d, ligaId, vid) {
   if (spiele.length < 2) return "";
   const teams = d.vereine.filter((v) => v.liga === ligaId).length;
   const punkte = spiele.map((s) => ({ s, platz: tabelle(d, ligaId, "gesamt", s.spieltag).findIndex((r) => r.id === vid) + 1 }));
-  const W = 640, H = 250, li = 36, re = 18, ob = 26, un = 72, innen = 40;
+  const W = 640, H = 190, li = 36, re = 18, ob = 30, un = 12, innen = 40;
   const xPos = (i) => li + innen + (i * (W - li - re - 2 * innen)) / (punkte.length - 1);
   const yPos = (p) => ob + ((p - 1) / Math.max(1, teams - 1)) * (H - ob - un);
   const marken = [1, Math.ceil(teams / 2), teams];
@@ -422,12 +429,10 @@ function platzVerlauf(d, ligaId, vid) {
             <title>${s.spieltag}. Spieltag: ${e.text} gegen ${esc(e.gegner?.name)}, danach Platz ${platz}</title>
             <rect x="${xPos(i) - 24}" y="${ob - 14}" width="48" height="${H - ob - un + 28}" fill="transparent"/>
             <circle cx="${xPos(i)}" cy="${yPos(platz)}" r="5"/>
-            <text x="${xPos(i)}" y="${yPos(platz) - 12}" class="pv-wert" text-anchor="middle">${platz}.</text>
-            <text x="${xPos(i)}" y="${H - un + 20}" class="pv-achse" text-anchor="middle"><tspan class="pv-lang">${s.spieltag}. Spieltag</tspan><tspan class="pv-kurz">${s.spieltag}.</tspan></text>
-            <text x="${xPos(i)}" y="${H - un + 39}" class="pv-achse pv-ergebnis pv-${e.art}" text-anchor="middle">${e.text}</text>
-            <text x="${xPos(i)}" y="${H - un + 57}" class="pv-achse pv-gegner" text-anchor="middle"><tspan class="pv-lang">${esc(ortKurz(e.gegner))}</tspan><tspan class="pv-kurz">${esc(ortKurz(e.gegner).slice(0, 3).toUpperCase())}</tspan></text>
+            <text x="${xPos(i)}" y="${yPos(platz) - 13}" class="pv-wert" text-anchor="middle" dominant-baseline="alphabetic">${platz}.</text>
           </a>`; }).join("")}
       </svg>
+      ${achse(W, punkte.map(({ s }, i) => { const e = ergebnis(s); return { x: xPos(i), html: `<span class="pv-lang">${s.spieltag}. Spieltag</span><span class="pv-kurz">${s.spieltag}.</span><b class="pv-${e.art}">${e.text}</b><span class="pv-lang">${esc(ortKurz(e.gegner))}</span><span class="pv-kurz">${esc(ortKurz(e.gegner).slice(0, 3).toUpperCase())}</span>` }; }))}
     </figure>`;
 }
 
@@ -438,7 +443,7 @@ function platzVergleich(d, ligaId, idA, idB) {
   const teams = d.vereine.filter((v) => v.liga === ligaId).length;
   const reihe = (id) => tage.map((t) => tabelle(d, ligaId, "gesamt", t).findIndex((r) => r.id === id) + 1);
   const A = reihe(idA), B = reihe(idB);
-  const W = 640, H = 210, li = 36, re = 18, ob = 28, un = 38, innen = 40;
+  const W = 640, H = 220, li = 36, re = 18, ob = 40, un = 48, innen = 40;
   const xPos = (i) => li + innen + (i * (W - li - re - 2 * innen)) / (tage.length - 1);
   const yPos = (p) => ob + ((p - 1) / Math.max(1, teams - 1)) * (H - ob - un);
   const marken = [1, Math.ceil(teams / 2), teams];
@@ -447,7 +452,7 @@ function platzVergleich(d, ligaId, idA, idB) {
     ${werte.map((p, i) => {
       const anderer = (klasse === "team-a" ? B : A)[i];
       const ueber = p < anderer || (p === anderer && oben);
-      return `<circle cx="${xPos(i)}" cy="${yPos(p)}" r="5" class="pv-kreis ${klasse}"/><text x="${xPos(i)}" y="${yPos(p) + (ueber ? -11 : 21)}" class="pv-wert" text-anchor="middle">${p}.</text>`;
+      return `<circle cx="${xPos(i)}" cy="${yPos(p)}" r="5" class="pv-kreis ${klasse}"/><text x="${xPos(i)}" y="${yPos(p) + (ueber ? -13 : 13)}" class="pv-wert" text-anchor="middle" dominant-baseline="${ueber ? "alphabetic" : "hanging"}">${p}.</text>`;
     }).join("")}`;
   const vA = d.verein(idA), vB = d.verein(idB);
   return `
@@ -460,8 +465,8 @@ function platzVergleich(d, ligaId, idA, idB) {
         ${marken.map((m) => `<line x1="${li}" x2="${W - re}" y1="${yPos(m)}" y2="${yPos(m)}" class="pv-raster"/><text x="${li - 8}" y="${yPos(m) + 4}" class="pv-achse" text-anchor="end">${m}.</text>`).join("")}
         ${serie(B, "team-b", false)}
         ${serie(A, "team-a", true)}
-        ${tage.map((t, i) => `<text x="${xPos(i)}" y="${H - un + 26}" class="pv-achse" text-anchor="middle"><tspan class="pv-lang">${t}. Spieltag</tspan><tspan class="pv-kurz">${t}.</tspan></text>`).join("")}
       </svg>
+      ${achse(W, tage.map((t, i) => ({ x: xPos(i), html: `<span class="pv-lang">${t}. Spieltag</span><span class="pv-kurz">${t}.</span>` })))}
     </figure>`;
 }
 
